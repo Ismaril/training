@@ -1,12 +1,9 @@
+import unittest
 from unittest import TestCase, main
+from s_source import is_prime, zero_division, Employee, Monster
 
-from unicodedata import name
-
-from s_source import is_prime, zero_division, Employee
-
-a = False
-b = None
-
+# THIS FILE TALKS ABOUT BUILD IN MODULE UNITTEST
+# Usually I see that "unittest" (build in) or "pytest" are used
 """
 BEST PRACTISE OF TESTING
 - test/tests should be isolated
@@ -18,8 +15,9 @@ BONUS info
 - test driven development = sometimes the tests are written even before actual code
 """
 
+a = False
+b = None
 
-# Usually I see that "unittest" (build in) or "pytest" are used
 
 class Test(TestCase):
     def test_is_prime(self):
@@ -27,11 +25,15 @@ class Test(TestCase):
         self.assertEqual(11, 11, msg="Must equal 11")
 
     def test_is_not_prime(self):
-        self.assertFalse(is_prime(6))
+        self.assertFalse(is_prime(5))
 
     def test_zero_division(self):
         # check if function raises an error, parameters: error, your_function, values passed into your funct.
         self.assertRaises(ZeroDivisionError, zero_division, 0)
+
+    @unittest.skip("Comment in the skipped method")  # this skips the test
+    def test_skip_this(self):
+        self.assertEqual(True, True)
 
 
 class AssertMethods(TestCase):
@@ -58,15 +60,15 @@ class AssertMethods(TestCase):
 
 class TestEmployee(TestCase):
 
-    @classmethod
     # this is build in method that is executed before first test starts
     # specify what to do before everything
+    @classmethod
     def setUpClass(cls) -> None:
         print("setUpClass")
 
-    @classmethod
     # this is build in method that is executed after last test finishes
     # specify what to do after everything
+    @classmethod
     def tearDownClass(cls) -> None:
         print("tearDownClass")
 
@@ -90,6 +92,17 @@ class TestEmployee(TestCase):
         print("TEST_APPLY_RAISE")
         self.assertEqual(self.subject_1.apply_raise(), 5250)
         self.assertEqual(self.subject_2.apply_raise(), 8400)
+
+
+class TestMonster(TestCase):
+    def test_defaults(self):
+        monster = Monster()
+        self.assertEqual(monster.sound, "roar")
+        self.assertEqual(monster.hit_points, 20)
+
+    def test_custom_hit_points(self):
+        monster = Monster(hit_points=200)
+        self.assertEqual(monster.hit_points, 200)
 
 
 if __name__ == '__main__':

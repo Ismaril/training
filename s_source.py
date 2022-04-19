@@ -47,3 +47,13 @@ class Employee:
 
     def apply_raise(self):
         return self.salary * Employee.SALARY_MULTIPLIER
+
+
+#############################################################
+
+class Monster:
+    sound = "roar"
+
+    def __init__(self, hit_points=20):  # 20 by default
+        self.hit_points = hit_points
+        
