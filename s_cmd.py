@@ -1,0 +1,99 @@
+"""
+
+NAVIGATE
+cd destination - change directory downwards
+cd destination\destination - change directories with bigger step
+cd .. - change directory upwards (back)
+cd ../.. - 2x back in directories
+cd ../../.. - should move more than 2 directories
+cd (Tab) - after pressing tab, it will autocomplete available directory or file
+cd C:\Users\lazni\Desktop - change to absolute path
+up arrow/ down arrow - shows previously written lines of my code
+D: - switch to a different disk (could be letter E, F, G ...)
+wmic logicaldisk get name - will display all disks (C, D...)
+ctrl+arrow left/right - jump between words
+
+
+LIST AND READ FILES / FOLDERS (DIRECTORIES)
+dir - list everything in current directory
+dir destination\destination - will show the output, but you will remain in previous directory
+dir /a - will show all files even with hidden ones
+dir *.file extension - like *.exe *.jpg - show all that I specified
+tree
+type filename - read content of a file
+fc filename_1.py filename_2.py - compares differences
+vol - shows a disk name nad its serial number
+find "string you are look. for" file_name.txt - works only for strings?
+findstr - similar to find
+
+
+CREATE FILES / FOLDERS (DIRECTORIES)
+echo write_here_anything > filename.txt - creates a file filename.txt with your text inside
+  - echo write_here_anything > same_filename.txt - this will overwrite the same file
+echo write_here_anything >> filename.txt - will append the text to the end of file
+type 0 > filename.txt - creates an empty file
+dir > filename.txt - creates a file with output of dir command
+mkdir folder_name - create a folder
+md folder_name - create a folder
+
+
+WORK WITH ATTRIBUTES
+attrib - shows attributes of files in a given directory
+attrib +h filename.txt - makes the file hidden
+attrib +r -h filename.txt - makes the file readonly and removes hidden attribute
+attrib /? - he
+
+
+CHANGE FILES
+copy filename location_where_copping - copies a file (or contents of directory) to a new location
+  - by default copy copies only files not directories
+xcopy some_file to_this_location /s - copies files and also subdirectories
+robocopy - even more powerful than xcopy?
+  - allows more control over copying
+move some_file to_this_location - cut and paste
+ren old_file_name.txt new_file_name.txt - rename a file
+
+
+DELETE FILES / FOLDERS (DIRECTORIES)
+del filename - deletes the file
+erase filename - deletes the file (probably rly the same as "del"
+rmdir folder_name - remove a folder (only if nothing inside)
+rmdir /s folder_name - remove a folder and all it's contents
+
+
+GENERAL
+cls -clear screen
+"directory name" use double quotes if there is a space in some name
+command /? - help for each command
+path - PATH is a list of directories which can be accessed from any cmd location you are currently at.
+assoc - show associated files based on file extension
+ctrl+c - terminates a running program within cmd
+color - return the basic black bf and white fg
+powercfg - generates a report (I did not find anything useful here)
+shutdown - manipulate with turning pc off etc.
+systeminfo - shows system info
+tasklist - returns task manager in list
+taskkill - based on code of task (4-5 digits in tasklist) you can forcefully kill a program
+cmdkey /list - shows accounts on this pc like windows, github...
+date - shows date
+time - shows time
+&& - use between commands, you can then execute more commands in one line
+echo - used to show messages, most commonly from within script or batch files. can turn the echoing  on/off.
+exit - exits cmd
+for - run command for each file in a set of files - (for loop?)
+ftype - define default program to open specified file
+start - opens new cmd
+
+
+NET
+ipconfig - ip address info
+netstat - provides a list of currently open ports and related IP addresses
+ftp - can be used to transfer files to and from another computer. remote comp must operate as FTP server.
+tracert - shows traceroute
+hostname - displays the name of host (pc that I am using?)
+
+
+POWERSHELL
+get-alias - shows aliases of commands for cmd and bash
+  - get-alias dir
+"""
