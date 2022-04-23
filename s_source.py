@@ -53,7 +53,7 @@ class Employee:
 
 class Monster:
     sound = "roar"
+    color = "red"
 
     def __init__(self, hit_points=20):  # 20 by default
         self.hit_points = hit_points
-        

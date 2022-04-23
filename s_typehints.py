@@ -1,0 +1,3 @@
+# Ellipsis (three dots) ...
+#  - used as slicing operator in numpy
+#  - used in in type hinting

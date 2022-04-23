@@ -10,9 +10,12 @@ BEST PRACTISE OF TESTING
 - test/tests should not rely on other tests = you should be able to run one test independently on another test
 - unit testing = testing individual parts separately
 - integration testing = testing a program as a whole 
+- every method in the code should be covered
 
 BONUS info
 - test driven development = sometimes the tests are written even before actual code
+- run test with coverage - comes with pycharm professional - shows besides else how many lines of all code I
+        covered in total.
 """
 
 a = False
@@ -103,6 +106,10 @@ class TestMonster(TestCase):
     def test_custom_hit_points(self):
         monster = Monster(hit_points=200)
         self.assertEqual(monster.hit_points, 200)
+
+    def test_color(self):
+        monster = Monster()
+        assert monster.color == "red"
 
 
 if __name__ == '__main__':

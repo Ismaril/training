@@ -11,23 +11,25 @@ sets                                      - OK
 dictionaries                              - OK
 lambdas                                   - OK
 cmd                                       - OK
-oop, double_under                         - 30%
-decorators                                - 10%
-debugging                                 - 50% -> only practise myself onwards
-exceptions                                -
+scope                                     - OK
+exceptions                                - OK
+debugging                                 - OK
+math                                      - OK
+random                                    - OK
+datetime                                  - OK
 algorithms                                - check only the main ones
+oop, double_under                         - 50%
 git                                       - 50%
 pycharm                                   - 50%
-tests
-scope
+decorators                                - 10%
+tests                                     - 50%
 files
+typehints & typecast
 read other peoples code
-write documentation that explains the function as simply as possible
-other intermediate/advanced topics
+write documentation that explains
+    the function as simply as possible
+intermediate/advanced topics
 
-math
-random
-datetime
 re
 json
 os
@@ -35,10 +37,9 @@ sys
 collections
 itertools
 
-pip
-
 
 UNSORTED #####
+pip
 pipelines
 graphs
 tensorflow
@@ -49,5 +50,4 @@ scikit learn
 mathematics
 statistics
 milestone ML project 1
-milestone ML project 2
 """
