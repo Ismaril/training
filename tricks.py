@@ -1,4 +1,5 @@
 import sys
+import time
 from utilities import separate_rows_in_training_files
 
 sep = separate_rows_in_training_files.SeparateCode()
@@ -77,5 +78,18 @@ if (n := len(a)) > 10:
 print(sep.separator())
 
 
+# Checking against True, False, None (should not use == operator)
+def equality(x):
+    if x is True:
+        pass
+    if x is False:
+        pass
+    if x is None:
+        pass
 
 
+# Measure time with time.perf_counter() not time.time()
+def measure_time():
+    start = time.perf_counter()
+    end = time.perf_counter()
+    print(end-start)

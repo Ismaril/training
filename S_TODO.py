@@ -17,26 +17,31 @@ debugging                                 - OK
 math                                      - OK
 random                                    - OK
 datetime                                  - OK
+re                                        - OK
+files                                     - OK
+tkinter                                   - OK
+json                                      - OK
+typehints & typecast                      - OK (not that important right now)
 algorithms                                - check only the main ones
 oop, double_under                         - 50%
 git                                       - 50%
 pycharm                                   - 50%
-decorators                                - 10%
+decorators, closures, 1sc class functs    - 10%
 tests                                     - 50%
-files
-typehints & typecast
+virtual environment?
 read other peoples code
-write documentation that explains
-    the function as simply as possible
-intermediate/advanced topics
+write simple & readable documentation
+how python works in background
+package your modules (thay might not be in path if working with pultiple projects and you wont load them)
 
-re
-json
+Context Managers??
+
 os
 sys
 collections
 itertools
-
+time
+csv
 
 UNSORTED #####
 pip
@@ -50,4 +55,6 @@ scikit learn
 mathematics
 statistics
 milestone ML project 1
+interview questions
+hands on machine learning book
 """

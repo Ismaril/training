@@ -95,7 +95,7 @@ class AnotherItem:
     # here this method is made to class method, because it will not be called on any instance but directly
     # on class, also "cls" should be the first argument.
     def instantiate_from_csv(cls):
-        with open("items_oop.txt", "r") as f:
+        with open("text_files/items_oop.txt", "r") as f:
             reader = csv.DictReader(f)
             items = list(reader)
 
