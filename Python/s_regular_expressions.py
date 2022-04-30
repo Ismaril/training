@@ -155,7 +155,7 @@ print(re.findall(r"\w+ly\b", text))
 
 # '.' all characters
 text = "hey maan he is hero"
-print(re.findall(r".", text))
+print(re.findall(r"..", text))
 
 print(separator.separator())
 
@@ -182,11 +182,11 @@ print(separator.separator())
 # Meta characters and special characters:
 
 # look for all characters
-pattern = re.compile(r".")
+pattern = re.compile(r"..")
 matches = pattern.finditer(test_string)
 print([match.group() for match in matches])
 
-pattern = re.compile(r"\.")  # search for a dot only
+pattern = re.compile(r"..")  # search for a dot only
 matches = pattern.finditer(test_string)
 print([match for match in matches])
 
