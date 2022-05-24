@@ -447,3 +447,8 @@ my_str = "Hello world"
 pattern = re.compile(r"heLLO", flags=re.IGNORECASE)
 matches = pattern.finditer(my_str)
 print([match.group() for match in matches])
+
+txt = '<img alt="Jodie Comer" height="209" src="https://m.media-amazon.com/images/M/MV5BZmViMjQxYTUtZDExNy00NjU1LWI4MmEtY2RhODRkMzNkODM1XkEyXkFqcGdeQXVyNjkwNzEwMzY@._V1_UY209_CR37,0,140,209_AL_.jpg" width="140">'
+pattern = re.compile(r"https.+\.jpg")
+matches = pattern.finditer(txt)
+print([match.group() for match in matches])

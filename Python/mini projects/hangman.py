@@ -1,9 +1,8 @@
-# random module
 import random
-
+# 28.10.2021, refactored on 24.05.2022
 
 # starting variables
-text_source = open("C:/Users/Public/Documents/scrhangman.txt", "r")
+text_source = open("scrhangman.txt", "r")
 secret_word = random.choice(text_source.readline().split()).lower()
 correct_letters = []
 guessed_letter = []
@@ -11,10 +10,11 @@ underscored_word = str("_" * len(secret_word))
 len_secret_word = str(len(secret_word))
 wrong_guess = 0
 wrong_guess_limit = 12
-game_ended = False
 score_program = 0
 score_player = 0
 victory_emoji = ":-D"
+separator = "\n" + "-"*100
+game_ended = False
 
 # hangman text images
 hangman = ['''
@@ -75,22 +75,18 @@ hangman = ['''
 def score_ten():
     if score_player == 10 and score_program == 0:
         print("\n\nWell done, but don't be so confident with 12 tries on each round\n\n")
-        input("Press enter to exit: ")
-        exit()
     elif score_player == 10 and score_program == 1:
         print("\n\nThis game was meant to be won 10 : 0, feel bad about yoself\n\n")
-        input("Press enter to exit: ")
-        exit()
     elif score_player == 10 and score_program >= 2:
         print("\n\nThat feeling when you fuck up even the basic work,\n\n")
-        input("Press enter to exit: ")
-        exit()
+    input("Press enter to exit: ")
+    exit()
 
 # main loop
 while wrong_guess < wrong_guess_limit:
 
     # Display of score, guesses, lenght of word, underscored secret word
-    print("\n-------------------------------------------------------------------------------------------------")
+    print(separator)
     print(f"Your score: {score_player}\nProgram score: {score_program}\n")
     print(f"You got {wrong_guess_limit-wrong_guess} incorrect guesses left")
     print(f"The word is {len_secret_word} characters long\n")
@@ -111,7 +107,7 @@ while wrong_guess < wrong_guess_limit:
         wrong_guess += 1
         guessed_letter.append(guess)
         if wrong_guess <= wrong_guess_limit:
-            print("\n-------------------------------------------------------------------------------------------------")
+            print(separator)
             print(hangman[wrong_guess - 1])
 
     # Replace underscore with correct letter
@@ -121,7 +117,7 @@ while wrong_guess < wrong_guess_limit:
 
     # If user guessed the secret word correctly
     if underscored_word == secret_word:
-        print("\n-------------------------------------------------------------------------------------------------")
+        print(separator)
         print("You won")
         print(f"Secret word was: {underscored_word}")
         print(victory_emoji)
@@ -149,7 +145,7 @@ while wrong_guess < wrong_guess_limit:
 
     # If user out of guesses, + same as comment above
     elif wrong_guess == wrong_guess_limit:
-        print("\n-------------------------------------------------------------------------------------------------")
+        print(separator)
         print(f"You lost, secret word is: {secret_word}")
         game_ended = True
         if game_ended:

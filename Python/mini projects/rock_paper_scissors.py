@@ -1,5 +1,7 @@
 import random
-# module random
+
+SEPARATOR = "\n"+"-"*50
+
 
 def greeting():
     # Initial welcome screen
@@ -8,14 +10,14 @@ def greeting():
           "**************************\n"
           "\n\n")
     input("Press enter to continue: ")
+    print(SEPARATOR)
 
 
 def logic():
-    # Variables
-    rock = ["rock", "kamen", "kámen", "k", "r"]
-    paper = ["paper", "papir", "papír", "pejpr", "p"]
-    scissors = ["scissors", "nuzky", "nůžky", "n", "s"]
-    exit_code = ["exit", "quit", "close", "vypnout", "zavřít", "zavrit"]
+    rock = ["rock", "r"]
+    paper = ["paper", "p"]
+    scissors = ["scissors", "s"]
+    exit_code = ["exit", "quit", "close", "q", "e"]
     tie = "It is a tie"
     lost = "You lost"
     won = "You won"
@@ -36,32 +38,28 @@ def logic():
 
         # Check if entered value is valid
         while fist_user not in fist and fist_user not in exit_code:
-            print("\n!Enter rock, paper, scissors correctly or exit!\n")
+            print("\nEnter rock, paper, scissors correctly or exit!\n")
             fist_user = input("Chose rock, paper, scissors or exit: ").lower()
+            print(SEPARATOR)
+
+        print(f"{fist_user = }")
+        print(f"{fist_machine = }")
 
         # Print output of battle & add score
-        if fist_user in rock and fist_machine in rock:
+        if fist_user in rock and fist_machine in rock \
+                or fist_user in paper and fist_machine in paper \
+                or fist_user in scissors and fist_machine in scissors:
             print(tie)
-        elif fist_user in rock and fist_machine in paper:
+
+        elif fist_user in rock and fist_machine in paper \
+                or fist_user in paper and fist_machine in scissors \
+                or fist_user in scissors and fist_machine in rock:
             print(lost)
             score_machine += 1
-        elif fist_user in rock and fist_machine in scissors:
-            print(won)
-            score_user += 1
-        elif fist_user in paper and fist_machine in paper:
-            print(tie)
-        elif fist_user in paper and fist_machine in scissors:
-            print(lost)
-            score_machine += 1
-        elif fist_user in paper and fist_machine in rock:
-            print(won)
-            score_user += 1
-        elif fist_user in scissors and fist_machine in scissors:
-            print(tie)
-        elif fist_user in scissors and fist_machine in rock:
-            print(lost)
-            score_machine += 1
-        elif fist_user in scissors and fist_machine in paper:
+
+        elif fist_user in rock and fist_machine in scissors \
+                or fist_user in paper and fist_machine in rock \
+                or fist_user in scissors and fist_machine in paper:
             print(won)
             score_user += 1
 
@@ -70,6 +68,7 @@ def logic():
             print("---END---\n\n\n")
             break
 
+        print(SEPARATOR)
         round_nr += 1
 
 
@@ -80,4 +79,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-

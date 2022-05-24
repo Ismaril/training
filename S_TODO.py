@@ -26,6 +26,7 @@ json                                        - OK
 os                                          - OK
 collections                                 - OK
 itertools                                   - OK
+csv                                         - OK
 time                                        - OK
 typehints & typecast                        - OK (not that important right now)
 algorithms                                  - check only the main ones
@@ -35,6 +36,7 @@ git                                         - 50%
 pycharm                                     - 50%
 decorators, closures, 1sc class functs      - 10%
 tests                                       - 50%
+
 pip
 pipelines
 graphs
@@ -46,17 +48,20 @@ virtual environment??
 Context Managers??
 interview questions
 
-csv
 
 **Machine learning**:
+mathematics
+    - Vectors and spaces                    - OK
+    - Matrix transformations                - OK
+statistics
+    -
 scrapy
 tensorflow
 pandas
 matplotlib
-numpy
+numpy                                       - OK
 scikit learn
-mathematics
-statistics
 milestone ML project 1
+milestone ML project 2
 hands on machine learning book
 """
