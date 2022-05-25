@@ -61,7 +61,7 @@ pandas
 matplotlib
 numpy                                       - OK
 scikit learn
-milestone ML project 1
-milestone ML project 2
+milestone Machine learning Deep learning project 1
+milestone Machine learning Deep learning project 2
 hands on machine learning book
 """

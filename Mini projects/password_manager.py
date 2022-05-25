@@ -11,12 +11,12 @@ def main():
         return f.encrypt(bytes(x.encode())).decode()
 
     def decrypt(x):
-        with open("passw.txt", "r") as f_read:
+        with open("unsorted/passw.txt", "r") as f_read:
             read = f_read.readline().encode()
         return f.decrypt(bytes(read)).decode()
 
     def decrypt_all():
-        with open("passw.txt", "r") as f_read:
+        with open("unsorted/passw.txt", "r") as f_read:
             read = f_read.readlines()
             list_decr = []
             for encription in read:
@@ -31,7 +31,7 @@ def main():
         i = 0
         while i < 3:
             master_query = input("Enter your master password: ").strip()
-            with open("passw.txt", "r") as f_read:
+            with open("unsorted/passw.txt", "r") as f_read:
                 read = f_read.read()
             if master_query == decrypt(master_query):
                 print(decrypt_all())
@@ -47,16 +47,16 @@ def main():
         i = 0
         while i < 3:
             master_query = input("Enter your master password: ").strip()
-            with open("passw.txt", "r") as f_read:
+            with open("unsorted/passw.txt", "r") as f_read:
                 read_line = f_read.readline()
             if read_line == "":
-                with open("passw.txt", "w") as f_write:
+                with open("unsorted/passw.txt", "w") as f_write:
                     f_write.write(encrypt(master_query))
                     print("Your new master password was set\n")
                 break
             if master_query == decrypt(master_query):
                 new_data = input("Page, login, password: ")
-                with open("passw.txt", "a") as f_append:
+                with open("unsorted/passw.txt", "a") as f_append:
                     f_append.write(f"\n{encrypt(new_data)}")
                 print("New data successfully added to database\n")
                 break
@@ -68,7 +68,7 @@ def main():
     while True:
         start_input = input("Read your passwords (r), Write new passwords (w), Quit (q): ").lower()
         if start_input == "r":
-            with open("passw.txt", "r") as f_read:
+            with open("unsorted/passw.txt", "r") as f_read:
                 if not f_read.read():
                     print("You do not have set any Master password\n")
                     write_passwords()

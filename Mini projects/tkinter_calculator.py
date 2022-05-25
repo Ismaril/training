@@ -1,14 +1,15 @@
 from tkinter import *
 
-PADX_NRS = 40
+PADX_NRS = 40  # pad x numbers only
 PADY_ALL = 20
 FONT = 16
 FG = "white"
 BG = "blue"
+ICON = "unsorted/Martz90-Circle-Calculator.ico"
 
 root = Tk()
 root.title("Simple calculator")
-root.iconbitmap("Martz90-Circle-Calculator.ico")
+root.iconbitmap(ICON)
 entry_data = Entry(root, width=65, borderwidth=5)
 entry_data.grid(row=0, column=0, columnspan=6, padx=10, pady=10)
 

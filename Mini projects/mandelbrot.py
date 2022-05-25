@@ -3,7 +3,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-RE_SCALE = 8
+RE_SCALE = 1
 WIDTH = 1920*RE_SCALE
 HEIGHT = 1080*RE_SCALE
 
