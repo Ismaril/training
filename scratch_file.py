@@ -1,1 +1,1 @@
-print(divmod(2073600, 1080))
+PATH_TO_PHOTO = "C:/Users/lazni/PycharmProjects/Training/Mini projects/pixelart/finished images/NY.png"
