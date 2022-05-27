@@ -1,1 +1,5 @@
-PATH_TO_PHOTO = "C:/Users/lazni/PycharmProjects/Training/Mini projects/pixelart/finished images/NY.png"
+i = [100, 200, 300]
+
+del i[0]
+
+print(i)

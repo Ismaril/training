@@ -1,6 +1,6 @@
 import unittest
 from unittest import TestCase, main
-from Python.syntax.s_source import is_prime, zero_division, Employee, Monster
+from Python.syntax.s_oop_source import is_prime, zero_division, Employee, Monster
 
 # THIS FILE TALKS ABOUT BUILD IN MODULE UNITTEST
 # Usually I see that "unittest" (build in) or "pytest" are used

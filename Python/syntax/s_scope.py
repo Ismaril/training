@@ -1,4 +1,4 @@
-import s_source
+import s_oop_source
 
 # LEGB
 # Local, Enclosing, Global, Build-in
@@ -111,5 +111,5 @@ print(j)
 func_1()
 
 ############################################################
-print(s_source.__dict__.keys())  # check what functions or stuff is inside some module
+print(s_oop_source.__dict__.keys())  # check what functions or stuff is inside some module
 print(dir())  # check what object holds global scope

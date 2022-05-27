@@ -1,4 +1,4 @@
-# This code was not created by me
+# This code was not created by me, only adjusted
 
 import numpy as np
 import matplotlib.pyplot as plt
