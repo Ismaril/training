@@ -1,5 +1,15 @@
 """
-**Python**:
+
+OK  -> topic is covered enough for current level of experience
+
+%   -> I would like to know more there
+
+N/A -> not relevant at the moment
+
+
+
+
+***Python***:
 basic syntax                                - OK
 variables and data types                    - OK
 conditions                                  - OK
@@ -28,40 +38,57 @@ collections                                 - OK
 itertools                                   - OK
 csv                                         - OK
 time                                        - OK
-typehints & typecast                        - OK (not that important right now)
+typehints & typecast                        - N/A
+sys                                         - N/A
+multiprocessing                             - N/A
+threading                                   - N/A
+asynchronous programming                    - N/A
 algorithms                                  - check only the main ones
-sys                                         - N/A (not relevant atm)
 oop, double_under                           - 50%
-git                                         - 50%
-pycharm                                     - 50%
 decorators, closures, 1sc class functs      - 10%
 tests                                       - 50%
+how python works in background
 
-pip
-pipelines
+
+
+
+***Miscellaneous***
+write readable documentation                - OK
+pycharm                                     - OK / 50%
+git                                         - 50%
+pip                                         - 50%
 graphs
 read other people's code
-write readable documentation
-how python works in background
-package your modules (thay might not be in path if working with multiple projects and you wont load them)
-virtual environment??
-Context Managers??
+package my modules (thay might not be in path if working with multiple projects and you wont load them)
+virtual environment
+Context Managers
 interview questions
 
 
-**Machine learning**:
+
+
+**Machine learning / Deep learning**:
 mathematics
-    - Vectors and spaces                    - OK
-    - Matrix transformations                - OK
+    - Vectors and spaces                    -
+    - Matrix transformations                -
 statistics
     -
+
+matplotlib                                  - OK
+numpy                                       - OK
 scrapy
 tensorflow
 pandas
-matplotlib
-numpy                                       - OK
 scikit learn
-milestone Machine learning Deep learning project 1
-milestone Machine learning Deep learning project 2
-hands on machine learning book
+pipelines
+
+
+
+
+***Milestone projects***
+Python/Tkinter/OOP - Prší game vs computer opponent - DONE
+
+milestone Machine learning Deep learning project 1 -
+
+milestone Machine learning Deep learning project 2 -
 """
