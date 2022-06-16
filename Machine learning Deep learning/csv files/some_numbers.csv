@@ -1,5 +1,11 @@
-row1, row2, row3
+column1, column2, column3
 1, 2, 3
 8, 6, 3
 1, 1, 1
 0, 0, 0
+"hovno", 1, 0
+5, "NA", 5
+NaN, NaN, "NA"
+"N/A", NaN, NaN
+"NA", 0, 0
+"NA", 0, 0
