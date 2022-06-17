@@ -46,7 +46,7 @@ asynchronous programming                    - N/A
 algorithms                                  - check only the main ones
 oop, double_under                           - 50%
 decorators, closures, 1sc class functs      - 10%
-tests                                       - 50%
+tests                                       - 10%
 how python works in background
 
 
@@ -58,10 +58,12 @@ pycharm                                     - OK / 50%
 git                                         - 50%
 pip                                         - 50%
 graphs
+how computer's hardware/software work
 read other people's code
 package my modules (thay might not be in path if working with multiple projects and you wont load them)
 virtual environment
 Context Managers
+databases
 interview questions
 
 
@@ -76,9 +78,9 @@ statistics
 
 matplotlib                                  - OK
 numpy                                       - OK
+pandas                                      - OK
 scrapy
-tensorflow
-pandas
+tensorflow/keras
 scikit learn
 pipelines
 
