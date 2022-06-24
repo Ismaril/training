@@ -93,3 +93,8 @@ def measure_time():
     start = time.perf_counter()
     end = time.perf_counter()
     print(end-start)
+
+
+# another boolean operators
+print((10 > 5) & (10 == 8))
+print((10 > 5) | (10 == 8))
