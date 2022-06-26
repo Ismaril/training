@@ -1,9 +1,9 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
 
 class Plots:
-    def __init__(self):
-        return
-
-    @ staticmethod
+    @staticmethod
     def plot_decision_boundary(model,
                                X,
                                y,
@@ -14,19 +14,16 @@ class Plots:
                                verbose=False,
                                cmap="brg"):
         """
-        model: model that's going to predict y from X
-        X: features
-        y: labels
-        expand: expand x, y plot axis to have points on the borders more visible
-        bound_smoot: smoothness of decision boundary, higher number higher smoothness
-        figsize: size of figure, enter two value tuple
-        grid: if True place grid on plot
-        nr_of_classes: specify how many classes is your model going to predict
-        verbose: check some example how internal data look like
+        :param model: model that's going to predict y from X
+        :param X: features
+        :param y: labels
+        :param expand: expand x, y plot axis to have visible points on the borders more visible
+        :param bound_smoot: smoothness of decision boundary, higher number higher smoothness
+        :param fig_size: size of figure, enter two value tuple
+        :param grid: if True place grid on plot
+        :param verbose: print examples how internal data look like
+        :param cmap: colormap from matplotlib
         """
-
-        import matplotlib.pyplot as plt
-        import numpy as np
 
         # Define the axis boundaries of the plot and create a meshgrid
         # set minimum and maximum for x and y axes on the plot

@@ -93,4 +93,14 @@ Python/Tkinter/OOP - Prší game vs computer opponent - DONE
 milestone Machine learning Deep learning project 1 -
 
 milestone Machine learning Deep learning project 2 -
+
+
+
+
+***Internal***
+TODO: update documentation in relevant functions and classes
 """
+
+
+
+

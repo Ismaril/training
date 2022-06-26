@@ -1,51 +1,91 @@
-class GenerateDatasets:
-    def __init__(self):
-        return
+import matplotlib.pyplot as plt
+import numpy as np
 
+
+class GenerateDatasets:
     @staticmethod
-    def make_squared_distribution(nr_samples=100,
-                                  nr_classes=5,
-                                  size_1=20,
-                                  size_2=40,
-                                  scale_spaces=1.3):
-        import random
-        import numpy as np
+    def make_blobs(nr_blobs=4,
+                   nr_samples=1000,
+                   nr_cols=2,
+                   size_left=1,
+                   mode=1.5,
+                   size_right=2,
+                   scale_row=1,
+                   scale_col=1,
+                   random_seed=True):
+        """
+        :param nr_blobs: number of blobs/classes you want to create
+        :param nr_samples: total number of points on the plot
+        :param nr_cols: number of columns to divide blobs into
+        :param size_left: select lower range of blob generation
+        :param mode: select triangular bias of blob generation
+        :param size_right: select upper range of blob generation
+        :param scale_row: scale distance of blobs from each other
+        :param scale_col: scale distance of blobs from each other
+        :param random_seed: return reproducible results if True
+        :return: 
+        """
+        assert nr_cols <= nr_blobs, \
+            f"nr_cols <= nr_blobs = {nr_cols <= nr_blobs}"
+        assert size_left < size_right, \
+            f"size_left < size_right = {size_left < size_right}"
+        assert size_left <= mode <= size_right, \
+            f"size_left <= mode <= size_right = {size_left <= mode <= size_right}"
 
         # set random seed for reproducibility
-        random.seed(a=10, version=2)
-        np.random.seed(10)
+        if random_seed:
+            np.random.seed(10)
+
+        nr_samples = nr_samples // nr_blobs
+        nr_rows = int(nr_blobs / nr_cols)
 
         dataset = []
-        offset = 0
-        for i in range(nr_classes):
-            # create X features and y labels as rows
-            X_x = np.array([
-                random.randint(size_1 + offset,
-                               size_2 + offset)
-                for _ in range(nr_samples)
-            ])
-            X_y = np.array([
-                random.randint(size_1 - (random.choice([0, size_1])),
-                               size_2 + random.choice([0, size_2]))
-                for _ in range(nr_samples)
-            ])
-            y = [i] * nr_samples
+        initial_values = (size_left, mode, size_right)
+        scaling_rows = size_left * scale_row
+        scaling_cols = size_right * scale_col
+        iterations = 0
 
-            # transform to columns
-            columns = np.array([X_x, X_y, y]).T
+        for column in range(nr_cols):
+            for row in range(nr_rows):
+                X_x = np.random.triangular(left=size_left + (scaling_cols * column),
+                                           mode=mode + (scaling_cols * column),
+                                           right=size_right + (scaling_cols * column),
+                                           size=nr_samples)
 
-            dataset.append(columns)
+                X_y = np.random.triangular(left=size_left,
+                                           mode=mode,
+                                           right=size_right,
+                                           size=nr_samples)
+                y = [iterations] * nr_samples
 
-            offset += size_1 * scale_spaces
+                columns = np.c_[X_x, X_y, y]  # transform to columns
+                dataset.append(columns)
+
+                # increment sizes for each row
+                size_left += scaling_rows
+                mode += scaling_rows
+                size_right += scaling_rows
+
+                iterations += 1
+
+            # return sizes to initial values for each new column
+            size_left = initial_values[0]
+            mode = initial_values[1]
+            size_right = initial_values[2]
 
         # append each separate point distributions under each other in the dataset
         dataset = np.concatenate(dataset)
 
-        # shuffle
-        np.random.shuffle(dataset)
+        np.random.shuffle(dataset)  # shuffle dataset
 
         # split to features and labels
         X = dataset[:, 0:2]
-        y = dataset[:, -1]
+        y = np.array(dataset[:, -1], dtype=int)
         return X, y
 
+
+"""data = GenerateDatasets()
+X, y = data.make_blobs()
+plt.scatter(X[:, 0], X[:, 1], c=y, cmap="brg")
+plt.show()
+"""
