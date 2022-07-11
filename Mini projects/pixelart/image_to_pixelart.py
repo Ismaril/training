@@ -51,8 +51,7 @@ class Pixelize:
         counter = 0
         while counter < self.height:
             for i, y in enumerate(range(self.width)):
-                rgb_array.append(self.pixels[self.width - (self.width - i),
-                                             self.height - (self.height - counter)])
+                rgb_array.append(self.pixels[i, counter])
             counter += 1
 
         return np.array(rgb_array).flatten()
@@ -68,19 +67,19 @@ class Pixelize:
         for color in rgb_array:
             if color < 32:
                 flattened_9bit.append(0)
-            elif 32 <= color < 63:
+            elif color < 63:
                 flattened_9bit.append(32)
-            elif 63 <= color < 95:
+            elif color < 95:
                 flattened_9bit.append(64)
-            elif 95 <= color < 127:
+            elif color < 127:
                 flattened_9bit.append(96)
-            elif 127 <= color < 159:
+            elif color < 159:
                 flattened_9bit.append(128)
-            elif 159 <= color < 191:
+            elif color < 191:
                 flattened_9bit.append(160)
-            elif 191 <= color < 223:
+            elif color < 223:
                 flattened_9bit.append(192)
-            elif 223 <= color < 256:
+            elif color < 256:
                 flattened_9bit.append(255)
 
         rgb_9bit = self.convert_flattened_to_3_items(flattened_9bit)
@@ -95,11 +94,11 @@ class Pixelize:
         for color in rgb_array:
             if color < 63:
                 flattened_6bit.append(0)
-            elif 63 <= color < 127:
+            elif color < 127:
                 flattened_6bit.append(64)
-            elif 127 <= color < 191:
+            elif color < 191:
                 flattened_6bit.append(128)
-            elif 191 <= color < 256:
+            elif color < 256:
                 flattened_6bit.append(255)
 
         rgb_6bit = self.convert_flattened_to_3_items(flattened_6bit)
@@ -177,12 +176,11 @@ class Pixelize:
 
 
 # Operate here ###############################################################
-set_pixel_density = 1
-set_bit_depth = 9
-set_local_path = "C:/Users/lazni/Desktop/space1.jpg"
-set_url = None
-set_save_location = True
-set_name_of_image = "space"
+set_pixel_density = 10
+set_bit_depth = 3
+set_local_path = None #"C:/Users/lazni/Desktop/lada3.jpg"
+set_url = "https://static-ca-cdn.eporner.com/gallery/JX/3V/vekZgOb3VJX/47629-charley-atwell-nude_880x660.jpg"
+set_name_of_image = None
 set_save_image = False
 
 if __name__ == '__main__':

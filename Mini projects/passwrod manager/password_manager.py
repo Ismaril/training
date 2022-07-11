@@ -5,6 +5,10 @@ from cryptography.fernet import Fernet
 KEY = b'wv0Qaap6H4yAZ6A8ohjxI1FtIIOV9FO7fJDQ_sUzpIU='
 
 
+# TODO: FERNET key should not be within codebase
+# TODO: password should not be possible to return back as plain string, when you want to check passwords, compare hashes = passwords should never be visible
+
+
 class PasswordManager:
 
     def __init__(self):

@@ -32,4 +32,5 @@ def mandelbrot(width, height, max_iteration=20, r=2):
     return divtime
 
 
-plt.imsave("C:/Users/lazni/PycharmProjects/Training/Python/images/mandel2.png", mandelbrot(WIDTH, HEIGHT))
+plt.imsave("C:/Users/lazni/PycharmProjects/Training/Mini projects/mandelbrot/finished images/mandel4.png",
+           mandelbrot(WIDTH, HEIGHT))
