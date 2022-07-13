@@ -56,9 +56,15 @@ class GenerateDatasets:
                                            mode=mode,
                                            right=size_right,
                                            size=nr_samples)
+
+                X_z = np.random.triangular(left=size_left,
+                                           mode=mode,
+                                           right=size_right,
+                                           size=nr_samples)
+
                 y = [iterations] * nr_samples
 
-                columns = np.c_[X_x, X_y, y]  # transform to columns
+                columns = np.c_[X_x, X_y, X_z, y]  # transform to columns
                 dataset.append(columns)
 
                 # increment sizes for each row
@@ -79,7 +85,7 @@ class GenerateDatasets:
         np.random.shuffle(dataset)  # shuffle dataset
 
         # split to features and labels
-        X = dataset[:, 0:2]
+        X = dataset[:, 0:-1]
         y = np.array(dataset[:, -1], dtype=int)
         return X, y
 
