@@ -55,17 +55,21 @@ how python works in background
 ***Miscellaneous***
 write readable documentation                - OK
 pycharm                                     - OK / 50%
+debugging                                   - OK
+Context Managers                            - N/A
 git                                         - 50%
-pip                                         - 50%
-graphs
+pip (package management)                    - 50%
+graphs (algorithms)
 how computer's hardware/software work
 read other people's code
-package my modules (thay might not be in path if working with multiple projects and you wont load them)
+module packing
 virtual environment
-Context Managers
-databases
+databases (mongoDB, SQL) # TODO: create a database in your local machine and learn how to write, rewrite and read
+pipelines
+architectures
 interview questions
 
+# TODO: the pragmatic programmer (book)
 
 
 
@@ -100,7 +104,4 @@ milestone Machine learning Deep learning project 2 -
 ***Internal***
 TODO: update documentation in relevant functions and classes
 """
-
-
-
 
