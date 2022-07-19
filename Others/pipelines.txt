@@ -1,4 +1,3 @@
-"""
 A pipeline is whatever is processed in steps, even in real life:
 You wake up
 You have a shower
@@ -20,5 +19,5 @@ You can have also pipelines in infrastructure:
 Something pull data from an api
 This data is stored in a db
 Notifications are sent by email saying "done"
-"""
+
 

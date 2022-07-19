@@ -1,5 +1,3 @@
-"""
-
 NAVIGATE
 cd destination - change directory downwards
 cd destination\destination - change directories with bigger step
@@ -96,4 +94,3 @@ hostname - displays the name of host (pc that I am using?)
 POWERSHELL
 get-alias - shows aliases of commands for cmd and bash
   - get-alias dir
-"""
