@@ -3,48 +3,34 @@ MAIN IDEA BEHIND VIRTUAL ENVIRONMENTS:
     updates of those packages could have an influence on your projects and might even stop working)
     You shold not include project files in virtualenv, the should just simply be "free to operate with".
 
+ve = virtual envirnoment
+you can have venv folder inside your project, but you should not put nothing from your project inside and it
+    should be ignored by git
 
-create a separate folder for all virtual environments
-
-create a new virtual env.:
+create a new ve:
     python -m venv name_of_project_env
 
+activate ve:
+    name_of_project_env\Scripts\activate.bat 
 
+check from where you can execute python:
+    where python
 
+check what you got currently installed in ve:
+    pip list
 
+intall packages you want:
+    pip install desired_module
 
+create a txt file with all modules used in your project (for later installation again somwhere else):
+    pip freeze
 
-Below code was taken from tutorial with bash, and I was trying to change it to cmd. It might need some look up
-if is still relevant.
-
-pip install virtualenv
-
-create a separate folder for all virtual environments
-
-create a new virtual env:
-    virtualenv name_of_project_env
-
-    create new virtual env with specified python version
-    virtualenv -p /usr/bin/python2.6 name_of_project_env (check if /usr/ is not actually smth else)
-
-activate your virtualenv:
-    source name_of_project_env/bin/activate
-    (now you will be in your virtual environment)
-
-check destination of your working env:
-    which python (which is bbly linux, use "where" instead?)
-
-your new envirnoment is now empty, so instal some packages you actually need:
-    pip install blabla...
-
-export packages and their version in current virtualenv (handy for installing them together):
-    pip freeze --local > requirements.txt
-
-get out of virtualenv to global env:
+deactivate environment:
     deactivate
 
-get rid of virtualenv:
-    just delete it (del name_of_project_env??)
+delete ve:
+    just delete that directory
 
-install packages from an export of packages you made earlier:
+install all from requirements into new ve:
     pip install -r requirements.txt
+
