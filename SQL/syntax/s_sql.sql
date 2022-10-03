@@ -605,6 +605,9 @@ CREATE TABLE table_name_ (
 );
 
 -- create a new table from existing one
+-- new_table_name will contain column1 and column2 from
+--    existing_table_name (AS keyword is probably not used as
+--    alias here??? needs to be checked)
 CREATE TABLE new_table_name AS
     SELECT column1, column2
     FROM existing_table_name
@@ -645,43 +648,300 @@ MODIFY COLUMN column_name_ VARCHAR(40);
 --    with the CREATE TABLE statement, or after the table is
 --    created with the ALTER TABLE statement.
 
+-- some names of columns are FICTIONAL and do not makes sense...
 -- define constraint separately to each column
-CREATE TABLE table_name (
+CREATE TABLE table_name_ (
     column1 INT PRIMARY KEY,
     column2 BOOLEAN NOT NULL,
     column3 VARCHAR(40), -- without constraint
-    UNIQUE (column2) -- we can have more constraints one one column
+    column4 INT,
+    column5 VARCHAR(40) DEFAULT "value when no value specified",
+    UNIQUE (column2), -- we can have more constraints one one column
+    CHECK (column4>=18)
 );
 
 -- define constraint to more columns at once
 CREATE TABLE Persons (
-    ID int NOT NULL,
+    ID INT NOT NULL,
     LastName varchar(255) NOT NULL,
     FirstName varchar(255),
-    Age int,
+    Age INT,
     -- here UC_Person is a name of the constraint.
-    CONSTRAINT UC_Person UNIQUE (ID,LastName)
+    CONSTRAINT UC_Person UNIQUE (ID,LastName),
+    CONSTRAINT CHK_Person CHECK (Age>=18 AND City='Sandnes')
 );
 
 -- constraint on one column with alter table
 ALTER TABLE Persons
-ADD UNIQUE (ID);
+	ADD UNIQUE (column1),
+	ADD PRIMARY KEY (column2),
+	ADD FOREIGN KEY (PersonID) REFERENCES Persons(PersonID),
+	ADD CHECK (column4>=18),
+	ALTER City SET DEFAULT "value when no value specified";
 
 -- constraint on multiple columns with alter table
 ALTER TABLE Persons
-ADD CONSTRAINT UC_Person UNIQUE (ID,LastName);
+	ADD CONSTRAINT UC_Person UNIQUE (column1, column2),
+	ADD CONSTRAINT PK_Person PRIMARY KEY (column3,column4),
+	ADD CONSTRAINT FK_PersonOrder
+		FOREIGN KEY (PersonID) REFERENCES Persons(PersonID),
+	ADD CONSTRAINT CHK_PersonAge CHECK (Age>=18 AND City='Sandnes');
 
 -- drop constraint (must have a name)
 ALTER TABLE Persons
-DROP INDEX UC_Person;
+	DROP INDEX UC_Person,
+	DROP PRIMARY KEY,
+	DROP FOREIGN KEY FK_PersonOrder,
+	DROP CONSTRAINT CHK_PersonAge,
+	ALTER column_ DROP DEFAULT;
 
 /*
 NOT NULL - Ensures that a column cannot have a NULL value
 UNIQUE - Ensures that all values in a column are different
 PRIMARY KEY - A combination of a NOT NULL and UNIQUE. Uniquely identifies each row in a table
 FOREIGN KEY - Prevents actions that would destroy links between tables
+			- refers to the PRIMARY KEY in another table
 CHECK - Ensures that the values in a column satisfies a specific condition
 DEFAULT - Sets a default value for a column if no value is specified
 CREATE INDEX - Used to create and retrieve data from the database very quickly
 */
 
+-- ---------------------------------------------------
+-- CREATE INDEX
+-- Indexes are used to retrieve data from the database more
+--    quickly than otherwise. The users cannot see the indexes,
+--    they are just used to speed up searches/queries.
+-- Updating a table with indexes takes more time than updating
+--    a table without (because the indexes also need an update).
+--    So, only create indexes on columns that will be used frequently
+
+-- exclude UNIQUE if you want to allow duplicates in INDEX
+CREATE UNIQUE INDEX index_name
+ON table_name (column1, column2);
+
+ALTER TABLE table_name_
+DROP INDEX index_name;
+
+-- ---------------------------------------------------
+-- AUTO INCREMENT
+-- Auto-increment allows a unique number to be generated
+--    automatically when a new record is inserted into a table.
+-- Often this is the primary key field that we would like to be
+--    created automatically every time a new record is inserted.
+-- By default, the starting value for AUTO_INCREMENT is 1,
+--    and it will increment by 1 for each new record.
+-- if we specify autoincrement, and we want to insert new data
+--    into table, we do not have to write the name of that column
+--    between other columns in INSERT INTO statement.
+
+CREATE TABLE Persons (
+    Personid int NOT NULL AUTO_INCREMENT,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    PRIMARY KEY (Personid)
+);
+
+-- start autoincrement from a different value than 1
+ALTER TABLE Persons AUTO_INCREMENT=100;
+
+-- ---------------------------------------------------
+-- Dates
+-- The most difficult part when working with dates is to be sure
+--    that the format of the date you are trying to insert, matches
+--    the format of the date column in the database.
+-- As long as your data contains only the date portion,
+--    your queries will work as expected. However, if a time portion
+--    is involved, it gets more complicated.
+/*
+DATE - format YYYY-MM-DD
+DATETIME - format: YYYY-MM-DD HH:MI:SS
+TIMESTAMP - format: YYYY-MM-DD HH:MI:SS
+YEAR - format YYYY or YY
+*/
+
+-- ---------------------------------------------------
+-- CREATE VIEW
+-- In SQL, a view is a virtual table based on the result-set of an SQL statement.
+--    A view contains rows and columns, just like a real table.
+--    The fields in a view are fields from one or more real tables
+--    in the database. You can add SQL statements and functions to
+--    a view and present the data as if the data were coming from
+--    one single table.
+
+
+-- here column1 and column2 will be transfered into veiw view_name.
+-- AS keyword is probably not used here for alias??? needs to be checked
+CREATE VIEW view_name AS
+SELECT column1, column2
+FROM table_name_
+WHERE condition_;
+
+-- select data from VIEW
+SELECT * FROM view_name;
+
+-- update view with 'CREATE OR REPLACE VIEW' statement
+CREATE OR REPLACE VIEW view_name AS
+SELECT column1, column2
+FROM table_name_
+WHERE condition_;
+
+-- drop view
+DROP VIEW view_name;
+
+-- EXAMPLE
+CREATE VIEW Products_Above_Average_Price AS
+SELECT ProductName, Price
+FROM Products
+WHERE Price > (SELECT AVG(Price) FROM Products);
+
+-- ---------------------------------------------------
+-- SQL Injection
+-- SQL injection is a code injection technique that might destroy
+--    your database.
+-- SQL injection is one of the most common web hacking techniques.
+-- SQL injection is the placement of malicious code in SQL statements,
+--    via web page input.
+
+/*
+EXAMPLE 1
+-- here txtuserid seems to wait for user input (string). It then adds
+--    into next variable, which is connected with another SQL command.
+txtUserId = getRequestString("UserId");
+txtSQL = "SELECT * FROM Users WHERE UserId = " + txtUserId;
+
+-- malicious user insert this into userid field:
+"105 OR 1=1"
+
+-- here u see that this statement now returns all rows from database
+      since 1=1 is obviously True...
+SELECT * FROM Users WHERE UserId = 105 OR 1=1;
+
+
+EXAMPLE 2
+uName = getRequestString("username");
+uPass = getRequestString("userpassword");
+sql = 'SELECT * FROM Users WHERE Name ="' + uName + '" AND Pass ="' + uPass + '"'
+
+-- malicious user inserts empty string equals empty string ""=""
+-- again all rows will be now retruned from database
+SELECT * FROM Users WHERE Name ="" or ""="" AND Pass ="" or ""=""
+*/
+
+-- ---------------------------------------------------
+-- SQL Hosting
+/*
+If you want your web site to be able to store and retrieve
+	data from a database, your web server should have access
+    to a database-system that uses the SQL language.
+If your web server is hosted by an Internet Service Provider (ISP),
+	you will have to look for SQL hosting plans.
+The most common SQL hosting databases are MS SQL Server, Oracle, MySQL,
+	and MS Access.
+*/
+
+-- ---------------------------------------------------
+-- MySQL Data Types
+/*
+String Data Types:
+CHAR(size)		A FIXED length string (can contain letters, numbers,
+					and special characters). The size parameter specifies
+					the column length in characters - can be from 0 to 255.
+					Default is 1
+VARCHAR(size)	A VARIABLE length string (can contain letters,
+					numbers, and special characters). The size parameter
+					specifies the maximum string length in characters - can
+					be from 0 to 65535
+BINARY(size)	Equal to CHAR(), but stores binary byte strings.
+					The size parameter specifies the column length in bytes.
+                    Default is 1
+VARBINARY(size)	Equal to VARCHAR(), but stores binary byte strings.
+					The size parameter specifies the maximum column length in bytes.
+TINYBLOB		For BLOBs (Binary Large Objects). Max length: 255 bytes
+TINYTEXT		Holds a string with a maximum length of 255 characters
+TEXT(size)		Holds a string with a maximum length of 65,535 bytes
+BLOB(size)		For BLOBs (Binary Large Objects). Holds up to 65,535 bytes of data
+MEDIUMTEXT		Holds a string with a maximum length of 16,777,215 characters
+MEDIUMBLOB		For BLOBs (Binary Large Objects). Holds up to 16,777,215 bytes of data
+LONGTEXT		Holds a string with a maximum length of 4,294,967,295 characters
+LONGBLOB		For BLOBs (Binary Large Objects). Holds up to 4,294,967,295 bytes of data
+ENUM(val1, ...)	A string object that can have only one value, chosen from a list of
+					possible values. You can list up to 65535 values in an ENUM list.
+                    If a value is inserted that is not in the list, a blank value will
+                    be inserted. The values are sorted in the order you enter them
+SET(val1, ...)	A string object that can have 0 or more values, chosen from a list
+					of possible values. You can list up to 64 values in a SET list
+
+
+Numeric Data Types:
+Note: All the numeric data types may have an extra option: UNSIGNED or ZEROFILL.
+If you add the UNSIGNED option, MySQL disallows negative values for the column.
+If you add the ZEROFILL option, MySQL automatically also adds the UNSIGNED attribute
+	to the column.
+
+BIT(size)		A bit-value type. The number of bits per value is specified in size.
+					The size parameter can hold a value from 1 to 64. The default value for size is 1.
+TINYINT(size)	A very small integer. Signed range is from -128 to 127.
+					Unsigned range is from 0 to 255. The size parameter specifies the
+                    maximum display width (which is 255)
+BOOL			Zero is considered as false, nonzero values are considered as true.
+BOOLEAN			Equal to BOOL
+SMALLINT(size)	A small integer. Signed range is from -32768 to 32767.
+					Unsigned range is from 0 to 65535. The size parameter
+                    specifies the maximum display width (which is 255)
+MEDIUMINT(size)	A medium integer. Signed range is from -8388608 to 8388607.
+					Unsigned range is from 0 to 16777215. The size parameter specifies
+                    the maximum display width (which is 255)
+INT(size)		A medium integer. Signed range is from -2147483648 to 2147483647.
+					Unsigned range is from 0 to 4294967295. The size parameter
+                    specifies the maximum display width (which is 255)
+INTEGER(size)	Equal to INT(size)
+BIGINT(size)	A large integer. Signed range is from -9223372036854775808 to
+					9223372036854775807. Unsigned range is from 0 to 18446744073709551615.
+                    The size parameter specifies the maximum display width (which is 255)
+FLOAT(size, d)	A floating point number. The total number of digits is specified in
+					size. The number of digits after the decimal point is specified in
+                    the d parameter. This syntax is deprecated in MySQL 8.0.17, and it
+                    will be removed in future MySQL versions
+FLOAT(p)		A floating point number. MySQL uses the p value to determine whether
+					to use FLOAT or DOUBLE for the resulting data type. If p is from 0
+                    to 24, the data type becomes FLOAT(). If p is from 25 to 53,
+                    the data type becomes DOUBLE()
+DOUBLE(size, d)	A normal-size floating point number. The total number of digits is
+					specified in size. The number of digits after the decimal point is
+                    specified in the d parameter
+DOUBLE PRECISION(size, d)	 
+DECIMAL(size, d)	An exact fixed-point number. The total number of digits is
+						specified in size. The number of digits after the decimal
+                        point is specified in the d parameter. The maximum number for
+                        size is 65. The maximum number for d is 30. The default value
+                        for size is 10. The default value for d is 0.
+DEC(size, d)	Equal to DECIMAL(size,d)
+
+
+Date and Time Data Types:
+MySQL 8.0 does not support year in two-digit format.
+DATE			A date. Format: YYYY-MM-DD. The supported range is from '1000-01-01'
+					to '9999-12-31'
+DATETIME(fsp)	A date and time combination. Format: YYYY-MM-DD hh:mm:ss.
+					The supported range is from '1000-01-01 00:00:00' to
+                    '9999-12-31 23:59:59'. Adding DEFAULT and ON UPDATE in the column
+                    definition to get automatic initialization and updating to the
+                    current date and time
+TIMESTAMP(fsp)	A timestamp. TIMESTAMP values are stored as the number of seconds
+					since the Unix epoch ('1970-01-01 00:00:00' UTC).
+                    Format: YYYY-MM-DD hh:mm:ss. The supported range is
+                    from '1970-01-01 00:00:01' UTC to '2038-01-09 03:14:07' UTC.
+                    Automatic initialization and updating to the current date and time
+                    can be specified using DEFAULT CURRENT_TIMESTAMP and
+                    ON UPDATE CURRENT_TIMESTAMP in the column definition
+TIME(fsp)		A time. Format: hh:mm:ss. The supported range is from '-838:59:59'
+					to '838:59:59'
+YEAR			A year in four-digit format. Values allowed in four-digit
+					format: 1901 to 2155, and 0000.
+
+*/
+
+-- Quick test just for fun:
+-- https://www.w3schools.com/quiztest/quiztest.asp?qtest=SQL
+-- 25/25 correct in 9:26 (min:sec)
