@@ -6,7 +6,7 @@ import s_oop_source
 # While using keyword "global" makes sense in some situations, it does not make sense to overuse it
 # System of LEGB is following: Starting from the most inner function, python looks for object in it's
 #       local scope. If nothing found there it continues to Enclosing scope (function above current one)
-#       (class variables without self are also Enclosing??). If nothing found there it the continues to
+#       (class variables without self are also Enclosing??). If nothing found there it then continues to
 #       global scope. If nothing found in previous scopes, the last one to look in is build in functions.
 
 
@@ -86,9 +86,11 @@ def func_1():
         return j  # returns j from local scope
 
     def func_3():
-        nonlocal L  # "nonlocal" will preserve L in enclosed scope. Local scope can freely change L without
-        # affecting original L
-        L *= 100
+        # "nonlocal" will check enclosed scope. In this case it can alter
+        # original L. If nonlocal was not there, original L would still be 30
+        nonlocal L
+
+        L = 100
         return L
 
     def func_4():
@@ -99,13 +101,13 @@ def func_1():
         return min([60])  # calls to build_ins because in was found in no scope except the most outer one
         # which is build ins
 
-    print(k)
-    print(L)
-    print(func_2())
-    print(func_3())
-    print(func_4())
-    print(func_5())
-
+    print(f"{k=}")
+    print(f"{L=}")
+    print(f"{func_2()=}")
+    print(f"{func_3()=}")
+    print(f"{func_4()=}")
+    print(f"{func_5()=}")
+    print(f"{L=}")
 
 print(j)
 func_1()
@@ -113,3 +115,30 @@ func_1()
 ############################################################
 print(s_oop_source.__dict__.keys())  # check what functions or stuff is inside some module
 print(dir())  # check what object holds global scope
+
+
+def scope_test():
+    # seems like local scope cannot influence neither enclosing nor global scope
+    def do_local():
+        spam = "local spam"
+
+    # this makes the local scope of do_nonlocal available to enclosing scope
+    def do_nonlocal():
+        nonlocal spam
+        spam = "nonlocal spam"
+
+    # this function is only relevant outside of scope_test
+    def do_global():
+        global spam
+        spam = "global spam"
+
+    spam = "test spam"
+    do_local()
+    print("After local assignment:", spam)
+    do_nonlocal()
+    print("After nonlocal assignment:", spam)
+    do_global()
+    print("After global assignment:", spam)
+
+scope_test()
+print("In global scope:", spam)

@@ -1,0 +1,2 @@
+pip list --local - show packages that are installed in virtual environment (filtering out those inherited from path)
+pip3 freeze > requirements.txt - export projects requirements into .txt
