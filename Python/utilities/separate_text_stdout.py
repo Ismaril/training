@@ -5,4 +5,4 @@ class SeparateCode:
 
     def separator(self):
         self.number += 1
-        return f"{self.number} {'-' * 50}"
+        return f"{self.number} {'-' * 79}"

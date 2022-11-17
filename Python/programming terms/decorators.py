@@ -5,8 +5,8 @@
 
 # Decorator allows to add functionality to already existing function
 
-# Decorator is a function that takes another function as an argument and extends
-# the behavior of this function without explicitly modifying it
+# Decorator is a function that takes another function as an argument and
+# extends the behavior of this function without explicitly modifying it
 
 # Functions in python are first class objects = they:
 # - defined inside another function
