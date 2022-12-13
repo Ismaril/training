@@ -1,7 +1,7 @@
 import re
-from Python.utilities.separate_rows_in_training_files import SeparateCode
+from Python.utilities.separate_text_stdout import SeparateText
 
-separator = SeparateCode()
+separator = SeparateText()
 # FYI r"some_text" means that the text will be read as "raw", meaning characters like \n \t etc won't be incl.
 
 # OVERVIEW

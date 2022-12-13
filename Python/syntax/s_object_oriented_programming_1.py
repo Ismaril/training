@@ -345,3 +345,42 @@ planner.salary = 6000
 print(planner.salary)
 # del planner.salary # this deletes the value in ._salary and print below will return an error
 # print(planner.salary)
+
+
+# you can have multiple classes in another class
+class Parent:
+    def __init__(self):
+        ...
+
+    class Child1:
+        ...
+
+        class Child2:
+            ...
+
+
+instance_ = Parent()
+print(instance_.Child1.Child2)
+
+
+# returning self means that the function returns the instance with all its
+# current attributes
+# it allows chaining of attributes on a given instance
+# (take a look at the print statement below)
+# I think we can understand that like that the return self would return
+#   the 'number' instance with each function call.
+class IncrementDecrement:
+    def __init__(self):
+        self.number = 0
+
+    def increment(self):
+        self.number += 1
+        return self
+
+    def decrement(self):
+        self.number -= 1
+        return self
+
+
+number = IncrementDecrement()
+print(number.increment().increment().increment().decrement().number)

@@ -1,9 +1,9 @@
 import itertools
 from itertools import product, permutations, combinations, combinations_with_replacement, accumulate, groupby
 from itertools import count, cycle, repeat
-from Python.utilities.separate_rows_in_training_files import SeparateCode
+from Python.utilities.separate_text_stdout import SeparateText
 
-separator = SeparateCode()
+separator = SeparateText()
 
 # collection of tools for handling iterators
 

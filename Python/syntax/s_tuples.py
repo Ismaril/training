@@ -49,3 +49,7 @@ print(sys.getsizeof(some_tuple), "bytes")
 # compare the speed
 print(timeit.timeit(stmt=str(some_list), number=1_000_000), "seconds")
 print(timeit.timeit(stmt=str(some_tuple), number=1_000_000), "seconds")
+
+# boolean comparison
+print((1, 2, 3, 4) > (1, 2))
+print((1, 2, 3, 4) == (1, 2))

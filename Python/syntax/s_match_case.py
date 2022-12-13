@@ -1,6 +1,6 @@
-from Python.utilities.separate_rows_in_training_files import SeparateCode
+from Python.utilities.separate_text_stdout import SeparateText
 
-separator = SeparateCode()
+separator = SeparateText()
 
 
 def http_error(status):

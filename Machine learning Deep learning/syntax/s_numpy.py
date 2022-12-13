@@ -3,9 +3,9 @@ import time
 import matplotlib.pyplot as plt
 import numpy as np
 
-from Python.utilities.separate_rows_in_training_files import SeparateCode
+from Python.utilities.separate_text_stdout import SeparateText
 
-separator = SeparateCode()
+separator = SeparateText()
 
 print(f"{np.__version__ = }")
 

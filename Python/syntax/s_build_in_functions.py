@@ -1,5 +1,5 @@
 import sys
-from Python.utilities import separate_rows_in_training_files
+from Python.utilities import separate_text_stdout
 
 
 def some_funct():
@@ -23,7 +23,7 @@ some_instance = SomeClass()
 some_number = 500
 some_list = [1, 2, 3, 4, 5]
 
-sep = separate_rows_in_training_files.SeparateCode()
+sep = separate_text_stdout.SeparateText()
 
 print(abs(-5), "-abs")
 print(all([True, True]), "-all")
@@ -133,5 +133,5 @@ print(sep.separator())
 
 print(tuple(["a", "b"]), "-tuple")
 print(type(1))  # here have to fill in other arguments - has to be checked cause it aint clear
-print(vars(SomeClass), "-vars")
+print(vars(SomeClass), "-vars")  # dictionary containing all local variables
 print(list(zip([91, 92, 93, 94], [101, 102, 103], [111, 112, 113])), "list(-zip)")

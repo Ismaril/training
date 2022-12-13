@@ -332,7 +332,7 @@ print("# Working with folders")
 
 # Path can be either relative (starting from current folder) or absolute (starting from C:-> ...)
 # Here it's relative starting from file in current project
-path1 = Path("../../../Mini projects/primitive_projects/hangman.py")
+path1 = Path("../../projects/primitive_projects/hangman.py")
 print(Path.is_file(path1))
 
 # .glob for searching all files in folders.

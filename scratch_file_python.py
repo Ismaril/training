@@ -30,25 +30,6 @@ plt.show()"""
 #
 # print(data["sloup2"][0])
 
-import requests
-from io import BytesIO  # buffer for reading data in bytes
-from PIL import Image
-import matplotlib.pyplot as plt
-
-address = "https://www.imdb.com/name/nm0000246/?ref_=nv_sr_srsg_0"
-r = requests.get(address)
-
-img = Image.open(BytesIO(r.content))
-plt.style.use("default")
-plt.figure(figsize=(16, 9))
-plt.imshow(img)
-plt.show()
-
-
-
-
-
-
 
 
 

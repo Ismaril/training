@@ -1,10 +1,10 @@
 import datetime
 import json
 import os
-from Python.utilities.separate_rows_in_training_files import SeparateCode
+from Python.utilities.separate_text_stdout import SeparateText
 
 
-separator = SeparateCode()
+separator = SeparateText()
 
 # show all functionalities
 # print(dir(os))
@@ -81,3 +81,7 @@ print(os.path.isfile(path))
 
 # split file extension
 print(os.path.splitext("some_path/some_file.txt"))
+
+# run commands from cmd
+# here actually open ms paint
+print(os.system("mspaint"))

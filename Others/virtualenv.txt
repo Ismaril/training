@@ -8,10 +8,13 @@ you can have venv folder inside your project, but you should not put nothing fro
     should be ignored by git
 
 create a new ve:
-    python -m venv name_of_project_env
+    name_of_project can actually be just venv
+    python3 -m venv name_of_project_env
+    python3 -m venv name_of_project_env --system-site-packages (this should inherit or have access to packages in path)
 
 activate ve:
-    name_of_project_env\Scripts\activate.bat 
+    name_of_project_env\Scripts\activate.bat (on Windows)
+    source tutorial-env/bin/activate (on Unix and Mac)
 
 check from where you can execute python:
     where python

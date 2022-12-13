@@ -1,9 +1,12 @@
-from Python.utilities.separate_rows_in_training_files import SeparateCode
+from Python.utilities.separate_text_stdout import SeparateText
 
-sep = SeparateCode()
+sep = SeparateText()
 
 # FUNCTIONS
-# default argument is evaluated at the point of function
+# default argument/parameter is evaluated at the point of function, and is kept
+#   in that function no mather how many times you call that function. If you
+#   want that parameter to change each time you call the function, you
+#   must implement it inside the function.
 i = 5
 
 

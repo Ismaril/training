@@ -1,23 +1,23 @@
-from Python.utilities import separate_rows_in_training_files
+from Python.utilities import separate_text_stdout
 
-sep = separate_rows_in_training_files.SeparateCode()
-
+sep = separate_rows_in_training_files.SeparateText()
 
 print([0, 0, 0])
 print([0] * 3)  # create a list with multiplication
 print(list(0 for _ in range(3)))
 print(list(range(3)))
-print(list("Hello world"))
-
+greeting = list("Helloworld")
+print(greeting)
+greeting[2:5] = []  # remove elements from list
+print(greeting)
 
 print(sep.separator())
-
 
 list_1 = [1, 2, 3]
 list_2 = [1, 2, 3]
 first, second, third = list_1
 _, *all_middles, _ = list_1
-_, _ , *all_remaining = list_1
+_, _, *all_remaining = list_1
 
 # return copies of original list
 list_x = list_1.copy()
@@ -54,7 +54,6 @@ print(list_4, "-remove")  # removes first occurence
 list_2.reverse()
 print(list_2, "-reverse")
 
-
 print(sep.separator())
 
 
@@ -73,7 +72,6 @@ cars = [
 cars.sort(key=my_func, reverse=True)
 print(cars)
 
-
 print(sep.separator())
 
 
@@ -87,12 +85,15 @@ cars = ['Ford', 'Mitsubishi', 'BMW', 'VW']
 cars.sort(reverse=True, key=my_func_2)
 print(cars)
 
-
 print(sep.separator())
-
 
 # comprehensions
 print([_ for _ in range(10)])
 print([number for number in range(10) if not number % 2])
 print([number if not number % 2 else "X" for number in range(10)])
 print([number for list_ in range(3) for number in [["a", "b", "c"]]])
+print(sep.separator())
+
+# boolean comparison
+print([1, 2, 3, 4] > [1, 2])
+print([1, 2, 3, 4] == [1, 2])

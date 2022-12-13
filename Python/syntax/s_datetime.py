@@ -1,7 +1,7 @@
 import datetime as d
-from Python.utilities.separate_rows_in_training_files import SeparateCode
+from Python.utilities.separate_text_stdout import SeparateText
 
-separator_line = SeparateCode()
+separator_line = SeparateText()
 sep = "| "
 # FYI "parameters" can be gotten from methods
 #   example - d.datetime.now().year (year is parameter)

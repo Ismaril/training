@@ -1,7 +1,7 @@
 import csv
-from Python.utilities.separate_rows_in_training_files import SeparateCode
+from Python.utilities.separate_text_stdout import SeparateText
 
-separator = SeparateCode()
+separator = SeparateText()
 # check what's inside
 print(dir(csv))
 

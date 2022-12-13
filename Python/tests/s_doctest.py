@@ -1,5 +1,5 @@
 import doctest
-# Module doctest -- a framework for running examples in docstrings.
+# Module doctest -- a framework for running and testing examples in docstrings.
 
 def average(values):
     """Computes the arithmetic mean of a list of numbers.

@@ -1,6 +1,6 @@
 from collections import Counter, namedtuple, OrderedDict, defaultdict, deque
-from Python.utilities.separate_rows_in_training_files import SeparateCode
-separator = SeparateCode()
+from Python.utilities.separate_text_stdout import SeparateText
+separator = SeparateText()
 
 # Counter, namedtuple, OrderedDict, defaultdict, deque
 # Used as handy alternative for basic container datatypes like lists, dicts etc...

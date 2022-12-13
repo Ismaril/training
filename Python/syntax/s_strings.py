@@ -1,6 +1,6 @@
-from Python.utilities import separate_rows_in_training_files
+from Python.utilities import separate_text_stdout
 
-sep = separate_rows_in_training_files.SeparateCode()
+sep = separate_rows_in_training_files.SeparateText()
 
 txt1 = "hello world"
 txt2 = "My name is Ståle"
@@ -49,6 +49,7 @@ print(f"{-5:.2e}")
 print(f"{-5:.2E}")
 print(f"{-5:f}")
 print(f"{-5:.2f}")
+print(f"{-5:3.2f}")  # here 3 is a width of float number and 2 is precison
 print(f"{float('nan'):.2F}")
 print(f"{-5.00e+00:g}")  # general format
 print(f"{9:o}")
@@ -168,7 +169,7 @@ print("\x48\x65\x6c\x6c\x6f")  # characters of hex value
 
 print(sep.separator())
 
-print(["*"] * 15)
+print('ka'*10)
 
 print(sep.separator())
 

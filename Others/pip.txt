@@ -1,2 +1,10 @@
+By default pip will install packages from the Python Package Index, <https://pypi.org>
+
 pip list --local - show packages that are installed in virtual environment (filtering out those inherited from path)
 pip3 freeze > requirements.txt - export projects requirements into .txt
+pip install name_of_module
+pip install requests==2.6.0
+pip install --upgrade requests
+pip uninstall requests
+pip show requests
+pip install -r requirements.txt

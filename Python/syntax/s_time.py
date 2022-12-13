@@ -1,7 +1,7 @@
 import time
-from Python.utilities.separate_rows_in_training_files import SeparateCode
+from Python.utilities.separate_text_stdout import SeparateText
 
-separator = SeparateCode()
+separator = SeparateText()
 
 # NOTE
 # "epoch" = time initial time that computer knows. Usually something like 1970...

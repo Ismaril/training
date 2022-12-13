@@ -1,7 +1,7 @@
 import sys
-from Python.utilities import separate_rows_in_training_files
+from Python.utilities import separate_text_stdout
 
-sep = separate_rows_in_training_files.SeparateCode()
+sep = separate_rows_in_training_files.SeparateText()
 
 # ITERATORS and ITERABLES
 

@@ -1,5 +1,5 @@
 
-class SeparateCode:
+class SeparateText:
     def __init__(self):
         self.number = 0
 

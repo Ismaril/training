@@ -1,4 +1,4 @@
-import s_oop_source
+from Python.syntax import s_oop_source
 
 # LEGB
 # Local, Enclosing, Global, Build-in
