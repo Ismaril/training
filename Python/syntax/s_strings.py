@@ -1,6 +1,6 @@
-from Python.utilities import separate_text_stdout
+from Python.utilities.separate_text_stdout import SeparateText
 
-sep = separate_rows_in_training_files.SeparateText()
+sep = SeparateText()
 
 txt1 = "hello world"
 txt2 = "My name is Ståle"

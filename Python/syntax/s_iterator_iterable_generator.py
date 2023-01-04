@@ -1,7 +1,9 @@
 import sys
-from Python.utilities import separate_text_stdout
+import time
 
-sep = separate_rows_in_training_files.SeparateText()
+from Python.utilities.separate_text_stdout import SeparateText
+
+sep = SeparateText()
 
 # ITERATORS and ITERABLES
 
@@ -12,7 +14,7 @@ sep = separate_rows_in_training_files.SeparateText()
 
 nums = [1, 2, 3]
 print(dir(nums))
-print("1"*20)
+print("1" * 20)
 
 # iterator only works when it can call __next__ from object it is iterating through
 # iterator is an object which remembers where it is during operation
@@ -24,7 +26,7 @@ print(dir(iter_nums))
 
 print(next(iter_nums))
 print(next(iter_nums))
-print("2"*20)
+print("2" * 20)
 
 # code below is what for loop actually does (at least acc to video on YT)
 iter_nums_2 = iter(nums)
@@ -34,7 +36,6 @@ while True:
         print(item)
     except StopIteration:
         break
-
 
 print(sep.separator())
 
@@ -63,17 +64,18 @@ nums_2 = MyRange(1, 10)
 for num in nums_1:
     print(num)
 
-print("3"*20)
+print("3" * 20)
 print(next(nums_2))
 print(next(nums_2))
-print("4"*20)
-
+print("4" * 20)
 
 print(sep.separator())
 
 
 # GENERATORS
 # generators are iterators as well
+# They do not necessarily speed up the code compared to the lists etc...,
+#   but they save a lot of memory
 # __iter__ and __next__ are crated automatically here
 def my_range(start, end):
     current = start
@@ -87,17 +89,14 @@ print(next(nums_3))
 print(next(nums_3))
 print(next(nums_3))
 print(next(nums_3))
-print("5"*20)
+print("5" * 20)
 
 nums_4 = my_range(1, 10)
 for num in nums_4:
     print(num)
 
-
 print(sep.separator())
 
-
-# Video 2 ####################################################################################################
 # Iterators/Generators are useful when when we want to save memory and do not care about data before and after
 # current yielded result
 # Lists, tuples, dictionaries, sets and even strings are all iterable objects. They are iterable containers
@@ -122,20 +121,17 @@ print(sys.getsizeof([1, 2, 3]), "Bytes")
 print(sys.getsizeof(range(1, 4)), "Bytes")
 
 # map is also generator, meaning values are outputted once someone call them
-y = map(lambda a: a**2, x)
+y = map(lambda a: a ** 2, x)
 for square in y:
     print(square)
 
-
 print(sep.separator())
 
-
-z = map(lambda a: a**3, x)
+z = map(lambda a: a ** 3, x)
 # with using 2x below next() we called 2 elements. If we for example used another next() or created some loop,
 # it would continue where it left. Meaning "27" would be  x list -> z map -> 27.
 print(next(z))
 print(next(z))
-
 
 print(sep.separator())
 
@@ -151,9 +147,7 @@ def range_(start, end):
 for number in range_(0, 8):
     print(number)
 
-
 print(sep.separator())
-
 
 # generator comprehension
 xxx = (num for num in range(5, 10))
@@ -175,4 +169,69 @@ my_list_1 = [i for i in range(1_000_000)]
 my_list_2 = (i for i in range(1_000_000))
 print(sys.getsizeof(my_list_1), "Bytes")
 print(sys.getsizeof(my_list_2), "Bytes")
+print(sep.separator())
 
+
+def my_generator():
+    yield 1
+    yield 2
+    yield 3
+
+
+g = my_generator()
+print(g)
+
+for num in g:
+    print(num)
+print(sep.separator())
+
+number = 10_000_000
+start = time.perf_counter()
+
+
+def firstn(n):
+    nums = []
+    num = 0
+    while num < n:
+        nums.append(num)
+        num += 1
+    return nums
+
+
+print(sum(firstn(n=number)))
+print(sys.getsizeof(firstn(number)), "bytes")
+end = time.perf_counter()
+print("cas normal", f"{end - start:.10f}")
+print(sep.separator())
+
+start_g = time.perf_counter()
+
+
+def generator_firstn(n):
+    num = 0
+    while num < n:
+        yield num
+        num += 1
+
+
+print(sum(generator_firstn(n=number)))
+print(sys.getsizeof(generator_firstn(number)), "bytes")
+end_g = time.perf_counter()
+print("cas genera", f"{end_g - start_g:.10f}")
+print(sep.separator())
+
+
+# ! While you can create a generator and iterate over it later, the most
+#   efficient way is to have full generator pipeline
+# Below you can see that generator just calls previous generator and therefore
+#   the file which we read does not have to be whole in memory, becasue
+#   it actually processes one row at a time in the complete pipeline saving a lot
+#   of memory.
+
+"""def perfrom_some_operations_on_file():
+    with open("some_file.txt") as file:
+        nums = (row.partition('#')[0].rstrip() for row in file)
+        nums = (row for row in nums if row)
+        ...
+        nums = (max(0., x) for x in nums)
+        s = sum(nums)"""
