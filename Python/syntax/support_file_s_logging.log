@@ -1,0 +1,59 @@
+2022-12-18 17:59:29,882 - Python.logs.support_file_s_logging - ERROR - this is a error
+2022-12-18 17:59:29,882 - Python.logs.support_file_s_logging - ERROR - list index out of range
+Traceback (most recent call last):
+  File "C:\Users\lazni\PycharmProjects\Training\Python\syntax\s_logging.py", line 30, in <module>
+    print(listos[3])
+          ~~~~~~^^^
+IndexError: list index out of range
+2022-12-18 17:59:44,816 - Python.logs.support_file_s_logging - ERROR - this is a error
+2022-12-18 17:59:44,816 - Python.logs.support_file_s_logging - ERROR - list index out of range
+Traceback (most recent call last):
+  File "C:\Users\lazni\PycharmProjects\Training\Python\syntax\s_logging.py", line 30, in <module>
+    print(listos[3])
+          ~~~~~~^^^
+IndexError: list index out of range
+2022-12-18 18:00:43,719 - Python.logs.support_file_s_logging - ERROR - list index out of range
+Traceback (most recent call last):
+  File "C:/Users/lazni/PycharmProjects/Training/Python/syntax/s_logging.py", line 30, in <module>
+    print(listos[3])
+          ~~~~~~^^^
+IndexError: list index out of range
+2022-12-18 18:00:49,148 - Python.logs.support_file_s_logging - ERROR - list index out of range
+Traceback (most recent call last):
+  File "C:\Users\lazni\PycharmProjects\Training\Python\syntax\s_logging.py", line 30, in <module>
+    print(listos[3])
+          ~~~~~~^^^
+IndexError: list index out of range
+2022-12-18 18:01:00,927 - Python.logs.support_file_s_logging - ERROR - list index out of range
+2022-12-18 18:01:52,469 - Python.logs.support_file_s_logging - ERROR - list index out of range
+2022-12-18 18:01:54,562 - Python.logs.support_file_s_logging - ERROR - list index out of range
+2022-12-18 18:01:56,472 - Python.logs.support_file_s_logging - ERROR - list index out of range
+2022-12-18 18:02:01,713 - Python.logs.support_file_s_logging - ERROR - list index out of range
+Traceback (most recent call last):
+  File "C:\Users\lazni\PycharmProjects\Training\Python\syntax\s_logging.py", line 30, in <module>
+    print(listos[3])
+          ~~~~~~^^^
+IndexError: list index out of range
+2022-12-18 18:02:20,489 - Python.logs.support_file_s_logging - ERROR - list index out of range
+Traceback (most recent call last):
+  File "C:\Users\lazni\PycharmProjects\Training\Python\syntax\s_logging.py", line 30, in <module>
+    print(listos[3])
+          ~~~~~~^^^
+IndexError: list index out of range
+2022-12-18 18:02:48,566 - Python.logs.support_file_s_logging - ERROR - list index out of range
+2022-12-18 18:04:23,960 - Python.logs.support_file_s_logging - ERROR - list index out of range
+2022-12-18 18:04:24,850 - Python.logs.support_file_s_logging - ERROR - list index out of range
+2022-12-18 18:04:26,152 - Python.logs.support_file_s_logging - ERROR - list index out of range
+2022-12-18 18:04:29,448 - Python.logs.support_file_s_logging - ERROR - list index out of range
+2022-12-18 18:04:56,025 - Python.logs.support_file_s_logging - ERROR - list index out of range
+Traceback (most recent call last):
+  File "C:\Users\lazni\PycharmProjects\Training\Python\syntax\s_logging.py", line 30, in <module>
+    print(listos[3])
+          ~~~~~~^^^
+IndexError: list index out of range
+2022-12-18 18:05:26,886 - Python.logs.support_file_s_logging - ERROR - list index out of range
+Traceback (most recent call last):
+  File "C:\Users\lazni\PycharmProjects\Training\Python\syntax\s_logging.py", line 30, in <module>
+    print(listos[3])
+          ~~~~~~^^^
+IndexError: list index out of range
