@@ -1,0 +1,27 @@
+ip address:
+
+- is numeric
+- is an identifier of pc, device, website on a network
+- every device has to have ip address
+- ip address consists of 2 parts
+	netowrk address
+	host address
+- ipv4 and ipv6
+
+
+ipv4
+- is 32 bit in format xxx.xxx.xxx.xxx
+- each box separated by dot is called octet (because it has actually 8 numbers, zeros or ones)
+- is current ip address standart
+- ranges from 0-255
+- 4 billion possible addressess
+
+ipv6
+- is next generation of ip
+- 128bit hexadecimal address
+- 340x10^36 possible digits
+- example in hex: 2001:0db8:85a3:0000:0000:8a2e:0370:7334
+- in case you want to convert binary ipv6 address to hex, take always 4 numbers and convert them into
+	one hex digit. After there are 4 hex digits make ':'.
+
+

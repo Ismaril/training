@@ -1,0 +1,26 @@
+RAID
+ - is used to avoid loss of data on disks which store data.
+ - data is copied between multiple disks
+
+RAID 0
+Data is split between disks, meaning data is not duplicated here.
+This setup does not prevent loss of data in case of malfunction of one disk.
+Accessing data is faster in this setup.
+
+
+RAID 1
+Data is copied on more than one disk.
+In case of loss of one disk, data is save on another disk.
+
+
+RAID 5
+Most common setup.
+Requires 3 or more disks.
+Data is not duplicated and is 'stripped' along with parity accross the disks. todo: check what this line means
+Parity reduces the amount of actual data which could be otherwise stored on the disks.
+
+
+RAID 10
+Combines raid 1 and raid 0.
+Requires 4 or more disks.
+You can use only 50% of actual data storage.

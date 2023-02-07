@@ -1,0 +1,20 @@
+Serves as a identification of computers, devices, webpages in a network via numbers such as ip addresses.
+
+In my words:
+DNS makes our life easier because instead of memorising all the ip addresses we are allowed to work
+with text addresses that DNS server matches with corresponding ip addresses in its database/dictionary.
+
+If the ip address based on text address cannot be found locally in our browser, operating system, cache the
+pc will send request out to our internet service provider, to check there what is the corresponding match
+for our text address request. If the isp 'resolver' does not find anything in its cache, it will send request
+to the 'root server', which are basically on the top of DNS hierarchy. There are 13 sets of root servers around
+the world and are operated by 12 different organisations. Each set has its own ip address. Actually the root 
+server will not know the ip address based on our text input, but will point our internet service provider's 
+'resolver' to the 'top level domain server' which stores the top level domains such as .com, .net, .org, etc. 
+The top level domain server will then point the resolver to the final destination based on which domain is
+our text addres request in. If it is in .com domain, the resolver will be pointed to 'authoritative name server'
+that will know everything about the domain, including ip addresses. This 'authoritative name server' will
+then return the ip address to the 'resolver', which will return it to you machine.
+When the isp 'resolver' recieves request for ip address from your previous request, it will store it in its
+cache memory, in case the address was needed again, this will save time, because resolver does not need to
+go again and search trhough all the servers as above to retrieve the ip address.

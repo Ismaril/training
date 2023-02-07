@@ -1,0 +1,16 @@
+RAM
+
+Serves as a temporary storage.
+RAM is stored in modules on motherboard called DIMMS (Dual Inline Memory Module)
+DIMM means that RAM has two rows of pins (at right and at left side) There can be 168, 184, 240 or 288 pins.
+DIMMs will be installed into memory slots on motherboard. There are usually 2-4 memory slots.
+
+In order for program to function, it has to be loaded first from hard drive to RAM and from RAM the CPU can
+operate with the data.
+
+The bigger the RAM the better for performance, because the cpu can directly operate with data already avaliable
+in RAM. If the RAM is small, all the missing data has to be stored in the meantime on the hard drive and later
+loaded to the freed up RAM.
+
+I looked up if the HDD can actually be used as RAM and yes, when the RAM is full, the system can use the portion
+of HDD but at the expense of drastical reduction of speed.
