@@ -1,0 +1,30 @@
+HUBS and SWITCHES
+Serve as a exchange points to all the connections on internal network (LAN).
+They are not used to exchange data outside local network, for that a router is used.
+
+
+HUB
+The hub is not inteligent because it only copies data.
+What comes in to the hub, gets equally copied to all outputs, meaning what comes inside will be outputed on the
+	remaining ethernet ports.
+Real world situation:
+There are connected 4 PCs to the hub. One broadcasts new data into hub. All 3 remaining are connected to the hub.
+PC who broadcasts data intends to send the data to only specific one computer, but the remaining pcs will get the 
+transmition also. 
+	-> This can be both advantage and disadvantage. It really depends on application.
+	-> Can be a security risk
+	-> Creates unnecessary bandwith
+
+
+SWITCH
+Is inteligent, because it can detect MAC addresses of conected devices and route the traffice directly to the
+machine into which it belongs.
+
+Real world situation:
+There are 4 PCs connected to the switch. PC1 sends datapacket to the PC2 and the packet arrives only to the PC2, even
+though there are two more coputers connected.
+
+
+ROUTER
+Routes data from another external network (based on ip address) to a local network.
+Router is a gateway to external network, because it will not let in the data, that are ment for another local network.

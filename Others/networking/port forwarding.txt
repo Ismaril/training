@@ -1,0 +1,23 @@
+
+Explained in my words:
+Port forwarding in your local area network (LAN) is used when you want to allow access to outside clients into
+your netowrk. By default all incoming traffics are blocked into your network. When you want the outside clients
+to initiate the connection into your local netowrk, you have to manualy specify it in your router. There are
+predefined port numbers, which are each used for different purposes. For example 80 for HTTP, 20 and 21 for FTP,
+443 for HTTPS etc. When you open a page and want to get back the info from your request, it will return back
+to your network because it was you who initiated the connection in the first place.
+
+Port forwarding allows computers to connect into private network. It basically means that you can make your computer 
+accessible to outside even though you are behind a router.
+
+Port number is ALWAYS sent together with IP address like 192.168.1.127:139 (:139) meaning the request is 
+regarding service which is represented by number 139. IP address has the main purpouse to find the destinaiton,
+but the port has the main purpouse to identify the service or the purpouse of request.
+
+If you want to allow remote connection into your LAN, you have to specify the number of port number and
+statick IP address of the device in your network, into which the connection should be established. For example, if
+you want just remote control from outter computer use some higher number like 3380 (not to conflict the reserved ports)
+
+The range of all possible ports ir from 0 - 65535.
+The privileged category is from 0 - 1023, meaning in this range are the most common services used in general by 
+everyone.

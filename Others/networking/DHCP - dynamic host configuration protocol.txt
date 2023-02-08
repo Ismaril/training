@@ -1,0 +1,32 @@
+Static IP address
+Used in the beginnings of networking, had to be manually set up at PCs settings.
+Also you had to remember addresses which you already used in the past for already connected machines, to avoid
+	duplicate IP addresses in the same network (would cause IP conflict).
+
+
+Dynamic IP address
+DHCP server automatically assigns
+	new ip address,
+	subnet mask,
+	default gateway,
+	DNS server, 
+	to each device that connects to a local network.
+
+Range of available can be customised by network admin.
+Start IP address 10.0.0.1
+End IP address 10.0.0.100
+This means there are 100 available addresses.
+
+IP adddress via DHCP is not assigned forever, but for a specified time. This is done not to run out of addresses
+when some devices are no longer connected. It frees up the addresses after specified time so that they are
+available in case some device disconnected. Devices that are still connected will have the 'lease' durating prolonged.
+
+It is possible to reserve a specific IP address on DHCP server based on your MAC address. It has to be set up 
+	manually however.
+	There reservation are usualy given to routers, servers, printers or basically anything which is non stop connected.
+	
+
+DHCP server (where it runs?)
+It can run on external server.
+But for home application, it is also usually built in a router, meaning router can assign new ip address and other 
+	stuff itself.

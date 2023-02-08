@@ -1,0 +1,20 @@
+TCP (Transmission Control Protocol)
+
+TCP makes sure that the	communication is reliable and data is fetched correctly, completely and without errors.
+(Webpage loading correctly, the file is downloaded complete meaning nothing is missing,... etc)
+
+TCP is connection oriented protocol, meaning the TCP has to first check that the two computers are communicating,
+	meaning the session has started. (3 steps as described below)
+	- Sender PC sends a SYN message.
+	- Reciver PC must return SYN acknowledgment back to sender
+	- Sender PC sends acknowledgment to reciver PC that acknoledgment arrived.
+
+TCP guarantees the delivery of data, meaning if some data is missing in the reciever PC, TCP makes sure that
+	the sender PC resends it.
+
+
+UDP (User Datagram Protocol)
+UDP is connectionless oriented protocol, meaning it does not establish a session between two computers and does not
+	quarantee delivery of data.
+	If the sender PC sends the data, it is not guaranteed that the data will be recieved at the reciever PC.
+The only advantage of UDP is that is faster than TCP.

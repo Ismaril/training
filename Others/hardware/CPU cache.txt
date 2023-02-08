@@ -1,0 +1,18 @@
+As DRAM stores data within capacitors (therefore dynamic, because it has to be constantly recharged), the CPU
+memory SRAM (static RAM, because it does not have to be constantly recharged) is faster a lot more expensive.
+CPUs memory is also called CACHE.
+
+In cache are stored data that the CPU thinks are going to be used over and over again, therefore need to be
+still available for non stop access. This means, that if the data is available in chace, the operation will be
+performed very fast, compared if the data has to be loaded from DRAM or even HDD.
+
+Theoretically CPU can run without cache, but it would be a lot slower working with only RAM or even HDD.
+
+There are 3 types of caches.
+	level 1 cache - is primary cache and is the fastest one. This one is checked as the first memory in the whole
+		computer, when the data are needed.
+		Dedicated to only one core.
+	level 2 cache - serves as the 2nd in order for data that were not catched by level 1 cache.
+		Is also dedicated (together with lvl 1 cache) to one core.
+	level 3 cache - last cache in order where CPU checks for data. This cache is common for all cores. If the
+		data is not found there, then the CPU has to look into RAM.
