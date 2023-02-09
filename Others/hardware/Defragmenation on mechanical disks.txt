@@ -1,0 +1,8 @@
+When the data (program, music, ...) is written down on a harddrive, (old spinning one) it is divided into multiple chunks, that
+are written down on multiple places at a HDD. As the data are written down, deleted or the disk is getting out of space the data
+is written down on locations that could be scattered all around the physical disk. Meaning it takes longer for a head to find all
+the data. Defragmentation makes sure, that the divided data accross whole disk is placed together, meaning data lie physically 
+close together.
+
+SSD do not require defragmentation because they have no spinning parts and data can be accesed from anywhere without the delay which
+would have for example HDD.

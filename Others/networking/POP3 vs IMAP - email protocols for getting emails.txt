@@ -1,0 +1,21 @@
+These protocols are used for retrieving emails from a server.
+
+When using email client you can specify which one of these two protocols you want to use.
+
+
+POP3 (Post Office Protocol 3)
+Is the simplest of the two protocols because it only downloads mails from a server to a machine.
+It downloads always one mail to one machine. Meaning it downloads to your machine only things that are
+in your inbox folder on a server. Meaning if you are connected to a mail server with
+more devices, you will not be able to acces the one mail because it was sent only to one machine and moreover
+once the mail is sent, it is always deleted from a server. Since all the mails are phisically downloaded,
+you will be able to view the even without internet connection. It has an advantage for server, because it saves space.
+There are disadvantages also, that the data could be more easily lost in case of some problem. Also there is
+a higher chance of virus infection because the mails are fully downloaded.
+
+
+IMAP (Internet Message Access Protocol)
+Imap makes sure that the emails in all folders in your account on the server are accessible to all your devices
+connected. It automatically updates every change that happens either on server or any of your connected machines. 
+It however sends only caches of mails, meaning you will not be able to access everything in your local machines
+if there is no internet connection.

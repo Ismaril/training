@@ -1,0 +1,15 @@
+MODEM = ModulerDemodulator
+Used for communication with outer net via analog signal.
+Between your PC and MODEM is digital (0 and 1) communication and between the model and outter world is analog
+signal (wave).
+When the analog signal comes from the outer net is has to demodulate it into digital signal and it has to do the
+reverse (modulate) when you want to send the data out.
+Modems are connected via coaxial cable (cable for TV) or DSL modems are connected via phone line (RJ11/RJ12)  
+
+ROUTER
+Router comes after the modem in the direction towards your local machines. It is used to distribute the digital
+signal in your local net. It can distribute it wirelessly or via cable or both.
+Router can be also a switch, that means it could distribute wirelessly or through LAN cable from its ports. (usually
+there are 4 ports in the router). If you need to connect only one device in your local net, technically you do
+not need a router and you can connect directly to the modem.
+There might be router models that have modem and router in one device.

@@ -1,0 +1,13 @@
+SMTP - (Simple Mail Transfer Protocol)
+
+(Sending mail to people) - just to remember a shortcut, not actual description....
+
+SMTP is used to send out mails.
+
+When you send out email, it travels to the SMTP server. For example if you are using services of google the mail will
+travel to smtp.gmail.com. This server will then also use SMTP to send the mail to the server to which your recipient is a client.
+Now it is up to the recipient to log in into his email account program and the email will be downloaded from a server to recipients pc via
+POP or IMAP protocols. Or they can just check the email in online service.
+
+SMTP uses TCP protocol, meaning it guarantess delivery of the email. In case the address does not exist...etc the mail will not be 
+delivered and you will get notification about that in your inbox.

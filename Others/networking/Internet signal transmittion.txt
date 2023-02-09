@@ -1,0 +1,10 @@
+My take on how it works.
+
+Todo: this might require multiple iterations to write everything down.
+
+Data is stored in a local network on a disk, could be a server or just a pc. Request todo: fill this. Data from datacentres travel usually
+by optical cables. Optical cables are main tracks of internet data transmition. It is possible that the data gets from the source to your pc
+just by a optical cable, but the infrastructure has to be implemented at your side. Otherwise the data is delivered to todo:check where. From 
+this place the data can be transfered to your location by TV cable (coaxial cable) telephone cable (RJ11/RJ12) or wirelessly. Wireless
+traffic can be distributed by 'fixed wireless' points. These points are in sight to each other and can transmit data to locations
+where is not cable infrastructure. The wireless signal is transmited as radio wave meaning analog signal.
