@@ -1,0 +1,11 @@
+NAT - network address translation
+
+Is a service that is used in routers, due to the IPv4.
+Its main purpouse is to convert IP address which is publicly registered (address of your router for ex.) to a local
+address. Also when local device wants to send something out to the internet it's address (such as 192.168.x.x) will
+be converted by router to public IP address which was assigned to your router by your internet provider. 
+This means that router has one public address which is visible to the outside world and one local address
+whic is the same subnet as the connected devices in your local network. Main purpouse of NAT is not to run out of
+public ipv4 addresses.
+
+In the future of IPv6 there will be no need for NAT.

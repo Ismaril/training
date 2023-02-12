@@ -1,0 +1,61 @@
+VGA - video graphics array
+since 1987
+15 pins in 3 rows
+only transmits analog data (quality may degrade at high res or long cable lengths)
+blue color adapter
+used on CRT monitors, but also today in some remaining exceptions on LCD monitors
+
+
+DVI - digital visual interface
+since 1999
+designed to provided HQ video to LCD monitors
+typicaly white color adapter
+
+DVI A - analog
+sends only analog signal
+
+DVI D - digital
+sends only digital signal
+
+DVI I
+sends both analog and digital signals
+
+DVI dual link
+dual link has 6 more pins and doubles number of data throughput
+max res 2560x1600
+
+DVI single link
+max res 1920x1080
+
+
+HDMI - high definition multimedia interface
+used in TV, PC, ...
+since 2002
+can send uncompressed video and audio in the same cable
+
+HDMI 1.4
+since 2009
+can send uncompressed video, audio and network communication (100Mbit/s) in the same cable
+4K video at 30hz
+
+HDMI 2.1
+since 2017
+4K video at 120hz
+8K video at 60hz
+10K video
+
+
+DP - display port
+since 2006
+primarily used for video
+can also carry USB data and audio data
+is meant to replace older VGA and DVI
+can be used with reductions to older adapters
+has multimonitor capability, meaning you can connect one DP cable from PC to first monitor and then second
+	cable to conect the first monitor and second monitor and so on.
+Due to multi display capabilities its main focus is on computers
+It also has locking mechanism, when you want to pull it off the hole from pc. 
+
+DP 1.4
+since 2016
+8K at 60hz

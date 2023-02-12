@@ -1,0 +1,12 @@
+Powerline ethernet networking
+
+This is a system in which data are transfered through a electrical net.
+
+Take an example a factory building. There might be a part of the complex that does not for some reasone allow instalation of
+new ethernet cables of wifi routers. There is a possibility to send data through electrical net. You just need adapters 
+with RJ45 connector hole which you plug into the wall. Also there will be need for modem in order to translate data.
+
+There is no need for software or hardware configuration. You just plug the adapter in the electricity.
+
+This system is similar just as if you were sending data through telephone line (which supports both phone communication and
+data transfer). It is possible due to transmittion of data on different frequencies.

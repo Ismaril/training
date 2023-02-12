@@ -1,0 +1,18 @@
+ARP - address resolution protocol
+
+Is used to resolve physical addresses (MAC) to ip addresses. MAC address is unique for each physical device on the 
+world. When a device on a local network needs to communicate with another device on a local area network, it needs to know the MAC
+address of the other device. 
+
+Ip address is used to locate a device on a network or locate networks.
+MAC address is what identifies uniquely each device on a local network.
+
+You can use arp -a in cmd to check arp cache on your local machine. There will be stored addresses
+with which your computer either communicated or atleast the devices somehow announced themselves.
+
+When a computer wants to communicate on a local net, it will send out request: Who is an ip address xx.xx.xx.xx?
+Some pc will respond that it is their ip address and together with it being identified via ip, the device will
+provide also a MAC address (it will send its mac address to the requesting device). The requesting device will
+then store mac addresses from previous requests in its cache for better efficiency. Once the requesting device
+has a mac address of another device, the communication can start.
+
