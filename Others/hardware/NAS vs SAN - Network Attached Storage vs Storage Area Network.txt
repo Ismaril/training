@@ -1,0 +1,18 @@
+NAS & SAN
+both of these systems are used for storing data.
+
+NAS - Network Attached Storage
+NAS is typically a box, which has many HDD in a RAID setup.
+NAS is connected to a switch or router, so the data can be accessed over a netowrk. Now the NAS can be accessed as a shared drive.
+Used in homes or small-medium size businesses.
+It is not fault tolerant, meaning if somthing happens to NAS, no data from this setup will be available to the network.
+
+
+SAN - Storage Area Network
+SAN is a special and high speed network that provides and stores a large amounts of data. It is dedicated network with main function 
+of data storage and data providing.
+SAN network contains disk arrays (data storage), switches, optical cables and servers.
+SAN is fault tolerant because the same data is shared between several disk arrays.
+SAN is recognised as a local attached network compared to shared network drive in NAS.
+SAN is highly scalable, you can extend the disk arrays without interupting the function of the SAN.
+Used in large size businesses.

@@ -1,0 +1,19 @@
+DMZ - demilitarized zone
+DMZ is used to improve security of a network by segregading some devices from that network infront of and behind firewall.
+
+Example what we want to avoid and how to fix it:
+Lets say that you got business which provides web and email services. All these servers all that comes with it are behind firewall.
+Now once the client from the internet wants to connect to the web server, the firewall will let the user in to access it. 
+But this might be a problem for the whole network because once the outter client is behind firewall, he can theoretially access
+other devices in that network or plant a virus inside. This is a risk for owner of that local network. To solve this problem the 
+web and email server would be actually placed in front of firewall. Now the users can access the web and mail services but will
+not be allowed to access the infrastructure behind the firewall. These two servers are now in DMZ (also known as perimeter network).
+This perimeter network can partly be used as a form of vanguard for potential malitious activities before they get to firewall.
+The most secure network would be if you added second firewall after the router. Now the setup would look like this:
+Internet---local router---firewall---web and mail servers---firewall---remaining private network
+
+FYI:
+In case you ever had console, you can set it up as DMZ to route all trafic to your console as DMZ host. It is often done because
+firewall might filter out some ports and you are not gonna be able to connect to a game. In this case you should set up static ip address to your
+console. So in this setup the router will act as firewall and all trafic will be routed into your console. This adds a layer of
+protection to all other devices that are connected to the router.

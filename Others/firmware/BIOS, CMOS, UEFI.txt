@@ -1,0 +1,22 @@
+BIOS - Basic Input Output System
+BIOS is a firmware that is built into computer's motherboard.
+It initializes computers hardware as the computer is being booted. This is called POST (power on self test) which checks that
+hardware components are working correctly before a operating system is loaded. If the POST is passed the speakers should make a beep
+that the test has been passed. If there are multiple beeps or none, there might be something wrong with the hardware. You can check
+the beeb signalization based on manufactures documentation.
+Then BIOS searches for optical or storage drive to boot software such as operating system.
+
+The BIOS is stored on the BIOS chip on the motherboard. The BIOS default settings are preserved even when the computer is turned off. If
+there is CMOS which has still power, the BIOS can still work with the settings you set in the past. If the CMOS runs out of battery,
+BIOS will be reverted to its basic settings.
+
+
+CMOS 
+CMOS is used for storage of BIOS custom settings in CMOS chip. To preserve the data like date/time, boot sequence and hardware settings.
+CMOS uses battery for a time when a computer is not connected to power. It is a battery just like in handwatches, and you can 
+see it mounted on motherboard. Usually located on the bottom right hand corner.
+
+
+UEFI - Unified Extensible Firmware Interface
+UEFI is a newer version of BIOS with modern graphical interface where you can use also mouse. It comes in all modern motherboards.
+UEFI has 'secure boot', that is a build in feature that stops digitally unsigned drivers from loading (prevents loading for ex. malitious software)

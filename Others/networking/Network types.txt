@@ -1,0 +1,37 @@
+PAN - personal area network
+Example is your pc connected to your phone via:
+bluetooth, infrared, USB cable
+used for transmition of small files, like music, documents photos etc
+
+
+LAN - local area network
+LAN is a group of devices - computers, servers, switches, routers, printers,... that are located in the same building such as office
+or your home.
+Connected devices can be via Ethernet cable like RJ45.
+
+
+WLAN - wireless local area network
+WLAN is just like LAN but without using calbes.
+
+
+CAN - campus area network
+CAN is a network that connects two or more LANs together. Example could be connected buildings at University where each building has
+its own LAN, but the buildings are at the same location (I guess this is not a requirement).
+
+
+MAN - metropolitan area network
+This is bigger CAN. It connects objects at larger scale in city. It can span across several buildings of blocks. Data are transmitted
+via optic fibres.
+
+
+SAN - storage area network
+This setup is not really based on physical location as cases above. It is rather huge network by itself managed by huge companies
+that provide data storage or services. This system on a physical level be just in one building but it will contain multiple disk
+arrays, switches, servers etc...
+
+
+WAN - wide area network
+This basically connects huge clusters together. Could be connection across continets. Basically this is world wide web.
+
+
+
