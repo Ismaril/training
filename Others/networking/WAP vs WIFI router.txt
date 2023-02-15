@@ -1,0 +1,20 @@
+WIFI router
+Is stand alone or is one unit with modem.
+Provides internet access in local area network through cable and wirelessly.
+It is used in homes or small offices.
+Has firewall.
+Has DHCP service.
+Has WAN port (wide area network a.k.a. internet). This is a port where you plug in cable from the modem (...just cable from internet). 
+Has usually 4 ports for ethernet connection. (home usage type)
+
+WAP - wireless access point
+This is a device that can be optionally used to act as a new transmitor of wireless data from parent wifi router. The WAP connects directly
+to a router via ethernet cable. You can place multiple WAPs and link them all physically into the same router. 
+It makes sense to place thouse WAPs strategically, so that the network has highest wireless range.
+So once you got setup across your building ready, this makes management of that network a lot easier compared to when you would 
+replace those WAPs by other routers. So in situation when there would be multiple routers on the same level connected to one parent
+router, it would add a unnecessary complexity. If you wanted to make a change, you would have to get into each single router 
+settings. Now in the case where we have the WAPs, the change can be done only in the parent router. All those WAPs are basically an
+extension of the single router.
+Does not have firewall.
+Does not have DHCP service.

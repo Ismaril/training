@@ -1,0 +1,36 @@
+WIRED CONNECTON
+Star
+There is a centralised entity like hub or switch. Each device is connected to the central entity with its own cable.
+Advantage is that if some connected device or cable fails, others can run. If the central hub or switch dies, whole 
+network goes down.
+
+Ring
+Each computer is connected with exactly two neighbours, meaning one pc left + one cable and other on the right.
+Meaning there is a closed loop (ring) when it comes to cabels. Each data packet is therefore sent across whole ring until
+it reaches the final destination.
+This topology is very old and is rarely used today.
+If one pc goes down or some cable gets destroyed, whole network goes down.
+
+Bus
+Old topology that is rarely used today.
+All devices are connected to a single cable (backbone) which is called bus. Meaning from each computer there lead one cable to
+the main bus which is then backbone to all computers. When a given pc wants to  join bus, there has to be used BNC/T-connector
+(it is really T shape fyi). The backbone is a "coaxial cable". The main bus has to be terminated on both ends,
+or on any unused connection using "Terminators", else the data would bounce back (called signal reflection) and it would not work.
+
+Mesh
+In this topology each computer is connected with each computer. This is very robust system which is unlikely to fail but is
+expensive and hassle to connect everything togeter.
+This is rarely used on local area networks.
+It is rather used in wide area networks - internet. (basically on the most upper network scale)
+
+
+
+WIRELESS CONNECTION
+Ad hoc
+Devices in adhoc communicate P2P (peer to peer). There is no central hub or anything.
+
+Wireless mesh
+There is a modem (or optics), switch and bunch of wireless access points. The access points are connected with other access points
+if they are within reach. This means that you can access the net every where where are access points. Once you are connected with 
+certain access point, the trafic is routed via other connected access points until you reach the gateway out of your local network.

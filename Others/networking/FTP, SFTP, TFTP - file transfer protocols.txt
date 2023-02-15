@@ -1,0 +1,31 @@
+FTP - file transfer protocol
+FTP is a system that computers use to transfer file over TCP/IP.
+If you want to make your files available to the internet you can either upload them to FTP server, or you can setup your PC as FTP server.
+To access FTP server you can use both web browser or ftp client (GUI).
+So if you want to access remote ftp server, open web browser and type in ftp.name_of_that_site.com. So you can see that there is
+a difference to regular website that would start the address with https://www.name_of_that_site.com. Once you are in the FTP server
+via your browser it will look inside like when you are browsing your local disk via browser. Some FTP servers will require an account
+with password but some will let you get in anonymously.
+
+In case you wanted to connect to FTP server via GUI you can use for example Filezilla. Uou then insert your login, passwrod,
+server where you want to connect (host) and port (21, 22...I think)
+
+FTP is however not really used byt normal people.
+It is handy when web designers or admins want to transfer files to their web servers.
+
+FTP is not secure - all the data IS NOT encrypted. You should therefore only transfer data that is not sensitive.
+
+
+
+SFTP - secure file transfer protocol
+It is the same as FTP, except SFTP is encrypted using secure shell. SFTP autenticates both the user and the server before communication.
+SFTP uses port 22.
+Also communicates over TCP/IP.
+
+
+
+TFTP - trivial file transfer protocol
+Is used only on local network not for world wide web.
+Is not used by regular humans, rather is used by network devices to transfer, for example, config files.
+Used UPD instead of TCP (data delivery is not guaranteed)
+TFTP does not encrypt data.

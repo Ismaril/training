@@ -1,0 +1,13 @@
+The data transmitted over wifi are radiowaves.
+
+2.4Ghz router
+This type of routers are single band because the transmit only via 2.4ghz.
+The problem is that 2.4Ghz is a range that is used by other devices like bluetooth, microwave, cordless phones and others. That means
+that there might be an interference on that frequency and the data can easily not arrive at destination, or the signal might be lower.
+If there is a problem with interference, there is a possibility to switch channel in your router. (but the success is not guaranteed)
+This router transmits data at lower speed but has higher range.
+
+5Ghz router
+Some models can be dual band, meaning the can also transmit at 2.4Ghz.
+Has figher frequency, that means it has higher speed, but shorter range.
+Since it is higher range/frequency there is not much interference (ruseni) at the moment.
