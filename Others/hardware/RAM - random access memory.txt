@@ -4,6 +4,7 @@ Serves as a temporary storage.
 RAM is stored in modules on motherboard called DIMMS (Dual Inline Memory Module)
 DIMM means that RAM has two rows of pins (at right and at left side) There can be 168, 184, 240 or 288 pins.
 DIMMs will be installed into memory slots on motherboard. There are usually 2-4 memory slots.
+DIMM transfers 64 bits at a clock tick and SIMM transfers 32 bits. (SIMM is outdated)
 
 In order for program to function, it has to be loaded first from hard drive to RAM and from RAM the CPU can
 operate with the data.
@@ -14,3 +15,38 @@ loaded to the freed up RAM.
 
 I looked up if the HDD can actually be used as RAM and yes, when the RAM is full, the system can use the portion
 of HDD but at the expense of drastical reduction of speed.
+
+RAM requires constant electrical power to store data, if the power is off data is erased.
+
+
+Types of RAM:
+DRAM
+	RAM with capacitors. Capacitors must be constantly charged in order to store data, because
+	other wise the charge would fade.
+	Operates asynchronously on system clock.
+
+SDRAM
+	Operates synchronously on system clock (means it is faster overall).
+
+
+32 or 64 bit data path:
+Means number of data in bits transfered in 1 clock cycle.
+Example: if the RAM has 6GHz speed and 64 bit path, it will have no problem with data transfer of 48GB/s.
+
+
+Speed:
+When you see something like PC-100, it means that RAM operates at frequency 100Mhz.
+
+
+DDR technology (Double Data Rate), DDR5, DDR6...
+DDR sends double the data in each clock signal.
+So when DDR RAM and nonDDR RAM have the same clock speed, the DDR RAM will outperform the other
+	because it will take advantage of rising and falling adges of every clock tick.
+You might seem labeling on DDR RAMs like DDR-333 PC-2700. But be careful here, because here the 333 actually means
+	Mhz and 2700 actually means the total speed of 2700MB/s.
+
+
+ECC (Error Correcting Code)
+Used in older RAMs where there was momre likely an error during transmission.
+This technology was/is used in RAMs that are in server applications.
+For personal use ECC is not used because the technology has advanced that there are minimum errors today.

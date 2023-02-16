@@ -11,3 +11,4 @@ This router transmits data at lower speed but has higher range.
 Some models can be dual band, meaning the can also transmit at 2.4Ghz.
 Has figher frequency, that means it has higher speed, but shorter range.
 Since it is higher range/frequency there is not much interference (ruseni) at the moment.
+Has more channels.

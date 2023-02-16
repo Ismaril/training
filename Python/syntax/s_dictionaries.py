@@ -1,6 +1,5 @@
 from Python.utilities import separate_text_stdout
-
-sep = separate_rows_in_training_files.SeparateText()
+sep = separate_text_stdout.SeparateText()
 
 my_dict_1 = {"a": 100, "b": 200}
 my_dict_2 = dict(c=300, d=400)

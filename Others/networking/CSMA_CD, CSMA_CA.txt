@@ -1,5 +1,5 @@
 CSMA/CD - carrier sense multiple access with collision detection
-This was used on early ethernet networks (half duplex, coaxial cables & twisted pair cables).
+This was used on early ethernet networks (half duplex, coaxial cables & early twisted pair cables).
 The main function is to avoid collision of data during data transfer between devices.
 First a computer checks if the cable has no traffic. If not, data is sent out, no problem.
 If there are two computers sending out data at the same time a collision will happen. 

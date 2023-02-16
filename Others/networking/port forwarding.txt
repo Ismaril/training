@@ -15,7 +15,7 @@ regarding service which is represented by number 139. IP address has the main pu
 but the port has the main purpouse to identify the service or the purpouse of request.
 
 If you want to allow remote connection into your LAN, you have to specify the number of port number and
-statick IP address of the device in your network, into which the connection should be established. For example, if
+static IP address of the device in your network, into which the connection should be established. For example, if
 you want just remote control from outter computer use some higher number like 3380 (not to conflict the reserved ports)
 
 The range of all possible ports ir from 0 - 65535.

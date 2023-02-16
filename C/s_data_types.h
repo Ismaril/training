@@ -89,20 +89,20 @@ void data_types(){
 
     // Automatic conversion: int to float
     float myFloat = 9;
-    printf("%f", myFloat); // 9.000000
+    printf("%f\n", myFloat); // 9.000000
 
     // Automatic conversion: float to int
     int myInt = 9.99;
-    printf("%d", myInt); // 9
+    printf("%d\n", myInt); // 9
 
     int sum = 5 / 2;
-    printf("%d", sum); // Outputs 2 (But we expect 2.5)
+    printf("%d\n", sum); // Outputs 2 (But we expect 2.5)
 
 
     // Explicit Conversion (manually)
     // Manual conversion: int to float
     float sum2 = (float) 5 / 2;
-    printf("%f", sum2); // 2.500000
+    printf("%f\n", sum2); // 2.500000
 
 
 }

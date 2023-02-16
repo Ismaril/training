@@ -16,9 +16,21 @@ In case of loss of one disk, data is save on another disk.
 RAID 5
 Most common setup.
 Requires 3 or more disks.
-Data is not duplicated and is 'stripped' along with parity accross the disks. todo: check what this line means
-Parity reduces the amount of actual data which could be otherwise stored on the disks.
+Data is not duplicated and is 'stripped' along with parity accross the disks. Parity is evenly distributed across all disks.
+"Parity" reduces the amount of actual data which could be otherwise stored on the disks. If there was no parity
+the data would have to be duplicated in that case. With parity you can have for example 3 disks in total, and 2 of them worth
+of data will be used for actual data and one for parity (when we take it from scale perspective). In this 3 disk example, 
+if one disk fails, the "parity" from other two will be used to rebuild the data one disk that broke. If two disks get broken, 
+the data cannot be retrieved back.
 
+RAID 6
+Requires 4 or more disks.
+The raid 6 is the same as the raid 5, the data is also spread accross disks also parity works the same. However, the parity is
+spread 2x in RAID 6. This means that in 4 disk setup two of the disks can get broken at the same time and nothing happens to the
+overall collection of former data. Also, since the parity is spread in higher amount, in 4 disk setup 2 disks will be worth of data
+and 2 disks will be worth of parity. (from scale perspective)
+Readaing from raid6 is the same as from raid5.
+Writing to raid 6 is slower due to the writting of double parity.
 
 RAID 10
 Combines raid 1 and raid 0.

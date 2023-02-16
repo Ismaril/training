@@ -84,12 +84,14 @@ start - opens new cmd
 
 
 NET
+(with address is ment either ip address or domain name like google.com)
 ipconfig - ip address info
 netstat - provides a list of currently open ports and related IP addresses
 ftp - can be used to transfer files to and from another computer. remote comp must operate as FTP server.
-tracert - shows traceroute
+tracert - shows traceroute of addresses to the final address
 hostname - displays the name of host (pc that I am using?)
-
+ping - shows time which takes the packet to get to address and return back to us
+arp -a - shows physical addressess stored in your pc's chache (previously establised connections)
 
 POWERSHELL
 get-alias - shows aliases of commands for cmd and bash

@@ -41,3 +41,11 @@ void if_else_funct(){
 }
 
 
+// it is possible to make one shorter version (without indents)
+
+int makeNegative(int num)
+{
+    if (num > 0) return num * -1;
+    else return num;
+}
+
