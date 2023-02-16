@@ -1,0 +1,14 @@
+DNS
+To recap, DNS converts internet address like google.com into ip address, because communication is led through numbers not text.
+Businesses and huge webpages use static ip addresses because it can take up to 24 hours for DHCP server to update the changed ip
+address to the matching text of website url.
+
+
+DDNS - dynamic domain name system
+Is used at home setups.
+DDNS is used only where dynamic ip addresses are used.
+When you setup a DDNS (from some DDNS provider...some are free, some are paid), you can connect to your local network when you are 
+connecting out from the internet by typing always the same address like myhomepc.ddns.org. This works because the DDNS server
+makes user that the address always matches the always changing ip address in DHCP networks. You could of course connect to
+your network by ip address itself, but you would have to know each new ip address once the dhcp server assign new address to the 
+network.

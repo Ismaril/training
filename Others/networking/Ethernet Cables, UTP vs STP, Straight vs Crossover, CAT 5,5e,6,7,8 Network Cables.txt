@@ -1,0 +1,60 @@
+Ethernet network cables
+Are used in local area networks.
+Made from copper.
+They are "twisted pair", meaning they have pairs of cables that are twisted around each other. The two cables are twisted together
+to improve electromagnetic compatibility.
+
+UTP - unshielded twisted pair (ethernet cable)
+Consists of 4 pairs colored wires twisted around each other. They are twisted to prevent electromagnetic interference (crosstalk).
+
+STP - shielded twisted pair (ethernet cable)
+Same as UTP, but there is a foil shield all around all cables to prevent electromagnetic interference leaking in to the cable from
+outside and also from the outside into all cables inside.
+Is used rather in industrial applications.
+
+
+In case you wanted to setup your own cables, you can buy a huge roll of cable and then remove foil from the cable and then attach
+RJ45 connector with proper sequence of those paired cables.
+
+
+It does not matter which standart you use, the result is the same. (568A vs 568B)
+568A (wireing standart of connecting twisted cables to connector)
+Order of cables:
+white-green
+green
+white-orange
+blue
+white-blue
+orange
+white-brown
+brown
+
+568B (wireing standart of connecting twisted cables to connector)
+white-orange
+orange
+white-green
+blue
+white-blue
+green
+white-brown
+brown
+
+Straight (patch) cable
+Straight cable is when both ends of cable are wired using the same standart, like 568B and 568B.
+This is the most common type.
+Used to connect computers to hubs, switches, modems, routers... (connection of dissimilar devices)
+
+Crossover cable
+Straight cable is when both ends of cable are wired using the different standart, like 568A and 568B.
+Is used to connect two similar devices, like computer and computer or switch to switch etc.
+
+
+Categories of twisted pair cables:
+They differ by speed they can handle without having any crosstalk (interference)
+Category 3	10Mbs
+Category 5	100Mbs
+Category 5e	1Gbs (enhanced)
+Category 6	1Gbs (10Gbs when cable < 100meters)
+Category 6a	10Gbs Augmented
+Category 7	10Gbs (with shielding of cables)
+Category 8	40Gbs (distance 30meters)

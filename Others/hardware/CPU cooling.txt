@@ -1,0 +1,15 @@
+CPU (besides GPU) is the hottest part in pc - needs cooling.
+
+Air cooling
+IS the most common cooling.
+CPU has on itself attached "heat sink". It is aluminium block which has many little plates that go  orthogonally from CPU up. Their
+job is to increase surface area of CPU, so that air colling is more efective (more air contact). On top of the heat sing is a fan.
+Thermal compount (something like glue or some paste) is applied between CPU and heat sing, to fill the microscopic imperfections
+on surface, to improve leading of heat.
+
+Water cooling
+Has pump, tube, radiator and fan. - whole unit is placed on top of CPU. The water circulates.
+Is more effective at cooling.
+More expensive.
+Used in high end setups that are making huge computations like gaming pcs etc.
+More quiet.

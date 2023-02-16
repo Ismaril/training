@@ -1,0 +1,39 @@
+Broadband cable (coaxial cable)
+Coaxial cable has copper core.
+Broadband cable typically transmits both TV and internet in the same cable from the provider.
+Speed from 25Mb/s to 400Mb/s
+To transform the signal from the cable, modem (often modem, router, switch in one) is needed.
+There is a bottle neck, because you might share the same pool of bandwith over a common cable provided by an telecomunication provider
+in your local area. This means that in hours of high usage, the performance can decrease to all connected.
+
+
+DSL - digital subscriver line
+Uses copper line.
+Is used to both transer telephone signal and internet.
+DSL modem needed (meaning instead of coaxial cable you would insert into modem telephone line).
+(Actually by DSL is not meant old DSL, the slow dial up system, fyi...)
+When you are connected via DSL, you do not have the same line with others meaning the bandwith is not necessarily affected by others.
+Zou just have your own dedicated line.
+DSL is cheaper compared to broadband cable.
+More widely available than broadband cable.
+Speed from 5Mb/s to 100Mb/s
+
+ADSL - asymetric digital subscriver line
+Download speed is considerably faster than upload.
+Widely used at homes.
+
+SDSL - symetric digital subscriver line
+download and upload speeds are the same
+Typically used in businesses.
+
+VDSL - very high bit rate digital subscriver line
+Very fast form of DSL.
+It is used for shorter distances, because optic cables are better at longer distances.
+3x faster than ADSL
+
+
+Optic cables
+Download and upload 1Gb/s.
+Uses glass as a wire to transmit pulses of light across very long distances.
+Has advantage over copper cables because the can be affected by electromagnetical interference.
+Disadvantage is the price and also it is not as widely available yet as previous options.
