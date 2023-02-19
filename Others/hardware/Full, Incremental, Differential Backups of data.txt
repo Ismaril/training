@@ -1,0 +1,31 @@
+Fault tolerance
+It is the prevention of data loss if a component fails.
+
+
+Disaster recovery
+Is the process of rebuilding an organisation's data after a disaster.
+
+
+Data backup types:
+1. Full
+2. Incremental
+3. Differential
+
+Lets take a look at these from perspective of a week days.
+
+1. Full backup
+The company makes a full back up of all data each day of the week. This takes a lot of time, when the data is being backed up.
+However when the crash happens, the storage device that holds the last full backup can be used to restore the data. It has the 
+fastest time of getting all things back to business.
+
+2. Incremental backup
+The company makes a full backup of all data on Monday. Then each next day, only data that is backed up are the data of that day.
+This means that on Tuesday only Tuesday data are backed up, Wednesday data on Wednesday. So this means that the backups are
+made only for the data that chaned each day. Data is also separated into baskets belonging to each day. This is the fastest method
+to backup data. However, when you want to restore the data after crash, you not only need to reload the full last backup, but
+you have to reload each day's data in the order how they went after each other.
+
+3. Differential backup
+The company makes a full backup of all data on Monday. Then it makes a backup of Tuesday. Then it makes the backup of Tuesday+Wednesday.
+Then it makes the backup of Tuesday+Wednesday+Thursday. And so on. This takes medium time to backup and also medium time to restore.
+In case of data restoration, all you need is the last full backup + the backup of all the days you backed up together.

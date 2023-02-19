@@ -1,0 +1,33 @@
+Motherboard is the main component of a computer which all other components conect to.
+Often called as mainboard or "mobo".
+
+CPU socket - CPU is placed here.
+Memory slots - RAM is placed here.
+Bus slots (expansion slots) - for GPU, soundcard, network card, etc.
+SATA connectors - SSD and HDD are placed there (possible multiple of them).
+M.2 slot - in modern motherboards - for M.2 SSD NVMe.
+PCH - platform controler hub - in modern motherboards.
+	PCH replaced southbridge from older motherboards. 
+	Chipset - used in old motherboards. (Norht bridge and South bridge)
+		Northbridge connected CPU, RAM and PCI express bus. (Northbridge is today implemented directly in CPU)
+		Southbridge connected standart PCI slots, SATA conectors, USB ports, etc.
+		Southbridge was connected to northbridge.
+I/O interfaces	- USB ports (universal serial bus)
+		- Display, HDMI, VGA ... ports for graphics
+		- RJ45 interface into network interface card.
+		- Jacks interface into integrated sound card.
+
+
+Form factor (size of motherboard)
+ATX - Advanced Technology Extended
+Most common type of motherboard today, standart of today.
+12x9.6 inches
+
+AT - Advanced Technology
+Used in 1980s.
+No longer in developement.
+
+MICRO ATX
+Smaller versions of ATX. 
+Cheaper.
+They use less power, but have also less features.

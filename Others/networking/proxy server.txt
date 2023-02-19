@@ -1,0 +1,23 @@
+Proxy server
+Proxy server is a server that retrieves data (such as webpage) on the internet on behalf of a user.
+Normally when you make a request, your pc sends it via your router out to the internet till it reaches the website and it will get back
+to you. With a proxy server, your pc makes a request to a proxy server and the server will decide wheter it needs to make a request
+to the webpage on your behalf or wheter is checks for example its cache of previously visited sites. Once the proxy server has the data
+it will send it back to your computer/devics.
+
+Benefits of proxy servers.
+Privacy (Your company at work might actually keep logs of visited pages on its proxy server...so privacy kind of...). Without proxy server
+your public IP address is visible.
+Speed & Saves bandwith. (Proxy server might provide data from its cache, instead of making requests to the webpage)
+Activity logging. (This might be useful for the owner of proxy server, the server will keep logs of visited sites and the time spent on them)
+Possible to block certain websites, not to allow clients to access them via your proxy server (if you are proxy admin)
+
+Negatives of proxy servers
+Proxy server cannot encrypt data. The option is to use VPN.
+
+
+Exmpale:
+Your PC ----------------request (11.22.33.44)----------------proxy server----------------request (22.33.44.55)-----------Website
+11.22.33.44		(your ip is hidden)		     22.33.44.55		(proxy ip visible)
+Your Public IP						     Proxy IP Address
+

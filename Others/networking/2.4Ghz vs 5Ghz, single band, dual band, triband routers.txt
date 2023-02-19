@@ -12,3 +12,12 @@ Some models can be dual band, meaning the can also transmit at 2.4Ghz.
 Has figher frequency, that means it has higher speed, but shorter range.
 Since it is higher range/frequency there is not much interference (ruseni) at the moment.
 Has more channels.
+
+
+Triband router
+It is a router that can transmit via 2.4Ghz and has two bands of 5Ghz. Meaning there are in total three bands through which 
+can the communication be done. This is an advantage to network traffic and interference.
+Smart connect - it is a system that makes sure in the triband router, that newly connected device is connected to a band
+where it can be maximally effective. This means that it will automatically connect older pcs, phones, wireless printers to 2.4Ghz
+and newer devices to either of 5Ghz bands. If there are about 10-15 devices connected to your current router, it makes definetely
+sense to buy a triband router.
