@@ -31,3 +31,9 @@ MICRO ATX
 Smaller versions of ATX. 
 Cheaper.
 They use less power, but have also less features.
+
+MINI ITX 
+Smaller than MICRO ATX.
+Designed in 2001
+Designed for smaller space saving computers.
+Uses less power.
