@@ -1,0 +1,20 @@
+Telnet - teletype network
+Developed in 1969
+Telnet is a simple command line tool, that allows you to send commands to a server and administer it. It can be done both in LAN and also in WAN.
+With telnet you can run programs, create folders,  delete files, create files, transfer files, browse directories, start/stop services, ...
+With telnet it is also possible to administer other network devices like routers and switches.
+Can be also used to test ports on a server.
+Since telnet is only command line and it sends only text, it is very fast.
+It's downside is however security because it does not encrypt data.
+It is sometimes used fo communication with old devices or on local are network.
+
+
+SSH - secure shell
+It does the same thing as telnet.
+Secureshell encrypts the data.
+Provides password and public key authenitication.
+It is used today instead of telnet.
+
+
+Enable telnet client in windows:
+Programs and features->Turn windows features on and off->Telnet client (ON)

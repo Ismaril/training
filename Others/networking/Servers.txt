@@ -1,0 +1,19 @@
+Server.
+Server is a dedicated computer that provides services on behalf of clients.
+It is a centralised machine (can be both on LAN or out on the WAN) that onther devices can connect to.
+
+There can be dedicated servers each for separate service, like webserver, database server, email server.
+Larger organisations will have all critical services separated. Smaller organisations can have multiple services on one server.
+
+Server can be both your computer, which just displays some website or acts as a file server for your local network
+or it can be a huge beast that can handle thousands of requests. 
+
+Professional servers need to be running 24/7, therefore their hardware and software needs to be robust. There is a difference between CPUs for
+desktops and servers. The CPUs are each optimised for different tasks. Server CPU (like intel Xeon) supports multiprocessing environment, meaning
+there can be multiple processors on one motherboard. Xeon processors also support ECC RAM (RAM with error correcting code). Xeon processors also 
+support higher RAM, higher cache memory, higher core count. Servers need hot swappable HDD in RAID configuration, to replace asap the faulty HDD in case
+it fails. It is a good idea to have extra powersource, in case the main electrical powernet goes down.
+
+
+Operating systems:
+Linux, Windows server, macOS server

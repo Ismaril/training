@@ -1,0 +1,15 @@
+This text is about coating of ethernet cables.
+
+Plenum (CMP) cables
+Used in areas that have high air flow, like ventilations etc. Used in drop ceilings or under floors.
+Have highest safety standarts, because they are fire resistant. In case they burn, the will not release toxins.
+
+
+Riser (CMR) cables
+Used on or in walls between floors in a bulding. 
+Have lower safety standarts than CMP cables.
+
+
+CM cables
+Have the lowest safety standarts.
+Used in regular rooms/officies.

@@ -1,0 +1,67 @@
+RJ45
+Most common type of connector.
+Has 8 pins.
+Used to connect devices in LAN.
+Used with UTP (unshielded twisted pair calbe)
+
+UTP coupler
+Used to connect RJ45 connectors - connect two cables together, meaning this UTP coupler is a female.
+
+
+RJ48
+Looks similar to RJ45
+Used with STP (shielded twisted pair calbe)
+Is wired differently compared to RJ45
+Primarily used with T1 lines. todo: check what is T1
+
+
+RJ11
+4 wire connector 
+Used to connect telephone equipment.
+Also used for networking together with modem.
+Little bit smaller than RJ45
+
+
+BNC connector
+Used with coaxial cables.
+USed to transfer digital and analog data.
+BNC T connector - connects 3 coaxial cables together.
+BNC coupler - connects 2 coaxial cables together.
+BNC terminator - used to terminate the ends of the cable.
+
+F-type
+Used with coaxial cables.
+Used by cable providers to attach to cable modems.
+Has a nut that has to be screwed to connect to a desired place.
+Used with satelite internet.
+
+
+USB - universal serial bus
+
+
+SC - standart connector (Fibre optics)
+First of connectors used in fibre optics
+
+MTRJ - mechanical transfer register jack (Fibre optics)
+Connector that uses a latched pull-pull connection
+Designed to replace the SC connector.
+Uses 2 fibres in a single design.
+Resembles RJ45
+Becoming increasingly popular in fibre optics today.
+
+LC - local connector (Fibre optics)
+Designed to compete with SC connector
+Has hlaf the size compared to SC connector.
+Uses a latch similar to RJ45
+
+ST - straight tip (Fibre optics)
+Is on decilne with usage.
+
+
+Fibre coupler (Fibre optics)
+Used to connect two cables with the same connector.
+
+
+UPC vs APC
+Technologies that are regarding data refraction at the end of cables. APC uses cables that are cut with some degree (not perpendicular as UPC),
+meaning when the light refracts it refracts into the cable wall and it does not cause that much of signal loss.
