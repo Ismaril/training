@@ -1,0 +1,37 @@
+Primary memory vs Secondary memory
+Primary memory - temporary memory - RAM
+Secondary memory - memory which is used to store data for long time, must be non-volatile, meaning available also after the the electrical power was off.
+
+
+HDD - hard drives
+Developed in IBM 1956.
+Used still today.
+The are rotating magnetic disks, with head that reads the polarity of magnets around the disk as binary data. The head is able to both read and write data to a disk.
+Rotation speeds - 5400RPM (used in laptops), 7200 (most common), 10000 (high end)
+Are connected with SATA to motherboard. (SATA transfer speed 6Gbit/s)
+3.5 inch size is used in servers and desktop pc, 2.5 inch in laptops.
+After the power is off, the HDD keeps the data on magnetic disk as a state of magnetic polarity (positive and negative). Magnetism is a permanent property
+which does not require electricity to hold the data.
+If you want to save some money, it is a good idea to buy a pc with SSD and HDD. Save on SSD data that are frequently accessed and on HDD data that are not.
+
+
+SSD - solid state drive
+No moving parts.
+USe flash memory chips to store data.
+Are faster than HDD.
+Quite and energy effitient.
+Form factor - 2.5 inch box connected via SATA, M.2 connected via M.2 slot (both store data on flash memory, but connect to mother board via different interfaces)
+More resitant to phisical shock compared to HDD.
+More expensive.
+After power is off, the SSD stores electrons in NAND gate. The value of 0 or 1 is determined by the number of electrons in the gate by their voltage. This
+means that there is a possibility that SSD will lose data after it looses it's charge. SSD must be readable after 1 year at 30C according to standart JEDEC .
+
+
+SSHD - solid state hybrid drive
+Is a combination of SSD and HDD.
+It automatically determines with firmware whether to save data on the HDD part or SSD part. It determines it by the frequency of accessing those file.
+To explain it in different words, the HDD part will store data while the flash memory will be caching the data that need to be accessed often.
+
+
+Typ:
+All drives will eventually brake or loose data, so make a habit of back uping your data.

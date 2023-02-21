@@ -1,0 +1,42 @@
+USB - universal serial bus
+It is the most common port.
+Used to connect all kinds of devices to computer.
+It is universal.
+Is hot swappable, meaning pc does not have to be suft off, in order to disconnect a device.
+Alows charging/powering of connected device.
+
+
+Goal of USB developement
+Make one standart connector.
+Making connected devices easier to configure or not configure at all.
+Provide fast transfer rates.
+
+
+USB Versions:
+version, speed, connector type, color, released
+1.0  1.5 Mbit/s type A   white 1996
+1.1  12  Mbit/s type A   white 1998
+2.0  480 Mbit/s type A   black 2000
+3.0  5   Gbit/s type A/B blue  2008
+3.1  10  Gbit/s type A/C teal  2013
+3.2  20  Gbit/s type A/C red   ?
+4    40  Gbit/s type C   ?     2019
+
+
+B type connectors:
+Type B - Square connector with two chamfers on upper side. Used in printers, microphones, external harddrives
+Type B 3.0 - Has higer transfer speeds and also is able to charge a device. (connector is larger than standart Type B)
+Mini B - Older phones, older cameras
+Micro B
+
+C type connectors:
+from 2014 
+uses 3.1 standart
+Has a connector with round edges
+Does not have up/down orientation
+Used in modern devices.
+It is able to charge larger devices such as laptop.
+
+
+USB ports that allow charging a device even though computer is turned off:
+Red, orange and yellow color ports.
