@@ -1,0 +1,15 @@
+APIPA - Automatic Private IP Addressing
+This is a system that is used when your computer cannot reach DHCP server. (lets suppose that the DHCP server is not in your router). This means
+that every computer on a local network will automatically assign an ip address by itself. To make sure that the ip addresses are not the same, the computer
+will send ARP message other computers wheter someone is using the picked ip address, if no computer replies that the ip address is already taken, it will
+be assigned. Once the computers on the local network have their ip addresses set they can comunicate with each other on local network. However, they cannot
+communicate with the internet or other networks/different subnet. In the meantime, the computers will still be checking for DHCP server, if it is running
+again, if yes those addreses are disgared and DHCP will assign new addresses as usual.
+
+
+The range for self assignment is:
+169.254.0.1 - 169.254.255.254
+and Subnetmask 255.255.0.0
+
+
+If the ip address was assigned by the computer it self, you would see it in "ipconfig" command returned values as "Autoconfiguration ipv4 address: 169.254.*.*"

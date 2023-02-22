@@ -1,0 +1,30 @@
+ipconfig command
+host name - name of your pc
+It is a tool that displays TCP/IP network configuration of network adapters on windows computer.
+ipv4 - ip version 4, private ip address at local network
+ip6 - ip version 6 (will replace ipv4), unique ip of all devices
+subnetmask - defines what part of ip address is local and nonlocal.
+defaultgateway - ip address of a router (modem/router combination)
+lease obtained/ expiration - time how long you will keep your current ipv4 address
+physical address - MAC address of our pc network card
+DHCP enabled - assignment of ip addresses to connected devices automatically
+DHCP server - same address as our router (if it supports it)
+DNS server - a server that transforms text (name of website) to an ip address.
+
+If your pc was connected only to a modem, you would have the same ip addres visible at your pcs
+ipv4. Nowadays you are connected to a router which has private and public ip adress.
+
+
+"ipconfig -displaydns"
+This shows us dns cache at our computer. There are kept matching name of sites to their ip addresses. (This allows us to save time, by not
+censing request to external DNS server for pages we visited recently)
+record name - the website
+time to live - countdown when the record will be deleted from DNS cache
+a (host) record - ip address of that website
+
+"ipconfig -flushdns"
+Used to delete DNS cache at our computer.
+Useful if you want to make sure that there is no browsing history. Also if you suspect that a hacker infiltrated you DNS chache (DNS spoofing)
+and assigned incorrect ip addresses to the names of websites you visited. (You might get routed on a completely different site/location)
+You can also flush your DNS if you suspect that the website changed its ip address and your DNS cache has not updated yet. (storing 
+still the old address)

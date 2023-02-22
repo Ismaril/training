@@ -1,0 +1,25 @@
+Netstat - network statistics
+It is a cmd tool used to display the current network connections and port ativity on your computer.
+
+protocol localaddress:portnumber foreignaddress:portname/portnumber
+
+"netstat -n"
+Show only numbers instead of names in the netstat returned connections.
+This can save up time, because you will get only numbers not any names that have to be returned by DNS server.
+
+"netstat -a"
+Shows witch TCP and UDP ports are listening for connection.
+If you see 0.0.0.0:some_port_number that means that port is not listening on a specific ipv4 address but on all available ip addresses.
+The same is if you see [::]:some_port_number but it is ipv6.
+
+"netstat -b"
+CHeck wich program is being used to make a connection.
+You will se for example [chrome.exe] etc.
+
+"netstat -f"
+Shows full qualified domain name in the foreign address column.
+
+
+You can also combine the switches, like "netstat -an" or "netstat -bf" etc.
+
+ 
