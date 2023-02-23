@@ -1,0 +1,72 @@
+Subnetmask
+Reveal how many bits in the ip address are used for a network by masking the network portion of a ip address.
+
+Actually data are not send as decimal numbers (192.168.0.1) across the net but of course as a binary numbers (11000000.10101000.00000000.00000010).
+
+What counts as a network part?
+Below you see binary forms of decimal ip addresses. The network part of the ip address is the one, where subnet mask has 1.
+
+192.168.0.1
+255.255.255.0
+11000000.10101000.00000000.00000010
+11111111.11111111.11111111.00000000
+Network  Network  Network  Host
+
+
+172.16.1.0
+255.255.0.0
+10101100.00010000.00000001.00000000
+11111111.11111111.00000000.00000000
+Network  Network  Host     Host
+
+255.255.224.0
+11111111.11111111.11100000.00000000
+Network  Network  NtwHost  Host
+
+
+The main reason for using subnets is managability. Meaning breaking down larger network to smaller subnets. Also it saves bandwith. It makes sense
+to have related computers which communicate a lot with each other on the same local network and put another computers in your physical area into another.
+Because if there were fore example XXX computers on the same network, the computer which wants to communicate will send out a broadcast to each computer
+on that network asking for their ip address/mac address. This will definetely slow down the net. So by breaking down huge network into small subnet, 
+the computer which wants to comunicate now send a broadcast only to a few computers in the same subnet or it just leaves out through router which
+will inteligentely route the path to a next destination.
+
+
+You can manipulate with the subnet mask to suit your needs. For example if you want to create just a small subnets with few possible hosts you can do it like
+this:
+
+254 hosts and one subnet (two last numbers from 256 are reserved)
+255.255.255.0
+11111111.11111111.11111111.00000000
+
+126 hosts and two subnets (also two last numbers reserved128 in total)
+255.255.255.128
+11111111.11111111.11111111.10000000
+So example, if you splitted it only in the last octed, that would mean that in ip address 192.168.1.* you would have it like this:
+Network Address	    Usable Host Range	            Broadcast Address:
+192.168.1.0	    192.168.1.1 - 192.168.1.126	    192.168.1.127
+192.168.1.128	    192.168.1.129 - 192.168.1.254   192.168.1.255
+
+
+62 hosts and 4 subnets (two numbers reserved again)
+255.255.255.192
+11111111.11111111.11111111.11000000
+
+
+So to sum this up, the more ones (1) the subnet mask has, the more networks you can have but the less devices in each network.
+Class	First octet address	default subnet mask	number of hosts		application
+A	1-126			255.  0.  0.  0		16 000 000		internet service provider
+B	128-191			255.255.  0.  0		65 000			medium-large organisations
+C	192-223			255.255.255.  0		254			small organisations, at home
+
+
+CIDR - classless inter domain routing (slash notation)
+This is used when you do not want to write a long 255.255.255.0 (example of subnet) but you write it as a number of 1 in that subnet mask - 24.
+Meaning final result: 192.168.1.0/24
+
+
+
+
+
+
+

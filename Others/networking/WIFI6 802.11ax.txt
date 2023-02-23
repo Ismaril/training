@@ -1,0 +1,21 @@
+Wifi6
+Is the latest wireless standart today, released in 2019.
+It is the sucessor of Wifi5 802.11ac standart.
+Has higher speed compared to wifi5, increase from 3.5Gbps to 9.6Gbps. The speed 9.6Gbps is divided between all conected devices.
+OFMDA - orthogonal frequency-division multiple access -- technology that lowers latency and delivers the data to multiple devices more efficiently.
+MU-MIMO - multiple user - multiple input multiple output - technology that allows communication with more devices at the same time. (expalined in separate file)
+	Also MU-MIMO in wifi6 allows communication with multiple devices in upload and dowload. It allows 12 devices communicate in the exact same moment.
+Improved beamforming - strenghtens the signal in specific directions (explained in another file)
+BSS - basic service set coloring -- When you have two wifi routers together with your neigbour close together, they can interfere with each other, which might lead
+	to lags, datalosss etc. BSS alows coloring/marking of network so that it is possible to distinguish networks from each other.
+Has WPA3, the latest security protocol.
+IT is able to broadcast in 3 separate frequency bands - 2.4Ghz, 5Ghz and 6Ghz.
+If you have 15-20 devices connected to a router, it definitely makes sense to buy wifi6.
+In order to reap all benefits of wifi6, the connected devices must also suport this technology.
+
+The main goal:
+Increase the number of devices which could be connected into router.
+Avoid interference.
+
+
+

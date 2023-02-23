@@ -1,0 +1,18 @@
+Bluetooth
+Is a low power, wireless technology that uses short range radio that provides a way to connect nearby devices to each other.
+Bluetooth devices have a chip that transmits signal so that other devices can catch it and connect (pairing).
+Range 10 meters.
+Has a slower transfer rate and shorter range than WIFI, but this is a benefit that it does not drain as much of devices batery.
+Operates at 2.4Ghz.
+The bluetooth is less vulnerable to interference because it uses FHSS (frequency hopping spread spectrum). This system uses transmition of data in a pattern
+that only bluetooth devices can understand - the signal hops between 79 different channels and changes channels 1600 per second.
+
+
+WIFI
+Is a wireless technology that uses radio waves that allow devices to be able to connect to the internet.
+Devices connected via WIFI connect to a router/modem that then connects to a internet service provider. The devices connected to the WIFI can be
+also configured that the create a local network.
+Range 30-91 meters.
+Has faster transfer rate and longer range than Bluetooth, but it requires more energy to be operational.
+Operates at 2.4Ghz.
+Is more vulnerable to interference if using 2.4Ghz.

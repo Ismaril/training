@@ -1,0 +1,17 @@
+Default gateway
+Is a devices that forwards data from one network to another. (for example router/modem)
+"Default" means that the designated device is the first option that's looked upon when data needs to exit the network.
+
+An IP address consists of two parts. Network address and host address.
+A subnet mask reveals how many bits in the IP address are used for the network by masking the network portion
+of the ip address.
+
+IP address 		    binary form
+192.168.0.2 	11000000.10101000.00000000.00000010
+
+subnet mask
+255.255.255.0	11111111.11111111.11111111.00000000
+If the subnet mask has one at a certain position, it means that the same position in ip address is used for
+network. The positions in subnet mask with zero is used for host. (basically the ip address of local network
+will change only in this last part in this example. So all devices under 192.168.0.* network can communicate 
+with each other without leaving local network.

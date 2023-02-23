@@ -1,0 +1,32 @@
+Cloud computing / Cloud storage
+Refers to data and applications being stored and run on the cloud rather than on our local computer.
+Cloud is usually a building with a bunch of computers/servers in it. (server=computer that provides services on behalf of clients). It is used for
+running applications, storing data, data processing, web hosting.
+Purpouse fo companies that sell thier cloud is to provide thier computation power and memory to clients for cash.
+
+
+Benefits of cloud:
+Cost - you do not have to buy hardware, do not have to maintain it, do not have to set it up, dont have to pay electricity...you get the point). Basically
+	it is more cost efficient.
+Reliability - no matter what, the servis will be always available to you, compared to if you had it at your side and have to repair it if it broke.
+Scalability - you only pay for what computation power / memory you actually use at the moment
+
+
+Major cloud providers:
+AWS - amazon web services (1/3 of all cloud business)
+Microsoft Azure
+Google cloud platform
+Alibaba
+IBM
+
+
+Example from real world:
+Netfliex uses AWS for nearly all its computing and storage needs.
+
+
+Cloud computing types:
+These depend of what actually customer needs from a cloud provider.
+IAAS - infrastructure as a service -- This is a type that you use for renting mainly hardware only.
+PAAS - platform as a service -- this is a combination of renting hardware and some software tools
+SAAS - software a service -- this is basically renting cloud with every service from hardware to sofware. All you need to do is just connect from a local machine.
+	This is the most common service.
