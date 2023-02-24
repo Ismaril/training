@@ -1,0 +1,34 @@
+MAC Address - media control access address
+It is a identifier that every network device uses to uniquely identify itself on a network.
+The MAC address is unique to each physical device.
+The number is made up of 6 byte hexadecimal number.
+There are possible 281 trillion possible addresses.
+The first three bytes identify the manufacturer, the last three bytes is number unique to each device. 00-04-5A-63-A1-66
+Is often called also hardware or physical address.
+Possible formats: 00-04-5A-63-A1-66; 00:04:5A:63:A1:66; 0004.5A63.A166
+Purpouse of MAC address is so network devices can communicate with each other.
+Public IP address are unique, but still public and private ip addresses can periodically change, that is the reason the MAC address is used
+	because MAC adresses are permanent (do not change).
+Ip address is used to locate a device, but the mac address is used to identify the device. Both have to be used. There is not one without the other.
+
+
+Example from real life:
+There are 3 PCs and router on a local network connected via switch. PC1 wants to comunicate with PC2, so it sends ARP (address resolution protocol)
+asking the whole local network (those other two pcs and router, whos ip address is XXX.XXX.XXX.XXX? The PC2 responds with its MAC address, because
+the ip which the PC1 was looking for matches the ip of the PC2. Once the PC1 knows the mac address of the PC2, the communication can start. 
+Now suppose you got still the same local network as above, but you want to communicate with google.com. You write an address google.com into browser
+and it gets translated by DNS server into ip address. Now PC1 sees that the address returned by DNS server does not match local subnet, so PC1
+directly sends request to the ip address of default gateway/router for its MAC address. Once tha PC1 has the MAC address of the router,
+the PC1 will send the data to the router. Routers job is now to find the optimal path to the destination. The previous has to communicate
+with the next router which follows it, meaning the preceeding router will again have to get the MAC address (through ARP if layer 2) of the next router.
+The same system continues until the data reaches final destination.
+
+
+So each time the data is passed to another device, MAC address needs to be known.
+The ip address is used to locate and get to the final destination.
+The MAC address is used at each step on its way to the final destination.
+
+
+It is possible to find your MAC address in 'ipconfig -all' under name 'physical address'. It is possible that you can have more MAC addresses
+at your computer, for example your network card, USB for wirelless wifi access to net, or USB for wirelless bluetooth access to net...etc. 
+
