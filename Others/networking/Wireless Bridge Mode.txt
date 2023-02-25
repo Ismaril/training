@@ -1,0 +1,11 @@
+Wireless Bridge Mode
+It is a feature thats build into wifi router that wirelessly connects 2 networks (local networks) together.
+
+
+Example from real world:
+Office 1 has router1 and bunch of devices connected to it. Office2 which is some close distance away has router2 and also some devices connected to it. It is possible to connect
+these two routers and connect those two local networks togeter into one. The setup has to be done only in the second router, by logging in into the setup. (There will
+need to be set up connection to the router1 by writting down its SSID and password) This means that the second router, once connected to the first now becomes only slave to the first. It
+will basically extend the transmition. Firewall, DHCP and NAT will be turned OFF. All the stuff regarding Firewall, DHCP and NAT will be managed by the first router. Now all 
+the devices from the second router can communicate with the devices connected to first router just as if they are in the same network. It is also
+possible to bridge two networks with cable, it will work basically the same as wireless, except there will be physicall cable.

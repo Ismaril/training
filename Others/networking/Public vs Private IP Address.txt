@@ -1,0 +1,32 @@
+Public vs Private IP Address
+When you order a router, the internet service provider will assign an unique ip address to your router. This address is only one on the world. Your router thus has two addresses. One public from ISP and
+one local, that is used on the subnet with other local devices.
+The reason there are public and private ip addresses is to not run out of 4Billion unique addresses that ipv4 allows.
+You cannot acces the internet using private ip address. The only address that is visible to the net is the one of your router.
+The process where router converts local ip address of any connected device to the ip address of a router is called NAT (network address translation)
+The router also does conversion of ip addresses when reciving data from the net.
+
+
+Different classes of ip address range:
+class	ip address range		default subnet mask
+A 	10.0.0.0    - 10.255.255.255	255.   0.   0.   0	large organisations
+B	172.16.0.0  - 172.31.255.255	255. 255.   0.   0	medium organisations
+C	192.168.0.0 - 192.168.255.255	255. 255. 255.   0	small organisations and at home
+
+
+Summary:
+public ip
+unique
+publicly registered on the net
+used externally
+assigned by ISP
+not free
+not secure (they are traceble...use therefore VPN etc.)
+
+private ip
+the same ip can be used on other networks
+not publically registered
+used internally
+assigned by router
+free
+more secure (because they are not visible to the internet)

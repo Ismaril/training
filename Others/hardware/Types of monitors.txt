@@ -1,0 +1,77 @@
+Monitor
+It is a primary output component of a computer. It connects directly to a videocard.
+
+
+CRT - cathod ray tube
+First used in televisions.
+Bulky, heavy and no longer in use today.
+Images displayed on the screen were due to 3 color (RGB) electron guns, which shoot beams of electrons on the screen, creating image. Thease beams sweep across the monitor many times per second. (constantly redrawing the image)
+
+
+LCD - liquid crystal display
+lighter, thinner, take less power, less space
+Known as flat panel displays.
+The backlight shines through liquid crystals and RGB filter to produce an image.
+The old technology of backlight were fluorescent lamps (really those circular light tubes)
+New technology of backlight are LEDs. (produces sharper and more accurate images)
+	LEDs have also higher contrast ratio (difference between black and white, higher contrast ratio means darker black and brighter white) 1000:1 compared to fluorescent light which has 600:1.
+	1000:1 means that the whites are 1000x brighter than blacks.
+	LEDs consume also less power.
+	LEDs can also produce thiner displays.
+	When you hear the monitor is LED, it basically means that it has LED backlighting, but it is still a LCD display.
+
+
+OLED - organic light emtitting diode
+Each pixel produces its own ilumination without having a separate backlight.
+Produces colors wihout using filters.
+Used at monitors, phones, and high end TVs
+Expensive.
+Produce the darkest balcks.
+Contrast ratio 100 000:1
+Thinner than LED monitors.
+Best viewing angles.
+
+
+TN - twisted nematic
+The liquid crystals twist the light as it comes through.
+Oldest.
+Most affordable.
+Best performance - highest refresh rate and fastest response time (response time = how long it takes to change color from one to another).
+	When a monitor has a high response time, it eliminates ghosting. This means that at slower monitors the moving object can leave visible trail as it moves.
+Ideal for gaming.
+Has worse colors.
+Has worse viewing angles.
+
+
+IPS - in-plain switching
+The liquid crystals stay in place and are aligned in parallel with a glass.
+Has better colors.
+Has better viewing angles.
+More expensive.
+Lower refresh rate.
+Slower response time.
+Good for photograpers...etc.
+
+
+VA - vertical alignment
+VA panel is something between IPS and TN in every parameter aspect.
+
+
+Resolution
+The number of pixels at a screen.
+Pixel is a smallest element in a image.
+The more pixels on the same area, the sharper the image.
+Eaxmple 1920x1080 as FHD, 3840x2160 as 4K.
+
+
+Aspect ratio
+It is aratio between width and height of a monitor.
+Standart is 16:9.
+
+
+Refresh rate
+Means how many means how many times the monitor can draw a new image.
+
+
+Response time
+Response time for monitors is the time it takes to shift from one color to another.
