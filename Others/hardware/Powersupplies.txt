@@ -1,0 +1,59 @@
+Powersupply
+Main function is to supply power to a computer.
+Coverts electricity into specific current and voltage a pc needs. 
+The connectors of a powersupply (there are more types) connect directly to a motherboard or to components on the motherboard.
+FYI do not ever buy cheap powersupply, it could blow up or anythin...
+
+P1 connector
+Main power connector.
+Connects directly into motherboards ans supplies it with power.
+20 (older) or 24 (newer) pins on connector
+
+
+P4 connector
+Plugs near CPU.	
+Its purpouse is to supply more power into CPU.
+
+P8 connector
+Plugs near CPU.	
+Its purpouse is to supply even more power into powerhungry CPUs.
+
+
+PCI express connector
+6 and 8 pin connectors (can be used only of of them or also both at the same time)
+Supplies power to highend PCI express GPUs.
+They are plugged directly into videocard.
+Some top GPUs might require 3 8pin connectors to supply it.
+
+
+SATA connector
+15pin connector that supplies SSDs, HDDs and case fans (vetraky).
+
+
+Watts
+Usual range between 200 and 2000Watts. 
+Average PC has source of 600W, but high end computers with a lot of componets inside can have above 1000W.
+
+
+Modular, Non modular, Semi modular powersupplies
+Difference between these is how many cables can you actually remove from the powersupply.
+The less cables in the computer case the better cable management, and also the better air flow (lower temperature)
+Non modular - you cannot remove any cable.
+Modular - you can remove all cables.
+Semi modeular - cables that power motherboard and cpu cannot be removed, but all other cables are removable.
+
+
+Powersupply efficiency
+When you see something like 80plus silver, it means that the powersource has 80% energy efficiency.
+The supply accepts AC current and outputs DC into motherboard and other components. (In that conversion, come power is lost due to heat).
+Meaning if you buy a 600W power souce, it must take from the electrical net more than 600, lets say 750W. This would mean that the power supply has efficiency of 80%.
+The efficency declared by manufacturer should be met no matter the load on powersupply from the PC's side (there is some tolerance for each level by the way).
+Examples of efficiency
+80 plus
+80 plus bronze   84%
+80 plus	silver   86%
+80 plus	gold     88%
+80 plus	platinum 90%
+80 plus titanium 92%
+
+

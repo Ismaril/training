@@ -1,0 +1,34 @@
+Virtualisation
+It is a proces in computing of simulating hardware and software in a virtual (software) environment.
+Traditional way of operation of businesses is/was that each server had one role (was responsible one service, such as email service) and one operating system.
+With virtualisation you can have one physical server and inside of it you can have for example 3 services (email, database, webpage) each with its own operating system (windows, linux, unix). So with this example
+we can say that one physical server is running 3 virtual machines. End user will not be able to tell the difference, when he is connected to a virtual server.
+Each server is independent.
+
+
+Hypervisor
+The software that runs the virtualisation is called hypervisor.
+It allocates and controls sharing of machines resources. (such as storage, RAM, CPU, etc...)
+
+Type 1 hypervisor
+It is installed on bare metal hardware, meaning there is no existing operating system or any other software on the machine.
+So to setup a server from sratch, you would have a empty server case into which you install hardware like cpu, ram, storage drives, motherboard, etc... Once the server hardware is built, we can now install type1 
+hypervisor (for example "VMware ESXi"). Once this software is installed it will be able to create virtual machines. But to create them, you need to alocate to each virtual machine the hardware resources, such as number of 
+CPUs, Size of RAM in bytes (Giga), Size of disks in bytes(Giga/Tera...). Once the resources are allocated, you can load operating systems according to your needs. Then you can finally instal the applications,
+such as email, web, etc...
+Examples of hypervisors type1 - VMware ESXi, Cistrix XenServer, Microsoft Hyper-V
+
+
+Type 2 hypervisor
+Is installed on top of another operating system (such as windows, linux, etc.).
+Typically used on personal computers, when users want to test out different operating systems or just do some research or anything.
+This means that you can also have for example windows and linux in the same computer.
+Examples of hypervisors type2 - OracleVM Virtual box, Microsoft virtual PC, VMware workstation
+
+
+Benefits of virtualisation:
+Saves money on hardware and electricity (potential physical servers are now virtual in less physical servers).
+It therefore saves floor space.
+Saves money on maintanance and management of physical machines.
+Portability - the software in an existing server can be now transfered into new physical server, since it is only a software.
+It allows to run servers on maximal potential, cause otherwise todays powerful servers would run on only fraction of its potential.

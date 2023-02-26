@@ -1,0 +1,51 @@
+Network Ports
+A port is not a physical connection, it is a logical connection that is used by programms and services to exchange information.
+A port specifically determines which program or service on a computer or server is going to be used. (such as email, ftp, webpage)
+Ports have a unique number which identifies them, in range from 0-65535. The are assigned by IANA (internet assigned number authority)
+Common ports are 80 (HTTP), 443 (HTTPS), 21 (FTP), 25 (Email)
+A port is always associated with an ip address. 66.94.34.13:21 (the part before ":" is an ip address, the part after it is port number)
+Ip address determines a location of that computer/server, port determines which service is going to be used at that computer/server.
+
+
+Real life example:
+You enter an address into your browser, the text address is then converted by DNS into an ip address. Also since you are using a web browser, it automatically appends a port 80 or port 443 to an ip address and sends it
+out to the internet to establish a connection with a destination. Once the computer/server is found by its ip, the computer/server now knows what it needs to do, since with ip address also arrived a port number
+which describes which service we want to use.
+
+
+Netstat
+Used as a cmd command to chech active connections with remote computers/servers.
+Proto		local address		foreign address		state
+TCP		192.168.0.11:52013	215.114.85.17:80	Established
+		Ip address of your	Address where you
+		pc with port number	want to connect
+		which was dynamically	together with port
+		assigned for this	number which specifies
+		session.		what service you
+					want the server to 
+					provide to you.
+
+TCP		192.168.0.11:80		12.34.56.78:50252	Established
+		0.0.0.0:80 		0.0.0.0:0		Listening
+If you see that your local address has port 80 or anything from the most used ports, that means that your computer acts as a server. For example if you see, that tere is an 80 appended to your ip address
+this means that your computer can provide services to other computers by providing a HTTP webpage, hosted at your pc.
+
+
+
+Port number categories (3 of them)
+System ports / Well known ports
+0 - 1023
+These are the most common ports that are used all the time, like for email services, webpages etc.
+Used at servers.
+
+User / Registered ports
+1024 - 49151
+These are ports that can be registered by companies and developers for a particular service.
+Example: 1102 (Adobe server), 1433 (Microsoft SQL server), 1527 (Oracle), etc...
+Used at servers.
+
+Dynamic / Private ports
+49152 - 65535
+These are client side ports that are free to use.
+These are the ports that are temporarily assigned by your computer to your computer, during a session.
+Used locally, for example your computer which wants to access some service out on the internet.

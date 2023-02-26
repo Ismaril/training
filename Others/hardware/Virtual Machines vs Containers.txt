@@ -1,0 +1,32 @@
+Virtual Machines
+Virtual machines are explained in different file. Below are written down only some comparisons with containers.
+Consume a lot of disk space, RAM and CPU power. (it is because each VM has its own operating system)
+Slow to start up. (It is due to the booting up of the whole operating system)
+Requires license for each operating system.
+They are portable.
+
+
+Containers
+Container is an application that has been packaged with all the files, configurations, dependencies, etc necessary for it to run. It means it is bundled together with everything it needs to run. This package can be then
+executed in any computing environment.
+So for example if a developer wanted to make a webpage and distribute it via container, they would bundle together everything what it takes to host the webpage on any device. Meaning there would be bundled libraries,
+html code, scripts, webimages, webserver software, etc... Now this container image can be distributed and hosted on any computer or server without adding anything else to it. The container just has everything it takes
+to run it.
+Docker is the most common software for using containers.
+To build a server with containers from scratch you would follow these steps. You would setup hardware, on top of that 1 operating system for the whole server, on top of that container engine (container engine unpacks
+the container files and feeds them directly into operating system kernel), and on top of that are the applications in form of containers.
+Containers contain only aplication, they are therefore wery light weight compared to virtual machines.
+
+Benefits of containers:
+Smaller file size. 
+Light weight.
+Very fast. (containers take only miliseconds to start up)
+Consume less RAM and CPU power.
+The are portable, but due to their size they are portable easier.
+
+Disadvantage:
+Container images (containers) must be packed to work with the same operatin system as is on the server which will run them. Meaning if the server operatin system is Linux, the containers must be linux based.
+If the operatin system on the server crashes, all the containers will go down. (compared to virtual machines where there are more operating systems running in parallel in one server)
+
+
+It is possible to run the virtual machines and containers on the same machine, where the company will have running virtual machines on one server and on top of each virtual machine there will be containers.
