@@ -2,7 +2,7 @@ MODEM = ModulerDemodulator
 Used for communication with outer net via analog signal.
 Between your PC and MODEM is digital (0 and 1) communication and between the model and outter world is analog
 signal (wave).
-When the analog signal comes from the outer net is has to demodulate it into digital signal and it has to do the
+When the analog signal comes from the outer net, it has to demodulated into digital signal and it has to do the
 reverse (modulate) when you want to send the data out.
 Modems are connected via coaxial cable (cable for TV) or DSL modems are connected via phone line (RJ11/RJ12)  
 

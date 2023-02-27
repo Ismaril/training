@@ -5,7 +5,7 @@ You can ping any network host/device no matter if its in LAN or WAN. (such as se
 If you ping an address and you get a response, then it means that there is a conectivity.
 If there is no reply, it means that there is no network connectivity. (there can be serveral reason, explained below)
 	Requests timed out. (device/host is powerd down or the device's/host's firewall does not let you in)
-	Packet loss. (lot of traffice on the network, interference, faulty hardware such as bad cables, faulty network card, faulty modem, ...)
+	Packet loss. (lot of traffic on the network, interference, faulty hardware such as bad cables, faulty network card, faulty modem, ...)
 	Destination unreachable. (the host/device cannot be found)
 
 

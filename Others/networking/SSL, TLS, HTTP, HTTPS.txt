@@ -1,18 +1,18 @@
 HTTP - hyper text transfer protocol
 This is a protocol used for wieving web pages on the internet.
-For example when you type in the internet browser google.com, http is automatically added in front of it.
+For example when you type in the internet browser google.com, http/https is automatically added in front of it.
 In HTTP the data transmition is not encrypted.
 
 
 HTTPS - hyper text transfer protocol secured
 This protocol makes sure that the data is encrypted.
 You should only insert sensitive data (for eaxmple like credit cards when shoppin) at HTTPS webpages.
-Lot of the websites nowdays are HTTPS by default. Also google gives penality with its search engine to HTTP sites.
+Lot of the websites nowdays are HTTPS by default. Also google gives penalty with its search engine to HTTP sites.
 
 SSL - secure sockets layer
 SSL is digital certificate which is used by HTTPS sites to autentificate themselves to the client. 
 It is used to increase security on the net.
-So when you as a client want to acess a website, the website has to identify itself by sending you a SSL digital certificate. Your
+So when you as a client want to access a website, the website has to identify itself by sending you a SSL digital certificate. Your
 internet browser will then check the certificate. If all is ok, the session can start.
 
 TLS - transport layer security

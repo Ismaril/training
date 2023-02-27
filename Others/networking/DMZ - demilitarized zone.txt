@@ -2,7 +2,7 @@ DMZ - demilitarized zone
 DMZ is used to improve security of a network by segregading some devices from that network infront of and behind firewall.
 
 Example what we want to avoid and how to fix it:
-Lets say that you got business which provides web and email services. All these servers all that comes with it are behind firewall.
+Lets say that you got business which provides web and email services. All these servers and all that comes with it are behind firewall.
 Now once the client from the internet wants to connect to the web server, the firewall will let the user in to access it. 
 But this might be a problem for the whole network because once the outter client is behind firewall, he can theoretially access
 other devices in that network or plant a virus inside. This is a risk for owner of that local network. To solve this problem the 

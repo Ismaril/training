@@ -1,6 +1,7 @@
 ipconfig command
-host name - name of your pc
 It is a tool that displays TCP/IP network configuration of network adapters on windows computer.
+
+host name - name of your pc
 ipv4 - ip version 4, private ip address at local network
 ip6 - ip version 6 (will replace ipv4), unique ip of all devices
 subnetmask - defines what part of ip address is local and nonlocal.
@@ -17,7 +18,7 @@ ipv4. Nowadays you are connected to a router which has private and public ip adr
 
 "ipconfig -displaydns"
 This shows us dns cache at our computer. There are kept matching name of sites to their ip addresses. (This allows us to save time, by not
-censing request to external DNS server for pages we visited recently)
+sending request to external DNS server for pages we visited recently)
 record name - the website
 time to live - countdown when the record will be deleted from DNS cache
 a (host) record - ip address of that website

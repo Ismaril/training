@@ -4,7 +4,7 @@ SMTP - (Simple Mail Transfer Protocol)
 
 SMTP is used to send out mails.
 
-When you send out email, it travels to the SMTP server. For example if you are using services of google the mail will
+When you send out email, it travels to the SMTP server. For example if you are using services of google, the mail will
 travel to smtp.gmail.com. This server will then also use SMTP to send the mail to the server to which your recipient is a client.
 Now it is up to the recipient to log in into his email account program and the email will be downloaded from a server to recipients pc via
 POP or IMAP protocols. Or they can just check the email in online service.

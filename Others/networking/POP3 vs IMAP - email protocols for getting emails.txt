@@ -9,7 +9,7 @@ It downloads always one mail to one machine. Meaning it downloads to your machin
 in your inbox folder on a server. Meaning if you are connected to a mail server with
 more devices, you will not be able to acces the one mail because it was sent only to one machine and moreover
 once the mail is sent, it is always deleted from a server. Since all the mails are phisically downloaded,
-you will be able to view the even without internet connection. It has an advantage for server, because it saves space.
+you will be able to view them even without internet connection. It has an advantage for server, because it saves space.
 There are disadvantages also, that the data could be more easily lost in case of some problem. Also there is
 a higher chance of virus infection because the mails are fully downloaded.
 

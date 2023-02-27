@@ -1,7 +1,7 @@
 Subnetmask
 Reveal how many bits in the ip address are used for a network by masking the network portion of a ip address.
 
-Actually data are not send as decimal numbers (192.168.0.1) across the net but of course as a binary numbers (11000000.10101000.00000000.00000010).
+Actually data are not sent as decimal numbers (192.168.0.1) across the net but of course as a binary numbers (11000000.10101000.00000000.00000010).
 
 What counts as a network part?
 Below you see binary forms of decimal ip addresses. The network part of the ip address is the one, where subnet mask has 1.
@@ -39,10 +39,10 @@ this:
 255.255.255.0
 11111111.11111111.11111111.00000000
 
-126 hosts and two subnets (also two last numbers reserved128 in total)
+126 hosts and two subnets (also two last numbers reserved, 128 in total)
 255.255.255.128
 11111111.11111111.11111111.10000000
-So example, if you splitted it only in the last octed, that would mean that in ip address 192.168.1.* you would have it like this:
+So example, if you splitted it only in the last octet, that would mean that in ip address 192.168.1.* you would have it like this:
 Network Address	    Usable Host Range	            Broadcast Address:
 192.168.1.0	    192.168.1.1 - 192.168.1.126	    192.168.1.127
 192.168.1.128	    192.168.1.129 - 192.168.1.254   192.168.1.255

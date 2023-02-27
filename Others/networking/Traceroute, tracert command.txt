@@ -1,5 +1,5 @@
 Traceroute
-Traceroute is a cmd utility that allows us to see the route which datapackets travel unitl they reach final destination.
+Traceroute is a cmd utility that allows us to see the route which datapackets travel untill they reach final destination.
 It is a handy tool to find for example bottlenecks in a route.
 Traceroute not only pings the final destination but also each router along the way.
 

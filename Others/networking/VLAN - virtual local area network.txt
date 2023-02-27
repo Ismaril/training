@@ -2,7 +2,7 @@ VLAN - virtual local area network
 
 Analogy example, if you take one switch and divide it into two halfs, you got two different LANs. If you do this
 "virtually" you get VLAN. This means that in real life we can have only one switch and divide it for example
-into three virtual switches. This means that those 3 switches are not 'isolated' and they will not have possibility
+into three virtual switches. This means that those 3 switches are 'isolated' and they will not have possibility
 to share data. Application for this can be found for example in business, where you want different departments
 not to have access to their networks/data. Also it can save some network traffic. It makes a network simpler, meaning
 you do not need to have physically many switches, which would you otherwise need, when you wanted to connect those

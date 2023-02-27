@@ -27,7 +27,7 @@ TCP		192.168.0.11:52013	215.114.85.17:80	Established
 
 TCP		192.168.0.11:80		12.34.56.78:50252	Established
 		0.0.0.0:80 		0.0.0.0:0		Listening
-If you see that your local address has port 80 or anything from the most used ports, that means that your computer acts as a server. For example if you see, that tere is an 80 appended to your ip address
+If you see that your local address has port 80 or anything from the most used ports, that means that your computer acts as a server. For example if you see, that there is an 80 appended to your ip address,
 this means that your computer can provide services to other computers by providing a HTTP webpage, hosted at your pc.
 
 
@@ -47,5 +47,5 @@ Used at servers.
 Dynamic / Private ports
 49152 - 65535
 These are client side ports that are free to use.
-These are the ports that are temporarily assigned by your computer to your computer, during a session.
+These are the ports that are temporarily assigned by your computer to itself, during a session.
 Used locally, for example your computer which wants to access some service out on the internet.

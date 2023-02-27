@@ -6,11 +6,11 @@ With telnet it is also possible to administer other network devices like routers
 Can be also used to test ports on a server.
 Since telnet is only command line and it sends only text, it is very fast.
 It's downside is however security because it does not encrypt data.
-It is sometimes used fo communication with old devices or on local are network.
+It is sometimes used fo communication with old devices or on local area network.
 
 
 SSH - secure shell
-It does the same thing as telnet.
+It does the same thing as telnet but securely - SSH is a cryptographic network protocol for operating network services securely over an unsecured network.
 Secureshell encrypts the data.
 Provides password and public key authenitication.
 It is used today instead of telnet.
