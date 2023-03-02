@@ -1,0 +1,8 @@
+C:\Users\lazni\PycharmProjects\Training\C#\C#\bin\Debug\C#.exe.config
+C:\Users\lazni\PycharmProjects\Training\C#\C#\bin\Debug\C#.exe
+C:\Users\lazni\PycharmProjects\Training\C#\C#\bin\Debug\C#.pdb
+C:\Users\lazni\PycharmProjects\Training\C#\C#\obj\Debug\C#.csproj.AssemblyReference.cache
+C:\Users\lazni\PycharmProjects\Training\C#\C#\obj\Debug\C#.csproj.SuggestedBindingRedirects.cache
+C:\Users\lazni\PycharmProjects\Training\C#\C#\obj\Debug\C#.csproj.CoreCompileInputs.cache
+C:\Users\lazni\PycharmProjects\Training\C#\C#\obj\Debug\C#.exe
+C:\Users\lazni\PycharmProjects\Training\C#\C#\obj\Debug\C#.pdb
