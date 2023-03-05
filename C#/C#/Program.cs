@@ -10,6 +10,10 @@ namespace C_
     {
         static void Main(string[] args)
         {
+            // Automatically format a document in visual studio.
+            // CTRL+K then press CTRL+D (no caps lock needed)
+
+
             // DRAWING A SHAPE
             //  See that the execution of code
             //  is line by line.
@@ -103,7 +107,7 @@ namespace C_
             Console.WriteLine(4 + 3);
             Console.WriteLine(4 - 2);
             Console.WriteLine(4 % 2);
-            Console.WriteLine((4-2) * 2);
+            Console.WriteLine((4 - 2) * 2);
             Console.WriteLine(4.0 + 2); // the type will be converted to float/double
             Console.WriteLine(5 / 2);  // this will not be converted to float/double
             Console.WriteLine(5 / 2.0); // this will give correct answer
@@ -149,16 +153,83 @@ namespace C_
             names[0] = "John";
             names[1] = "Don";
             names[2] = "Dylan";
+            Console.WriteLine(names[0] + "\n");
 
-            Console.WriteLine(names[0]);
+
+            // FUNCTIONS (calling them)
+            SayHi("Pepo", 40);
+            SayHi(name: "Tomas", 30);
+            SayHi("Mike", age: 23);
+            SayHi(name: "Johnson", age: 31);
+
+            Console.WriteLine(Cube(number: 4));
+
+            int number_assignment = Cube(number: 3); // possible as a variable
+            Console.WriteLine(number_assignment + "\n");
+
+
+            // IF ELSE
+            bool isMale = true;
+            bool isTall = false; 
+
+            // && means AND
+            if (isMale && isTall)
+            {
+                Console.WriteLine("He is male and is tall.");
+            }
+            // "!" means NOT operator
+            else if (isMale && !isTall)
+            {
+                Console.WriteLine("He is male but is not tall.");
+            }
+            else if (!isMale && isTall)
+            {
+                Console.WriteLine("She is female and is tall.");
+            }
+            else
+            {
+                Console.WriteLine("She is a small female.");
+            }
+
+            // || means OR operator
+            if (isMale || isTall)
+            {
+                Console.WriteLine("You are either a man or you are tall.");    
+            }
+
+            int some_var = 2;
+            if (some_var > 0)
+            {
+                Console.WriteLine("The number is positive\n");
+            }
+
 
             // ------------
             // Without this line console window would just immediatelly close,
             //  after we executed the code.
             // It actually waits for user input, but when you just hit enter. The
             // program will terminate, if there is no other code, which follows this.
-            Console.ReadLine(); 
+            Console.ReadLine();
 
         }
+
+        // FUNCTIONS / METHODS (for some reason C# uses rather mehtods name, check if
+        //  method means also that it is inside a class or if it is more general.
+        // TODO: check method vs function in C#
+
+        // Void means, that the function is not returning anything.
+        static void SayHi(string name, int age)
+        {
+            Console.WriteLine($"Hello {name} you are {age} years old.");
+        }
+
+        // Return statement
+        // Int means here, that the function is going to return int type.
+        static int Cube(int number)
+        {
+            int result = number * number * number;
+            return result;
+        }
+
     }
 }
