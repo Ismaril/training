@@ -14,7 +14,7 @@ namespace C_
         public string author;
         public int numberOfPages;
 
-       
+
     }
 
     internal class Magazine
@@ -42,5 +42,13 @@ namespace C_
         public Magazine()
         {
         }
+    }
+
+    // STATIC CLASS
+    // It will not be possible to create an instance of this class.
+    // Static class cannot inherit from other classes.
+    internal static class Poster
+    {
+        public static int size = 10;   
     }
 }

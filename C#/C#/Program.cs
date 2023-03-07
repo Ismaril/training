@@ -331,7 +331,6 @@ namespace C_
 
 
             // CLASSES
-
             // Without constructor, you can asign new values like this below,
             // but it is not good practise:
             Book book1 = new Book();
@@ -352,12 +351,28 @@ namespace C_
             Magazine magazine2 = new Magazine();
 
             // OBJECT METHODS
-            Student student1 = new Student(aName: "Tom", aAge: 36, aId: 4590);
-            Student student2 = new Student(aName: "Bob", aAge: 34, aId: 4591);
+            Student student1 = new Student(aName: "Tom", aAge: 36, aId: 4590, aEthnicity: "White");
+            Student student2 = new Student(aName: "Bob", aAge: 34, aId: 4591, aEthnicity: "skjiolk");
 
             Console.WriteLine($"Is older: {student1.IsAboveThirtyFive()}");
             Console.WriteLine($"Is older: {student2.IsAboveThirtyFive()}");
             Console.WriteLine();
+
+            // GETTER
+            Console.WriteLine($"Ethnicity of student1: {student1.Ethnicity}");
+            Console.WriteLine($"Ethnicity of student2: {student2.Ethnicity}");
+
+            // STATIC CLASS ATTRIBUTES
+            Console.WriteLine($"Member of which shool? student1: {Student.memberOfWhichSchool}");
+            // It is not possible to access it on an instance of a class:
+            // Console.WriteLine($"Member of which shool? student1: {student1.memberOfWhichSchool}");
+
+            // STATIC CLASS METHODS
+            Student.WelcomeStudent(name: "Nixon");
+
+            // STATIC CLASSES
+            // It is not possible to create an instance of a class.
+            Console.WriteLine(Poster.size);
 
             // ------------------------------------------------------------------------
             // Without this line console window would just immediatelly close,
