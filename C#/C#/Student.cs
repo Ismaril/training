@@ -18,7 +18,7 @@ namespace C_
         // (is the same to all instances of that class)
         // Can be used only on Class.static_atribute. It cannot be used on instances
         //  like my_class1.static_atribute
-        public static string memberOfWhichSchool = "Harward";
+        public static string memberOfWhichSchool = "Some high shool";
         public static int counter = 0; // We could for example use this line to check
                                        //   how many times an instance of this class has
                                        //   been created, by incrementing it witch each call.
@@ -27,10 +27,8 @@ namespace C_
                                        //   some of your custom getter methods etc.
 
         // CONSTRUCTOR
-        public Student(string aName,
-            int aAge,
-            int aId,
-            string aEthnicity) {
+        public Student(string aName, int aAge, int aId, string aEthnicity)
+        {
             name = aName;
             age = aAge;
             id = aId;
@@ -84,6 +82,19 @@ namespace C_
             {
                 return ethnicity;
             }
+        }
+    }
+
+    // INHERITANCE
+    internal class UniversityStudent : Student // inherits from Student.
+    {   
+        // todo: fix this error on row 92.
+        public UniversityStudent(string aName, int aAge, int aId, string aEthnicity)
+        {
+            name = aName;
+            age = aAge;
+            id = aId; 
+            Ethnicity = aEthnicity;
         }
     }
 }
