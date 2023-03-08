@@ -1,0 +1,6 @@
+cmake-build-debug
+.idea
+CMakeLists.txt
+employees.txt
+scratch.h
+scratch_2.h
