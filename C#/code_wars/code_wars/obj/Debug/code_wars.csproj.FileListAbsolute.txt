@@ -1,0 +1,8 @@
+C:\Users\lazni\PycharmProjects\Training\C#\code_wars\code_wars\bin\Debug\code_wars.exe.config
+C:\Users\lazni\PycharmProjects\Training\C#\code_wars\code_wars\bin\Debug\code_wars.exe
+C:\Users\lazni\PycharmProjects\Training\C#\code_wars\code_wars\bin\Debug\code_wars.pdb
+C:\Users\lazni\PycharmProjects\Training\C#\code_wars\code_wars\obj\Debug\code_wars.csproj.AssemblyReference.cache
+C:\Users\lazni\PycharmProjects\Training\C#\code_wars\code_wars\obj\Debug\code_wars.csproj.SuggestedBindingRedirects.cache
+C:\Users\lazni\PycharmProjects\Training\C#\code_wars\code_wars\obj\Debug\code_wars.csproj.CoreCompileInputs.cache
+C:\Users\lazni\PycharmProjects\Training\C#\code_wars\code_wars\obj\Debug\code_wars.exe
+C:\Users\lazni\PycharmProjects\Training\C#\code_wars\code_wars\obj\Debug\code_wars.pdb
