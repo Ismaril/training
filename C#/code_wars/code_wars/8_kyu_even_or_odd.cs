@@ -13,6 +13,9 @@ namespace code_wars
             if (number % 2 == 0) return "Even";
             else return "Odd";
             
+            // also possible
+            // return number % 2 == 0 ? "Even" : "Odd";
+            
         }
     }
 }
