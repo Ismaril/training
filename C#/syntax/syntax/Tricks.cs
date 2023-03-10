@@ -8,6 +8,8 @@ namespace syntax
 {
     internal class Tricks
     {
-
+        // check if it is possible to append for example integer directly into existing string, like:
+        string some_string = "";
+        some_string += (5 * 5);
     }
 }
