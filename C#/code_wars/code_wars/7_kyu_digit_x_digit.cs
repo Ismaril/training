@@ -34,7 +34,7 @@ namespace code_wars
                 //  used.
                 int digit = int.Parse(numberString[i].ToString());
                 int squared_digit = digit*digit;
-                result += Convert.ToString(squared_digit);
+                result += squared_digit; // it is possible to append integer into string
             }
 
             return Convert.ToInt32(result);

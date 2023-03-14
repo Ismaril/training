@@ -4,6 +4,7 @@ using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 /*
@@ -43,6 +44,13 @@ namespace code_wars
                 result += user_input[i];
             }
             return result;
+
+            // BEST PRACTISE:
+            // option 1:
+            // return Regex.Replace(str,"[aeiou]", "", RegexOptions.IgnoreCase);
+            // 
+            // option 2:
+            // return string.Concat(str.Where(ch => !"aeiouAEIOU".Contains(ch)));
         }
     }
 }

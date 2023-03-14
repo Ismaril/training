@@ -38,6 +38,10 @@ namespace code_wars
             }
 
             return $"{integerArray.Max()} {integerArray.Min()}";
+
+            // BEST PRACTISE:
+            // var parsed = numbers.Split().Select(int.Parse);
+            // return parsed.Max() + " " + parsed.Min();
         }
     }
 }

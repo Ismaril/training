@@ -33,6 +33,9 @@ namespace code_wars
             }
 
             return vowelCount;
+
+            // BEST PRACTISE:
+            // return str.Count(i => "aeiou".Contains(i));
         }
     }
 }

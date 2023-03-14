@@ -43,6 +43,15 @@ namespace code_wars
                 numbers_concatenated += Convert.ToString(int_array[i]);
             }
             return Convert.ToInt32(numbers_concatenated);
+
+
+            // BEST PRACTISE:
+            /*
+            char[] arr = num.ToString().ToCharArray();
+            Array.Sort(arr);
+            Array.Reverse(arr);
+            return Convert.ToInt32(new string(arr));
+            */
         }
     }
 }
