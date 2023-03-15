@@ -1,9 +1,0 @@
-.vs
-*.suo
-*.user
-code_wars/.vs/
-code_wars/code_wars/bin/
-code_wars/code_wars/obj/
-syntax/.vs/
-syntax/syntax/bin/
-syntax/syntax/obj/
