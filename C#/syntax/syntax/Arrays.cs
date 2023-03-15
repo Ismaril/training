@@ -13,6 +13,22 @@ namespace syntax
             Utilities utility = new Utilities();
             utility.Title("ARRAYS");
 
+            // dataType[] variableName = {x, y, z}
+            // dataType[] variableName = new datatype[numberOfExpectedItemsInThisArray]
+
+            // Multiple possibilities to create an array:
+            // Create an array of four elements, and add values later
+            string[] cars = new string[4];
+
+            // Create an array of four elements and add values right away 
+            string[] cars_ = new string[4] { "Volvo", "BMW", "Ford", "Mazda" };
+
+            // Create an array of four elements without specifying the size 
+            string[] cars__ = new string[] { "Volvo", "BMW", "Ford", "Mazda" };
+
+            // Create an array of four elements, omitting the new keyword, and without specifying the size
+            string[] cars___ = { "Volvo", "BMW", "Ford", "Mazda" };
+
             // Create an array with int types.
             int[] lucky_numbers = { 1, 2, 3, 4, 5, 6 };
             Console.WriteLine(lucky_numbers[0]); // print first index
@@ -51,6 +67,11 @@ namespace syntax
                     Console.WriteLine(twodArray[i, j]);
                 }
             }
+
+            // ARRAY METHODS
+            Array.Sort(cars_); // (Sorts it inplace, returns nothing)
+            Console.WriteLine();
+
             utility.Separator();
 
         }

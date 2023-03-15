@@ -16,19 +16,23 @@ namespace C_
             // Automatically format a document in visual studio.
             // CTRL+K then press CTRL+D (no caps lock needed)
 
-            DataTypes.Main__();
-            Variables.Main__();
-            Strings.Main__();
-            Numbers.Main__();
             Arrays.Main__();
-            Functions.Main__();
-            // UserInput.Main__();
+            Booleans.Main__();
+            Classes.Main__();
             Conditions.Main__();
-            Switch.Main__();
-            Loops.Main__();
+            DataTypes.Main__();
             Exceptions.Main__();
-            Classes.Main__();   
+            Functions.Main__();
+            Loops.Main__();
+            MathModule.Main__();
+            Numbers.Main__();
+            Strings.Main__();
+            Switch.Main__();
+            Tricks.Trick();
+            // UserInput.Main__();
+            Variables.Main__();
 
+            Console.WriteLine(new int[] { 1, 2, 3, 4, 5, 6});
 
             // ------------------------------------------------------------------------
             // Without this line console window would just immediatelly close,

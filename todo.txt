@@ -1,2 +1,3 @@
-todo: why is main exe for c language in Training folder and not
-  in C folder?
+todo: why is main exe for c language in Training folder and not in C folder?
+todo: make a new folder for C syntax files.
+todo: check in all languages here if the ~ operator actually does not reverse the bits in binary number.

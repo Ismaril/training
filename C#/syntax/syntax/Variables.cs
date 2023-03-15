@@ -34,7 +34,18 @@ namespace syntax
             int x = 5, y = 3, z = 6;
             Console.WriteLine(x + y + z);
 
+            int a, b, c;
+            a = b = c = 3;
+            Console.WriteLine(a + b + c);
+
+
             utility.Separator();
+
+
+            // CONSTANTS
+            // You will not be able to rewrite constant. Means, it is read only.
+            const int thisIsConstant = 5000;
+
         }
 
     }

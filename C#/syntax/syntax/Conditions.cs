@@ -22,6 +22,7 @@ namespace syntax
             {
                 Console.WriteLine("He is male and is tall.");
             }
+
             // "!" means NOT operator
             else if (isMale && !isTall)
             {
@@ -47,8 +48,9 @@ namespace syntax
             {
                 Console.WriteLine("The number is positive.\n");
             }
-                
-            // shorter if else (ternary operator)
+
+            // SHORTER IF ELSE (TERNARY OPERATOR)
+            // variable = (condition) ? expressionTrue :  expressionFalse;
             int time = 20;
             string result = (time < 18) ? "Good day." : "Good evening.";
             Console.WriteLine(result);

@@ -16,9 +16,13 @@ namespace syntax
 
 
             // Escape characters:
+            // \  - makes the following character just string (general explanation)
             // \n - new line
             // \t - tab
-            // \ - make the following character just string
+            // \b - backspace
+            // \' - single qoute
+            // \" - double qoute
+            // \\ - backslash
 
             Console.WriteLine("Escape characters:\n" +
                 "New line \n" +
@@ -35,6 +39,7 @@ namespace syntax
             Console.WriteLine($"String length: {some_sentence.Length}");
 
             // STRING METHODS
+            // todo: make the list of methods complete
             string some_string = "Mazooon je veliky";
             Console.WriteLine(some_string.ToLower());
             Console.WriteLine(some_string.ToUpper());
@@ -43,7 +48,6 @@ namespace syntax
             Console.WriteLine(some_string.StartsWith("M"));
             Console.WriteLine(some_string.Contains("veliky"));
             Console.WriteLine(some_string[0]); // return first character of string
-            Console.WriteLine(some_string[1]);
 
             // Returns a substring starting from the index position you specified.
             Console.WriteLine(some_string.Substring(8));
@@ -55,6 +59,13 @@ namespace syntax
             // Returns index of first occurence, if it does not find the letter, -1 will
             //  be returned.
             Console.WriteLine(some_string.IndexOf("o"));
+
+
+            // STRING FORMATTING
+            // TODO: update this
+            Console.WriteLine($"{some_string} blablabla {1}.{100}");
+            Console.WriteLine(some_string + "blablabla" + "1" + "100");
+
 
             utility.Separator();
         }

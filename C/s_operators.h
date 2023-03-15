@@ -62,6 +62,7 @@
 // >>=	     x >>= 3    x = x >> 3 Bitwise shift right (shift n bits to the side)
 // <<=	     x <<= 3    x = x << 3 Bitwise shift left (shift n bits to the side)
 // ~         switches 1 to 0 and each 0 to 1
+// Todo: check if actually ~ operator reverses the bits.
 
 // Comparison Operators
 // Result of comparison operators is always boolean value
