@@ -1,0 +1,2 @@
+todo: why is main exe for c language in Training folder and not
+  in C folder?
