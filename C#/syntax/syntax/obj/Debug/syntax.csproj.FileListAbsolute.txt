@@ -1,8 +1,0 @@
-C:\Users\lazni\PycharmProjects\Training\C#\syntax\syntax\bin\Debug\syntax.exe.config
-C:\Users\lazni\PycharmProjects\Training\C#\syntax\syntax\bin\Debug\syntax.exe
-C:\Users\lazni\PycharmProjects\Training\C#\syntax\syntax\bin\Debug\syntax.pdb
-C:\Users\lazni\PycharmProjects\Training\C#\syntax\syntax\obj\Debug\syntax.csproj.AssemblyReference.cache
-C:\Users\lazni\PycharmProjects\Training\C#\syntax\syntax\obj\Debug\syntax.csproj.SuggestedBindingRedirects.cache
-C:\Users\lazni\PycharmProjects\Training\C#\syntax\syntax\obj\Debug\syntax.csproj.CoreCompileInputs.cache
-C:\Users\lazni\PycharmProjects\Training\C#\syntax\syntax\obj\Debug\syntax.exe
-C:\Users\lazni\PycharmProjects\Training\C#\syntax\syntax\obj\Debug\syntax.pdb
