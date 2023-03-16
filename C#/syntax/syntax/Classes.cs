@@ -2,12 +2,22 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace syntax
 {
     internal static class Classes
+    // It is a good practise that the name of the file and the class have matching name. But
+    //  it is not mandatory. Code will work (unlike in Java).
+
+
+    // ACCESS MODIFIERS
+    // public - The code is accessible for all classes
+    // private - The code is only accessible within the same class. (Default if you do not specify access modifier)
+    // protected - The code is accessible within the same class, or in a class that is inherited from that class.
+    // internal The code is only accessible within its own assembly, but not from another assembly.
     {
         internal static void Main__()
         {
@@ -34,11 +44,16 @@ namespace syntax
             Magazine magazine2 = new Magazine();
 
             // OBJECT METHODS
+            // aName is a PARAMETER
+            // "Tom" is an ARGUMENT
             ClassesStudent student1 = new ClassesStudent(aName: "Tom", aAge: 36, aId: 4590, aEthnicity: "White");
-            ClassesStudent student2 = new ClassesStudent(aName: "Bob", aAge: 34, aId: 4591, aEthnicity: "skjiolk");
+            ClassesStudent student2 = new ClassesStudent(aName: "Bob", aAge: 34, aId: 4591, aEthnicity: "Black");
 
             Console.WriteLine($"Is older: {student1.IsAboveThirtyFive()}");
             Console.WriteLine($"Is older: {student2.IsAboveThirtyFive()}");
+
+            Console.WriteLine(ClassesStudent.PlusMethod(10, 30));
+            Console.WriteLine(ClassesStudent.PlusMethod(10.01, 30.56));
             Console.WriteLine();
 
             // GETTER

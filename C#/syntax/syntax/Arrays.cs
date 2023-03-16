@@ -52,7 +52,7 @@ namespace syntax
             utility.Separator();
 
             // 2D ARRAYS
-            // Use comma to indicate 2D array.
+            // Use comma to indicate 2D array. (Two commas 3D array, 3 commas 4D array, etc...)
             int[,] twodArray = {
                 { 10, 20, 30, 40},
                 { 100, 200, 300, 400}
@@ -68,9 +68,20 @@ namespace syntax
                 }
             }
 
+            // 3D ARRAYS
+            int[,,] some3DArray = new int[2, 2, 3] { { { 1, 2, 3 }, { 4, 5, 6 } },
+                                                   { { 7, 8, 9 }, { 10, 11, 12 } } };
+            Console.WriteLine(some3DArray[0, 1, 1]);
+            some3DArray[0, 0, 0] = 100;
+            Console.WriteLine(some3DArray[0, 0, 0]);
+
+
             // ARRAY METHODS
             Array.Sort(cars_); // (Sorts it inplace, returns nothing)
-            Console.WriteLine();
+
+
+            // LINQ METHODS
+            // https://learn.microsoft.com/en-us/dotnet/framework/data/adonet/ef/language-reference/supported-and-unsupported-linq-methods-linq-to-entities
 
             utility.Separator();
 

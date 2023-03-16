@@ -32,7 +32,6 @@ namespace C_
             // UserInput.Main__();
             Variables.Main__();
 
-            Console.WriteLine(new int[] { 1, 2, 3, 4, 5, 6});
 
             // ------------------------------------------------------------------------
             // Without this line console window would just immediatelly close,
