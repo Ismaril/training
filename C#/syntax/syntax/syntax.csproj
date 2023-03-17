@@ -65,6 +65,7 @@
     <Compile Include="UserInput.cs" />
     <Compile Include="Utilities.cs" />
     <Compile Include="Variables.cs" />
+    <Compile Include="ZTesting.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

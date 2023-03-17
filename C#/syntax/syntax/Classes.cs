@@ -54,7 +54,7 @@ namespace syntax
 
             Console.WriteLine(ClassesStudent.PlusMethod(10, 30));
             Console.WriteLine(ClassesStudent.PlusMethod(10.01, 30.56));
-            Console.WriteLine();
+            utility.Separator();
 
             // GETTER
             Console.WriteLine($"Ethnicity of student1: {student1.Ethnicity}");
@@ -72,6 +72,34 @@ namespace syntax
             // It is not possible to create an instance of a class.
             // poster1 = Poster(); -> Not possible
             Console.WriteLine(Poster.size);
+
+            // POLYMORPHISM
+            // Here where you specify type, it seems that it does not matter if the class matches the "new" object,
+            //  seems like you could also in this case put everywhere ClassesStudent as type and it would work also.
+            //    |
+            //    |
+            //    v
+            ClassesStudent commonStudent_1 = new ClassesStudent("Mojmir", 20, 4390, "White");
+            UniversityStudent univerityStudent_1 = new UniversityStudent("Cenda", 26, 9000, "White", "Arts");
+            // ClassesStudent univerityStudent_1 = new UniversityStudent("Cenda", 26, 9000, "White", "Arts"); It seems this is also possible.
+            HighShoolStudent highSchoolStudnet_1 = new HighShoolStudent("Ferin", 15, 3456, "White");
+
+            commonStudent_1.DrawCircle();
+            univerityStudent_1.DrawCircle();
+            highSchoolStudnet_1.DrawCircle();
+
+
+            // ABSTRACTION
+            // Not possible:
+            // (Cannot create an instance of the abstract class or interface 'Animal')
+            // Animal myObj = new Animal(); // Will generate an error 
+             
+            // Is possible:
+            Pig myPig = new Pig(); // Create a Pig object. Notice that on the left side the type is Pig, not Animal.
+            myPig.animalSound();  // Call the abstract method
+            myPig.sleep();  // Call the regular method
+             
+
 
             utility.Separator();
         }
