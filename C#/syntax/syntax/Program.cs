@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,10 +19,12 @@ namespace C_
 
             Arrays.Main__();
             Booleans.Main__();
-            Classes.Main__();
+            ClassesMain.Main__();
             Conditions.Main__();
             DataTypes.Main__();
+            Enums.Main__();
             Exceptions.Main__();
+            Files.Main__();
             Functions.Main__();
             Loops.Main__();
             MathModule.Main__();

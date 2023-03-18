@@ -45,12 +45,14 @@
   <ItemGroup>
     <Compile Include="Arrays.cs" />
     <Compile Include="Booleans.cs" />
-    <Compile Include="ClassesBook.cs" />
-    <Compile Include="Classes.cs" />
+    <Compile Include="ClassesSource_2.cs" />
+    <Compile Include="ClassesMain.cs" />
     <Compile Include="Comments.cs" />
     <Compile Include="Conditions.cs" />
     <Compile Include="DataTypes.cs" />
+    <Compile Include="Enums.cs" />
     <Compile Include="Exceptions.cs" />
+    <Compile Include="Files.cs" />
     <Compile Include="Functions.cs" />
     <Compile Include="Loops.cs" />
     <Compile Include="MathModule.cs" />
@@ -59,7 +61,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Strings.cs" />
-    <Compile Include="ClassesStudent.cs" />
+    <Compile Include="ClassesSource_1.cs" />
     <Compile Include="Switch.cs" />
     <Compile Include="Tricks.cs" />
     <Compile Include="UserInput.cs" />
