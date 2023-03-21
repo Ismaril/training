@@ -60,12 +60,17 @@ namespace syntax
             //  be returned.
             Console.WriteLine(some_string.IndexOf("o"));
 
+            utility.Separator();
+
 
             // STRING FORMATTING
-            // TODO: update this
-            Console.WriteLine($"{some_string} blablabla {1}.{100}");
-            Console.WriteLine(some_string + "blablabla" + "1" + "100");
+            // All of these do the same thing.
+            Console.WriteLine($"{some_string} blablabla {1} {100}");
+            Console.WriteLine(some_string + " " + "blablabla" + " " + "1" + " " + "100");
+            Console.WriteLine("{0} blablabla {1} {2}", some_string, 1, 100);
 
+            Console.WriteLine("{0:c}", 45.345); // convert to currency $
+            Console.WriteLine("{0:d4}", 30);  // add zeros as padding from left (number of all digits will be 4 here)
 
             utility.Separator();
         }
