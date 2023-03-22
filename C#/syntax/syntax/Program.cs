@@ -34,8 +34,8 @@ namespace C_
             //Loops.Main__();
             //MathModule.Main__();
             //Numbers.Main__();
-            Strings.Main__();
-            //Switch.Main__();
+            //Strings.Main__();
+            Switch.Main__();
             //Tricks.Trick();
             ////UserInput.Main__();
             //Variables.Main__();

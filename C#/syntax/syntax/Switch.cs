@@ -36,7 +36,7 @@ namespace syntax
             {
                 case "1":
                     Console.WriteLine("The best\n");
-                    break;
+                    goto case "2"; // it is possible to "fall through" switch case using "goto"
                 case "2":
                     Console.WriteLine("Medium\n");
                     break;

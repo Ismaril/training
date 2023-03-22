@@ -16,18 +16,24 @@ namespace syntax
             // dataType[] variableName = {x, y, z}
             // dataType[] variableName = new datatype[numberOfExpectedItemsInThisArray]
 
-            // Multiple possibilities to create an array:
+            // MULTIPLE POSSIBILITIES TO CREATE AN ARRAY:
             // Create an array of four elements, and add values later
             string[] cars = new string[4];
 
             // Create an array of four elements and add values right away 
-            string[] cars_ = new string[4] { "Volvo", "BMW", "Ford", "Mazda" };
+            string[] cars_1 = new string[4] { "Volvo", "BMW", "Ford", "Mazda" };
 
             // Create an array of four elements without specifying the size 
-            string[] cars__ = new string[] { "Volvo", "BMW", "Ford", "Mazda" };
+            string[] cars_2 = new string[] { "Volvo", "BMW", "Ford", "Mazda" };
 
             // Create an array of four elements, omitting the new keyword, and without specifying the size
-            string[] cars___ = { "Volvo", "BMW", "Ford", "Mazda" };
+            string[] cars_3 = { "Volvo", "BMW", "Ford", "Mazda" };
+
+            // Another way to create an array:
+            Array emptyArray = Array.CreateInstance(elementType:typeof(int), length:10);
+
+            // Create array where the datatypes are not the same.
+            object[] hetero = { "Car", 200, 43.5 }; foreach (object o in hetero){Console.WriteLine(o.GetType());}
 
             // Create an array with int types.
             int[] lucky_numbers = { 1, 2, 3, 4, 5, 6 };
@@ -50,6 +56,25 @@ namespace syntax
             someRandomArray[0] = 10;
 
             utility.Separator();
+
+            // ARRAY METHODS
+            Console.WriteLine(cars_1.Length);  // get number of items in an array
+            Array.Sort(cars_1);
+            Array.Reverse(cars_1);
+            foreach (string car in cars_1){ Console.WriteLine(car);}    
+            Console.WriteLine();
+
+            // Set new value at a given index.
+            cars_1.SetValue(value: "Skoda", index: 0);
+            foreach (string car in cars_1) { Console.WriteLine(car);}
+            Console.WriteLine();
+
+            // Copies one array to another.
+            cars_1.CopyTo(array: cars_2, index: 0);
+            foreach (string car in cars_2) { Console.WriteLine(car); }
+
+            utility.Separator();
+
 
             // 2D ARRAYS
             // Use comma to indicate 2D array. (Two commas 3D array, 3 commas 4D array, etc...)
@@ -77,7 +102,7 @@ namespace syntax
 
 
             // ARRAY METHODS
-            Array.Sort(cars_); // (Sorts it inplace, returns nothing)
+            Array.Sort(cars_1); // (Sorts it inplace, returns nothing)
 
 
             // LINQ METHODS
