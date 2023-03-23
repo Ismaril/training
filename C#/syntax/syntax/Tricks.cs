@@ -38,7 +38,7 @@ namespace syntax
 
             // Note that when parsing number with decimal point, you have to use ',' instead
             //  of '.' in a parsed string.
-            double doubleFromString = double.Parse("1,234"); 
+            double doubleFromString = double.Parse("1,234");
             Console.WriteLine(doubleFromString);
 
             utility.Separator();
@@ -48,6 +48,12 @@ namespace syntax
             double myNumDouble = 4.5080D;
             int muNumInt = (int)myNumDouble;
             Console.WriteLine(muNumInt);
+
+
+            // VISUAL STUDIO SHORTCUTS
+            // CTRL+SHIFT+SPACE - Show documentation of function/class.
+            // CTRL+K then press CTRL+D - Automatically format a document in visual studio.
+            // CTRL+W - Select word.
         }
     }
 }

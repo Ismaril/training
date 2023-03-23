@@ -68,16 +68,16 @@ namespace syntax
             // Compare strings
             // If returned 0, both strings are equal.
             // This method is designed to produce a total-order comparison that can be used for sorting.
-            Console.WriteLine(String.Compare(strA: "HELLO", strB: "hello", ignoreCase:true)) ;
+            Console.WriteLine(String.Compare(strA: "HELLO", strB: "hello", ignoreCase: true));
 
             // Check if strings are equal
-            Console.WriteLine(String.Equals(objA:"A", objB: "A"));
+            Console.WriteLine(String.Equals(objA: "A", objB: "A"));
 
             // Remove the part from string starting at specified index and based on specified length
             //  (count)
             // If the removed string was inside the original string, the remaining characters will
             //  be appended together.
-            Console.WriteLine(some_string.Remove(startIndex:7, count: 8));
+            Console.WriteLine(some_string.Remove(startIndex: 7, count: 8));
 
             // Returns a substring starting from the index position you specified.
             Console.WriteLine(some_string.Substring(8));
@@ -102,6 +102,29 @@ namespace syntax
             Console.WriteLine("{0:c}", 45.345); // convert to currency $
             Console.WriteLine("{0:d4}", 30);  // add zeros as padding from left (number of all digits will be 4 here)
             Console.WriteLine("{0:f3}", 23.34666); // return number with 3 numbers after dot. Last number will be rounded.
+
+            utility.Separator();
+
+            // STRINGBUILDER
+            // Everytime you change a string, you actually create a new string. That might get
+            //  inefficient at larger scale. Use "Stringbuilder"
+            // Default capacity is 16, and it automatically grows if necessary.
+            StringBuilder myStringBuilder = new StringBuilder(value: "Just some text.", capacity: 16); // capacity is number of allowed characters.
+            Console.WriteLine("Number of allowed characters: {0}", myStringBuilder.Capacity);
+            Console.WriteLine("Number of characters that string contains now: {0}", myStringBuilder.Length);
+
+            myStringBuilder.Append(" Added some new text.");
+            Console.WriteLine(myStringBuilder.ToString());
+
+            myStringBuilder.Replace("text", "rubish"); // Replace each occurence
+            Console.WriteLine(myStringBuilder.ToString());
+
+            // Append new string at a given index and shift the rest.
+            myStringBuilder.Insert(index: 0, value: "Hey! ");
+            Console.WriteLine(myStringBuilder.ToString());
+
+            myStringBuilder.Remove(startIndex: 5, length: 10);
+            Console.WriteLine(myStringBuilder.ToString());
 
             utility.Separator();
 

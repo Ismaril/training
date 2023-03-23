@@ -6,7 +6,7 @@ using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace C_
+namespace syntax
 {
     internal class Program
     {
@@ -14,19 +14,12 @@ namespace C_
         // Check if I am right.
         static void Main(string[] args)
         {
-            // Automatically format a document in visual studio.
-            // CTRL+K then press CTRL+D (no caps lock needed)
-
-            Console.WriteLine(Constants.workingDirectory);
-            Console.WriteLine(Constants.projectDirectory);
-
-
-
             //Arrays.Main__();
             //Booleans.Main__();
             //ClassesMain.Main__();
             //Conditions.Main__();
             //DataTypes.Main__();
+            s_DateTime.Main__();
             //Enums.Main__();
             //Exceptions.Main__();
             //Files.Main__();
@@ -35,7 +28,7 @@ namespace C_
             //MathModule.Main__();
             //Numbers.Main__();
             //Strings.Main__();
-            Switch.Main__();
+            //Switch.Main__();
             //Tricks.Trick();
             ////UserInput.Main__();
             //Variables.Main__();

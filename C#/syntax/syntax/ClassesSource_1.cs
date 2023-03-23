@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace C_
+namespace syntax
 {
     // Here (Classes) prefix before Student, is not connected to Student. It is rather used for better 
     //  organisation of naming in a folder. (personal stuff...)
