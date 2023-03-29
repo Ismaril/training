@@ -35,6 +35,10 @@ namespace syntax
             Magazine magazine1 = new Magazine(aTitle: "Playboy",
                                               aAuthor: "Larry",
                                               aNumberOfPages: 30);
+
+            ClassesSource_1 studentDefault = new ClassesSource_1();
+            Console.WriteLine(studentDefault.name);
+
             Console.WriteLine(magazine1.title);
 
             // Here it is possible to create a new instance of a class

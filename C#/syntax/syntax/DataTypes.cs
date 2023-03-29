@@ -22,6 +22,8 @@ namespace syntax
             float some_float = 3.4F; // Have to append a F letter (float)
             double some_double = 4.5555555555;
             bool some_boolean = false;
+            int? null_ = null; // null is possible only with '?'
+
 
             Console.WriteLine(some_phrase);
             Console.WriteLine(some_character);
@@ -29,7 +31,8 @@ namespace syntax
             Console.WriteLine(some_float);
             Console.WriteLine(some_double);
             Console.WriteLine(some_boolean);
-
+            Console.WriteLine("Null: '{0}'", null_);
+            Console.WriteLine(!null_.HasValue);
 
             utility.Separator();
 
@@ -56,7 +59,7 @@ namespace syntax
             // Explicit Casting (manually) - converting a larger type to a smaller size type
             // double -> float -> long -> int -> char
 
-            
+
             int myInt = 9;
             double myDouble = myInt;       // Automatic casting: int to double
             Console.WriteLine(myInt);      // Outputs 9

@@ -36,15 +36,23 @@ namespace syntax
         // CONSTRUCTOR
         // Must match the class name.
         // Must not have a return type.
-        // All classes have constructors by default: if you do not create a class constructor yourself,
-        //  C# creates one for you. However, then you are not able to set initial values for fields.
-        // Just like other methods, constructors can be overloaded by using different numbers of parameters.
+        // All classes have constructors by default: if you do not create a class constructor
+        //  yourself, C# creates one for you. However, then you are not able to set initial
+        //  values for fields.
+        // Just like other methods, constructors can be overloaded by using different numbers of  
+        //   parameters.
+        // 'this' keyword has the same purpouse as 'self' in python (more research needed from my 
+        //   side to confirm it.)
+
+        // It is possible to assign default class parameters like this:
+        public ClassesSource_1(): this(aName:"No name", aAge:0, aId:0, aEthnicity:"White") { }
+
         public ClassesSource_1(string aName, int aAge, int aId, string aEthnicity)
         {
-            name = aName;
-            age = aAge;
-            id = aId;
-            Ethnicity = aEthnicity;
+            this.name = aName;
+            this.age = aAge;
+            this.id = aId;
+            this.Ethnicity = aEthnicity;
             counter++;
         }
 
@@ -55,7 +63,11 @@ namespace syntax
         // Definition: the body of the function (code to be executed)
         public bool IsAboveThirtyFive(bool someParamter = true)
         {
-            return age > 35;
+            // (someParameter is just for demonstration of default parameter, it is actually
+            //  useless in this method.
+
+            // Just returning directly condition result here.
+            return this.age > 35;
         }
 
         // STATIC METHOD
@@ -109,7 +121,7 @@ namespace syntax
         //  string Ethnicity and its getter will return value.
         public string Ethnicity // PROPERTY (Use the same name as the class atribute/field, but with Capital first letter.
         {
-            set // SETTER
+            set // SETTER (here also check if the data passed in is actually valid)
             {
                 // value is a keyword, and means whatever value user inputed as a parameter
                 //  into class from the outside.
@@ -117,23 +129,25 @@ namespace syntax
                     || value == "Black"
                     || value == "Yellow")
                 {
-                    ethnicity = value;
+                    this.ethnicity = value;
                 }
                 else
                 {
-                    ethnicity = "Color not specified correctly.";
+                    throw new Exception("Color not specified correctly.");
                 }
             }
             get // GETTER
             {
-                return ethnicity;
+                return this.ethnicity;
             }
         }
 
         // short way to write simple getter and setter
         public string NameOfProperty  // property
         { get; set; }  // getter and setter
-    }
+        // Below example how to set default value to getter/setter.
+        //{ get; set; } = "Some default value here"
+}
     
     // INHERITANCE
     // If there are specified parameters in the class, then you have to use BASE keyword.
@@ -145,11 +159,11 @@ namespace syntax
         public UniversityStudent(string aName, int aAge, int aId,
                                 string aEthnicity, string aMajor) : base (aName, aAge, aId, aEthnicity)
         {
-            name = aName;
-            age = aAge;
-            id = aId;
-            Ethnicity = aEthnicity;
-            major = aMajor;
+            this.name = aName;
+            this.age = aAge;
+            this.id = aId;
+            this.Ethnicity = aEthnicity;
+            this.major = aMajor;
 
         }
 

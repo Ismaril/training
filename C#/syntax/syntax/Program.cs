@@ -16,10 +16,10 @@ namespace syntax
         {
             //Arrays.Main__();
             //Booleans.Main__();
-            //ClassesMain.Main__();
+            ClassesMain.Main__();
             //Conditions.Main__();
             //DataTypes.Main__();
-            s_DateTime.Main__();
+            //s_DateTime.Main__();
             //Enums.Main__();
             //Exceptions.Main__();
             //Files.Main__();
@@ -28,6 +28,7 @@ namespace syntax
             //MathModule.Main__();
             //Numbers.Main__();
             //Strings.Main__();
+            //Structs.Main__();
             //Switch.Main__();
             //Tricks.Trick();
             ////UserInput.Main__();

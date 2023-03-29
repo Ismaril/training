@@ -71,11 +71,14 @@ namespace syntax
                     break;
             }
 
-            int myNum = (int) Months.April;
-            Console.WriteLine(myNum);
+            // Access values from already created enum.
+            int myNum = (int) Months.April; // Access index
+            int myNum2 = (int) Months_2.July; // Access idnex
+            Months month = Months.January; // Acess actual text
 
-            int myNum2 = (int) Months_2.July;
+            Console.WriteLine(myNum);
             Console.WriteLine(myNum2);
+            Console.WriteLine(month);  
 
             utility.Separator();
         }

@@ -28,8 +28,9 @@ namespace syntax
                 );
             Console.WriteLine(myTimeSpan.ToString());
 
+            TimeSpan myTimeSpan2 = new TimeSpan(days: 10, hours: 0, minutes: 0, seconds: 0, milliseconds: 0);
 
-
+            myTimeSpan -= myTimeSpan2; // subtract two timespans
             Console.WriteLine(myTimeSpan.ToString());
         }
     }

@@ -49,6 +49,14 @@ namespace syntax
             int muNumInt = (int)myNumDouble;
             Console.WriteLine(muNumInt);
 
+            utility.Separator();
+
+            // HOT TO USE 'ANY' METHOD
+            string strWithDigits = "Hello5";
+            if (strWithDigits.Any(char.IsDigit))
+            {
+                Console.WriteLine("String has digits in it.");
+            }
 
             // VISUAL STUDIO SHORTCUTS
             // CTRL+SHIFT+SPACE - Show documentation of function/class.
