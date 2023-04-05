@@ -14,7 +14,7 @@ namespace syntax
 {
     // Here (Classes) prefix before Student, is not connected to Student. It is rather used for better 
     //  organisation of naming in a folder. (personal stuff...)
-    public class ClassesSource_1
+    public class Student
     {
         // CLASS ATTRIBUTES (a.k.a. FIELDS)
         public string name;
@@ -36,6 +36,7 @@ namespace syntax
         // CONSTRUCTOR
         // Must match the class name.
         // Must not have a return type.
+        // It is called everytime there is created new instance of a class
         // All classes have constructors by default: if you do not create a class constructor
         //  yourself, C# creates one for you. However, then you are not able to set initial
         //  values for fields.
@@ -45,9 +46,12 @@ namespace syntax
         //   side to confirm it.)
 
         // It is possible to assign default class parameters like this:
-        public ClassesSource_1(): this(aName:"No name", aAge:0, aId:0, aEthnicity:"White") { }
-
-        public ClassesSource_1(string aName, int aAge, int aId, string aEthnicity)
+        // This class below does not expect any parameters and all will be assigned by default.
+        public Student() : this(aName: "No name", aAge: 0, aId: 0, aEthnicity: "White") { }
+        // Here the class is expecting parameter aName, other parameters will be assigned by defautl)
+        public Student(string aName) : this(aName, aAge: 0, aId: 0, aEthnicity: "White") { }
+        // This class expects bunch of parameters, and if not filled, it will cause an error.
+        public Student(string aName, int aAge, int aId, string aEthnicity)
         {
             this.name = aName;
             this.age = aAge;
@@ -55,19 +59,21 @@ namespace syntax
             this.Ethnicity = aEthnicity;
             counter++;
         }
+        // You can also create just constructor like this, here it does not expect any parameters and does nothing.
+        //public Student() { }
 
         // METHOD
         // It is possible to define default paramter, default = optional paramter,
         //  (give it value at function declaration).
         // Declaration: the function's name, return type, and parameters (if any)
         // Definition: the body of the function (code to be executed)
-        public bool IsAboveThirtyFive(bool someParamter = true)
+        public bool IsAboveTwentyFive(bool someParamter = true)
         {
             // (someParameter is just for demonstration of default parameter, it is actually
             //  useless in this method.
 
             // Just returning directly condition result here.
-            return this.age > 35;
+            return this.age > 22;
         }
 
         // STATIC METHOD
@@ -145,24 +151,24 @@ namespace syntax
         // short way to write simple getter and setter
         public string NameOfProperty  // property
         { get; set; }  // getter and setter
-        // Below example how to set default value to getter/setter.
-        //{ get; set; } = "Some default value here"
-}
-    
+                       // Below example how to set default value to getter/setter.
+                       //{ get; set; } = "Some default value here"
+    }
+
     // INHERITANCE
     // If there are specified parameters in the class, then you have to use BASE keyword.
     // Todo: explain the base keyword.
-    public class UniversityStudent : ClassesSource_1 // inherits from Student.
+    public class UniversityStudent : Student // inherits from Student.
     {
-        protected string major;
+        // created a new class attribute
+        public string major;
 
+        // BASE keyword - Specify which base-class constructor should be called when creating instances of the derived class.
         public UniversityStudent(string aName, int aAge, int aId,
-                                string aEthnicity, string aMajor) : base (aName, aAge, aId, aEthnicity)
+                                string aEthnicity, string aMajor) : base(aName, aAge, aId, aEthnicity)
         {
-            this.name = aName;
-            this.age = aAge;
-            this.id = aId;
-            this.Ethnicity = aEthnicity;
+            // It is fine to just create "this.variable" of the new class atribute, you do not have to repeat it for attributes
+            //  of parent class.
             this.major = aMajor;
 
         }
@@ -190,13 +196,13 @@ namespace syntax
     // It is important that the polymorphic methods have the same name. The parent method must have 'virtual' keyword in it. Methods in child classes
     //  then have to have 'override' keyword. Without this keywords, the methods would just do the same thing as it is defined in the parent class method.
 
-    public class HighShoolStudent: ClassesSource_1
+    public class HighShoolStudent : Student
     {
-        public HighShoolStudent(string aName, int aAge, int aId, string aEthnicity) : base (aName, aAge, aId, aEthnicity)
+        public HighShoolStudent(string aName, int aAge, int aId, string aEthnicity) : base(aName, aAge, aId, aEthnicity)
         {
             name = aName;
             age = aAge;
-            id = aId; 
+            id = aId;
         }
 
         // Use OVERRIDE keyword, so that mathod that you want to use in POLYMORPHISM does unique stuff, that you defined here. Without override 
@@ -271,7 +277,7 @@ namespace syntax
     //  Note: To implement multiple interfaces, separate them with a comma (see example below).
 
     // Interface (Add a letter 'I' before the name of interface, for better distinction from other classes and methods)
-    interface IAnimal 
+    interface IAnimal
     {
         void animalSound(); // interface method (does not have a body)
         void run(); // interface method (does not have a body)
@@ -338,6 +344,71 @@ namespace syntax
     //}
 
 
+    // STATIC CLASS
+    // It will not be possible to create an instance of this class.
+    // Static class cannot inherit from other classes.
+    internal static class Poster
+    {
+        public static int size = 10;
+    }
+
+    // CLASS WITHIN A CLASS
+    // Usually serve for helper purpouses for the parent class.
+    internal class SomeClass
+    {
+        // constructor
+        public SomeClass() { }
+       
+        // nested class
+        public class SomeNestedClass
+        {
+           // nested class constructor 
+            public SomeNestedClass() { }
+           
+           // some nested class method
+           public void PrintSomeBS()
+            {
+                Console.WriteLine("Just printing some crap.");
+            }
+        }
+    }
+
+    // -----
+    // There are just some classes used for presentation purpouses in ClassesMain. You do not have
+    //  to study here anything.
+    // ---------------------------------------------------------------------------------------------------
+    internal class Book
+    {
+        // class attributes
+        public string title;
+        public string author;
+        public int numberOfPages;
+
+    }
+
+    internal class Magazine
+    {
+        // These make the class attributes available outside of a class.
+        public string title;
+        public string author;
+        public int numberOfPages;
+
+
+        // This below is a CONSTRUCTOR - it is called everytime there
+        // is created new instance of a class
+        public Magazine(string aTitle, string aAuthor, int aNumberOfPages)
+        {
+            // Here the variables already declared above have assigned 
+            //  values to them.
+            title = aTitle;
+            author = aAuthor;
+            numberOfPages = aNumberOfPages;
+        }
+
+        // create just empty construcotr (in practise not used I guess...)
+        public Magazine() { }
+    }
+    // ---------------------------------------------------------------------------------------------------
 }
 
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace syntax
 {
-    internal static class s_DateTime
+    internal static class DateTime_
     {
         internal static void Main__()
         {
