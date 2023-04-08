@@ -1,31 +1,28 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 
 // This file is only used for just testing of code and shit.
 
 
 namespace syntax
 {
-    internal class ZTesting
+    internal static class ZTesting
     {
-        int Param { get; set; }
-
-        internal ZTesting(int param)
+        internal static void Main__()
         {
-            this.Param = param;
+            Utilities utility = new Utilities();
+            utility.Title("TESTING"); 
+            string[] cars = new string[4];
+
+            
+            object a = 1;
+            int b = 2;
+            Console.WriteLine(a.GetType());
+            Console.WriteLine(b.GetType());
         }
     }
-
-    internal class XXX : ZTesting 
-    {
-        int Param2 { get; set; }
-
-        internal XXX(int param, int param2) : base(param)
-        {
-            this.Param2 = param2;
-        }
-
-    }
-
-
-}   
-
+}

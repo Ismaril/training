@@ -230,7 +230,7 @@ namespace syntax
     // Do not take relevance of these classes in account, they are rather example of abstraction concepts.
     abstract class Animal // Abstract class
     {
-        public abstract void animalSound();
+        public abstract void animalSound(); // This method will need to be implemented in child class.
         public void sleep()
         {
             Console.WriteLine("Zzz");
@@ -279,20 +279,29 @@ namespace syntax
     // Interface (Add a letter 'I' before the name of interface, for better distinction from other classes and methods)
     interface IAnimal
     {
-        void animalSound(); // interface method (does not have a body)
-        void run(); // interface method (does not have a body)
-    }
+        string Name { get; set; }
+        void AnimalSound(); // interface method (does not have a body)
+        void Run(); // interface method (does not have a body)
+           }
 
     class Pig_ : IAnimal // Pig "implements" the IAnimal interface
     {
-        public void animalSound()
+        public string Name { get; set; }
+
+        public void AnimalSound()
         {
             // The body of animalSound() is provided here
             Console.WriteLine("The pig says: wee wee");
         }
-        public void run()
+        public void Run()
         {
             Console.WriteLine("The pig runs");
+        }
+               
+        // consturctor
+        public Pig_(string name)
+        {
+            Name = name;
         }
     }
 
@@ -301,7 +310,7 @@ namespace syntax
     //{
     //    static void Main(string[] args)
     //    {
-    //        Pig myPig = new Pig();  // Create a Pig object
+    //        Pig_ myPig = new Pig_();  // Create a Pig object
     //        myPig.animalSound();
     //    }
     //}

@@ -25,7 +25,7 @@ namespace syntax
 
             // Without constructor, you can asign new values like this below,
             // but it is not good practise:
-            ClassesSource_2 book1 = new ClassesSource_2();
+            Book book1 = new Book();
             book1.title = "Jak Jarda ztratil pivsona.";
             book1.author = "Jarda";
             book1.numberOfPages = 300;
@@ -36,7 +36,7 @@ namespace syntax
                                               aAuthor: "Larry",
                                               aNumberOfPages: 30);
 
-            ClassesSource_1 studentDefault = new ClassesSource_1();
+            Student studentDefault = new Student();
             Console.WriteLine(studentDefault.name);
 
             Console.WriteLine(magazine1.title);
@@ -49,27 +49,33 @@ namespace syntax
             // OBJECT METHODS
             // aName is a PARAMETER
             // "Tom" is an ARGUMENT
-            ClassesSource_1 student1 = new ClassesSource_1(aName: "Tom", aAge: 36, aId: 4590, aEthnicity: "White");
-            ClassesSource_1 student2 = new ClassesSource_1(aName: "Bob", aAge: 34, aId: 4591, aEthnicity: "Black");
+            Student student1 = new Student(aName: "Tom", aAge: 36, aId: 4590, aEthnicity: "White");
+            Student student2 = new Student(aName: "Bob", aAge: 34, aId: 4591, aEthnicity: "Black");
 
-            Console.WriteLine($"Is older: {student1.IsAboveThirtyFive()}");
-            Console.WriteLine($"Is older: {student2.IsAboveThirtyFive()}");
+            Console.WriteLine($"Is older: {student1.IsAboveTwentyFive()}");
+            Console.WriteLine($"Is older: {student2.IsAboveTwentyFive()}");
 
-            Console.WriteLine(ClassesSource_1.PlusMethod(10, 30));
-            Console.WriteLine(ClassesSource_1.PlusMethod(10.01, 30.56));
+            Console.WriteLine(Student.PlusMethod(10, 30));
+            Console.WriteLine(Student.PlusMethod(10.01, 30.56));
             utility.Separator();
 
             // GETTER
             Console.WriteLine($"Ethnicity of student1: {student1.Ethnicity}");
             Console.WriteLine($"Ethnicity of student2: {student2.Ethnicity}");
+            
+            // Assign values to class attributes within curly braces {}.
+            // TODO: check what is the difference compared to when we assign the values normally as a class parameters into () braces.
+            Student student_3 = new Student() {name="Ferdinand", Ethnicity = "Yellow" };
+            Console.WriteLine(student_3.Ethnicity); 
+            Console.WriteLine(student_3.name); 
 
             // STATIC CLASS ATTRIBUTES
-            Console.WriteLine($"Member of which shool? student1: {ClassesSource_1.memberOfWhichSchool}");
+            Console.WriteLine($"Member of which shool? student1: {Student.memberOfWhichSchool}");
             // It is not possible to access it on an instance of a class:
             // Console.WriteLine($"Member of which shool? student1: {student1.memberOfWhichSchool}");
 
             // STATIC CLASS METHODS
-            ClassesSource_1.WelcomeStudent(name: "Nixon");
+            Student.WelcomeStudent(name: "Nixon");
 
             // STATIC CLASSES
             // It is not possible to create an instance of a class.
@@ -82,7 +88,7 @@ namespace syntax
             //    |
             //    |
             //    v
-            ClassesSource_1 commonStudent_1 = new ClassesSource_1("Mojmir", 20, 4390, "White");
+            Student commonStudent_1 = new Student("Mojmir", 20, 4390, "White");
             UniversityStudent univerityStudent_1 = new UniversityStudent("Cenda", 26, 9000, "White", "Arts");
             // ClassesStudent univerityStudent_1 = new UniversityStudent("Cenda", 26, 9000, "White", "Arts"); It seems this is also possible.
             HighShoolStudent highSchoolStudnet_1 = new HighShoolStudent("Ferin", 15, 3456, "White");
@@ -90,21 +96,24 @@ namespace syntax
             commonStudent_1.DrawCircle();
             univerityStudent_1.DrawCircle();
             highSchoolStudnet_1.DrawCircle();
+            Console.WriteLine(univerityStudent_1.major);
 
 
             // ABSTRACTION
             // Not possible:
             // (Cannot create an instance of the abstract class or interface 'Animal')
             // Animal myObj = new Animal(); // Will generate an error 
-             
+
             // Is possible:
             Pig myPig = new Pig(); // Create a Pig object. Notice that on the left side the type is Pig, not Animal.
             myPig.animalSound();  // Call the abstract method
             myPig.sleep();  // Call the regular method
              
-
-
             utility.Separator();
+
+            // NESTED CLASS
+            SomeClass.SomeNestedClass someVariable = new SomeClass.SomeNestedClass();
+            someVariable.PrintSomeBS();
         }
     }
 }

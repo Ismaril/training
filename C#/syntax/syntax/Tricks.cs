@@ -58,10 +58,16 @@ namespace syntax
                 Console.WriteLine("String has digits in it.");
             }
 
+            // PRINT A COMPLETE ARRAY JUST LIKE IN PYTHON
+            int[] myArray = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, };
+            Console.WriteLine(String.Join(separator: ", ", values: myArray));
+
             // VISUAL STUDIO SHORTCUTS
             // CTRL+SHIFT+SPACE - Show documentation of function/class.
             // CTRL+K then press CTRL+D - Automatically format a document in visual studio.
             // CTRL+W - Select word.
+
+
         }
     }
 }

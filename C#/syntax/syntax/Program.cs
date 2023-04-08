@@ -15,11 +15,13 @@ namespace syntax
         static void Main(string[] args)
         {
             //Arrays.Main__();
+            //ArrayList_.Main__();
             //Booleans.Main__();
-            ClassesMain.Main__();
+            //ClassesMain.Main__();
             //Conditions.Main__();
             //DataTypes.Main__();
-            //s_DateTime.Main__();
+            //DateTime_.Main__();
+            //Dictionaries.Main__();
             //Enums.Main__();
             //Exceptions.Main__();
             //Files.Main__();
@@ -27,12 +29,16 @@ namespace syntax
             //Loops.Main__();
             //MathModule.Main__();
             //Numbers.Main__();
+            //PreprocessorDirectives.Main__();
+            //Queues.Main__();
+            Stacks.Main__();
             //Strings.Main__();
             //Structs.Main__();
             //Switch.Main__();
             //Tricks.Trick();
-            ////UserInput.Main__();
+            //UserInput.Main__();
             //Variables.Main__();
+            //ZTesting.Main__();
 
 
             // ------------------------------------------------------------------------
