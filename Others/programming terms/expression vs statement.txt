@@ -1,0 +1,11 @@
+STATEMENT
+In programming, a statement is a unit of code that performs an action, such as assigning a value to a variable, calling a method, or looping over a set of instructions.
+Examples of statemtns:
+Performs input and/or output
+Defines (or forms part of the definition of) a procedure/function/class/variable
+Defines a control structure (e.g. if statement, for/while loop)
+Although some languages have statements that do nothing (e.g. Python’s pass statement). Some languages make a distinction between definitions and statements, others don’t.
+
+EXPERSION
+Expressions return a value. To pick a simple example, x + y is an expresson that returns the result of adding x to y.
+In programming, an expression is a combination of variables, constants, and operators that evaluates to a value.

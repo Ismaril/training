@@ -1,0 +1,2 @@
+Implicit: something is being done for you automatically.
+Explicit: you've written something in the source code to indicate what you want to happen.
