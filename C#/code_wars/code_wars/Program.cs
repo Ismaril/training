@@ -20,9 +20,10 @@ namespace code_wars
             Console.WriteLine(_6_kyu_persistent_bugger.Persistence(999));
             Console.WriteLine(_6_kyu_multiples_of_3_and_5.Solution(10));
             Console.WriteLine(_6_kyu_create_phone_number.CreatePhoneNumber(new int[] { 6, 0, 8, 7, 0, 0, 0, 1, 3, 1 }));
-            */
             Console.WriteLine(_5_kyu_int32_to_IPv4.UInt32ToIP(2154959208));
-
+            Console.WriteLine(_6_kyu_spin_words.SpinWords("Moje jmeno je Cenda"));
+            */
+            Console.WriteLine(_6_kyu_find_the_odd_int.find_it(new int[] { 20,1,-1,2,-2,3,3,5,5,1,2,4,20,4,-1,-2,5 }));
             Console.ReadLine();
         }
     }

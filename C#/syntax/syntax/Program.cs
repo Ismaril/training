@@ -15,7 +15,6 @@ namespace syntax
         static void Main(string[] args)
         {
             //Arrays.Main__();
-            //ArrayList_.Main__();
             //Booleans.Main__();
             //ClassesMain.Main__();
             //Conditions.Main__();
@@ -26,12 +25,14 @@ namespace syntax
             //Exceptions.Main__();
             //Files.Main__();
             //Functions.Main__();
+            Generics.Main__();
+            //List_.Main__();
             //Loops.Main__();
             //MathModule.Main__();
             //Numbers.Main__();
             //PreprocessorDirectives.Main__();
             //Queues.Main__();
-            Stacks.Main__();
+            //Stacks.Main__();
             //Strings.Main__();
             //Structs.Main__();
             //Switch.Main__();
