@@ -6,7 +6,7 @@ using System.Collections;
 
 namespace syntax
 {
-    internal static class ArrayList_
+    internal static class List_
     {
 
 
@@ -18,6 +18,8 @@ namespace syntax
 
             // ARRAYLIST acts the same as list in Python. You can add different datatypes to the same array.
             //  Also you can perform many operations on that list such as sort, revers and many others...
+
+            // ! Seems like ARRAYLIST is deprecated in favor of list. Use LIST instead (Explained below). !
 
             ArrayList myArrayList = new ArrayList();
             
@@ -64,10 +66,32 @@ namespace syntax
                 Console.WriteLine($"Index: {i}, item: {myArrayList[i]}");    
             }
 
-            // There are many more functionalities when it comes to ArrayList. When you have time,
-            //  complete this class, to have better overview of what it can all do.
+            utility.Separator();
+            utility.Title("LIST");
 
-            // It is possible to convert regular array into string array.
+            List<object> myList = new List<object>();
+            myList.Add(10);
+            myList.Add(20);
+            myList.Add(30);
+            myList.Add("Meen");
+            myList.Add(null);
+            myList.Add(true);
+
+            for (int i = 0; i < myList.Count;i++)
+            {
+                Console.WriteLine($"Index: {i}, Value: {myList[i]}");
+            }
+            
+            utility.Separator();
+
+            // It is possible to direcly assign new values:
+            List<object> myList2 = new List<object>{100, 200, 300, "lalala", null, true, false};
+            for (int i = 0; i < myList2.Count;i++)
+            {
+                Console.WriteLine($"Index: {i}, Value: {myList2[i]}");
+            }
+
+
         }
     }
 }
