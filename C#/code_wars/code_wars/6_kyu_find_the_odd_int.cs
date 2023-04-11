@@ -40,8 +40,6 @@ namespace code_wars
                 }
             }
 
-            int result = 0;
-
             foreach (KeyValuePair<int, int> keyValuePair in countsOfEachNumber)
             {
                 if(keyValuePair.Value % 2 == 1)
