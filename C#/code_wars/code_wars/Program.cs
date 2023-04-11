@@ -22,8 +22,16 @@ namespace code_wars
             Console.WriteLine(_6_kyu_create_phone_number.CreatePhoneNumber(new int[] { 6, 0, 8, 7, 0, 0, 0, 1, 3, 1 }));
             Console.WriteLine(_5_kyu_int32_to_IPv4.UInt32ToIP(2154959208));
             Console.WriteLine(_6_kyu_spin_words.SpinWords("Moje jmeno je Cenda"));
+            Console.WriteLine(_6_kyu_find_the_odd_int.find_it(new int[]{ 20,1,-1,2,-2,3,3,5,5,1,2,4,20,4,-1,-2,5 }));
+            Console.WriteLine(_6_kyu_digital_root.DigitalRoot(164));
+            Console.WriteLine(_6_kyu_who_likes_it.Likes(new string[] { "Jenda", "Vjenc", "Milos", "Tom" }));
+            Console.WriteLine(_7_kyu_get_the_middle_character.GetMiddle("Seer"));
+            Console.WriteLine(_7_kyu_mumbling.Accum("ZpglnRxqenU"));
+            Console.WriteLine(_7_kyu_youre_a_square.IsSquare(24));
+            Console.WriteLine(_5_kyu_scramblies.Scramble("rkqodlw","world"));
             */
-            Console.WriteLine(_6_kyu_find_the_odd_int.find_it(new int[] { 20,1,-1,2,-2,3,3,5,5,1,2,4,20,4,-1,-2,5 }));
+
+            Console.WriteLine(_8_kyu_sum_of_positive.PositiveSum(new int[] {3, 4, -3}));
             Console.ReadLine();
         }
     }
