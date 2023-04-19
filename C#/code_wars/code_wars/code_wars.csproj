@@ -43,16 +43,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="4_kyu_next_bigger_number_with_the_same_digits.cs" />
+    <Compile Include="5_kyu_count_ip_addresses.cs" />
     <Compile Include="5_kyu_int32_to_IPv4.cs" />
+    <Compile Include="5_kyu_number_of_trailing_zeroes_of_N_factorial.cs" />
+    <Compile Include="5_kyu_scramblies.cs" />
+    <Compile Include="5_kyu_weight_for_weight.cs" />
     <Compile Include="6_kyu_create_phone_number.cs" />
+    <Compile Include="6_kyu_digital_root.cs" />
+    <Compile Include="6_kyu_find_the_odd_int.cs" />
     <Compile Include="6_kyu_multiples_of_3_and_5.cs" />
     <Compile Include="6_kyu_persistent_bugger.cs" />
+    <Compile Include="6_kyu_spin_words.cs" />
+    <Compile Include="6_kyu_who_likes_it.cs" />
     <Compile Include="7_kyu_descending_order.cs" />
     <Compile Include="7_kyu_digit_x_digit.cs" />
     <Compile Include="7_kyu_disemvowel_trolls.cs" />
+    <Compile Include="7_kyu_get_the_middle_character.cs" />
     <Compile Include="7_kyu_highest_and_lowest.cs" />
+    <Compile Include="7_kyu_list_filtering.cs" />
+    <Compile Include="7_kyu_mumbling.cs" />
     <Compile Include="7_kyu_vowel_count.cs" />
+    <Compile Include="7_kyu_youre_a_square.cs" />
     <Compile Include="8_kyu_even_or_odd.cs" />
+    <Compile Include="8_kyu_sum_of_positive.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

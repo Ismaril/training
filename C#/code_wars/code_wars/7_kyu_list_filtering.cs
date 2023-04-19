@@ -19,7 +19,13 @@ namespace code_wars
     {
         public static IEnumerable<int> GetIntegersFromList(List<object> listOfItems)
         {
-            throw new NotImplementedException();
+            List<int> list = new List<int>();
+
+            foreach (object item in listOfItems)
+            {
+                if (item is int) list.Add((int)item);
+            }
+            return list;
         }
     }
 }

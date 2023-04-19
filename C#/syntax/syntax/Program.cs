@@ -14,7 +14,7 @@ namespace syntax
         // Check if I am right.
         static void Main(string[] args)
         {
-            //Arrays.Main__();
+            Arrays.Main__();
             //Booleans.Main__();
             //ClassesMain.Main__();
             //Conditions.Main__();
@@ -25,7 +25,7 @@ namespace syntax
             //Exceptions.Main__();
             //Files.Main__();
             //Functions.Main__();
-            Generics.Main__();
+            //Generics.Main__();
             //List_.Main__();
             //Loops.Main__();
             //MathModule.Main__();

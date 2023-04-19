@@ -2,7 +2,7 @@ import sys
 import time
 from Python.utilities import separate_text_stdout
 
-sep = separate_rows_in_training_files.SeparateText()
+sep = separate_text_stdout.SeparateText()
 
 # You can extend the list with +=
 

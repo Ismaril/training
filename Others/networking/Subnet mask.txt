@@ -8,7 +8,7 @@ Below you see binary forms of decimal ip addresses. The network part of the ip a
 
 192.168.0.1
 255.255.255.0
-11000000.10101000.00000000.00000010
+11000000.10101000.00000000.00000001
 11111111.11111111.11111111.00000000
 Network  Network  Network  Host
 

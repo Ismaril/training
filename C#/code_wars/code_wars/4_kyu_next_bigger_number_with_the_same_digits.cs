@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 // During submission of this kata, there was a bug on their website. I had a try/catch block at the
 //  end of this code and kata was evaluated as passes even thoug the tests were not passed.
 
+// Code below should be refactored a little.
 namespace code_wars
 {
     public static class _4_kyu_next_bigger_number_with_the_same_digits

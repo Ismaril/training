@@ -29,9 +29,15 @@ namespace code_wars
             Console.WriteLine(_7_kyu_mumbling.Accum("ZpglnRxqenU"));
             Console.WriteLine(_7_kyu_youre_a_square.IsSquare(24));
             Console.WriteLine(_5_kyu_scramblies.Scramble("rkqodlw","world"));
-            */
-
             Console.WriteLine(_8_kyu_sum_of_positive.PositiveSum(new int[] {3, 4, -3}));
+            Console.WriteLine(_7_kyu_list_filtering.GetIntegersFromList(new List<object> { 1, 2, ",", "5" }));
+            Console.WriteLine(_5_kyu_weight_for_weight.orderWeight(" 22 1 6 33 111111 222"));
+            Console.WriteLine(_5_kyu_number_of_trailing_zeroes_of_N_factorial.TrailingZeros(999));
+           Console.WriteLine(_5_kyu_count_ip_addresses.IpsBetween("20.0.0.10","20.0.1.0"));
+            */
+            Console.WriteLine(_4_kyu_next_bigger_number_with_the_same_digits.NextBiggerNumber(9876543210));
+
+
             Console.ReadLine();
         }
     }
