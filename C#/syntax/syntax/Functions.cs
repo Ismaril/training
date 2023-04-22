@@ -48,6 +48,22 @@ namespace syntax
             Console.WriteLine($"Summary: {ComputeArraySum(new double[] { 4, 3, 13 })}");
             Console.WriteLine($"Summary: {ComputeArraySum(4, 3, 13)}");
 
+            utility.Separator();
+
+            // LAMBDA FUNCTIONS
+            Func<int, int> square = x => x * x;
+            Console.WriteLine(square(5)); // This will return 25
+
+            int[] numbers = { 1, 2, 3, 4, 5 };
+            // squaredNumbers will be { 1, 4, 9, 16, 25 }:
+            int[] squaredNumbers = numbers.Select(x => x * x).ToArray();
+            // Filter out specific selection:
+            int[] specificSelection = numbers.Where(x => (x > 1) || (x < 5)).ToArray();
+
+            // Used with delegates
+            TripleIt yourVariable = z => z * 3;
+            Console.WriteLine(yourVariable(5));
+
         }
 
         // FUNCTIONS / METHODS (for some reason C# uses rather mehtods name, check if
@@ -127,5 +143,9 @@ namespace syntax
             }
             return sum;
         } 
+        
+        // LAMBDA FUNCTIONS (also described in Main__)
+        delegate int TripleIt(int x);
+
     }
 }

@@ -41,7 +41,7 @@ namespace syntax
     public static class SomeClassWithoutPurpouse
     {
         // 'T' represents here an unknown type, which will be known
-        //  once the operator of this function specifies it.
+        //  once the user of this function specifies it.
         public static void SumTwoNumbers<T>(T value1, T value2)
         {
             double value1Converted = Convert.ToDouble(value1);
@@ -50,8 +50,7 @@ namespace syntax
             Console.WriteLine($"Result: {value1Converted + value2Converted}");
         }
 
-        // With "ref" keyword, you will have to insert for example some variable, not number directly, because ref
-        //  keyword means "reference".
+        // With "ref" keyword, you will have to insert for example some variable, not number directly, because ref keyword means "reference".
         public static void SumTwoNumbers_<T>(ref T value1, ref T value2)
         {
             double value1Converted = Convert.ToDouble(value1);
@@ -61,8 +60,7 @@ namespace syntax
         }
 
 
-        // TODO: How much different are atcually these two methods? Is it really necessary to use <T>, when
-        //  we can just specifiy "object" before parameter?
+        // TODO: How much different are atcually these two methods? Is it really necessary to use <T>, when we can just specifiy "object" before parameter?
         public static void SumTwoNumbers__(object value1, object value2)
         {
             double value1Converted = Convert.ToDouble(value1);
@@ -71,8 +69,7 @@ namespace syntax
         }
     }
 
-    // Here "<T>" is again some place holder for datatype, that is going to be specified once the class is going
-    //  to be used in practise. At this moment of declaration we do not know the datatype.
+    // Here "<T>" is again some place holder for datatype, that is going to be specified once the class is going to be used in practise. At this moment of declaration we do not know the datatype.
     public class Square<T> // The "<T>" hase to be there.
     {
         private T lengthOfOneSide;

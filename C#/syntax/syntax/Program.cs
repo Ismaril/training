@@ -20,6 +20,7 @@ namespace syntax
             //Conditions.Main__();
             //DataTypes.Main__();
             //DateTime_.Main__();
+            //Delegates.Main__();
             //Dictionaries.Main__();
             //Enums.Main__();
             //Exceptions.Main__();
