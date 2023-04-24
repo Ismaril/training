@@ -52,16 +52,19 @@
     <Compile Include="Constants.cs" />
     <Compile Include="DataTypes.cs" />
     <Compile Include="Dictionaries.cs" />
+    <Compile Include="Directories.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="Exceptions.cs" />
     <Compile Include="Files.cs" />
     <Compile Include="Functions.cs" />
     <Compile Include="Generics.cs" />
     <Compile Include="Keywords.cs" />
+    <Compile Include="LINQ.cs" />
     <Compile Include="Loops.cs" />
     <Compile Include="MathModule.cs" />
     <Compile Include="Numbers.cs" />
     <Compile Include="Operators.cs" />
+    <Compile Include="Overloading.cs" />
     <Compile Include="PreprocessorDirectives.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -72,6 +75,7 @@
     <Compile Include="Structs.cs" />
     <Compile Include="Switch.cs" />
     <Compile Include="DateTime_.cs" />
+    <Compile Include="Threadings.cs" />
     <Compile Include="Tricks.cs" />
     <Compile Include="UserInput.cs" />
     <Compile Include="Utilities.cs" />

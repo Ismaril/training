@@ -15,14 +15,22 @@ namespace syntax
         internal static void Main__()
         {
             Utilities utility = new Utilities();
-            utility.Title("TESTING"); 
-            string[] cars = new string[4];
+            utility.Title("TESTING");
+
+            Hovno hovinecko = new Hovno() { vaha = 10, Barva = "Cerna" };
+            Hovno vetsiHovno = new Hovno() { };
 
             
-            object a = 1;
-            int b = 2;
-            Console.WriteLine(a.GetType());
-            Console.WriteLine(b.GetType());
         }
+
+     
+    }
+
+    public class Hovno
+    {
+        public int vaha = 0;
+        public string Barva { get; set; }
+
+        public Hovno() { }
     }
 }

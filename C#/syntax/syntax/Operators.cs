@@ -13,7 +13,7 @@ namespace syntax
             // OPERATORS
 
             // Arithmetic Operators
-            // Operator	Name	        Example
+            // Operator	NickName	        Example
             // +	    Addition	    x + y
             // -	    Subtraction     x - y
             // *	    Multiplication  x * y
@@ -74,7 +74,7 @@ namespace syntax
 
             // Comparison Operators
             // Result of comparison operators is always boolean value
-            // Operator	Name	                    Example
+            // Operator	NickName	                    Example
             // ==	    Equal to	                x == y
             // !=	    Not equal	                x != y
             // >	    Greater than	            x > y
@@ -102,7 +102,12 @@ namespace syntax
             // Logical not
             // Reverse the result, returns false if the result is true
             // !(x < 5 && x < 10)
+            
 
+            // OPERATOR OVERLOADING
+            // Described in class Overloading.cs
+            // You can overload these operators:
+            // +, -, *, /, %, !, ==, !=, >, <, >=, <=, ++, --
         }
     }
 }

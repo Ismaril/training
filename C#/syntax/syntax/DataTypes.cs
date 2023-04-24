@@ -84,8 +84,21 @@ namespace syntax
 
 
             utility.Separator();
+            
+            // ANONYOUS DATATYPES
+            var anonymDType = new { Amount = 108, Message = "Hello" };
+            Console.WriteLine(anonymDType.Amount);
 
-
+            // It is also possible to create an array with these.
+            var arrayWithAnonymDtypes = new[] {
+                new { Amount = 5_000, size = "Big" },
+                new { Amount = 4_000, size = "Big" },
+                new { Amount = 3_000, size = "Small"}
+            };
+            foreach (var item in arrayWithAnonymDtypes)
+            {
+                Console.WriteLine(item.Amount);
+            }
         }
     }
 }

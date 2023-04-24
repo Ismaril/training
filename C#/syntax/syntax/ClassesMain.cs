@@ -63,8 +63,12 @@ namespace syntax
             Console.WriteLine($"Ethnicity of student1: {student1.Ethnicity}");
             Console.WriteLine($"Ethnicity of student2: {student2.Ethnicity}");
             
-            // Assign values to class attributes within curly braces {}.
-            // TODO: check what is the difference compared to when we assign the values normally as a class parameters into () braces.
+            // Assign values to class attributes(fields) and Properties within curly braces {}.
+            // The difference between passing the parameters directly into "()" braces compared to
+            //  "{}" curly braces is that in {} the values are actually assigned after the instantiation.
+            // Rough example:
+            // Student student_3 = new Student()
+            // studen_3.name = "Ferdinand"
             Student student_3 = new Student() {name="Ferdinand", Ethnicity = "Yellow" };
             Console.WriteLine(student_3.Ethnicity); 
             Console.WriteLine(student_3.name); 

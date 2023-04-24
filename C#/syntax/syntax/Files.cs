@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO; // Include the System.IO namespace for working with files.
+using System.Text;
 
 namespace syntax
 {
@@ -22,9 +23,15 @@ namespace syntax
             // Write a text to file.
             File.WriteAllText(path: nameOfFile1, contents: writeText);
 
-            // Read a text from file.
+            // Use this if you want to write down some array into file.
+            //File.WriteAllLines(filePath, array);
+
+            // Read a text from file, returns a string.
             string readText = File.ReadAllText(path: nameOfFile1);
             Console.WriteLine(readText);
+
+            // Read all lines from file, returns a string array based on each row.
+            // File.ReadAllLines(filePath);
 
             // Checks if file exists.
             Console.WriteLine(File.Exists(nameOfFile1));
@@ -89,6 +96,19 @@ namespace syntax
             // File.Move(sourceFileName: XXX, destFileName: YYY); 
 
             utility.Separator();
+
+            // FILE STREAMS
+            // Used for reading files as bytes/byte arrays.
+            string path = @"C:\users\lazni\desktop\my_file.txt";
+            // FileMode.Create - Create the file if it does not exist, else overwrite it.
+            FileStream myFileStream = File.Open(path: path, mode: FileMode.Create);
+            string text = "Duke Nukem";
+            byte[] myByteArray = Encoding.Default.GetBytes(text);
+            // If interested below parameter offset is explained ok in code docs.
+            myFileStream.Write(array: myByteArray, offset: 0, count: myByteArray.Length);
+
+
+
         }
     }
 }
