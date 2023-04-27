@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,23 +15,6 @@ namespace syntax
     {
         internal static void Main__()
         {
-            Utilities utility = new Utilities();
-            utility.Title("TESTING");
-
-            Hovno hovinecko = new Hovno() { vaha = 10, Barva = "Cerna" };
-            Hovno vetsiHovno = new Hovno() { };
-
-            
-        }
-
-     
-    }
-
-    public class Hovno
-    {
-        public int vaha = 0;
-        public string Barva { get; set; }
-
-        public Hovno() { }
+       }
     }
 }

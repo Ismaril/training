@@ -25,7 +25,7 @@ namespace syntax
             //Directories.Main__();
             //Enums.Main__();
             //Exceptions.Main__();
-            Files.Main__();
+            //Files.Main__();
             //Functions.Main__();
             //Generics.Main__();
             //LINQ.Main__();
@@ -35,6 +35,7 @@ namespace syntax
             //Overloading.Main__();
             //PreprocessorDirectives.Main__();
             //Queues.Main__();
+            Serializations.Main__();
             //Stacks.Main__();
             //Strings.Main__();
             //Structs.Main__();
