@@ -14,7 +14,9 @@ namespace syntax_NET_core
         {
             //Object__.Main__();
             //AutomaticProperties.Main__();
-            VirtualMethods_And_Shadowing.Main__();
+            //VirtualMethods_And_Shadowing.Main__();
+            //AbstractClass.Main__();
+            Collections_IEnumerable.Main__();
 
             Console.ReadLine();
         }
