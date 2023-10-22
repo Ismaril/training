@@ -35,7 +35,7 @@ namespace syntax
             //Overloading.Main__();
             //PreprocessorDirectives.Main__();
             //Queues.Main__();
-            Serializations.Main__();
+            //Serializations.Main__();
             //Stacks.Main__();
             //Strings.Main__();
             //Structs.Main__();
@@ -44,7 +44,7 @@ namespace syntax
             //Tricks.Trick();
             //UserInput.Main__();
             //Variables.Main__();
-            //ZTesting.Main__();
+            ZTesting.Main__();
 
 
             // ------------------------------------------------------------------------

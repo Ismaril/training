@@ -1,0 +1,14 @@
+C:\Users\lazni\PycharmProjects\Training\C#\syntax\syntax_NET_core\bin\Debug\net7.0\syntax_NET_core.exe
+C:\Users\lazni\PycharmProjects\Training\C#\syntax\syntax_NET_core\bin\Debug\net7.0\syntax_NET_core.deps.json
+C:\Users\lazni\PycharmProjects\Training\C#\syntax\syntax_NET_core\bin\Debug\net7.0\syntax_NET_core.runtimeconfig.json
+C:\Users\lazni\PycharmProjects\Training\C#\syntax\syntax_NET_core\bin\Debug\net7.0\syntax_NET_core.dll
+C:\Users\lazni\PycharmProjects\Training\C#\syntax\syntax_NET_core\bin\Debug\net7.0\syntax_NET_core.pdb
+C:\Users\lazni\PycharmProjects\Training\C#\syntax\syntax_NET_core\obj\Debug\net7.0\syntax_NET_core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lazni\PycharmProjects\Training\C#\syntax\syntax_NET_core\obj\Debug\net7.0\syntax_NET_core.AssemblyInfoInputs.cache
+C:\Users\lazni\PycharmProjects\Training\C#\syntax\syntax_NET_core\obj\Debug\net7.0\syntax_NET_core.AssemblyInfo.cs
+C:\Users\lazni\PycharmProjects\Training\C#\syntax\syntax_NET_core\obj\Debug\net7.0\syntax_NET_core.csproj.CoreCompileInputs.cache
+C:\Users\lazni\PycharmProjects\Training\C#\syntax\syntax_NET_core\obj\Debug\net7.0\syntax_NET_core.dll
+C:\Users\lazni\PycharmProjects\Training\C#\syntax\syntax_NET_core\obj\Debug\net7.0\refint\syntax_NET_core.dll
+C:\Users\lazni\PycharmProjects\Training\C#\syntax\syntax_NET_core\obj\Debug\net7.0\syntax_NET_core.pdb
+C:\Users\lazni\PycharmProjects\Training\C#\syntax\syntax_NET_core\obj\Debug\net7.0\syntax_NET_core.genruntimeconfig.cache
+C:\Users\lazni\PycharmProjects\Training\C#\syntax\syntax_NET_core\obj\Debug\net7.0\ref\syntax_NET_core.dll

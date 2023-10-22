@@ -1,0 +1,28 @@
+/*
+
+This procedure applies only for .NET_Framework. For .NET_Core, different method is used (dotnet.exe instead of csc.exe) and is not described here.
+
+If you start only with txt file and have no compiler installed, start by downloading nuget.exe from web. Copy the nuget.exe
+to the same directory where is the C# file.
+
+Run command in cmd:
+nuget.exe list DotNetCompilerPlatform
+
+Run command in cmd:
+nuget.exe install Microsoft.CodeDom.Providers.DotNetCompilerPlatform
+
+Now after those two commands we can find a csc.exe compiler in this folder: Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\tools\Roslyn-4.1.0
+
+Add the folder to the PATH in cmd (example of absolute path):
+set PATH=%PATH%;C:\Users\lazni\PycharmProjects\Training\C#\syntax\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\tools\Roslyn-4.1.0
+
+You can run some help command:
+csc.exe /?
+
+Create a .dll file:
+csc.exe -target:library -out:runC#WithoutIDE_Library.dll file_to_run_C#_without_IDE.txt
+
+Compile it to exe file:
+csc.exe -target:exe -out:CompiledApplicationWithoutIDE.exe -reference:runC#WithoutIDE_Library.dll file_to_run_C#_without_IDE.txt
+
+*/

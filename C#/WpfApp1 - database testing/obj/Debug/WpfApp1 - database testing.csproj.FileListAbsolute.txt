@@ -1,0 +1,16 @@
+C:\Users\lazni\PycharmProjects\Training\C#\WpfApp1 - database testing\bin\Debug\WpfApp1 - database testing.exe.config
+C:\Users\lazni\PycharmProjects\Training\C#\WpfApp1 - database testing\bin\Debug\WpfApp1 - database testing.exe
+C:\Users\lazni\PycharmProjects\Training\C#\WpfApp1 - database testing\bin\Debug\WpfApp1 - database testing.pdb
+C:\Users\lazni\PycharmProjects\Training\C#\WpfApp1 - database testing\obj\Debug\WpfApp1 - database testing.csproj.AssemblyReference.cache
+C:\Users\lazni\PycharmProjects\Training\C#\WpfApp1 - database testing\obj\Debug\WpfApp1 - database testing.csproj.SuggestedBindingRedirects.cache
+C:\Users\lazni\PycharmProjects\Training\C#\WpfApp1 - database testing\obj\Debug\MainWindow.g.cs
+C:\Users\lazni\PycharmProjects\Training\C#\WpfApp1 - database testing\obj\Debug\App.g.cs
+C:\Users\lazni\PycharmProjects\Training\C#\WpfApp1 - database testing\obj\Debug\WpfApp1 - database testing_MarkupCompile.cache
+C:\Users\lazni\PycharmProjects\Training\C#\WpfApp1 - database testing\obj\Debug\WpfApp1 - database testing_MarkupCompile.lref
+C:\Users\lazni\PycharmProjects\Training\C#\WpfApp1 - database testing\obj\Debug\MainWindow.baml
+C:\Users\lazni\PycharmProjects\Training\C#\WpfApp1 - database testing\obj\Debug\WpfApp1 - database testing.g.resources
+C:\Users\lazni\PycharmProjects\Training\C#\WpfApp1 - database testing\obj\Debug\WpfApp1___database_testing.Properties.Resources.resources
+C:\Users\lazni\PycharmProjects\Training\C#\WpfApp1 - database testing\obj\Debug\WpfApp1 - database testing.csproj.GenerateResource.cache
+C:\Users\lazni\PycharmProjects\Training\C#\WpfApp1 - database testing\obj\Debug\WpfApp1 - database testing.csproj.CoreCompileInputs.cache
+C:\Users\lazni\PycharmProjects\Training\C#\WpfApp1 - database testing\obj\Debug\WpfApp1 - database testing.exe
+C:\Users\lazni\PycharmProjects\Training\C#\WpfApp1 - database testing\obj\Debug\WpfApp1 - database testing.pdb

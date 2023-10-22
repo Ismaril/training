@@ -1,0 +1,15 @@
+
+using System;
+
+namespace RunWithoutIDE
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("This program was run without IDE.");
+            Console.ReadLine();
+
+        }
+    }
+}
