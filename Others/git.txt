@@ -345,8 +345,10 @@ AMEND
 
 git commit --amend -m "Added lines to README.md" (this will change the message of last commit)
 
-
-
+-------------------------------------------------------------------------
+PROBLEMS WITH CERTIFICATES WHEN CLONING A REPOSITORY
+- use this command:
+git config --global http.sslbackend schannel
 
 
 -------------------------------------------------------------------------
