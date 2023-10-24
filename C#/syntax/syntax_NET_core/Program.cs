@@ -16,7 +16,12 @@ namespace syntax_NET_core
             //AutomaticProperties.Main__();
             //VirtualMethods_And_Shadowing.Main__();
             //AbstractClass.Main__();
-            Collections_IEnumerable.Main__();
+            //Collections_IEnumerable.Main__();
+            //Generics.Main__();
+            //Arrays_and_Collections.Main__();
+            //OperatorOverloading.Main__();
+            //Delegates.Main__();
+            NullableValueTypes.Main__();
 
             Console.ReadLine();
         }
