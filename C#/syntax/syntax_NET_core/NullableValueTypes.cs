@@ -8,6 +8,7 @@ namespace syntax_NET_core
 {
     internal class NullableValueTypes
     {
+        // Basically specify whats going to happen if the value is null.
         public static void Main__()
         {
             Utilities utilities = new();
@@ -16,6 +17,7 @@ namespace syntax_NET_core
             //int i = null; // This is not allowed, because int is a value type.
 
             // Both mean the same thing.
+            // With question mark syntax you now allow the value to be null or just normal value.
             int? i = null; // This is allowed, because int? is a nullable value type.
             Nullable<int> j = null; // This is allowed, because Nullable<int> is a nullable value type.
             Console.WriteLine($"i: {i}.");
@@ -40,6 +42,34 @@ namespace syntax_NET_core
             Console.WriteLine($"Default value: {i ?? 5}.");
 
 
+            utilities.PrintLine();
+
+            // ??= OPERATOR
+            // You can use ??= operator to assign a value to a variable only if the variable is null.
+            // It is basically like += operator, but for null values.
+            int[]? integers = null;
+            integers ??= new int[5];
+            for (int index = 0; index < integers.Length; index++)
+                Console.WriteLine($"At index {index} is value: {integers[index]}");
+
+
+            utilities.PrintLine();
+
+
+            // --------------------------------------------------------------------------------
+            // So basically, how to understand all of this?:
+            // You put single question marks there, where you expect the value to be null.
+            int? n = null;
+
+            //int m1 = n;    // Doesn't compile
+            int m = 125;
+            int n2 = (int)m; // Compiles, but throws an exception if m is null
+
+            // Combination of ? and ??
+            // Here you see that you put single question mark where you expect the value to be null.
+            // Double question mark is here to asign default value if the value is null.
+            string[] ints = null;
+            Console.WriteLine(ints?[0]?.Length ?? 0);
         }
 
 

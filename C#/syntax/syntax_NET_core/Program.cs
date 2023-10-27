@@ -1,4 +1,4 @@
-﻿
+﻿/*
 // .NET Core is a cross-platform version of .NET for building websites, services, and console apps.
 // Nowadays, .NET Core is renamed to .NET but they are the same thing.
 
@@ -20,10 +20,11 @@ namespace syntax_NET_core
             //Generics.Main__();
             //Arrays_and_Collections.Main__();
             //OperatorOverloading.Main__();
-            //Delegates.Main__();
-            NullableValueTypes.Main__();
+            Delegates.Main__();
+            //NullableValueTypes.Main__();
 
             Console.ReadLine();
         }
     }
 }
+*/
