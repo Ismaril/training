@@ -32,6 +32,7 @@ public class Messenger
 }
 
 // UNCOMMENT THIS IF YOU WANT TO SEE THE EXAMPLE IN ACTION
+//  (Dont forget co comment out the main function in Program.cs)
 /*
 // Example usage
 public class Program

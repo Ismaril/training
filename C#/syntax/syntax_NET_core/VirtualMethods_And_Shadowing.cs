@@ -16,7 +16,7 @@ namespace syntax_NET_core
             Animal[] animals = { new Animal(), new Cat(), new Dog(), new Cat() };
 
             // This will call the overriden methods.
-            foreach (var animal in animals)
+            foreach (Animal animal in animals)
             {
                 Console.WriteLine(animal.Sound());
             }
@@ -24,8 +24,11 @@ namespace syntax_NET_core
             utilities.PrintLine();
 
             // This will call the shadowed methods.
-            // There will be no polymorphism.
-            foreach (var animal in animals)
+            // There will be no polymorphism, since we call Animal object.
+            // If we however gonna create Cat or Dog object and call the Movement() method
+            //  directly on the object, then you will see that the method will do 
+            //  specifycally what was implemented in shadowed method.
+            foreach (Animal animal in animals)
             {
                 if (animal is Cat)
                 {
@@ -36,10 +39,16 @@ namespace syntax_NET_core
                     Console.WriteLine(animal.Movement());
                 }
             }
+            // Example of calling shadowed method directly on the object.
+            // This will call the shadowed method, not the base class method.
+            Cat cat = new Cat();
+            Console.WriteLine(cat.Movement());
 
             utilities.PrintLine();
+
+            // shadowing & virtual methods
             VirtualAnimal[] animals2 = { new VirtualAnimal(), new Cow() };
-            foreach (var animal in animals2)
+            foreach (VirtualAnimal animal in animals2)
             {
                 Console.WriteLine(animal.Attack());
             }

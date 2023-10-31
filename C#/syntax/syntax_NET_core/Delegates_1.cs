@@ -18,6 +18,11 @@ namespace syntax_NET_core
         //  any method you want from the outside, as long as it matches the signature
         //  of the delegate. Check the example in the file Delegates_0.cs.
 
+        // Create a delegate. (Create placeholder for a method.)
+        private delegate int SumDelegate(int x, int y);
+        private delegate int MaxDelegate(int x, int y);
+        private delegate string DoSomethingDelegate();
+
         public static void Main__()
         {
             Utilities utilities = new();
@@ -85,6 +90,27 @@ namespace syntax_NET_core
             SomeAribitraryClass.CallBack += FunctionToPassIntoCallback_2;
             SomeAribitraryClass.DoWork("This is text inputted into callback delegate");
 
+            utilities.PrintLine();
+
+            // CALLBACKS WITH EVENTS
+            // Once you have used an event keyword, you have to use += to add a function to the delegate.
+            // Also when you move with mouse over the CallBackEvent, it has a different icon compared
+            //  to the Callback in the rows above.
+            SomeAribitraryClass.CallBackEvent += FunctionToPassIntoCallbackEvent;
+            SomeAribitraryClass.CallBackEvent += FunctionToPassIntoCallbackEvent_2;
+            SomeAribitraryClass.DoWork("This is text inputted into callback EVENT delegate");
+
+            utilities.PrintLine();
+
+
+            // --------------------------------------------------------------------------------
+            // At the moment I do not see much difference between callbacks and events.
+            // Both have to come out of delegate. Both can be used to execute multiple functions.
+            // You use = to assign a function to a callback, and += to add next function to a callback.
+            // You use += always to add a function to an event.
+            // When to actually use callbacks and when to use events specifically, and when to
+            //  choose one over another? -> I do not know yet. It would be best to figure it out
+            //  in some real application.
         }
 
         private static int Sum_(int x, int y)
@@ -107,11 +133,6 @@ namespace syntax_NET_core
             return "Doing somehthing else";
         }
 
-        // Create a delegate.
-        private delegate int SumDelegate(int x, int y);
-        private delegate int MaxDelegate(int x, int y);
-        private delegate string DoSomethingDelegate();
-
         // --------------------------------------------------------------------------------
         public static void FunctionToPassIntoCallback(string result)
         {
@@ -122,12 +143,24 @@ namespace syntax_NET_core
         {
             Console.WriteLine("(2ndFunctionRegisteredIntoCallback), " + result);
         }
+
+        public static void FunctionToPassIntoCallbackEvent(string result)
+        {
+            Console.WriteLine("(1stFunctionRegisteredIntoCallbackEvent), " + result);
+        }
+
+        public static void FunctionToPassIntoCallbackEvent_2(string result)
+        {
+            Console.WriteLine("(2ndFunctionRegisteredIntoCallbackEvent), " + result);
+        }
     }
 
     public static class SomeAribitraryClass
     {
 
         public static WorkCompletedCallback CallBack;
+
+        public static event WorkCompletedCallback CallBackEvent;
 
         public static void DoWork(string stringFromUser)
         {

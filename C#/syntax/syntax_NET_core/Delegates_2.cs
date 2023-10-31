@@ -1,18 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace syntax_NET_core
+﻿namespace syntax_NET_core
 {
-    internal class Delegates_2
-    {
-    }
-
-    /// <summary>
-    /// 
-    /// </summary>
     public enum ChangedEventState
     {
         Added,
@@ -21,13 +8,12 @@ namespace syntax_NET_core
 
     public class ChangedEventArgs: EventArgs
     {
-        public ChangedEventArgs(ChangedEventState changedState)
-        {
+        // Ctor
+        public ChangedEventArgs(ChangedEventState changedState) =>
             ChangedState = changedState;
-        }
 
+        // Property
         public ChangedEventState ChangedState { get; set; }
-
     }
 
 
@@ -46,6 +32,7 @@ namespace syntax_NET_core
         public delegate void ChangedEventHandler(object sender, ChangedEventArgs e);
         public event ChangedEventHandler Changed;
 
+        // Keyword "new" - shadowing the base class method
         new public void Add(int x)
         {
             base.Add(x);
@@ -58,15 +45,11 @@ namespace syntax_NET_core
             base.Clear();
             // Raise the Changed event.
             OnChanged(new ChangedEventArgs(ChangedEventState.Cleared));
-
         }
 
         new public int this[int index]
         {
-            set
-            {
-                base[index] = value;
-            }
+            set { base[index] = value; }
         }
 
         //void OnChanged(EventArgs e)
@@ -85,7 +68,9 @@ namespace syntax_NET_core
         }
     }
 
-
+    // UNCOMMENT THE CODE BELOW TO SEE THE EXAMPLE USAGE OF THE CLASSES ABOVE.
+    //  (Dont forget co comment out the main function in Program.cs)
+    /*
     // Example usage
     public class Program
     {
@@ -93,14 +78,13 @@ namespace syntax_NET_core
         {
             IntegerListWithChangedEvent myList = new();
             myList.Changed += EventListener;
-
             myList.Add(1);
             myList.Add(2);
-
             Console.ReadLine();
-
         }
 
+        // Outside function that is called when the event is triggered.
+        // You pass this function as a parameter to the event/delegate.
         static void EventListener(object sender, EventArgs e)
         {
             IntegerListWithChangedEvent list = (IntegerListWithChangedEvent)sender;
@@ -114,7 +98,8 @@ namespace syntax_NET_core
                 Console.WriteLine("List is empty.");
             Console.WriteLine("------------------------------------------------");
         }
-    }
+    }*/
 }
+
 
 
