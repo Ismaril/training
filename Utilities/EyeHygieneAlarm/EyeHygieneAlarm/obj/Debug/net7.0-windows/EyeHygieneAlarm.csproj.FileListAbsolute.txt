@@ -1,0 +1,17 @@
+C:\Users\z003uxda\source\repos\EyeHygieneAlarm\EyeHygieneAlarm\obj\Debug\net7.0-windows\EyeHygieneAlarm.csproj.AssemblyReference.cache
+C:\Users\z003uxda\source\repos\EyeHygieneAlarm\EyeHygieneAlarm\obj\Debug\net7.0-windows\EyeHygieneAlarm.AlarmForm.resources
+C:\Users\z003uxda\source\repos\EyeHygieneAlarm\EyeHygieneAlarm\obj\Debug\net7.0-windows\EyeHygieneAlarm.csproj.GenerateResource.cache
+C:\Users\z003uxda\source\repos\EyeHygieneAlarm\EyeHygieneAlarm\obj\Debug\net7.0-windows\EyeHygieneAlarm.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\z003uxda\source\repos\EyeHygieneAlarm\EyeHygieneAlarm\obj\Debug\net7.0-windows\EyeHygieneAlarm.AssemblyInfoInputs.cache
+C:\Users\z003uxda\source\repos\EyeHygieneAlarm\EyeHygieneAlarm\obj\Debug\net7.0-windows\EyeHygieneAlarm.AssemblyInfo.cs
+C:\Users\z003uxda\source\repos\EyeHygieneAlarm\EyeHygieneAlarm\obj\Debug\net7.0-windows\EyeHygieneAlarm.csproj.CoreCompileInputs.cache
+C:\Users\z003uxda\source\repos\EyeHygieneAlarm\EyeHygieneAlarm\bin\Debug\net7.0-windows\EyeHygieneAlarm.exe
+C:\Users\z003uxda\source\repos\EyeHygieneAlarm\EyeHygieneAlarm\bin\Debug\net7.0-windows\EyeHygieneAlarm.deps.json
+C:\Users\z003uxda\source\repos\EyeHygieneAlarm\EyeHygieneAlarm\bin\Debug\net7.0-windows\EyeHygieneAlarm.runtimeconfig.json
+C:\Users\z003uxda\source\repos\EyeHygieneAlarm\EyeHygieneAlarm\bin\Debug\net7.0-windows\EyeHygieneAlarm.dll
+C:\Users\z003uxda\source\repos\EyeHygieneAlarm\EyeHygieneAlarm\bin\Debug\net7.0-windows\EyeHygieneAlarm.pdb
+C:\Users\z003uxda\source\repos\EyeHygieneAlarm\EyeHygieneAlarm\obj\Debug\net7.0-windows\EyeHygieneAlarm.dll
+C:\Users\z003uxda\source\repos\EyeHygieneAlarm\EyeHygieneAlarm\obj\Debug\net7.0-windows\refint\EyeHygieneAlarm.dll
+C:\Users\z003uxda\source\repos\EyeHygieneAlarm\EyeHygieneAlarm\obj\Debug\net7.0-windows\EyeHygieneAlarm.pdb
+C:\Users\z003uxda\source\repos\EyeHygieneAlarm\EyeHygieneAlarm\obj\Debug\net7.0-windows\EyeHygieneAlarm.genruntimeconfig.cache
+C:\Users\z003uxda\source\repos\EyeHygieneAlarm\EyeHygieneAlarm\obj\Debug\net7.0-windows\ref\EyeHygieneAlarm.dll
