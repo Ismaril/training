@@ -118,6 +118,27 @@ namespace syntax
             // NESTED CLASS
             SomeClass.SomeNestedClass someVariable = new SomeClass.SomeNestedClass();
             someVariable.PrintSomeBS();
+
+            utility.Separator();
+
+            // PARTIAL CLASSES
+            MyPartialClass myPartialClass = new MyPartialClass();
+            Console.WriteLine(myPartialClass.Method1());
+            Console.WriteLine(myPartialClass.Method2());
+
+            utility.Separator();
+
+            // PARTIAL CLASSES (WITH PARTIAL INTERFACE IN SOURCE FILE)
+            PartialClassThatInheritsInterface partialClassThatInheritsInterface
+                = new PartialClassThatInheritsInterface();
+            Console.WriteLine(partialClassThatInheritsInterface.Method1());
+            Console.WriteLine(partialClassThatInheritsInterface.Method2());
+
+            utility.Separator();
+
+            // PARTIAL METHODS
+            // Explained in solution "syntax_NET_core".
+
         }
     }
 }

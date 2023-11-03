@@ -215,6 +215,9 @@ namespace syntax
 
 
     // ABSTRACTION
+    //q: Difference between abstract class and interface?
+    //a: Abstract class can have implementation of some methods, interface cannot.
+
     /* Data abstraction is the process of hiding certain details and showing only essential 
      *  information to the user.
      * Abstraction can be achieved with either abstract classes or interfaces.
@@ -249,6 +252,9 @@ namespace syntax
 
 
     // INTERFACE
+    //q: Difference between abstract class and interface?
+    //a: Abstract class can have implementation of some methods, interface cannot.
+
     // Another way to achieve abstraction in C#, is with interfaces.
     // An interface is a completely "abstract class", which can only
     //  contain abstract methods and properties (with empty bodies)
@@ -259,12 +265,12 @@ namespace syntax
     // To access the interface methods, the interface must be "implemented"
     //  (kinda like inherited) by another class. To implement an interface,
     //  use the : symbol (just like with inheritance). The body of the interface
-    //  method is provided by the "implement" class. Note that you do not have to
+    //  method is provided by the child class. Note that you do not have to
     //  use the override keyword when implementing an interface:
 
     // Notes on Interfaces:
     // Like abstract classes, interfaces cannot be used to create objects (it is not possible to create an "IAnimal" object in the Program/Main class)
-    // Interface methods do not have a body - the body is provided by the "implement" class.
+    // Interface methods do not have a body - the body is provided by the child class.
     // On implementation of an interface, you must override all of its methods (Override keyword is not necesary however).
     // Interfaces can contain properties and methods, but not fields/variables
     // Interface members are by default abstract and public
@@ -353,6 +359,68 @@ namespace syntax
     //}
 
 
+    // PARTIAL INTERFACES
+    // It is possible to split an interface into multiple files. Here are obviously those interfaces in the same file,
+    //  but you can put each of those two interfaces below into different file and they would still behave
+    //  as one interface.
+    partial interface IMyPartialInterface
+    {
+        string Method1();
+    }
+
+    partial interface IMyPartialInterface
+    {
+        string Method2();
+    }
+
+    // Both methods that were defined separately in each partial interface
+    //  must be implemented in the class that implements the interface.
+    class ClassThatExpectsInterface: IMyPartialInterface
+    {
+        public string Method1()
+        {
+            return "Method1";
+        }
+
+        public string Method2()
+        {
+            return "Method2";
+        }
+    }
+
+    // Partial interface used with partial classes:
+    partial interface IMyPartialInterface2
+    {
+        string Method1();
+    }
+
+    partial interface IMyPartialInterface2
+    {
+        string Method2();
+    }
+
+    // Both methods that were defined separately in each partial interface
+    //  must be implemented in the class that implements the interface.
+    // The interface must be inherited atleast in one of the partial classes.
+    //  But it is possible to inherit the same interface it in both of them.
+    //  It would work the same way.
+    partial class PartialClassThatInheritsInterface : IMyPartialInterface2
+    {
+        public string Method1()
+        {
+            return "Method1";
+        }
+    }
+
+    partial class PartialClassThatInheritsInterface // : IMyPartialInterface2
+    {
+        public string Method2()
+        {
+            return "Method2";
+        }
+    }
+
+
     // STATIC CLASS
     // It will not be possible to create an instance of this class.
     // Static class cannot inherit from other classes.
@@ -418,6 +486,30 @@ namespace syntax
         public Magazine() { }
     }
     // ---------------------------------------------------------------------------------------------------
+    
+    // PARTIAL CLASSES
+    // It is possible to split a class into multiple files. Here are obviously those classes in the same file,
+    //  but you can put each of those two classes below into different file and they would still behave
+    //  as one class.
+    partial class MyPartialClass
+    {
+        public string Method1()
+        {
+            return "Method1";
+        }
+    }
+
+    partial class MyPartialClass
+    {
+        public string Method2()
+        {
+            return "Method2";
+        }
+    }
+
+
+    }
 }
+
 
 
