@@ -26,6 +26,7 @@ namespace syntax
             // Without constructor, you can asign new values like this below,
             // but it is not good practise:
             Book book1 = new Book();
+            // Book book2 = new(); // This is also possible in newer C# versions. Just a shorter syntax.
             book1.title = "Jak Jarda ztratil pivsona.";
             book1.author = "Jarda";
             book1.numberOfPages = 300;

@@ -24,7 +24,11 @@ namespace syntax_NET_core
             //NullableValueTypes.Main__();
             //ImplicitlyTypedVariables.Main__();
             //PartialMethods.Main__();
-            OptionalParameters.Main__();
+            //OptionalParameters.Main__();
+            //NullableReferenceTypes.Main__();
+            //Tuples.Main__();
+            //Discard_and_Deconstruct_Operator.Main__();
+            Index_and_Range_Operator.Main__();
 
             Console.ReadLine();
         }

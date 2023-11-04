@@ -507,8 +507,6 @@ namespace syntax
         }
     }
 
-
-    }
 }
 
 

@@ -9,6 +9,8 @@ namespace syntax_NET_core
     internal class NullableValueTypes
     {
         // Basically specify whats going to happen if the value is null.
+        // With a single question mark you specify that the value can be null. In some cases
+        //  it would otherwise crash program if the question mark was not there and the value was null.
         public static void Main__()
         {
             Utilities utilities = new();
@@ -16,7 +18,7 @@ namespace syntax_NET_core
 
             //int i = null; // This is not allowed, because int is a value type.
 
-            // Both mean the same thing.
+            // Both below mean the same thing.
             // With question mark syntax you now allow the value to be null or just normal value.
             int? i = null; // This is allowed, because int? is a nullable value type.
             Nullable<int> j = null; // This is allowed, because Nullable<int> is a nullable value type.

@@ -1,7 +1,7 @@
 progress_tracking.py
 scratch_file_jupyter.ipynb
 .idea
-
+.vs
 
 __pycache__
 Python/scratch_file_python.py
@@ -17,7 +17,9 @@ C#/syntax/syntax/obj/
 C#/code_wars/.vs
 C#/code_wars/code_wars/bin/
 C#/code_wars/code_wars/obj/
-
+C#/syntax/syntax_NET_core/.vs
+C#/syntax/syntax_NET_core/bin
+C#/syntax/syntax_NET_core/obj
 
 C/cmake-build-debug
 C/.idea
@@ -25,3 +27,7 @@ C/CMakeLists.txt
 C/employees.txt
 C/scratch.h
 C/scratch_2.h
+
+Utilities/EyeHygieneAlarm/EyeHygieneAlarm/bin
+Utilities/EyeHygieneAlarm/EyeHygieneAlarm/obj
+Utilities/EyeHygieneAlarm/EyeHygieneAlarm/.vs
