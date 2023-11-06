@@ -1,14 +1,9 @@
-progress_tracking.py
-scratch_file_jupyter.ipynb
-.idea
-.vs
-
-__pycache__
-Python/scratch_file_python.py
-Python/syntax/__pycache__/
-Python/logs/__pycache__/
-Python/projects/copied_projects/2048/__pycache__/
-
+C/cmake-build-debug
+C/.idea
+C/CMakeLists.txt
+C/employees.txt
+C/scratch.h
+C/scratch_2.h
 
 C#/.vs
 C#/syntax/.vs
@@ -20,14 +15,28 @@ C#/code_wars/code_wars/obj/
 C#/syntax/syntax_NET_core/.vs
 C#/syntax/syntax_NET_core/bin
 C#/syntax/syntax_NET_core/obj
+C#\WpfApp1 - database testing/bin
+C#\WpfApp1 - database testing/obj
 
-C/cmake-build-debug
-C/.idea
-C/CMakeLists.txt
-C/employees.txt
-C/scratch.h
-C/scratch_2.h
+__pycache__
+Python/scratch_file_python.py
+Python/syntax/__pycache__/
+Python/logs/__pycache__/
+Python/projects/copied_projects/2048/__pycache__/
 
+Utilities/EyeHygieneAlarm/EyeHygieneAlarm/.vs
 Utilities/EyeHygieneAlarm/EyeHygieneAlarm/bin
 Utilities/EyeHygieneAlarm/EyeHygieneAlarm/obj
-Utilities/EyeHygieneAlarm/EyeHygieneAlarm/.vs
+
+progress_tracking.py
+scratch_file_jupyter.ipynb
+.idea
+.vs
+
+
+
+
+
+
+
+
