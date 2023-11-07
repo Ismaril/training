@@ -13,7 +13,7 @@ namespace syntax_NET_core
         static void Main(string[] args)
         {
             //Object__.Main__();
-            //AutomaticProperties.Main__();
+            AutomaticProperties.Main__();
             //VirtualMethods_And_Shadowing.Main__();
             //AbstractClass.Main__();
             //Collections_IEnumerable.Main__();
@@ -28,7 +28,9 @@ namespace syntax_NET_core
             //NullableReferenceTypes.Main__();
             //Tuples.Main__();
             //Discard_and_Deconstruct_Operator.Main__();
-            Index_and_Range_Operator.Main__();
+            //Index_and_Range_Operator.Main__();
+            //ExtensionMethods.Main__();  
+            //ObjectInitializers.Main__();
 
             Console.ReadLine();
         }

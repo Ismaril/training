@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Channels;
 using System.Threading.Tasks;
 
 namespace syntax_NET_core
@@ -39,6 +40,19 @@ namespace syntax_NET_core
             var weekDayNames = new WeekDayNames();
             Console.WriteLine(weekDayNames[1]);
             Console.WriteLine(weekDayNames["Tue"]);
+
+            utilities.PrintLine();
+
+            Pig piggas = new() { Tail = "Long" };
+            Console.WriteLine(piggas.Tail);
+            Pig piggas2 = new("Very short");
+            Console.WriteLine(piggas2.Tail);
+            // piggas2.Tail = "Very long"; // Not possible, because Tail is init-only property. Meaning readonly after initialization.
+            Pig piggas3 = new();
+            Console.WriteLine(piggas3.Tail); // Default value of string.
+            Pig piggas4 = new() { Tail2 = "Very VERY long" };
+            // See that it is possible to set a value during initialization even if the property has default keyword.
+            Console.WriteLine(piggas4.Tail2); 
         }
 
 
@@ -46,6 +60,15 @@ namespace syntax_NET_core
 
     internal class Pig
     {
+        public Pig()
+        {
+        }
+
+        public Pig(string tail)
+        {
+            Tail = tail;
+        }
+
         // OLD WAY,
         // how to write properties
         // fields
@@ -79,11 +102,26 @@ namespace syntax_NET_core
 
         // RESTRICTING ACCESS TO PROPERTIES
         // You can see that we can set access modifier directly inside the property.
+        // Private set accessor in a property declaration restricts the ability to
+        //  set the value of the property outside the class that contains the property. 
         public string Breed { get; private set; }
+
 
         // READ-ONLY PROPERTIES
         public string Producer { get; } = "Producer_Name";
+
+
+        // INIT-ONLY PROPERTIES
+        // With init keyword instead of set, you can set a value during property inicialization.
+        // But you cannot change it later. Later the property is read-only.
+        // It is good practise to use also default keyword to set a default value in case the
+        //  property is not initialized.
+        public string Tail { get; init; } = default;
+        public string Tail2 { get; init; } = default;
+
     }
+
+
 
     internal class WildPig : Pig
     {
@@ -131,4 +169,5 @@ namespace syntax_NET_core
         // But here overload it. You can now access elements in the collection of this class both by index and by name.
         public string this[string dayName] => _weekDayNames[Array.IndexOf(_weekDayShortNames, dayName)];
     }
+
 }
