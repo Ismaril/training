@@ -108,6 +108,9 @@ git log --oneline
 git log --decorate
 git log --graph
 
+- show what changes were done in a given commit
+git show commit_ID
+
 -------------------------------------------------------------------------
 HELP
 - having trouble remembering commands or options for commands - use Git help.
@@ -117,6 +120,53 @@ HELP
 git command -help
 
 git help --all
+
+-------------------------------------------------------------------------
+STASH
+- The git stash command is used to temporarily store changes that you
+  don't want to commit immediately. Here are some examples of how to use
+  git stash:
+
+- Stash current changes:
+- This command will stash the current changes in your working directory.
+git stash
+
+- Stash current changes with a message:
+- This command will stash the current changes with a descriptive message.
+git stash save "your message here"
+
+- List stashed changes:
+- This command will list all the stashed changes.
+git stash list
+
+- Apply stashed changes:
+- This command will apply the most recent stashed changes to your working directory.
+git stash apply
+
+- Apply a specific stash:
+- Replace n with the index of the specific stash you want to apply.
+git stash apply stash@{n}
+
+- Apply and remove stashed changes:
+- This command will apply the most recent stashed changes and then remove them from the stash list.
+git stash pop
+
+- Remove stashed changes:
+- This command will remove the most recent stashed changes from the stash list.
+git stash drop
+
+- Remove a specific stash:
+- Replace n with the index of the specific stash you want to remove.
+git stash drop stash@{n}
+
+- Apply and remove specific stash:
+- Replace n with the index of the specific stash you want to apply and remove.
+git stash pop stash@{n}
+
+- Clear all stashed changes:
+- This command will remove all stashed changes from the stash list.
+git stash clear
+
 
 -------------------------------------------------------------------------
 BRANCH
