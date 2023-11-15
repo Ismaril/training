@@ -82,6 +82,7 @@ namespace syntax_NET_core
             // Basically expression bodies are used to simplify the code.
             // Making for example properties and methods shorter by
             //  removing brackets and return keyword.
+            // It is done by using => operator.
            
         }
 
