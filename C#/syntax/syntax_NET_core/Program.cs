@@ -31,8 +31,8 @@ namespace syntax_NET_core
             //Index_and_Range_Operator.Main__();
             //ExtensionMethods.Main__();  
             //ObjectInitializers.Main__();
-            AnonymousTypes.Main__();
-
+            //AnonymousTypes.Main__();
+            LambdaMethods.Main__();
 
             Console.ReadLine();
         }
