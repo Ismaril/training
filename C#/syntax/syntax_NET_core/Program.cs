@@ -32,7 +32,11 @@ namespace syntax_NET_core
             //ExtensionMethods.Main__();  
             //ObjectInitializers.Main__();
             //AnonymousTypes.Main__();
-            LambdaMethods.Main__();
+            //LambdaMethods.Main__();
+            //LINQ.Main__();
+            //Closure.Main__();
+            SwitchCase.Main__();
+
 
             Console.ReadLine();
         }
