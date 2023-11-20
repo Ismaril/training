@@ -35,7 +35,9 @@ namespace syntax_NET_core
             //LambdaMethods.Main__();
             //LINQ.Main__();
             //Closure.Main__();
-            SwitchCase.Main__();
+            //SwitchCase.Main__();
+            //Records.Main__();
+            PreprocessorDirectives.Main__();
 
 
             Console.ReadLine();
