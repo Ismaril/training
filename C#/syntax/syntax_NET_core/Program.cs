@@ -37,7 +37,10 @@ namespace syntax_NET_core
             //Closure.Main__();
             //SwitchCase.Main__();
             //Records.Main__();
-            PreprocessorDirectives.Main__();
+            //PreprocessorDirectives.Main__();
+            //Attributes.Main__();
+            //Finalization_and_GarbageColector.Main__();
+            WeakReference_and_Generalization.Main__();
 
 
             Console.ReadLine();
