@@ -8,4 +8,8 @@
     <Configurations>Debug;Release;Trial;Professional;Enterprise</Configurations>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Files\" />
+  </ItemGroup>
+
 </Project>

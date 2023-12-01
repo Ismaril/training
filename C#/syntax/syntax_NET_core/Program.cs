@@ -40,7 +40,8 @@ namespace syntax_NET_core
             //PreprocessorDirectives.Main__();
             //Attributes.Main__();
             //Finalization_and_GarbageColector.Main__();
-            WeakReference_and_Generalization.Main__();
+            //WeakReference_and_Generalization.Main__();
+            Streams.Main__();
 
 
             Console.ReadLine();
