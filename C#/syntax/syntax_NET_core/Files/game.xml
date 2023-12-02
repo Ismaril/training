@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameStudio xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>id Software</Name>
+  <Games>
+    <ComputerGame>
+      <Name>Doom</Name>
+      <Genre>FPS</Genre>
+      <Year_Released>1993</Year_Released>
+    </ComputerGame>
+    <ComputerGame>
+      <Name>Doom 2</Name>
+      <Genre>FPS</Genre>
+      <Year_Released>1994</Year_Released>
+    </ComputerGame>
+    <ComputerGame>
+      <Name>Doom 3</Name>
+      <Genre>FPS</Genre>
+      <Year_Released>2004</Year_Released>
+    </ComputerGame>
+  </Games>
+</GameStudio>
