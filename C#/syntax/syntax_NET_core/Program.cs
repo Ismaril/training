@@ -29,7 +29,7 @@ namespace syntax_NET_core
             //Tuples.Main__();
             //Discard_and_Deconstruct_Operator.Main__();
             //Index_and_Range_Operator.Main__();
-            //ExtensionMethods.Main__();  
+            //ExtensionMethods.Main__();
             //ObjectInitializers.Main__();
             //AnonymousTypes.Main__();
             //LambdaMethods.Main__();
@@ -41,7 +41,9 @@ namespace syntax_NET_core
             //Attributes.Main__();
             //Finalization_and_GarbageColector.Main__();
             //WeakReference_and_Generalization.Main__();
-            Streams.Main__();
+            //StreamsFilesDirectories.Main__();
+            //XMLSerialization.Main__();
+            YAMLSerialization.Main__();
 
 
             Console.ReadLine();
