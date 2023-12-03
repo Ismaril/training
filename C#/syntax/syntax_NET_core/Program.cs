@@ -43,7 +43,7 @@ namespace syntax_NET_core
             //WeakReference_and_Generalization.Main__();
             //StreamsFilesDirectories.Main__();
             //XMLSerialization.Main__();
-            YAMLSerialization.Main__();
+            JSONSerialization.Main__();
 
 
             Console.ReadLine();
