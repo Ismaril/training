@@ -119,6 +119,9 @@ namespace syntax_NET_core
             System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
             System.Text.Encoding encoding = System.Text.Encoding.GetEncoding("windows-1250");
 
+            // UTF8 default encoding
+            System.Text.Encoding encoding_UTF8 = System.Text.Encoding.UTF8;
+
             string filePathAndName3 = Path.Combine(
                 $"{fileDirectory}",
                 "data2.txt"
