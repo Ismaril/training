@@ -39,8 +39,8 @@ Copilot chat is optimized for slash commands, should yield better results (acc. 
 
 VISUAL STUDIO, MICROSOFT - COPILOT SHORTCUTS
 These shortcuts work directly in the editor, no need to open copilot chat.
-Alt + <				- Previous suggestion
-Alt + >				- Next suggestion
+Alt + ,				- Previous suggestion
+Alt + .				- Next suggestion
 Alt + /				- aka "Refine code in-place" Show window where you can ask copilot in-line. (Also helps if you select some code with mouse first)
 Tab					- Accept suggestion
 Esc					- Dismiss suggestion
