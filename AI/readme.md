@@ -1,0 +1,1 @@
+This folder contains all the study materials I have mustered when it comes to AI.
