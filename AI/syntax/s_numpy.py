@@ -1,6 +1,6 @@
 import time
 
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 import numpy as np
 
 from Python.utilities.separate_text_stdout import SeparateText
@@ -115,7 +115,8 @@ print(separator.separator())
 # indexing, slicing, boolean indexing numpy arrays
 print(f"{tensor[:, 0]}")  # get all the rows (in this example) on the first index
 print(f"{tensor[:, :, -1]}")  # access all elements that are on the last index of each row
-print(f"{tensor[..., -1]}")  # ellipsis "..." can skip repetitive colons ':, :,' Output is the same as above.
+print(
+    f"{tensor[..., -1]}")  # ellipsis "..." can skip repetitive colons ':, :,' Output is the same as above.
 
 # - boolean index
 boolean_index = matrix % 2 == 0
@@ -166,7 +167,8 @@ print(array_5[np.newaxis, :])
 print(separator.separator())
 
 # concatenate arrays
-concatenate = np.concatenate((matrix, np.array([[10, 11, 12]])), axis=0)  # axis None flattens the array
+concatenate = np.concatenate((matrix, np.array([[10, 11, 12]])),
+                             axis=0)  # axis None flattens the array
 print(f"{concatenate = }")
 
 concatenate = np.concatenate((matrix, np.array([[10, 11, 12]]).transpose()), axis=1)
@@ -227,7 +229,8 @@ print(eye)
 arange = np.arange(start=10, stop=20, step=2, dtype=np.float32)
 print(arange)
 
-linspace = np.linspace(start=10, stop=20, num=3)  # returns evenly spaced range based on specified "num" param
+linspace = np.linspace(start=10, stop=20,
+                       num=3)  # returns evenly spaced range based on specified "num" param
 print(linspace)
 
 print(separator.separator())
@@ -238,7 +241,7 @@ print(f"{random_arr = }")
 
 randn = np.random.randn(1000)  # generate an array
 """plt.hist(x=randn, bins=50)"""
-plt.show()
+# plt.show()
 print(f"{randn.mean() = }", f"{randn.var()}")  # mean should be close to 0, variance close to 1
 
 randint = np.random.randint(low=2, high=20, size=(2, 2, 8), dtype=np.int32)
@@ -281,7 +284,7 @@ print(f"{np.allclose(np.array([2.0000001, 1]), np.array([2.0, 1.0]))=}")
 print(separator.separator())
 
 # load csv file
-load_csv = np.loadtxt("csv files/some_numbers.csv", skiprows=1, delimiter=",", dtype=int)
+load_csv = np.loadtxt("../files/some_numbers.csv", skiprows=1, delimiter=",", dtype=object)
 print(load_csv)
 
 print(separator.separator())
@@ -289,7 +292,8 @@ print(separator.separator())
 # working with axes
 # check photos arrays broadcasting.jpg, axes.jpg
 ones1 = np.ones((5, 3))
-ones2 = np.ones((3,))  # can be used even if it has not the same dimension because numpy will prepend one
+ones2 = np.ones(
+    (3,))  # can be used even if it has not the same dimension because numpy will prepend one
 #   dimension to match the other array
 
 print(ones1)
@@ -301,7 +305,8 @@ array_7 = np.arange(24).reshape((2, 3, 4))
 print(array_7)
 print(f"{array_7.shape=}")
 print(f"{array_7.ndim=}")
-print(np.sum(array_7, axis=0))  # axis 0 sums each element on the same pos of two biggest sections here
+print(np.sum(array_7,
+             axis=0))  # axis 0 sums each element on the same pos of two biggest sections here
 print(np.sum(array_7, axis=1))  # axis 1 sums individual columns into separate numbers
 print(np.sum(array_7, axis=2))  # axis 2 sums individual rows into separate numbers
 
@@ -315,5 +320,33 @@ y = np.linspace(0, 1000, 100)
 xv, yv = np.meshgrid(y, x)
 
 zv = xv + yv
-plt.contourf(zv)
-plt.show()
+# plt.contourf(zv)
+# plt.show()
+
+print(separator.separator())
+
+# np.c_
+# this function is used to concatenate two arrays and make at least 2D array
+# below example concatenates two 1D arrays into 2D array
+print(np.c_[
+          [1, 2, 3],
+          [4, 5, 6]
+      ])
+
+# concatenate into 2D array with 3 columns
+print(np.c_[
+          [1, 2, 3],
+          [4, 5, 6],
+          [7, 8, 9]
+      ])
+
+# concatenate into one item array
+print(np.c_[
+          [[1, 2, 3]],
+          0,
+          0,
+          [[4, 5, 6]]
+      ])
+
+print(separator.separator())
+
