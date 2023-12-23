@@ -31,6 +31,7 @@ def f(a, L=[]):
 print(f(1))  # [1]
 print(f(2))  # [1, 2]
 print(f(3))  # [1, 2, 3]
+
 print(sep.separator())
 
 
@@ -53,7 +54,9 @@ combined_example(1,
                  'a', 'b', 'c', 'd',
                  kwrd1=100,
                  kwrd2=200)
+
 print(sep.separator())
+
 
 # just for your info about some other argument definition (but I have never seen it so far)
 # / and *
@@ -65,6 +68,8 @@ print(sep.separator())
 def parent_funct():
     def child_funct():
         return "this is child function 1"
+
     return f"This is parent function and {child_funct()}"
+
 
 print(parent_funct())
