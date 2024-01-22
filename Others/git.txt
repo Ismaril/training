@@ -31,12 +31,13 @@ git --version
 DIFF
 - Check differences
 
-git diff name_of_file � checks new changes against last commit
+git diff name_of_file - checks new changes against last commit
 
-git diff --staged name_of_file � add --staged when you want to check files already in staging environment.
+git diff --staged name_of_file - add --staged when you want to check files already in staging environment.
 
-git diff origin/name_of_remote_branch - check difference vs remote branch
- 
+git diff origin name_of_remote_branch - check difference vs remote branch
+
+git diff --name-only origin name_of_remote_branch - list only filenames which contain changes. 
 
 -------------------------------------------------------------------------
 CONFIG
