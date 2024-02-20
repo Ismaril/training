@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 
-class MyExtensions:
+class MyModelExtensions:
     """
     This class is a collection of methods that can be used to extend the functionality of the models.
     Used in Regression models.
