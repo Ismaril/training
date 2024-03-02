@@ -275,7 +275,8 @@ FETCH
 
 git fetch
 git fetch origin
-git fetch origin name_of_repositor
+git fetch origin name_of_repository
+git fetch -all - fetches all branches from remote
 
 git fetch --prune - deletes branches in local if they do not have counterparts in remote
 
