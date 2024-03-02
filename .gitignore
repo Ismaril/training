@@ -1,9 +1,9 @@
+AI/ML_DL_book/.ipynb_checkpoints/
+AI/ML_DL_book/my_fashion_mnist/
+AI/ML_DL_book/my_logs/
 AI/ML_DL_book/saved_datasets/
 AI/ML_DL_book/saved_models/
-AI/ML_DL_book/.ipynb_checkpoints/
 AI/ML_DL_book/checkpoint
-AI/ML_DL_book/my_logs/
-AI/ML_DL_book/my_fashion_mnist/
 
 C/cmake-build-debug
 C/.idea
