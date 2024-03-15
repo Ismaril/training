@@ -2,6 +2,11 @@ import os
 
 
 class FolderCrawler:
+    """
+    This class is used to crawl through the folder and its subfolders and store the files and folders in the respective lists.
+    It also provides methods to print the files and folders and filter them based on the filter_ parameter.
+    """
+
     def __init__(self, path):
         """
         This is the constructor of the FolderCrawler class.
@@ -20,8 +25,10 @@ class FolderCrawler:
         """
         for root, dirs, files in os.walk(self.path):
             for file in files:
-                self.files.append(os.path.join(root, file))
+                self.files.append((os.path.join(root, file),
+                                   f"Bytes: {os.path.getsize(os.path.join(root, file))}"))
             for folder in dirs:
+                # todo: implement the size of the folder
                 self.folders.append(os.path.join(root, folder))
 
     def print_files(self):
@@ -61,9 +68,10 @@ class FolderCrawler:
                 if filter_.lower() in folder.lower():
                     print(folder)
 
+
 if __name__ == '__main__':
-    cr = FolderCrawler(r"C:\Users\lazni\Desktop")
+    cr = FolderCrawler(r"C:\Users\lazni\Desktop\A")
     cr.crawl()
-    # cr.print_files()
+    cr.print_files()
     # cr.print_folders()
-    cr.filter(filter_files=True, filter_= "txt")
+    # cr.filter(filter_files=True, filter_= "txt")
