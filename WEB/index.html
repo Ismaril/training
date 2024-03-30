@@ -5,11 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My fucking website</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+          integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB@QEEqLprO
+    +NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap">
 </head>
 <body>
-<nav class="navbar"> <!-- sracky -->
+<!-- Navbar section -->
+<nav class="navbar">
     <div class="navbar__container">
-        <a href="/" id="navbar__logo">LOGO</a>
+        <a href="/" id="navbar__logo"><i class="fas fa-gem"></i>LOGO</a>
         <div class="navbar__toggle" id="mobile-menu">
             <span class="bar"></span>
             <span class="bar"></span>
@@ -32,6 +38,117 @@
         </ul>
     </div>
 </nav>
+
+<!-- Hero section -->
+<div class="main">
+    <div class="main__container">
+        <div class="main__content">
+            <h1>NEXXT GENERATION</h1>
+            <h2>TECHNOLOGY</h2>
+            <p>See what makes us different.</p>
+            <button class="main__btn"><a href="/">Get Started</a></button>
+        </div>
+        <div class="main__img--container">
+            <img src="images/pic1.svg" alt="pic" id="main__img">
+        </div>
+    </div>
+</div>
+
+<!-- Services section -->
+<div class="services">
+    <h1>See what the hype is about</h1>
+    <div class="services__container">
+        <div class="services__card">
+            <h2>Experience Bliss</h2>
+            <p>AI Powered Technology</p>
+            <button>Get Started</button>
+        </div>
+        <div class="services__card">
+            <h2>Are you ready?</h2>
+            <p>Take the leap</p>
+            <button>Get Started</button>
+        </div>
+    </div>
+</div>
+
+<!-- Footer section -->
+<div class="footer__container">
+    <div class="footer__links">
+        <div class="footer__link--wrapper">
+            <div class="footer__link--items">
+                <h2>About Us</h2>
+                <a href="/">How it works</a>
+                <a href="/">Testimonials</a>
+                <a href="/">Careers</a>
+                <a href="/">Investors</a>
+                <a href="/">Terms of Service</a>
+            </div>
+            <div class="footer__link--items">
+                <h2>XXX</h2>
+                <a href="/">X</a>
+                <a href="/">X</a>
+                <a href="/">X</a>
+                <a href="/">X</a>
+                <a href="/">X</a>
+            </div>
+            <div class="footer__link--items">
+                <h2>YYY</h2>
+                <a href="/">Y</a>
+                <a href="/">Y</a>
+                <a href="/">Y</a>
+                <a href="/">Y</a>
+                <a href="/">Y</a>
+            </div>
+        </div>
+    </div>
+    <div class="social__media">
+        <div class="social__media--wrap">
+            <div class="footer__logo">
+                <a href="/" id="footer__logo"><i class="fas fa-gem"></i>LOGO</a>
+            </div>
+            <p class="website__rights">© LOGO 2020. All rights reserved</p>
+            <div class="social__icons">
+                <a href="/" class="social__icon--link" target="_blank">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="/" class="social__icon--link" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="/" class="social__icon--link" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="/" class="social__icon--link" target="_blank">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
 <script src="app.js"></script>
+<script>
+    // BELOW SOME EXAMPLES OF JAVASCRIPT CODE
+
+    console.log("Here you can print into console.");
+    // console.log(variable_name) // Print variable into console
+    console.warn("This is my warning message.");
+    console.error("This is my error message.");
+
+    console.dir(document) // Print document object into console
+    console.dir(document.URL) // Print URL of the document
+
+    console.table([{name: "John", age: 30}], [{name: "Bob", age: 34}]) // Print table into console
+
+    for(let i = 0; i < 10; i++)
+    {
+        console.log(i);
+    }
+
+    function greaterThan(a, b)
+    {
+        return a > b;
+    }
+
+    console.assert(greaterThan(5, 10), "5 is not greater than 10"); // Print message if condition is false
+</script>
 </body>
 </html>
