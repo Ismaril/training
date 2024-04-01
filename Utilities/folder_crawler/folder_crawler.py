@@ -79,6 +79,7 @@ class FolderCrawler:
                 folder_path = os.path.join(root, folder)
                 self.folders.append((folder_path, self._get_size(folder_path, get_size_folder=True)))
 
+
     def _get_size(self, path, get_size_file=False, get_size_folder=False):
         """
         This private method is used to calculate the size of a file or a folder.
@@ -136,29 +137,52 @@ class FolderCrawler:
         :param filter_: A string value that is used to filter the files and folders. Default is an empty string.
         :return: None
         """
-        DEFAULT_COLOR = "\033[0m"  # This is used to reset the color to the default color.
 
         if print_files:
-            self._print_files(DEFAULT_COLOR, filter_)
+            self._print_files(filter_=filter_)
         if print_folders:
-            self._print_folders(DEFAULT_COLOR, filter_)
+            self._print_folders(filter_=filter_)
 
         self._show_time()
 
-    def _print_folders(self, default_color, filter_):
+    def _print_folders(self, default_color="\033[0m", filter_=""):
+        """
+        This private method is used to print the folders that were found during the crawling process.
+        It also prints the total number of folders that were listed.
+        The method can be customized to filter the folders based on the filter_ parameter.
+
+        :param default_color: A string value that represents the default color for the console output.
+        :param filter_: A string value that is used to filter the folders. Default is an empty string.
+        :return: None
+        """
         number_of_folders = 0
         for folder, size in self.folders:
+            # Check if the filter string is in the folder path
             if f"{filter_}" in folder:
+                # Print the folder path, size, and reset the color to the default color
                 print(folder, size, default_color)
                 number_of_folders += 1
+        # Print the total number of folders that were listed
         print("Number of listed folders", number_of_folders)
 
-    def _print_files(self, default_color, filter_):
+    def _print_files(self, default_color="\033[0m", filter_=""):
+        """
+        This private method is used to print the files that were found during the crawling process.
+        It also prints the total number of files that were listed.
+        The method can be customized to filter the files based on the filter_ parameter.
+
+        :param default_color: A string value that represents the default color for the console output.
+        :param filter_: A string value that is used to filter the files. Default is an empty string.
+        :return: None
+        """
         number_of_files = 0
         for file, size in self.files:
+            # Check if the filter string is in the file path
             if f"{filter_}" in file:
+                # Print the file path, size, and reset the color to the default color
                 print(file, size, default_color)
                 number_of_files += 1
+        # Print the total number of files that were listed
         print("Number of listed files", number_of_files)
 
     def _show_time(self):
@@ -174,4 +198,3 @@ if __name__ == '__main__':
     cr = FolderCrawler(r"tests\test_folder")
     cr.crawl(crawl_deep=True)
     cr.print_items(print_files=True, print_folders=False, filter_="txt")
-    print(os.path.exists("fef"))
