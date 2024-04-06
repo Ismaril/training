@@ -1,30 +1,74 @@
 using System;
+using System.Drawing.Configuration;
 
 namespace EyeHygieneAlarm
 {
     public partial class AlarmForm : Form
     {
-        private const int LENGTH_TILL_ALARM = (15*60); // 15 x 60 seconds = 15 minutes.
-        private System.Windows.Forms.Timer _timer;
         private int _counter;
-        private Label _label = new();
-        private int _dispalyTimeFirst = (LENGTH_TILL_ALARM); 
-        private int _dispalyTimeMiddle = (LENGTH_TILL_ALARM) + 2;
-        private int _dispalyTimeLast = (LENGTH_TILL_ALARM) + 4;
-        private int _offTime1 = (LENGTH_TILL_ALARM) + 1;
-        private int _offTime2 = (LENGTH_TILL_ALARM) + 3;
+        private System.Windows.Forms.Timer _timer;
 
-        // Ctor
-        public AlarmForm()
+        private readonly Label _label = new();
+        private readonly Color _backgroundColorFormVisible;
+        private readonly Color _foregroundColor = Color.White;
+        private readonly Color _backgroundColorFormHidden = Color.Black;
+
+        private int _dispalyTimeFirst;
+        private int _dispalyTimeMiddle;
+        private int _dispalyTimeLast;
+
+        private int _offTime1;
+        private int _offTime2;
+
+        /// <summary>
+        /// Ctor of the AlarmForm class.
+        /// </summary>
+        /// <param name="timeTillAlarm">Time till alarms pops up. Currently 900s = 15min</param>
+        /// <param name="backgroundColor">Background color. Supported "r" "g" "b" only</param>
+        public AlarmForm(int timeTillAlarm = 900, string backgroundColor = "b")
         {
-            // Call all below when new instance is created.
+            _backgroundColorFormVisible = ResolveBackgroundColor(backgroundColor);
+
             InitializeComponent();
             InitializeTimer();
+            SetDisplayTimes(timeTillAlarm);
             FatalErrorLabel();
             FormBorderStyle = FormBorderStyle.None;
-            HideBlueLabeling();
+            HideForm();
         }
 
+        /// <summary>
+        /// Set the background color of the form.
+        /// </summary>
+        /// <param name="backgroundColor"></param>
+        /// <returns></returns>
+        private static Color ResolveBackgroundColor(string backgroundColor)
+        {
+            return backgroundColor switch
+            {
+                "r" => Color.Red,
+                "g" => Color.Green,
+                _ => Color.Blue,
+            };
+        }
+
+        /// <summary>
+        /// Set the times when the screen should flicker.
+        /// </summary>
+        /// <param name="lengthTillAlarm"></param>
+        private void SetDisplayTimes(int lengthTillAlarm)
+        {
+            _dispalyTimeFirst = lengthTillAlarm;
+            _dispalyTimeMiddle = lengthTillAlarm + 2;
+            _dispalyTimeLast = lengthTillAlarm + 4;
+
+            _offTime1 = lengthTillAlarm + 1;
+            _offTime2 = lengthTillAlarm + 3;
+        }
+
+        /// <summary>
+        /// Initialize the timer.
+        /// </summary>
         private void InitializeTimer()
         {
             _timer = new System.Windows.Forms.Timer();
@@ -51,39 +95,34 @@ namespace EyeHygieneAlarm
         /// </summary>
         private void FlickerScreen()
         {
-            // Display blue screen
-            if (_counter == _dispalyTimeFirst
-                || _counter == _dispalyTimeMiddle
-                || _counter == _dispalyTimeLast)
+            // Display alarm screen
+            if (_counter == _dispalyTimeFirst || _counter == _dispalyTimeMiddle || _counter == _dispalyTimeLast)
             {
-                WindowState = FormWindowState.Maximized;
-                _label.ForeColor = Color.White;
-                _label.BackColor = Color.Blue;
-                BackColor = Color.Blue;
+                ShowForm();
             }
 
             // Hide whole form and create efect of slow flicker.
             // This else if block cooperates with the first if block.
             else if (_counter == _offTime1 || _counter == _offTime2)
             {
-                WindowState = FormWindowState.Minimized;
+                HideForm();
             }
 
             else if (_counter > _dispalyTimeLast)
             {
-                HideBlueLabeling();
+                HideForm();
                 _counter = 0;
             }
 
             else if (_counter < _dispalyTimeFirst)
             {
-                HideBlueLabeling();
+                HideForm();
             }
             _counter++;
         }
 
         /// <summary>
-        /// Blue label which shows some white text in the main window.
+        /// A label which shows some white text in the main window.
         /// </summary>
         private void FatalErrorLabel()
         {
@@ -93,24 +132,34 @@ namespace EyeHygieneAlarm
                 "you will lose any unsaved information in all open applications.\n\n" +
                 "Error: OE : O16F : BLOW_IT_OUT_YOUR_ASS";
             _label.Font = new Font("Bahnschrift SemiBold", 20);
-            _label.ForeColor = Color.White;
-            _label.BackColor = Color.Blue;
-            _label.Size = new Size(800, 800);
+            _label.ForeColor = _foregroundColor;
+            _label.BackColor = _backgroundColorFormVisible;
+            _label.Size = new Size(1920, 1080);
             _label.Location = new Point(400, 400);
             Controls.Add(_label);
         }
 
         /// <summary>
-        /// Hide blue label by changing it's colors to the color of background.
-        /// This is used not to spoil the blue screen of death till the actual
-        ///     alarm time comes.
+        /// Hide the form by changing it's colors to the color of black.
+        /// This is used not to spoil the alarm screen till the actual alarm time comes.
         /// </summary>
-        private void HideBlueLabeling()
+        private void HideForm()
         {
-            BackColor = Color.Black;
             WindowState = FormWindowState.Minimized;
-            _label.ForeColor = Color.Black;
-            _label.BackColor = Color.Black;
+            _label.ForeColor = _backgroundColorFormHidden;
+            _label.BackColor = _backgroundColorFormHidden; // Background color of the label.
+            BackColor = _backgroundColorFormHidden; // Background color of the form.
+        }
+
+        /// <summary>
+        /// Show the form and give it main focus.
+        /// </summary>
+        private void ShowForm()
+        {
+            WindowState = FormWindowState.Maximized;
+            _label.ForeColor = _foregroundColor;
+            _label.BackColor = _backgroundColorFormVisible; // Background color of the label.
+            BackColor = _backgroundColorFormVisible; // Background color of the form.
         }
     }
 }
