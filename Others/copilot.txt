@@ -1,4 +1,5 @@
-SOME INFO AND SHORTCUTS HOW TO USE GITHUB COPILOT
+SOME INFO AND SHORTCUTS ON HOW TO USE GITHUB COPILOT
+
 
 
 AS A COPILOT I CAN HELP YOU WITH:
@@ -9,52 +10,75 @@ AS A COPILOT I CAN HELP YOU WITH:
 5.	Code reviews: I can review your code and provide feedback on how to improve it.
 6. 	Documentation: I can help you write documentation for your code.
 7. 	Testing: I can help you write tests for your code.
+I CANNOT HELP:
+Tasks not relevant to code.
+
+
+
+COPILOT SHORTCUTS - VISUAL STUDIO
+These shortcuts work directly in the editor, no need to open copilot chat.
+Alt + ,					    - Previous suggestion
+Alt + .					    - Next suggestion
+Alt + /					    - aka "Refine code in-place" Shows copilot chat vindow directly within your code.
+Tab					        - Accept suggestion
+Esc					        - Dismiss suggestion
+Ctrl + Alt + Enter	        - Open window with a list of suggestions
+q:					        - Ask copilot in-line (Requires that you put a q: into one line comment, like this in C# for ex.: //q: Your question.)
+a:					        - Get answer from copilot in-line (Also has to be in one line comment)
+
+
+
+COMMANDS - COPILOT CHAT
+Copilot chat is optimized for slash commands, should yield better results (acc. to microsoft docs) and saves you keystrokes.
+/help					    - Get help on Copilot chat
+/doc					    - Add documentation comment for specified or selected code
+/explain				    - Explain the code
+/test					    - Create unit-test for the selected code
+/fix					    - Propose a fix for problems in the selected code
+/optimize				    - Analyze and improve running time of the selected code
+#name_of_file				- Operate on a file (For ex.: #Program.cs) with copilot commands.
+#name_of_file line_number	- Operate on line in a given file (/slash_command #Program.cs 10)
+#name_of_file start_line-end_line 	- Operate on multiple rows in a given file. (/slash_command #Program.cs 10-30)
+#name_of_file #name_of_file2		- Operate on multiple files
+preview (button)			- Implement/paste automatically result of copilot chat into the codebase.
+new thread (button)			- Create new conversation with copilot, while keeping the old in parallel.
+delete thread (button)		- Delete conversation with copilot.877
+ask copilot (button) 		- At the line where exception was found, you can ask copilot what happened.
+/askvs					    - DEPRECATED? - Ask questions related to Visual Studio
+/clear					    - DEPRECATED? - Clear the chat window
+/createtest				    - DEPRECATED? - Create unit-test for the selected code
+/generate				    - DEPRECATED? - Generate code to answer specific question
+
 
 
 RANDOM INFO:
-If you just write a comment, the suggestions might pop up after you start writing
-	actual code sometimes.
+If you just write a comment, the suggestions might/might not pop up after you start writing actual code sometimes.
 You can write comments on multiple lines to let copilot know more what you are trying to do.
 Be sure to use grammatically correct language and watch out for your punctuation to get accurate results.
 It is possible to seamlessly switch between languages in one project, copilot has no problem with that.
-You can iterate with copilot chat on the results he gives you in the chat window. This means if the
-	result needs some little tweaking, you can ask copilot again and he will try to give you a adjustment
-	of previous result.
-You can create a new thread (parallel chat) in copilot chat window by clicking on the "New thread" button on the top right.
-You can also delete a thread.
+You can iterate with copilot chat on the results he gives you in the chat window. This means if the result needs some little tweaking, you can ask copilot again and he will try to give you a adjustment of previous result.
 
 
-SLASH COMMANDS - COPILOT CHAT
-Copilot chat is optimized for slash commands, should yield better results (acc. to microsoft docs) and saves you keystrokes.
-/askvs				- Ask questions related to Visual Studio					(My remark -> Sometimes result for VS Code)
-/clear				- Clear the chat window										(My remark -> This is not working for me)
-/createtest			- Create unit-test for the selected code
-/doc				- Add documentation comment for specified or selected code
-/explain			- Explain the code
-/fix				- Propose a fix for problems in the selected code
-/generate			- Generate code to answer specific question
-/help				- Get help on Copilot chat
-/optimize			- Analyze and improve running time of the selected code
 
+----------------------------------------------------------------------------------------------------------------------
+TODOs
+----------------------------------------------------------------------------------------------------------------------
+COMMIT
+Copilot can autogenerate a commit message. Open the window "Git Changes", add items into staging environment and
+let copilot generate a commit message. Use a pencil icon with star.
+...
+...
 
-VISUAL STUDIO, MICROSOFT - COPILOT SHORTCUTS
-These shortcuts work directly in the editor, no need to open copilot chat.
-Alt + ,				- Previous suggestion
-Alt + .				- Next suggestion
-Alt + /				- aka "Refine code in-place" Show window where you can ask copilot in-line. (Also helps if you select some code with mouse first)
-Tab					- Accept suggestion
-Esc					- Dismiss suggestion
-Ctrl + Alt + Enter	- Open window with a list of suggestions
-q:					- Ask copilot in-line (Requires that you put a q: into one line comment, like this in C# for ex.: //q: Your question.)
-a:					- Get answer from copilot in-line (Also has to be in one line comment)
-#name_of_file		- Operate on a file (For ex.: #Program.cs) with copilot commands.
+AUTOMATIC PULL REQUEST SUMMARIES
+...
+...
 
-Below commands were tested, but they don't seem to work for me:
-#name_of_file: line_number			- Operate on a file with copilot commands and specify line number (For ex.: #Program.cs:10)
-#name_of_file: start_line-end_line	- I would expect this to work the same as when you select the code with mouse. (#Program.cs:10-30)
+COPILOT COMMAND LINE INTERFACE
+...
+...
 
-
-PYCHARM, JETBRAINS - COPILOT SHORTCUTS
-Alt + [				- Previous suggestion
-Alt + ]				- Next suggestion
-TODO: Add the rest of the shortcuts for PyCharm.
+COPILOT SHORTCUTS - PYCHARM, JETBRAINS
+Alt + [					- Previous suggestion
+Alt + ]					- Next suggestion
+...
+...
