@@ -1,15 +1,16 @@
 Ethernet network cables
 Are used in local area networks.
 Made from copper.
-They are "twisted pair", meaning they have pairs of cables that are twisted around each other. The two cables are twisted together
-to improve electromagnetic compatibility.
+They are "twisted pair", meaning they have pairs of cables that are twisted around each other.
+The two cables are twisted together to improve electromagnetic compatibility.
 
 UTP - unshielded twisted pair (ethernet cable)
-Consists of 4 pairs colored wires twisted around each other. They are twisted to prevent electromagnetic interference (crosstalk).
+Consists of 4 pairs colored wires twisted around each other.
+They are twisted to prevent electromagnetic interference (crosstalk).
 
 STP - shielded twisted pair (ethernet cable)
-Same as UTP, but there is a foil shield all around all cables to prevent electromagnetic interference leaking in to the cable from
-outside and also from the outside into all cables inside.
+Same as UTP, but there is a foil shield all around all cables to prevent electromagnetic
+interference leaking in to the cable from outside and also from the outside into all cables inside.
 Is used rather in industrial applications.
 
 
@@ -17,8 +18,9 @@ In case you wanted to setup your own cables, you can buy a huge roll of cable an
 RJ45 connector with proper sequence of those paired cables.
 
 
-It does not matter which standart you use, the result is the same. (568A vs 568B)
-568A (wireing standart of connecting twisted cables to connector)
+It does not matter which standard you use, the result is the same because today's systems
+can adjust for combining those both two standards. (568A vs 568B)
+568A (wiring standard of connecting twisted cables to connector)
 Order of cables:
 white-green
 green
@@ -29,7 +31,7 @@ orange
 white-brown
 brown
 
-568B (wireing standart of connecting twisted cables to connector)
+568B (wiring standard of connecting twisted cables to connector)
 white-orange
 orange
 white-green

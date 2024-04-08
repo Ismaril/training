@@ -1,8 +1,16 @@
-Half Duplex
-It is a system in communication (wired and wireless) that connects two points and allows communication between them in only one 
-direction at a time.
-Since there are two ways of transmition there must be a collision detection like CSMA.
-Wireless communications are usually half duplex.
+SIMPLEX
+It is a system in communication (wired and wireless) that connects two points and allows
+communication between them in only one direction.
+
+HALF DUPLEX
+It is a system in communication (wired and wireless) that connects two points and allows
+communication between them in both directions but only one direction at a time.
+Since there are two ways of transmission there must be a collision detection like CSMA.
+Wireless communications are usually half duplex. (e.g. visilacka)
+Another example: a hub.
 
 Full duplex 
-Alllows communication in both ways at the same time. Wired connections are usually full duplex.
+Allows communication in both ways at the same time.
+Wired connections are usually full duplex. (But speaking to someone with a telephone is full duplex)
+In wired full duplex connections, there is no need for collision detection because there are
+separate lanes for both directions.

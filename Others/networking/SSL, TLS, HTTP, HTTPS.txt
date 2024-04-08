@@ -1,19 +1,24 @@
 HTTP - hyper text transfer protocol
-This is a protocol used for wieving web pages on the internet.
+This is a protocol used for viewing web pages on the internet.
 For example when you type in the internet browser google.com, http/https is automatically added in front of it.
-In HTTP the data transmition is not encrypted.
+In HTTP the data transmission is not encrypted.
 
 
 HTTPS - hyper text transfer protocol secured
 This protocol makes sure that the data is encrypted.
-You should only insert sensitive data (for eaxmple like credit cards when shoppin) at HTTPS webpages.
-Lot of the websites nowdays are HTTPS by default. Also google gives penalty with its search engine to HTTP sites.
+You should only insert sensitive data (for example like credit cards when shoppin) at HTTPS webpages.
+Lot of the websites nowadays are HTTPS by default. Also google gives penalty with its search engine to HTTP sites.
+The "S" in HTTPS means that the HTTP is secured by SSL or TLS. This means that there is a check
+of certificate of the website (certificate issued by certificate authority)
+and most importantly the data is encrypted.
 
 SSL - secure sockets layer
-SSL is digital certificate which is used by HTTPS sites to autentificate themselves to the client. 
+SSL is digital certificate which is used by HTTPS sites to authenticate themselves to the client.
 It is used to increase security on the net.
-So when you as a client want to access a website, the website has to identify itself by sending you a SSL digital certificate. Your
-internet browser will then check the certificate. If all is ok, the session can start.
+So when you as a client want to access a website,
+the website has to identify itself by sending you a SSL digital certificate.
+Your internet browser will then check the certificate. If all is ok, the session can start.
+On top of that the data is encrypted.
 
 TLS - transport layer security
-TLS does the same as SSL, but is the latest industry standart.
+TLS does the same as SSL, but is the latest industry standard.

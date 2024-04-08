@@ -1,29 +1,36 @@
 CSMA/CD - carrier sense multiple access with collision detection
-This was used on early ethernet networks (half duplex, coaxial cables & early twisted pair cables).
+This was used on EARLY ETHERNET NETWORKS (half duplex, coaxial cables & early twisted pair cables).
 The main function is to avoid collision of data during data transfer between devices.
 First a computer checks if the cable has no traffic. If not, data is sent out, no problem.
 If there are two computers sending out data at the same time a collision will happen. 
 If collision happens, those two computers will wait each random number of time and then will retry to send the data.
 If collision happens it causes data loss or data corruption.
-Also computers are trying to sense, wheter the cable is transmitting something or not. If there is a transmittion
-on a shared cable, the pc will wait till there is no traffic on the cable. Once there is no traffic, pc will
-send out the data. The pc now listens for collision. If there is no collision that means that the data arrived in destination. In
-case the collision happens, the two computers that caused it will send out message to other connected computers that collision happened.
+Also, computers are trying to sense, whether the cable is transmitting something or not.
+If there is a transmission on a shared cable, the pc will wait till there is no traffic on the cable.
+Once there is no traffic, pc will send out the data. The pc now listens for collision.
+If there is no collision that means that the data arrived in destination.
+In case the collision happens, the two computers that caused it will send out message (or
+jamming signal to the cable??) to other connected computers that collision happened.
 
-HALF-DUPLEX - communication type in which there is possible to send data only in one direction, meaning data cannot be send in both dirrections
+HALF-DUPLEX
+- communication type in which there is possible to send data only in one direction,
+meaning data cannot be send in both dirrections
 at the same time.
 
-FUL-DUPLEX- data can travel between to places at the same time in both directions.
+FUL-DUPLEX
+- data can travel between to places at the same time in both directions.
 
 
-CSMA/CD - carrier sense multiple access with collision avoidance
-This is a system that is used in wireless systems.
+CSMA/CA - carrier sense multiple access with collision avoidance
+This is a system that is used in wireless systems. This is still used today a lot.
 The computer here will constantly be checking the wireless data transfer around and will send out data only if there is no traffic.
-Now the client computer will be waiting on confirmation from reciever pc that the data arrived. If there was no confirmation coming
-back, the process will be repeated.
+Now the client computer will be waiting on confirmation from receiver pc that the data arrived.
+If there was no confirmation coming back, the process will be repeated.
 
 RTS/CTS protocol - ready to send / clear to send
-These are optional protocols for better data traffic management. This management is done automatically by wireless access point (WAP).
-If some device wants to send out data, it will send a RTS to a WAP, requesting a space to send out data. If the request is approved,
-the WAP send to the device CTS, that the route is clear, communication with all other devices is stopped and the former device
-is clear to  send the data it wants. This means that with RTS/CTS enabled, the WAP is a traffice controler on the network.
+These are optional protocols for better data traffic management.
+This management is done automatically by wireless access point (WAP).
+If some device wants to send out data, it will send a RTS to a WAP, requesting a space to send out data.
+If the request is approved, the WAP sends to the device CTS, that the route is clear,
+communication with all other devices is stopped and the former device is clear to  send the data it wants.
+This means that with RTS/CTS enabled, the WAP is a traffic controller on the network.
