@@ -1,0 +1,69 @@
+The OSI (Open Systems Interconnection) model is a conceptual framework used to understand and
+standardize the functions of a telecommunications or computing system without regard to its
+underlying internal structure and technology.
+Developed by the International Organization for Standardization (ISO) in 1984,
+the OSI model provides a universal set of rules and guidelines that different network devices,
+protocols, and software can follow to communicate effectively, regardless of their underlying architecture.
+
+The OSI model is structured into seven distinct layers, each serving a specific function and
+interacting with the layers directly above and below it. From the bottom (layer 1) to the top (layer 7),
+these layers are:
+
+Physical Layer:
+Concerned with the transmission and reception of the unstructured raw bitstream over a physical medium.
+Deals with aspects such as electrical and physical connections, voltage levels, data rates, and distance limitations.
+Examples: Ethernet cables (Cat5, Cat6), Fiber Optics, USB, HDMI.
+
+
+Data Link Layer:
+Responsible for node-to-node data transfer and error detection and correction.
+Defines the protocol for the MAC (Media Access Control) address and LLC (Logical Link Control).
+Examples: Ethernet, Wi-Fi (IEEE 802.11), PPP.
+
+
+Network Layer:
+Manages the delivery of packets between two different hosts across multiple networks.
+Handles packet routing, forwarding, and addressing (logical/IP addressing).
+Examples: IP (Internet Protocol), ICMP.
+
+
+Transport Layer:
+Ensures the reliable transmission of data segments between points on a network, including error correction,
+segmentation, and flow control.
+Examples: TCP (Transmission Control Protocol), UDP (User Datagram Protocol).
+
+
+Session Layer:
+Manages sessions, establishing, maintaining, and terminating connections between applications.
+Examples: NFS (Network File System), RPC (Remote Procedure Call), NetBIOS.
+
+
+Presentation Layer:
+Translates data between the application layer and the network format, ensuring interoperability between encoding methods.
+Manages data encryption, decryption, compression, and decompression.
+Examples: SSL/TLS, JPEG, MPEG.
+
+
+Application Layer:
+Closest to the end-user and serves as the interface for users and applications to access network services.
+Manages application-level functions like email, file transfers, and web browsing.
+Examples: HTTP, FTP, SMTP, DNS.
+
+
+The OSI model's primary purpose is educational and theoretical,
+offering a standard for network protocol design and understanding network functionality.
+While many protocols and systems do not strictly adhere to the OSI model's layered approach
+(with the Internet protocol suite/TCP/IP model being a prominent example),
+the OSI model remains an essential reference for teaching and understanding network architecture principles.
+
+
+|             | Protocol data   |
+|   Layer     |  unit (PDU)     |            Function                                                                  |
+|-------------|-----------------|--------------------------------------------------------------------------------------|
+| Application | Data            | High-level protocols such as for resource sharing or remote file access, e.g., HTTP. |
+| Presentation| Data            | Translation of data between a networking service and an application; including character encoding, data compression and encryption/decryption |
+| Session     | Data            | Managing communication sessions, i.e., continuous exchange of information in the form of multiple back-and-forth transmissions between two nodes |
+| Transport   | Segment/Datagram| Reliable transmission of data segments between points on a network, including segmentation, acknowledgement and multiplexing |
+| Network     | Packet          | Structuring and managing a multi-node network, including addressing, routing and traffic control |
+| Data link   | Frame           | Transmission of data frames between two nodes connected by a physical layer |
+| Physical    | Bit             | Transmission and reception of raw bit streams over a physical medium |

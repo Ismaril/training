@@ -1,0 +1,22 @@
+RANGE EXTENDER
+WIFI range extender is used to extend the range of the original source of the signal in your home.
+This means that you gonna place the extender somewhere in the place which has about 50% (or
+depending what you actually need, this number was just an estimate to give you a point) of
+the original signal strength. This way the extender will be able to catch the signal and extend it
+to the place where the original signal is weak or not available at all. Keep in mind however
+that the extender does not extend the original signal. The extender is actually a new network
+with its own SSID and password. The extender is connected to the original network and it
+extends the signal of the original network. This means that you will have two networks in your
+home. The original network and the extended network. (You will see two networks in your list of
+available networks on your device).
+
+From my point of view, this is not that much convenient because your device will have to switch
+between the networks when you move around your home.
+
+MESH NETWORK
+Mesh network is a network of multiple transmission nodes which are connected to each other and they
+create a single network. This means that you will have only one network in your home. (Seems like
+having a WIFI router is not necessary, because you need to just plug the first mesh node with
+ethernet) Just place the nodes around your home.
+You can now just move around the house, and your device will allways connect to the nearest node
+seamlessly.
