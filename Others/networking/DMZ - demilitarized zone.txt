@@ -10,7 +10,7 @@ web and email server would be actually placed in front of firewall. Now the user
 not be allowed to access the infrastructure behind the firewall. These two servers are now in DMZ (also known as perimeter network).
 This perimeter network can partly be used as a form of vanguard for potential malitious activities before they get to firewall.
 The most secure network would be if you added second firewall after the router. Now the setup would look like this:
-Internet---local router---firewall---web and mail servers---firewall---remaining private network
+Internet---local_router---firewall---web_and_mail_servers---firewall---remaining_private_network
 
 FYI:
 In case you ever had console, you can set it up as DMZ to route all trafic to your console as DMZ host. It is often done because

@@ -8,3 +8,46 @@ This means if we can work with only 4GB at a time, loading between all hardware 
 to 64 bit.
 In 64 bit you can have for example 32GB RAM in which is loaded whole program, and there is no need to reload more
 data from hard drive, since all data is already available in RAM.
+
+
+EXPLAINED BY GPT-4:
+The terms "32-bit" and "64-bit" computer architecture refer primarily to the size of the CPU and
+operating system's general-purpose registers, the width of the data bus, address bus,
+and the size of the memory address space they can handle. Here's a deeper look:
+
+### 32-bit Architecture:
+
+- **Registers**: The CPU registers are 32 bits wide, meaning they can store numbers up to 2^32-1 (4,294,967,295).
+This limits operations to 32-bit integers and affects the precision of floating-point calculations.
+
+- **Memory Address Space**: A 32-bit system architecture can directly address a maximum of 4 GB (2^32 bytes) of RAM.
+While there are techniques like PAE (Physical Address Extension) that allow more RAM on a 32-bit system,
+individual applications still have a 2 GB - 3 GB memory limit per process without special configurations.
+
+- **Data Bus**: The system bus, which carries data between the CPU, memory, and other hardware components,
+is 32 bits wide. This affects the amount of data the CPU can handle per clock cycle.
+
+- **Software Compatibility**: Operating systems and applications must be designed for 32-bit architecture.
+While 64-bit systems can often run 32-bit software, the reverse is not true.
+
+### 64-bit Architecture:
+
+- **Registers**: The CPU registers are 64 bits wide,
+which significantly increases the range of integer values they can store (up to 2^64-1).
+This is important for applications that require high-precision calculations or need to use very large numbers.
+
+- **Memory Address Space**: 64-bit processors can theoretically address up to 16 exabytes of memory (2^64 bytes),
+but in practice, current systems and operating systems don't support this much.
+They do, however, comfortably support tens or hundreds of gigabytes of RAM, far exceeding the 4 GB limit of 32-bit systems.
+
+- **Data Bus**: The wider system bus means more data can be processed per clock cycle,
+which can potentially make a system faster and more efficient,
+assuming the operating system and applications are designed to take advantage of this.
+
+- **Software Compatibility**: To fully benefit from a 64-bit architecture,
+operating systems and applications must be specifically designed for it. Most modern software is now made in 64-bit versions,
+and many programs, especially those that require a lot of memory or processing power (like video editing software),
+may only be available in 64-bit versions.
+
+The shift from 32-bit to 64-bit architecture represents a significant step forward in computing capability,
+allowing computers to handle more data more quickly and to work with significantly more memory. This enables more complex and powerful applications, particularly in fields like scientific computing, large databases, and high-end gaming.
