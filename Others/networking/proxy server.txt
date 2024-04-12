@@ -17,7 +17,7 @@ Proxy server cannot encrypt data.
 
 
 Exmpale:
-Your PC ----------------request (11.22.33.44)----------------proxy server----------------request (22.33.44.55)-----------Website
-11.22.33.44		(your ip is hidden)		     22.33.44.55		(proxy ip visible)
-Your Public IP						     Proxy IP Address
+Your PC --------------->request (11.22.33.44)--------------->proxy server--------------->request (22.33.44.55)---------->Website
+11.22.33.44		           (your ip)		                 22.33.44.55		           (proxy ip visible)
+Your Public IP						                       Proxy IP Address
 

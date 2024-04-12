@@ -2,7 +2,7 @@ Firewall
 Firewall is a system that is designed to prevent unauthorised access from entering a private network.
 It gives access to wanted traffic and blocks unwanted traffic.
 Firewall can be of two types. One type is that the firewall is a filter between outer internet and local network. (network based firewall)
-The oter is a filter before a device, for example computer (called host based firewall, installed directly on computer).
+The other is a filter before a device, for example computer (called host based firewall, installed directly on computer).
 Firewall comes actually from real world - fire wall is an actual wall in a building that prevents spreading fire in a building.
 Firewall works by allowing or denying access by "access control list". The list can look like this:
 
@@ -12,5 +12,11 @@ Deny, 10.10.0.1, UDP, ANY, 3368
 Allow, ANY, TCP, ANY, 110
 
 
-Firewall can be directly build in in routers. It can also be as a standalone hardware, which is used as a network based firewall. 
-(used by large organisations). Firewall can also be cloud based. 
+Firewall can be directly build in in routers.
+It can also be as a standalone hardware, which is used as a network based firewall.
+(used by large organisations). Firewall can also be cloud based.
+
+When it comes to firewall in a router, it comes preconfigured, therefore average user
+does not have to set up anything. But of course if you want to add extra rules, you can do it.
+The same applies for PC firewall. It comes preconfigured, but if you want you can add extra rules
+or additonal software that will help you to protect your computer.

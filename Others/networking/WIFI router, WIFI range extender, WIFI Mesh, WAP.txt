@@ -8,13 +8,59 @@ Has WAN port (wide area network a.k.a. internet). This is a port where you plug 
 Has usually 4 ports for ethernet connection. (home usage type)
 
 WAP - wireless access point
-This is a device that can be optionally used to act as a new transmitor of wireless data from parent wifi router. The WAP connects directly
-to a router via ethernet cable. You can place multiple WAPs and link them all physically into the same router. 
-It makes sense to place thouse WAPs strategically, so that the network has highest wireless range.
-So once you got setup across your building ready, this makes management of that network a lot easier compared to when you would 
-replace those WAPs by other routers. So in situation when there would be multiple routers on the same level connected to one parent
-router, it would add a unnecessary complexity. If you wanted to make a change, you would have to get into each single router 
-settings. Now in the case where we have the WAPs, the change can be done only in the parent router. All those WAPs are basically an
-extension of the single router.
+This is a device that can be optionally used to act as a new transmitter of wireless data from parent
+wifi router.
+The WAP connects directly to a router via ethernet cable.
+You can place multiple WAPs and link them all physically into the same router.
+It makes sense to place those WAPs strategically, so that the network has highest wireless range.
+So once you got setup across your building ready, this makes management of that network a lot easier
+compared to when you would replace those WAPs by other routers.
+So in situation when there would be multiple routers on the same level connected to one parent
+router, it would add a unnecessary complexity.
+If you wanted to make a change, you would have to get into each single router settings.
+Now in the case where we have the WAPs, the change can be done only in the parent router.
+All those WAPs are basically an extension of the single router.
 Does not have firewall.
 Does not have DHCP service.
+
+RANGE EXTENDER
+WIFI range extender is used to extend the range of the original source of the signal in your home.
+This means that you gonna place the extender somewhere in the place which has about 50% (or
+depending what you actually need, this number was just an estimate to give you a point) of
+the original signal strength. This way the extender will be able to catch the signal and extend it
+to the place where the original signal is weak or not available at all. Keep in mind however
+that the extender does not extend the original signal. The extender is actually a new network
+with its own SSID and password. The extender is connected to the original network and it
+extends the signal of the original network. This means that you will have two networks in your
+home. The original network and the extended network. (You will see two networks in your list of
+available networks on your device).
+From my point of view, this is not that much convenient because your device will have to switch
+between the networks when you move around your home.
+
+MESH NETWORK
+Mesh network is a network of multiple transmission nodes which are connected to each other and they
+create a single network. This means that you will have only one network in your home. (Seems like
+having a WIFI router is not necessary, because you need to just plug the first (primary)
+mesh node with ethernet) Just place the nodes around your home.
+You can now just move around the house, and your device will allways connect to the nearest node
+seamlessly.
+Mesh networks can automatically reroute traffic if one node fails and adjust pathways to optimize
+speed and connectivity.
+
+Comparison MESH vs WAP
+Performance:
+Mesh systems often provide a more user-friendly experience with less hands-on tweaking but might
+suffer from decreased speed in distant nodes due to wireless backhaul.
+WAPs can offer more consistent speeds if they are connected by wires.
+
+Cost:
+Mesh systems can be more expensive due to their advanced technology and ease of setup and use.
+In contrast, WAPs might be less expensive but require potentially costly wiring if not already in place.
+Setup and Maintenance: Mesh WiFi is generally easier to set up and manage for the average user.
+WAPs might require more technical knowledge, especially in routing and managing network cables.
+In summary, if you need straightforward, wide-range WiFi coverage with minimal technical setup,
+a mesh WiFi system is likely the best choice. However, if you require stable performance,
+are comfortable with a more complex setup, or already have Ethernet infrastructure in your home,
+adding WAPs could be more effective.
+Each option offers a viable solution to improve home WiFi depending on specific household needs and
+technical capabilities.
