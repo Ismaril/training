@@ -10,3 +10,9 @@ different departments.
 
 So to sum it up, you got one huge switch with 30 ports. Now you can take any ports you wish and assign them to
 VLAN. You can create as many separate VLANs as you want.
+
+Subnet vs VLAN
+They basically solve the same problem, but in different ways.
+Subnet is a logical division of an IP network. Every subnet gets separated by a router.
+With VLAN you can plug multiple device into the same switch and virtually separate them into
+different networks.
