@@ -295,9 +295,6 @@ git pull origin name_of_remote_branch
 - CAREFUL! only pull specified remote branch to specified local branch.
 Do not use "git pull" unless you know what you are doing.
 
-- pull a branch that is new at remote, but you do not have that branch locally yet
-git checkout -b new_local_branch_name origin/branch-name
-
 
 ----------------------------------------------------------------------------------------------------
 PUSH
@@ -306,24 +303,19 @@ PUSH
 - if you gonna git push "origin name_of_branch", and name_of_branch only exists locally but not
 remotely, it will create new branch remotely.
 
-git push origin
-git push origin name_of_branch (YOU SHOULD SPECIFY EXACTLY WHERE YOU PUSH!)
+git push origin name_of_branch
 
 DELETE remote branch
 git push origin -d some_branch 
 
-PUSH a branch to remote
-git checkout -b new_branch_name
-- do some changes in the branch, then add & commit.
-git push origin new_branch_name
-- some other example
-git push -u origin main (-u means --set-upstream, set upstream sets default remote branch for the current local branch)
 
 ----------------------------------------------------------------------------------------------------
 FORK
 
 - fork is a copy of a repository
 - useful when you want to contribute to someone else's project or start your own project based on theirs.
+TODO: Add more info about forking
+
 
 ----------------------------------------------------------------------------------------------------
 CLONE
@@ -331,17 +323,12 @@ CLONE
 A) Cloning just some opensource project
 - once we forked the repo on github we need to clone it into local repo
 
-git clone https://adress.xxxxx.io.git
 git clone https://adress.xxxxx.io.git path/to/folder (specify also local folder)
 
+- if we want to contribute to the project that we cloned, just check the remote origin address, to
+be sure we will push to correct repo. If you forked the repo, and cloned it, double check that you
+will push to your forked repo. (You might need to delete or add remote origin)
 git remote -v (check to what remote repos we are linked)
-
-- when we fork and clone someone elses' repo, it will be marked
-as "origin" but we will not have access to make any changes to that repo. We will have to rename the origin to upstream, because later, we will conect our own github page which will be origin for us.
-
-git remote rename origin upstream (rename origin to upstream)
-
-- now make "origin" our own repo on github
 git remote add origin https://your_github_cloned_page.io.git
 
 
@@ -351,7 +338,8 @@ git clone url_of_remote_repository your_local_directory
 ----------------------------------------------------------------------------------------------------
 REMOTE
 
-- check remote server
+- check remote server, which is the address of the repository on the internet.
+- this address is where you push and pull changes from/to
 
 git remote -v
 -> origin  https://github.com/Ismaril/git_testing.git (fetch)
@@ -369,7 +357,7 @@ git update-git-for-windows
 ----------------------------------------------------------------------------------------------------
 IGNORE
                                                                                                                            
-- git ignore will onlz work on files that has not yet been staged/commited.
+- .gitignore will only work on files that has not yet been staged/commited.
 
 - create a new file
 git echo > .gitignore
@@ -381,17 +369,21 @@ some_other_file.py
 
 ----------------------------------------------------------------------------------------------------
 REVERT
-- SO FAR I HAVE NOT TESTED THIS ONE SUCESSFULY IN PRACTISE, SO DO NOT USE
-IT NOW
+- revert is the command we use when we want to remove a previous specific commit/s and add this
+change of removal of that commit/s as a new commit.
+- note that conflicts can happen when reverting, so be careful.
+- revert makes definitely sense if you are working with a team
 
-- revert�is the command we use when we want to take a previous�commit�and add it as a new�commit, keeping the�log�intact.
-- be careful because you can get in conflict because with revert you do not return to previous commit but you rather join previous commit with later changes and make it as a continuation commit.
+Example of git log (commits) A-B-C:
+You want to remove the commit C, but keep changes in commit A and B. Type "git revert C".
+The resulting log will be A-B-C-D, where D is the new commit that reverts the changes made in C.
+This means that changes from C are no longer visible in the code, but the commit C is still in the
+log and can be viewed with "git show C".
 
-- Current chaing of commits:
--(commit_1)-(commit_2)-(commit_3)-(you are here)
+git revert commit_ID
+git revert HEAD~2..HEAD - Revert last 3 commits TODO: needs to be tested
+git revert OlderCommitID..NewerCommitID - Revert series of commits TODO: needs to be tested
 
-- New chain of commits:
-- (commit_1)-(commit_2)-(commit_3)-(you are here)-(commit_2)
 
 ----------------------------------------------------------------------------------------------------
 RESET (to previous commit)
