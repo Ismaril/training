@@ -1,14 +1,14 @@
 
 
--------------------------------------------------------------------------
--------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
 GIT
--------------------------------------------------------------------------
--------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
 
 
 
--------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
 Working with Git
 
 - Initialize Git on a folder, making it a Repository
@@ -18,61 +18,72 @@ Working with Git
 - The staged files are committed, which prompts git to store a permanent snapshot of the files
 - Git allows you to see the full history of every commit.
 - You can revert back to any previous commit.
-- Git does not store a separate copy of every file in every commit, but keeps track of changes made in each commit.
-- When you push or pull it applies to the active local repository. (In case you do not use generall git commands)
+- Git does not store a separate copy of every file in every commit,
+    but keeps track of changes made in each commit.
+- When you push or pull it applies to the active local active repository.
+    (In case you do not use general git commands)
 
--------------------------------------------------------------------------
+IMPORTANT
+When working with git be explicit with our commands. That way you know exactly what you are doing.
+Examples:
+git pull origin name_of_remote_branch (instead of git pull)
+git push origin name_of_remote_branch (instead of git push)
+git add name_of_file.extension (instead of git add .)
+git stash apply stash@{n} (instead of git stash pop)
+
+----------------------------------------------------------------------------------------------------
 VERSION
 - check version of git
 
 git --version
 
--------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
 DIFF
 - Check differences
 
 git diff name_of_file - checks new changes against last commit
-
-git diff --staged name_of_file - add --staged when you want to check files already in staging environment.
-
+git diff --staged name_of_file - keyword "--staged" when you want to check changes in files already
+                                in staging environment.
 git diff origin name_of_remote_branch - check difference vs remote branch
-
 git diff --name-only origin name_of_remote_branch - list only filenames which contain changes. 
 
--------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
 CONFIG
-- configure user name and email of a user
+- configure username and email of a user
 - global to set the username and e-mail for every repository on your computer
 
 git config --global user.name "your_name"
 git config --global user.email "your_email@mail.com"
 
--------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
 INIT
-- initialise git repository in the folder you reserved for your new project (cmd has to be in active in the directory of your project)
-- git will now watch all the changes made in this firectory
+- initialise git repository in the folder you reserved for your new project
+(cmd has to be in active in the directory of your project)
+- git will now watch all the changes made in this directory
 
 git init
 
--------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
 STATUS
 - check the satus of our repo and status of all the files inside it
-- satus will tell us which files are modified etc etc
-
-
-git status --short
-(returned next to the file after you write git status --short)
-- ?? file_name - Untracked files
-- A file_name - Files added to stage
-- M file_name - Modified files
-- D file_name - Deleted files
-
+- satus will tell us which files are modified
 
 git status
+git status --short
+    (returned next to the file after you write git status --short)
+    - ?? file_name - Untracked files
+    - A file_name - Files added to stage
+    - M file_name - Modified files
+    - D file_name - Deleted files
 
--------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
 ADD
-- add files to the staging envirnoment, files are then ready to be commited
+- add files to the staging environment, files are then ready to be commited
 
 git add name_of_file.extension
 
@@ -80,49 +91,58 @@ git add --all
 git add --A
 git add . (also adds all)
 
-- unstage
+- remove from staging environment
 git restore --staged name_of_file
+git restore --staged . (unstage all files)
 
-git reset name_of_file (also this???)
 
--------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
 COMMIT
-- Adding commits keep track of our progress and changes as we work. Git considers each commit change point or "save point". It is a point in the project you can go back to if you find a bug, or want to make a change.
+- Adding commits keep track of our progress and changes as we work. Git considers each commit change
+point or "save point". It is a point in the project you can go back to if you find a bug, or want to
+make a change.
 - When we commit, we should always include a message.
-- By adding clear messages to each commit, it is easy for yourself (and others)to see what has changed and when.
-- Sometimes, when you make small changes, using the staging environment seems like a waste of time. It is possible to commit changes directly, skipping the staging environment. The "-a" option will automatically stage every changed, already tracked file.
+- By adding clear messages to each commit, it is easy for yourself (and others) to see what has
+changed and when.
+- Sometimes, when you make small changes, using the staging environment seems like a waste of time.
+It is possible to commit changes directly, skipping the staging environment.
+The "-a" option will automatically stage every changed, already tracked file.
 
 git commit -m "message of the commit" (-m means message)
 git commit -a -m "message of the commit"
 
-- undo local commit and keep changes after my last commit
-git reset --soft HEAD^	
 
--------------------------------------------------------------------------
+- undo local commit and keep changes after my last commit. In other words return to the state
+before the last commit, but keep the changes that were made in the last commit.
+git reset --soft HEAD~1
+
+
+----------------------------------------------------------------------------------------------------
 LOG
 - To view the history of commits for a repository, you can use the log command
-- To exit log type �q�
+- To exit log type "q"
 
 git log
 
-git log --oneline
-git log --decorate
-git log --graph
+git log --oneline - shows only short hashes and commit messages in a list
+git log --decorate - shows full hashes, commit messages, time and author
+git log --graph - shows a graph of the branches
 
-- show what changes were done in a given commit
+- show what changes were done in a given commit. You can input both long and short hashes.
 git show commit_ID
 
--------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
 HELP
 - having trouble remembering commands or options for commands - use Git help.
 -  See all the available options for the specific command
 -  See all possible commands
 
 git command -help
-
 git help --all
 
--------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
 STASH
 - The git stash command is used to temporarily store changes that you
   don't want to commit immediately. Here are some examples of how to use
@@ -140,10 +160,6 @@ git stash save "your message here"
 - This command will list all the stashed changes.
 git stash list
 
-- Apply stashed changes:
-- This command will apply the most recent stashed changes to your working directory.
-git stash apply
-
 - Apply a specific stash:
 - Replace n with the index of the specific stash you want to apply.
 git stash apply stash@{n}
@@ -151,10 +167,6 @@ git stash apply stash@{n}
 - Apply and remove stashed changes:
 - This command will apply the most recent stashed changes and then remove them from the stash list.
 git stash pop
-
-- Remove stashed changes:
-- This command will remove the most recent stashed changes from the stash list.
-git stash drop
 
 - Remove a specific stash:
 - Replace n with the index of the specific stash you want to remove.
@@ -169,12 +181,13 @@ git stash pop stash@{n}
 git stash clear
 
 
--------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
 BRANCH
-- In Git, a branch is a new/separate version of the main repository.
+- In Git, a branch is a new/separate version of the main repository or any other branch.
 - Branches allow you to work on different parts of a project without impacting the main branch.
-- When the work is complete, a branch can be merged with the main project.
-- You can even switch between branches and work on different projects without them interfering with each other.
+- When the work is complete, a branch can be merged with the main project (or any other branch).
+- You can even switch between branches and work on different projects without them interfering
+with each other.
 
 git branch name_of_new_branch - create a new branch
 
@@ -182,9 +195,10 @@ git branch name_of_new_branch - create a new branch
 git branch
 git branch -a - shows all branches, including remote ones
 
-git checkout name_of_existing_branch - make the branch active
+- make the branch active
+git checkout name_of_existing_branch
 
-- create a new branch and switch to it immediately (if the branch doesnt exist yet), command "-b"
+- create a new branch and switch to it immediately (if the branch doesn't exist yet), command "-b"
 git check out -b name_of_new_branch
 
 - check all branches, and also return their last commit messages
@@ -194,27 +208,30 @@ git branch -d branch_name - delete already merged branch
 git branch -D branch_name - delete not yet merged branch
 
 
--------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
 MERGE
-- merge branges together
+- merge branches together
 - commit the changes first, before merging
-- first switch to master (or branch into which you want to merge
+- first switch to master (or branch into which you want to merge)
 
 git checkout master
 
-- merge master with branch
+- merge master with name_of_branch
 git merge name_of_branch
 
-- fast forward - means that branch came directly from master and no changes were made in master while we were working on the branch, therefore git sees this as a continuation of master. It means that it can "fast forward" both pointing into the same commit-
+- fast forward - means that branch came directly from master and no changes were made in master
+while we were working on the branch, therefore git sees this as a continuation of master.
+It means that it can "fast forward" both pointing into the same commit.
 
-- if the merge was successful (should be always with fast forward) we can now delete the old branch ("-d")
+- if the merge was successful (always with fast forward) we can now delete the old branch ("-d")
 git branch -d name_of_branch 
 
 
-CONFILICT
-- conflict happens when there are changes in multiple branches in the same file on the same line in that file.
+CONFLICT
+- conflict happens when there are changes in multiple branches in the same file on the same line in
+that file.
 
-- lets say we proceed in this fasion, one step after after another git checkout some_branch
+- lets say we proceed in this fashion (current active branch some_branch)
 - do some changes in the files in some_branch
 git add --all
 git commit -m "commit message"
@@ -223,12 +240,15 @@ git merge some_branch
 
 - CONFLICT - fix conflicts and then commit the results
 git status
-- if you included for example some new files, they will be stagged to be commited (but staged to be commited in this phase we rather mean staged to be merged, because we are still in the merge phase)
+- if you included for example some new files, they will be staged to be commited
+(but staged to be commited in this phase we rather mean staged to be merged, because we are still in
+ the merge phase)
 - the problematic file was not staged to be commited and has to be fixed
 - now you should open the file which has a problem and fix the problematic lines
 git add the_file_that_you_fixed.file
 git status
-- now as I said earlier it should again remind that we are still in the phase of merging and and all files are now ready to be commited (commited meaning merged)
+- now as I said earlier it should again remind that we are still in the phase of merging and all
+files are now ready to be commited (commited meaning merged)
 git commit -m "merged with branch_name after fixing conflicts" (in "" the text is up to you)
 now the merge is done
 git branch -d some_branch
@@ -240,55 +260,51 @@ git merge --abort
 <<<<<< HEAD - conflict in local branch
 everything from equal signs up belongs to HEAD
 ==========
-everzthing from equal signs below belongs to remote branch
+everything from equal signs below belongs to remote branch
 >>>>>> origin/master - conflict in remote branch
 
 
+----------------------------------------------------------------------------------------------------
+FETCH
+- fetch gets all the change history of a tracked branch/repo.
+- so, on your local Git, fetch updates to see what has changed on GitHub
+- when you fetch, you can also pull, but you can also merge
+- use "git fetch", that will update you about the state of all remote branches.
+- it is safe to use git fetch.
 
--------------------------------------------------------------------------
-PULL (from github)
+git fetch origin name_of_repository
+git fetch -all - fetches all branches from remote
+git fetch --prune - deletes branches in local if they do not have counterparts in remote
+
+
+----------------------------------------------------------------------------------------------------
+PULL
 
 - When working as a team on a project, it is important that everyone stays up to date.
 - Any time you start working on a project, you should get the most recent changes to your local copy.
 - With Git, you can do that with pull.
 - PULL is a combination of FETCH and MERGE
+- be sure to be on a branch locally where you want to pull changes into
 
-git pull origin
 
-PULL branch from github
-git fetch
+- PULL branch from remote to local
+git fetch -all
 git checkout name_of_local_branch
 git pull origin name_of_remote_branch
 
-- CAREFUL! only pull specified remote branch to specified local branch. Do not use git pull unless you know what you are doing.
+- CAREFUL! only pull specified remote branch to specified local branch.
+Do not use "git pull" unless you know what you are doing.
 
-- pull a branch that is new at remote but you do not have that branch locally yet
-git checkout -b newlocalbranchname origin/branch-name
+- pull a branch that is new at remote, but you do not have that branch locally yet
+git checkout -b new_local_branch_name origin/branch-name
 
 
-
-FETCH
-- fetch gets all the change history of a tracked branch/repo.
-- So, on your local Git, fetch updates to see what has changed on GitHub
-- when you fetch, you can also pull, but you can also merge
-- use �git fetch�, that will update you about the state of all remote branches. It is save to use git fetch.
-
-git fetch
-git fetch origin
-git fetch origin name_of_repository
-git fetch -all - fetches all branches from remote
-
-git fetch --prune - deletes branches in local if they do not have counterparts in remote
-
-MERGE
-- merge combines the current branch, with a specified branch.
-git merge origin/master (with our local master)
-
--------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
 PUSH
 
 - push from local to remote
-- if you gonna git push origin name_of_branch, and name_of_branch only exists locally but not remotely, it will create new branch remotely.
+- if you gonna git push "origin name_of_branch", and name_of_branch only exists locally but not
+remotely, it will create new branch remotely.
 
 git push origin
 git push origin name_of_branch (YOU SHOULD SPECIFY EXACTLY WHERE YOU PUSH!)
@@ -303,13 +319,13 @@ git push origin new_branch_name
 - some other example
 git push -u origin main (-u means --set-upstream, set upstream sets default remote branch for the current local branch)
 
--------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
 FORK
 
 - fork is a copy of a repository
 - useful when you want to contribute to someone else's project or start your own project based on theirs.
 
--------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
 CLONE
 
 A) Cloning just some opensource project
@@ -332,7 +348,7 @@ git remote add origin https://your_github_cloned_page.io.git
 B) Cloning at company where you work.
 git clone url_of_remote_repository your_local_directory
 
--------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
 REMOTE
 
 - check remote server
@@ -345,12 +361,12 @@ git remote -v
 git remote add origin https://github.com/Ismaril/name_of_online_repository.git
 
 
--------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
 UPDATE GIT
 
 git update-git-for-windows
 
--------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
 IGNORE
                                                                                                                            
 - git ignore will onlz work on files that has not yet been staged/commited.
@@ -363,7 +379,7 @@ some_directory/some_file.txt
 gui.py
 some_other_file.py 
 
--------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
 REVERT
 - SO FAR I HAVE NOT TESTED THIS ONE SUCESSFULY IN PRACTISE, SO DO NOT USE
 IT NOW
@@ -377,7 +393,7 @@ IT NOW
 - New chain of commits:
 - (commit_1)-(commit_2)-(commit_3)-(you are here)-(commit_2)
 
--------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
 RESET (to previous commit)
 - reset�is the command we use when we want to move the repository back to a previous�commit, discarding any changes made after that�commit.
 - reset is also used in other cases (explained in this txt above)
@@ -388,7 +404,7 @@ RESET (to previous commit)
 - New chain of commits after you return back:
 - (commit_1)-(you are here)
 
--------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
 AMEND
 - amend�is used to modify the most recent�commit.
 - It combines changes in the staging environment with the latest commit, and creates a new commit.
@@ -397,13 +413,13 @@ AMEND
 
 git commit --amend -m "Added lines to README.md" (this will change the message of last commit)
 
--------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
 PROBLEMS WITH CERTIFICATES WHEN CLONING A REPOSITORY
 - use this command:
 git config --global http.sslbackend schannel
 
 
--------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
 
 create a new repository on the command line
 echo "# mini_projects" >> README.md
