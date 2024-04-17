@@ -387,21 +387,28 @@ git revert OlderCommitID..NewerCommitID - Revert series of commits TODO: needs t
 
 ----------------------------------------------------------------------------------------------------
 RESET (to previous commit)
-- reset�is the command we use when we want to move the repository back to a previous�commit, discarding any changes made after that�commit.
-- reset is also used in other cases (explained in this txt above)
+- reset is the command we use when we want to move the repository back to a previous commit,
+discarding any changes made after that commit.
+- reset is often used in a local repository before pushing changes to a remote repository.
 
-- Current chaing of commits:
--(commit_1)-(commit_2)-(commit_3)-(you are here)
+- Current chain of commits:
+- A-->B-->C-->(you are here)
 
 - New chain of commits after you return back:
-- (commit_1)-(you are here)
+- A-->(you are here)
+
+git reset --hard commit_ID - move back to a specific commit and discard all changes after that commit
+git reset --soft commit_ID - move back to a specific commit and keep changes in staging environment
+git reset --mixed commit_ID - move back to a specific commit and keep changes unstaged
 
 ----------------------------------------------------------------------------------------------------
 AMEND
-- amend�is used to modify the most recent�commit.
+- amend is used to modify the most recent commit.
 - It combines changes in the staging environment with the latest commit, and creates a new commit.
 - This new commit replaces the latest commit entirely.
-- usually --amend�is to change a�commit�message. It is ok to rename messages in your local repo, but be careful with renaming in remote when you got also other people working on the code.
+- usually --amend is to change a commit message.
+- it is ok to rename messages in your local repo,
+but be careful with renaming in remote when you got also other people working on the code.
 
 git commit --amend -m "Added lines to README.md" (this will change the message of last commit)
 
