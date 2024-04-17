@@ -404,13 +404,50 @@ git reset --mixed commit_ID - move back to a specific commit and keep changes un
 ----------------------------------------------------------------------------------------------------
 AMEND
 - amend is used to modify the most recent commit.
-- It combines changes in the staging environment with the latest commit, and creates a new commit.
-- This new commit replaces the latest commit entirely.
-- usually --amend is to change a commit message.
-- it is ok to rename messages in your local repo,
-but be careful with renaming in remote when you got also other people working on the code.
+- you can either use amend to just change the commit message, or to add changes to the last commit.
+- this new commit replaces the previous commits hash. Therefore, it is not recommended to use amend
+on commits that have already been pushed to a remote repository.
 
-git commit --amend -m "Added lines to README.md" (this will change the message of last commit)
+git commit --amend -m "Here I am changing the commit msg" - change the message of last commit
+
+- add changes to the last commit
+git add name_of_file.extension
+git commit --amend -m "Added lines to README.md"
+
+
+----------------------------------------------------------------------------------------------------
+REBASE
+
+
+----------------------------------------------------------------------------------------------------
+SQASH
+
+
+----------------------------------------------------------------------------------------------------
+BISECT
+
+
+----------------------------------------------------------------------------------------------------
+BLAME
+
+
+----------------------------------------------------------------------------------------------------
+DIFFTOOL
+- use vim editor to see the differences between files
+
+git difftool - tool to see differences between files
+git difftool name_of_file.extension - tool to see differences in a single file
+
+----------------------------------------------------------------------------------------------------
+CHERRY-PICK
+- cherry-pick is used to copy a specific commit from one branch to another.
+- it is usefull when you want to copy a specific commit from one branch to another, without merging
+or manually copying the changes.
+- first switch to a branch where you want to copy the commit and then call cherry-pick on a commit
+from another branch.
+
+git checkout name_of_branch_where_you_want_to_copy_commit
+git cherry-pick commit_ID
 
 ----------------------------------------------------------------------------------------------------
 PROBLEMS WITH CERTIFICATES WHEN CLONING A REPOSITORY
