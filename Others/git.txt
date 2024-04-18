@@ -425,10 +425,23 @@ SQASH
 
 ----------------------------------------------------------------------------------------------------
 BISECT
+- git bisect uses a binary search algorithm to quickly and efficiently identify the specific commit
+that introduced a change in behavior in your codebase.
 
+TODO: Add more info about bisect
 
 ----------------------------------------------------------------------------------------------------
 BLAME
+- When you run git blame on a file, Git outputs each line of the file annotated with information
+about the commit that last modified the line, the author of the commit, and the timestamp.
+- this makes it easy to see who modified each part of the file and when, providing context directly
+ inline with the content of the file.
+
+- shows the commit hash, author, date and line number for each line in the file (-n for line nrs)
+git blame -n name_of_file.extension
+
+- shows the commit hash, author, date and line number for a specific range of lines in the file
+git blame -L 10,20 name_of_file.extension
 
 
 ----------------------------------------------------------------------------------------------------
