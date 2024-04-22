@@ -1,0 +1,45 @@
+SOME SHORTCUTS THAT I DID NOT KNOW ABOUT WINDOWS 10
+
+F2 Rename the selected item.
+
+F3 Search for a file or folder in File Explorer.
+
+F4 Display the address bar list in File Explorer on the top (bar which shows the address of the folder)
+
+F5 Refresh the active window.
+
+Alt + F8 Show your password on the sign-in screen.
+
+Alt + Esc Cycle through open windows in order they were opened.
+
+Alt + Enter Display properties for the selected item.
+
+Alt + Spacebar Open the shortcut menu for the active window.
+
+Alt + Left arrow Go back.
+
+Alt + Right arrow Go forward.
+
+Alt + Page Up Move up one screen. (Move up one folder)
+
+Ctrl + F4 Close the active document (in apps that are full-screen and let you have multiple documents open at the same time).
+
+Ctrl + D (or Delete) Delete the selected item and move it to the Recycle Bin.
+
+Ctrl + R (or F5) Refresh the active window.
+
+Ctrl + Right arrow Move the cursor to the beginning of the next word.
+
+Ctrl + Left arrow Move the cursor to the beginning of the previous word.
+
+Ctrl + Down arrow Move the cursor to the beginning of the next paragraph.
+
+Ctrl + Up arrow Move the cursor to the beginning of the previous paragraph.
+
+Ctrl + Alt + Tab Use the arrow keys to switch between all open apps.
+
+Shift + F10 Display the shortcut menu for the selected item.
+
+Shift with any arrow key Select more than one item in a window or on the desktop, or select text in a document.
+
+Shift + Delete Delete the selected item without moving it to the Recycle Bin first.
