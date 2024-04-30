@@ -7,23 +7,23 @@ class TestFolderCrawlerWithoutDeep(unittest.TestCase):
         self.crawler = FolderCrawler('test_folder')
 
     def test_crawl_without_going_deeper_files(self):
-        self.crawler._crawl_without_going_deeper()
+        self.crawler._crawl_files_and_sizes_without_going_deeper()
         self.assertEqual(len(self.crawler.files), 3)
 
     def test_crawl_without_going_deeper_folders(self):
-        self.crawler._crawl_without_going_deeper()
+        self.crawler._crawl_files_and_sizes_without_going_deeper()
         self.assertEqual(len(self.crawler.folders), 1)
 
     def test_crawl_without_going_deeper_empty_folder(self):
         self.crawler = FolderCrawler('empty_test_folder')
-        self.crawler._crawl_without_going_deeper()
+        self.crawler._crawl_files_and_sizes_without_going_deeper()
         self.assertEqual(len(self.crawler.files), 0)
         self.assertEqual(len(self.crawler.folders), 0)
 
     def test_crawl_without_going_deeper_non_existent_folder(self):
         with self.assertRaises(FileNotFoundError):
             self.crawler = FolderCrawler('non_existent_folder')
-            self.crawler._crawl_without_going_deeper()
+            self.crawler._crawl_files_and_sizes_without_going_deeper()
 
 
 class TestFolderCrawlerGoDeep(unittest.TestCase):
@@ -31,23 +31,23 @@ class TestFolderCrawlerGoDeep(unittest.TestCase):
         self.crawler = FolderCrawler('test_folder')
 
     def test_crawl_go_deep_files(self):
-        self.crawler._crawl_go_deep()
+        self.crawler._crawl_files_and_sizes_go_deep()
         self.assertEqual(len(self.crawler.files), 4)
 
     def test_crawl_go_deep_folders(self):
-        self.crawler._crawl_go_deep()
+        self.crawler._crawl_files_and_sizes_go_deep()
         self.assertEqual(len(self.crawler.folders), 2)
 
     def test_crawl_go_deep_empty_folder(self):
         self.crawler = FolderCrawler('empty_test_folder')
-        self.crawler._crawl_go_deep()
+        self.crawler._crawl_files_and_sizes_go_deep()
         self.assertEqual(len(self.crawler.files), 0)
         self.assertEqual(len(self.crawler.folders), 0)
 
     def test_crawl_go_deep_non_existent_folder(self):
         with self.assertRaises(FileNotFoundError):
             self.crawler = FolderCrawler('non_existent_folder')
-            self.crawler._crawl_go_deep()
+            self.crawler._crawl_files_and_sizes_go_deep()
 
 
 class TestFolderCrawlerGetSize(unittest.TestCase):
