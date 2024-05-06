@@ -16,9 +16,9 @@ C#/.vs
 C#/syntax/.vs
 C#/syntax/syntax/bin/
 C#/syntax/syntax/obj/
-C#/code_wars/.vs
-C#/code_wars/code_wars/bin/
-C#/code_wars/code_wars/obj/
+C#/CodeWars/.vs
+C#/CodeWars/code_wars/obj
+C#/CodeWars/code_wars/bin
 C#/syntax/syntax_NET_core/.vs
 C#/syntax/syntax_NET_core/bin
 C#/syntax/syntax_NET_core/obj
