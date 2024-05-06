@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34408.163
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MouseMover", "MouseMover.csproj", "{304E5FC8-A7FC-40D1-87D5-076ED53805ED}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{304E5FC8-A7FC-40D1-87D5-076ED53805ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{304E5FC8-A7FC-40D1-87D5-076ED53805ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{304E5FC8-A7FC-40D1-87D5-076ED53805ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{304E5FC8-A7FC-40D1-87D5-076ED53805ED}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {324E07F9-70F7-4381-9601-1E0143C11BA8}
+	EndGlobalSection
+EndGlobal
