@@ -7,23 +7,23 @@ class TestFolderCrawlerWithoutDeep(unittest.TestCase):
         self.crawler = FolderCrawler('test_folder')
 
     def test_crawl_without_going_deeper_files(self):
-        self.crawler._crawl_files_and_sizes_without_going_deeper()
+        self.crawler._crawl_items_and_sizes_without_going_deeper()
         self.assertEqual(len(self.crawler.files), 3)
 
     def test_crawl_without_going_deeper_folders(self):
-        self.crawler._crawl_files_and_sizes_without_going_deeper()
+        self.crawler._crawl_items_and_sizes_without_going_deeper()
         self.assertEqual(len(self.crawler.folders), 1)
 
     def test_crawl_without_going_deeper_empty_folder(self):
         self.crawler = FolderCrawler('empty_test_folder')
-        self.crawler._crawl_files_and_sizes_without_going_deeper()
+        self.crawler._crawl_items_and_sizes_without_going_deeper()
         self.assertEqual(len(self.crawler.files), 0)
         self.assertEqual(len(self.crawler.folders), 0)
 
     def test_crawl_without_going_deeper_non_existent_folder(self):
         with self.assertRaises(FileNotFoundError):
             self.crawler = FolderCrawler('non_existent_folder')
-            self.crawler._crawl_files_and_sizes_without_going_deeper()
+            self.crawler._crawl_items_and_sizes_without_going_deeper()
 
 
 class TestFolderCrawlerGoDeep(unittest.TestCase):
@@ -31,23 +31,23 @@ class TestFolderCrawlerGoDeep(unittest.TestCase):
         self.crawler = FolderCrawler('test_folder')
 
     def test_crawl_go_deep_files(self):
-        self.crawler._crawl_files_and_sizes_go_deep()
+        self.crawler._crawl_items_and_sizes_go_deep()
         self.assertEqual(len(self.crawler.files), 4)
 
     def test_crawl_go_deep_folders(self):
-        self.crawler._crawl_files_and_sizes_go_deep()
+        self.crawler._crawl_items_and_sizes_go_deep()
         self.assertEqual(len(self.crawler.folders), 2)
 
     def test_crawl_go_deep_empty_folder(self):
         self.crawler = FolderCrawler('empty_test_folder')
-        self.crawler._crawl_files_and_sizes_go_deep()
+        self.crawler._crawl_items_and_sizes_go_deep()
         self.assertEqual(len(self.crawler.files), 0)
         self.assertEqual(len(self.crawler.folders), 0)
 
     def test_crawl_go_deep_non_existent_folder(self):
         with self.assertRaises(FileNotFoundError):
             self.crawler = FolderCrawler('non_existent_folder')
-            self.crawler._crawl_files_and_sizes_go_deep()
+            self.crawler._crawl_items_and_sizes_go_deep()
 
 
 class TestFolderCrawlerGetSize(unittest.TestCase):
@@ -86,32 +86,32 @@ class TestFolderCrawlerConvertSize(unittest.TestCase):
 
     def test_convert_size_bytes(self):
         size = 500  # size in bytes
-        result = self.crawler._convert_size(size)
+        result = self.crawler._convert_bytes_to_readable_format(size)
         self.assertEqual(result, "\033[0;31;40m500.00B")
 
     def test_convert_size_kilobytes(self):
         size = 1024 * 1.5  # size in bytes
-        result = self.crawler._convert_size(size)
+        result = self.crawler._convert_bytes_to_readable_format(size)
         self.assertEqual(result, "\033[0;33;40m1.50KB")
 
     def test_convert_size_megabytes(self):
         size = 1024 * 1024 * 2.5  # size in bytes
-        result = self.crawler._convert_size(size)
+        result = self.crawler._convert_bytes_to_readable_format(size)
         self.assertEqual(result, "\033[0;32;40m2.50MB")
 
     def test_convert_size_gigabytes(self):
         size = 1024 * 1024 * 1024 * 3.5  # size in bytes
-        result = self.crawler._convert_size(size)
+        result = self.crawler._convert_bytes_to_readable_format(size)
         self.assertEqual(result, "\033[0;34;40m3.50GB")
 
     def test_convert_size_terabytes(self):
         size = 1024 * 1024 * 1024 * 1024 * 4.5  # size in bytes
-        result = self.crawler._convert_size(size)
+        result = self.crawler._convert_bytes_to_readable_format(size)
         self.assertEqual(result, "\033[0;36;40m4.50TB")
 
     def test_convert_size_zero(self):
         size = 0  # size in bytes
-        result = self.crawler._convert_size(size)
+        result = self.crawler._convert_bytes_to_readable_format(size)
         self.assertEqual(result, "\033[0;31;40m0.00B")
 
 

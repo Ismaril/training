@@ -34,6 +34,7 @@ Python/projects/copied_projects/2048/__pycache__/
 Utilities/EyeHygieneAlarm/EyeHygieneAlarm/.vs
 Utilities/EyeHygieneAlarm/EyeHygieneAlarm/bin
 Utilities/EyeHygieneAlarm/EyeHygieneAlarm/obj
+Utilities/folder_crawler/saved_crawls
 
 progress_tracking.py
 scratch.py
