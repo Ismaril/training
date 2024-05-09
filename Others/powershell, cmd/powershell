@@ -1,0 +1,38 @@
+GENERAL
+Before you can run a script, check the execution policy.
+If it is restricted, you will need to change it to RemoteSigned or Unrestricted.
+Remote is a compromise between security and usability because it lets you run your own scripts
+but only signed ones from the internet. Set-ExecutionPolicy RemoteSigned
+
+Everything powershell is an object.
+
+PowerShell is a task automation and configuration management framework from Microsoft, consisting of
+ a command-line shell and an associated scripting language.
+It is built on the .NET Framework (currently on .NET core), leveraging the .NET runtime and classes
+for its functionality. This foundation plays a significant role in how PowerShell operates and
+integrates with the Windows environment and other platforms.
+
+Powershell ISE - is a IDE for powershell scripts.
+
+
+GENERAL COMMANDS
+cls - clear the screen
+Get-ExecutionPolicy - check the execution policy
+Ctrl + C - stop a running command
+command1 | command2 - chain more commands together (result of command1 is input for command2)
+cat file.txt - display the contents of a file
+...
+
+
+NAVIGATION
+cd .. - go up one directory
+cd folder/folder - go to a specific folder
+cd $HOME - return to home directory
+dir - list files in current directory
+...
+
+
+
+NETWORKING
+ping desired_address - ping an address
+...
