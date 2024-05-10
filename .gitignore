@@ -38,6 +38,8 @@ Utilities/EyeHygieneAlarm/EyeHygieneAlarm/.vs
 Utilities/EyeHygieneAlarm/EyeHygieneAlarm/bin
 Utilities/EyeHygieneAlarm/EyeHygieneAlarm/obj
 Utilities/folder_crawler/saved_crawls
+Utilities/MouseMover/bin/
+Utilities/MouseMover/obj/
 
 progress_tracking.py
 scratch.py
