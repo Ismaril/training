@@ -46,13 +46,18 @@ class FolderCrawler:
 
         :return: None
         """
-        time.perf_counter()
-        for item in os.listdir(self.path):
-            item_path = os.path.join(self.path, item)
-            if os.path.isdir(item_path):
-                self.folders.append(item_path)
-            else:
-                self.files.append(item_path)
+        try:
+            for item in os.listdir(self.path):
+                item_path = os.path.join(self.path, item)
+                if os.path.isdir(item_path):
+                    self.folders.append(item_path)
+                else:
+                    self.files.append(item_path)
+        except FileNotFoundError as error:
+            print(error, self.FILE_NOT_FOUND_EXCEPTION_MESSAGE)
+            self.skipped_items += 1
+        except Exception:
+            print(self.GENERAL_EXCEPTION_MESSAGE)
 
         self._save_crawl_results()
 
@@ -351,3 +356,4 @@ if __name__ == '__main__':
         working_with_sizes=True,
         read_out_from_saved_files=True
     )
+
