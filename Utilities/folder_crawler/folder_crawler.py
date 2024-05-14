@@ -370,7 +370,7 @@ class FolderCrawler:
 
         :return: None
         """
-        print(f"The whole process took: {self.format_duration(time.perf_counter() - self.timer)}")
+        print(f"THE WHOLE PROCESS TOOK: {self.format_duration(time.perf_counter() - self.timer)}", end=self.PRINT_ENDING)
 
     @staticmethod
     def format_duration(seconds):
