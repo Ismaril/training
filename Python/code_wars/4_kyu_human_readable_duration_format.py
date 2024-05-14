@@ -10,13 +10,13 @@
 # * For seconds = 3662, your function should return
 #     "1 hour, 1 minute and 2 seconds"
 
-SEC_PER_YEAR = 31536000  # 365*24*60*60
-SEC_PER_DAY = 86400  # 24*60*60
-SEC_PER_HR = 3600  # 60*60
-SEC_PER_MIN = 60
-
 
 def format_duration(seconds):
+    SEC_PER_YEAR = 31536000  # 365*24*60*60
+    SEC_PER_DAY = 86400  # 24*60*60
+    SEC_PER_HR = 3600  # 60*60
+    SEC_PER_MIN = 60
+
     total = seconds
 
     years, seconds = divmod(seconds, SEC_PER_YEAR)
