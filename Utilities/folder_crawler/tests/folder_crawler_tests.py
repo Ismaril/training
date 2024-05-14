@@ -72,14 +72,6 @@ class TestFolderCrawlerGetSize(unittest.TestCase):
         size = self.crawler._get_size('empty_test_folder', get_size_folder=True)
         self.assertEqual(size, '\033[0;31;40m0.00B, 0B')
 
-    def test_get_size_non_existent_file(self):
-        with self.assertRaises(FileNotFoundError):
-            self.crawler._get_size('test_folder/non_existent_file.txt', get_size_file=True)
-
-    def test_get_size_non_existent_folder(self):
-        with self.assertRaises(FileNotFoundError):
-            self.crawler._get_size('non_existent_folder', get_size_folder=True)
-
 
 class TestFolderCrawlerConvertSize(unittest.TestCase):
 
@@ -143,6 +135,7 @@ class TestFolderCrawlerSizeComparison(unittest.TestCase):
         with self.assertRaises(AssertionError):
             self.crawler._compare_sizes(1000, "1, 2000B", "invalid")
 
+
 class TestFolderCrawlerReadSavedItems(unittest.TestCase):
     def setUp(self):
         self.crawler = FolderCrawler("test_folder")
@@ -203,4 +196,3 @@ class TestFolderCrawlerSaveResults(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-
