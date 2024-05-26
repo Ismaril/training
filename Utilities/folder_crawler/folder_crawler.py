@@ -8,21 +8,28 @@ class FolderCrawler:
     """
     The FolderCrawler class is used to crawl through a folder and its sub-folders and prints the paths with sizes.
     """
-
+    # region Constants
     FILES = "files"
     FOLDERS = "folders"
+    PARAMETERS = "parameters"
     SKIPPED_ITEMS = "skipped_items"
     EXTENSION = ".txt"
     SAVED_CRAWLS_FOLDER = "saved_crawls"
     PATH_TO_SAVED_FILES = os.path.join(SAVED_CRAWLS_FOLDER, f"{FILES}{EXTENSION}")
     PATH_TO_SAVED_FOLDERS = os.path.join(SAVED_CRAWLS_FOLDER, f"{FOLDERS}{EXTENSION}")
     PATH_TO_SKIPPED_ITEMS = os.path.join(SAVED_CRAWLS_FOLDER, f"{SKIPPED_ITEMS}{EXTENSION}")
+    PATH_TO_PARAMETERS = os.path.join(SAVED_CRAWLS_FOLDER, f"{PARAMETERS}{EXTENSION}")
 
-    ERROR_COMPUTING_SIZE_EXCEPTION_MSG = "ERROR COMPUTING THE SIZE. EXCEPTION: "
-    INVALID_SIGN_EXCEPTION_MSG = "INVALID SIGN!"
+    COMPUTING_SIZE_EXC_MSG = "ERROR COMPUTING THE SIZE. EXCEPTION: "
+    INVALID_SIGN_EXC_MSG = "INVALID SIGN!"
+
+    DEEP_CRAWL_MSG = "Going deep into the sub-folders. The process may take a while."
+    SHALLOW_CRAWL_MSG = "Staying in the inputted folder. The process may take a while."
     NR_OF_SKIPPED_ITEMS_MSG = "NUMBER OF SKIPPED ITEMS:"
     NR_OF_LISTED_ITEMS_MSG = "NUMBER OF LISTED"
     WHOLE_PROCES_TOOK_MSG = "THE WHOLE PROCESS TOOK:"
+    SAVING_RESULTS_MSG = "Saving the results into txt files."
+    DONE_CRAWLING_MSG = "DONE CRAWLING"
     PRINT_ENDING = f"\n{'-' * 150}\n"
 
     BIGGER_OR_EQUAL = ">="
@@ -35,9 +42,9 @@ class FolderCrawler:
     NONE = "None"
     ENCODING = "UTF-8"
 
-    UNITS = ["B", "KB", "MB", "GB", "TB"]
-    COLORS = (31, 33, 32, 34, 36)
+    # endregion
 
+    # region Constructor
     def __init__(self, path: str):
         """
         This is the constructor method for the FolderCrawler class.
@@ -52,9 +59,9 @@ class FolderCrawler:
         self.skipped = []
         self.timer = time.perf_counter()
 
-        # if not os.path.exists(self.path):
-        #     raise FileNotFoundError
+    # endregion
 
+    # region Public Methods
     def crawl_item_names_with_sizes(self, crawl_deep=False):
         """
         This method decides whether to perform a deep crawl or a shallow crawl based on the crawl_deep parameter.
@@ -65,16 +72,119 @@ class FolderCrawler:
 
         :return: None
         """
+
         if crawl_deep:
-            print("Going deep into the sub-folders. The process may take a while.")
+            print(self.DEEP_CRAWL_MSG)
             self._crawl_item_names_and_sizes_go_deep()
         else:
-            print("Staying in the inputted folder. The process may take a while.")
+            print(self.SHALLOW_CRAWL_MSG)
             self._crawl_item_names_and_sizes_without_going_deeper()
 
-        print("Saving the results into txt files.", end=self.PRINT_ENDING)
+        print(self.SAVING_RESULTS_MSG, end=self.PRINT_ENDING)
         self._save_crawl_results(path=self.PATH_TO_SAVED_FILES, container=self.files)
         self._save_crawl_results(path=self.PATH_TO_SAVED_FOLDERS, container=self.folders)
+        self._clear_file()
+        self._notify_that_crawling_is_done()
+
+    def print_items(self, print_folders=True, print_files=True, print_skipped_items=True,
+                    filter_path="", filter_sign=">=", filter_size=0, print_sizes=False,
+                    read_out_saved_files=False):
+        """
+        This method is used to print the files and folders that were found during the crawling process.
+        It also prints the number of files and folders that were listed.
+        The method can be customized to print only files, only folders, or both.
+        It can also filter the files and folders based on text and size.
+        At the end of the method, it calls the _show_time method to print the time taken for the crawling process.
+
+        :param print_folders: A boolean value that determines whether to print the folders or not. Default is True.
+        :param print_files: A boolean value that determines whether to print the files or not. Default is True.
+        :param filter_path: A string value that is used to filter the files and folders. Default is an empty string.
+        :param filter_sign: A string value that is used to compare the sizes of the files and folders. Default is ">=".
+        :param filter_size: An integer value that is used to filter the files and folders based on their sizes. Default is 0.
+        :param print_sizes: A boolean value that determines whether to work with sizes or not. Default is False.
+        :param read_out_saved_files: A boolean value that determines whether to read out the saved files and folders from the txt files. Default is False.
+
+        :returns: None
+        """
+
+        if print_files:
+            self._print_container(
+                filter_path=filter_path,
+                filter_size=filter_size,
+                sign=filter_sign,
+                working_with_sizes=print_sizes,
+                item_type=self.FILES,
+                container=self.files,
+                read_out_from_saved_files=read_out_saved_files
+            )
+        if print_folders:
+            self._print_container(
+                filter_size=filter_size,
+                filter_path=filter_path,
+                sign=filter_sign,
+                working_with_sizes=print_sizes,
+                item_type=self.FOLDERS,
+                container=self.folders,
+                read_out_from_saved_files=read_out_saved_files
+            )
+
+        if print_skipped_items:
+            self._print_container(
+                filter_size=filter_size,
+                filter_path=filter_path,
+                sign=filter_sign,
+                working_with_sizes=print_sizes,
+                item_type=self.SKIPPED_ITEMS,
+                container=self.skipped,
+                read_out_from_saved_files=read_out_saved_files
+            )
+
+        self._show_time()
+
+    def read_content_of_file(self, path: str, filter_: str = "", print_=True):
+        """
+        This function reads the content of a file and prints the lines that contain the filter string.
+
+        :param path: The path of the file that needs to be read.
+        :param filter_: Filter string that filters out the lines.
+        :return: None
+        """
+
+        array_ = []
+
+        with open(path, "r", encoding=self.ENCODING) as file:
+            for line in file:
+                if filter_ in line:
+                    if print_:
+                        print(line.strip())
+                    array_.append(line.strip())
+
+        return array_
+
+    def compare_saved_crawls(self, path1: str, path2: str, print_=True):
+        array1 = self.read_content_of_file(path1, print_=False)
+        array2 = self.read_content_of_file(path2, print_=False)
+
+        array_difference = []
+        for item in array1:
+            if item not in array2:
+                array_difference.append(item)
+        for item in array2:
+            if item not in array1:
+                array_difference.append(item)
+
+        if print_:
+            for item in array_difference:
+                print(item)
+
+        return array_difference
+
+    # endregion
+
+    # region Private Methods
+    def _notify_that_crawling_is_done(self):
+        with open(self.PATH_TO_PARAMETERS, "w") as f:
+            f.write(self.DONE_CRAWLING_MSG)
 
     def _process_path(self, path_tuple):
         path, is_file = path_tuple
@@ -135,39 +245,12 @@ class FolderCrawler:
             else:
                 self.folders.append((path, size_readable, size_total))
 
-    # def _crawl_item_names_and_sizes_go_deep(self):
-    #     """
-    #     This private method is used to crawl through the folder and its sub-folders and store the file and folder paths in the respective lists.
-    #     For each file in the files list, it calculates the size of the file and appends the file path and size to the files list.
-    #     For each folder in the dirs list, it calculates the size of the folder and appends the folder path and size to the folders list.
-    #
-    #     :returns: None
-    #     """
-    #
-    #     for root, folders, files in os.walk(self.path):
-    #         for file in files:
-    #             file_path = os.path.join(root, file)
-    #             size_readable, size_total = self._get_size(file_path, get_size_file=True)
-    #             self.files.append((file_path, size_readable, size_total))
-    #         for folder in folders:
-    #             folder_path = os.path.join(root, folder)
-    #             size_readable, size_total = self._get_size(folder_path, get_size_folder=True)
-    #             self.folders.append((folder_path, size_readable, size_total))
-    #
-    # def _crawl_item_names_and_sizes_without_going_deeper(self):
-    #     """
-    #     This private method is used to crawl through the folder at the given path and store the file and folder paths in the respective lists.
-    #     It uses the os.listdir method to get the list of files and folders in the folder.
-    #     If the item is a folder, it calculates the size of the folder and appends the folder path and size to the folders list.
-    #     If the item is a file, it calculates the size of the file and appends the file path and size to the files list.
-    #
-    #     :return: None
-    #     """
-    #     for item in os.listdir(self.path):
-    #         item_path = os.path.join(self.path, item)
-    #         container = self.folders if os.path.isdir(item_path) else self.files
-    #         size_readable, size_bytes = self._get_size(item_path, get_size_folder=True)
-    #         container.append((item_path, size_readable, size_bytes))
+    def _initialize_files(self):
+        """ Ensure all necessary directories and files are created. """
+        os.makedirs(self.SAVED_CRAWLS_FOLDER, exist_ok=True)
+        for txt_file in (self.PATH_TO_SAVED_FILES, self.PATH_TO_SAVED_FOLDERS,
+                         self.PATH_TO_SKIPPED_ITEMS, self.PATH_TO_PARAMETERS):
+            open(txt_file, 'a', encoding=self.ENCODING).close()
 
     def _save_crawl_results(self, path: str, container: list | str):
         """
@@ -179,18 +262,21 @@ class FolderCrawler:
         :return: None
         """
 
-        if not os.path.exists(self.SAVED_CRAWLS_FOLDER):
-            os.makedirs(self.SAVED_CRAWLS_FOLDER)
+        self._initialize_files()
 
+        # this first if statement is used to save the files and folders (list container)
         if isinstance(container, list):
             if os.path.exists(path):
                 os.remove(path)
             with open(path, 'a', encoding=self.ENCODING) as f:
                 for item_path, size_readable, size_bytes in container:
                     f.write(f"{item_path}, {size_readable}, {size_bytes}\n")
+
+        # this second if statement is used to save the skipped items (string container)
         elif isinstance(container, str):
-            with open(path, 'a', encoding=self.ENCODING) as f:
-                f.write(f"{container}\n")
+            with open(path, 'r+', encoding=self.ENCODING) as f:
+                if container not in f.read():
+                    f.write(f"{container}\n")
 
     def _read_out_saved_items(self, item_type: str, container: list):
         """
@@ -221,6 +307,18 @@ class FolderCrawler:
                     self.skipped_items += 1
                 container.append((item_path, size_readable, size_bytes))
 
+    def _prepare_state_for_saving_skipped_items(self, path: str, filter_: str):
+        with open(self.PATH_TO_PARAMETERS, 'r', encoding=self.ENCODING) as f:
+            if self.COMPUTING_SIZE_EXC_MSG not in f.read():
+                open(path, 'w+', encoding=self.ENCODING).close()
+        write = False
+        with open(path, 'r', encoding=self.ENCODING) as f:
+            if not filter_ in f.read():
+                write = True
+        if write:
+            with open(path, 'a', encoding=self.ENCODING) as f:
+                f.write(filter_)
+
     def _get_size(self, path: str, get_size_file: bool = False, get_size_folder: bool = False):
         """
         This private method is used to calculate the size of a file or a folder.
@@ -241,6 +339,8 @@ class FolderCrawler:
             try:
                 size += os.path.getsize(path)
             except FileNotFoundError:
+                self._prepare_state_for_saving_skipped_items(path=self.PATH_TO_PARAMETERS,
+                                                             filter_=self.COMPUTING_SIZE_EXC_MSG)
                 self._save_crawl_results(path=self.PATH_TO_SKIPPED_ITEMS, container=f"{path}")
                 return self.NONE, self.NONE
         elif get_size_folder:
@@ -249,6 +349,8 @@ class FolderCrawler:
                     try:
                         size += os.path.getsize(os.path.join(root, file))
                     except FileNotFoundError:
+                        self._prepare_state_for_saving_skipped_items(path=self.PATH_TO_PARAMETERS,
+                                                                     filter_=self.COMPUTING_SIZE_EXC_MSG)
                         self._save_crawl_results(path=self.PATH_TO_SKIPPED_ITEMS, container=f"{path}")
         return f"{self._convert_bytes_to_readable_format(size)}", f"{size}B"
 
@@ -265,17 +367,20 @@ class FolderCrawler:
         :return: A string that represents the size in a more readable format with color formatting and the unit.
         """
 
-        for color, unit in zip(self.COLORS, self.UNITS):
+        UNITS = ["B", "KB", "MB", "GB", "TB"]
+        COLORS = (31, 33, 32, 34, 36)
+
+        for color, unit in zip(COLORS, UNITS):
             if size < 1024:
                 return f"\033[0;{color};40m{size:.2f}{unit}"
             size /= 1024
 
     def _compare_sizes(self, size_filter: int, size_to_compare: str, sign: str = ">=") -> bool:
         """
-        This private method is used to compare the size of a file or folder with the size filter based on the sign.
+        This private method is used to compare the size of a file or folder with the size filter based on the filter_sign.
         :param size_filter: Filter the size of the files and folders based on this value.
         :param size_to_compare: Which size to compare with the filter.
-        :param sign: Which sign to use for the comparison.
+        :param sign: Which filter_sign to use for the comparison.
         :return: A boolean value that represents whether the size of the file or folder satisfies the condition.
         """
 
@@ -285,7 +390,7 @@ class FolderCrawler:
                         self.SMALLER,
                         self.EQUAL,
                         self.NOT_EQUAL], \
-            self.INVALID_SIGN_EXCEPTION_MSG
+            self.INVALID_SIGN_EXC_MSG
 
         if size_to_compare == self.NONE or size_to_compare is None:
             return False
@@ -308,69 +413,6 @@ class FolderCrawler:
                 return size_to_compare_ == size_filter
             case self.NOT_EQUAL:
                 return size_to_compare_ != size_filter
-
-    def print_items(
-            self,
-            print_folders=True,
-            print_files=True,
-            print_skipped_items=True,
-            filter_path="",
-            sign=">=",
-            filter_size=0,
-            print_sizes=False,
-            read_out_saved_files=False,
-    ):
-        """
-        This method is used to print the files and folders that were found during the crawling process.
-        It also prints the number of files and folders that were listed.
-        The method can be customized to print only files, only folders, or both.
-        It can also filter the files and folders based on text and size.
-        At the end of the method, it calls the _show_time method to print the time taken for the crawling process.
-
-        :param print_folders: A boolean value that determines whether to print the folders or not. Default is True.
-        :param print_files: A boolean value that determines whether to print the files or not. Default is True.
-        :param filter_path: A string value that is used to filter the files and folders. Default is an empty string.
-        :param sign: A string value that is used to compare the sizes of the files and folders. Default is ">=".
-        :param filter_size: An integer value that is used to filter the files and folders based on their sizes. Default is 0.
-        :param print_sizes: A boolean value that determines whether to work with sizes or not. Default is False.
-        :param read_out_saved_files: A boolean value that determines whether to read out the saved files and folders from the txt files. Default is False.
-
-        :returns: None
-        """
-
-        if print_files:
-            self._print_container(
-                filter_path=filter_path,
-                filter_size=filter_size,
-                sign=sign,
-                working_with_sizes=print_sizes,
-                item_type=self.FILES,
-                container=self.files,
-                read_out_from_saved_files=read_out_saved_files
-            )
-        if print_folders:
-            self._print_container(
-                filter_size=filter_size,
-                filter_path=filter_path,
-                sign=sign,
-                working_with_sizes=print_sizes,
-                item_type=self.FOLDERS,
-                container=self.folders,
-                read_out_from_saved_files=read_out_saved_files
-            )
-
-        if print_skipped_items:
-            self._print_container(
-                filter_size=filter_size,
-                filter_path=filter_path,
-                sign=sign,
-                working_with_sizes=print_sizes,
-                item_type=self.SKIPPED_ITEMS,
-                container=self.skipped,
-                read_out_from_saved_files=read_out_saved_files
-            )
-
-        self._show_time()
 
     def _print_container(
             self,
@@ -398,8 +440,8 @@ class FolderCrawler:
 
         # This will read out saved files if no crawling was done in current run of a program.
         if read_out_from_saved_files and not container:
-            # todo: oestrit kdyz je container prazdny, tzn ze skipped_items je prazdny z toho duvodu
-            #  ze nebyla zadna chyba pri crawlowani
+            if container is self.SKIPPED_ITEMS and os.path.getsize(self.PATH_TO_SKIPPED_ITEMS) == 0:
+                return
             self._read_out_saved_items(item_type, container)
 
         if item_type is self.FILES or item_type is self.FOLDERS:
@@ -430,62 +472,28 @@ class FolderCrawler:
         :return: None
         """
         print(self.WHOLE_PROCES_TOOK_MSG,
-              self.format_duration(time.perf_counter() - self.timer),
+              self._format_duration(time.perf_counter() - self.timer),
               end=self.PRINT_ENDING)
 
     @staticmethod
-    def format_duration(seconds):
+    def _format_duration(seconds):
         SEC_PER_YEAR = 31536000  # 365*24*60*60
         SEC_PER_DAY = 86400  # 24*60*60
         SEC_PER_HR = 3600  # 60*60
         SEC_PER_MIN = 60
-
-        total = seconds
 
         years, seconds = divmod(seconds, SEC_PER_YEAR)
         days, seconds = divmod(seconds, SEC_PER_DAY)
         hours, seconds = divmod(seconds, SEC_PER_HR)
         minutes, seconds = divmod(seconds, SEC_PER_MIN)
 
-        values = [years, days, hours, minutes, seconds]
-        keys = ['YEAR', 'DAY', 'HOUR', 'MINUTE', 'SECOND']
+        years = f"{years:.0f} Years, " if years > 0 else ""
+        days = f"{days:.0f} Days, " if days > 0 else ""
+        hours = f"{hours:.0f} Hours, " if hours > 0 else ""
+        minutes = f"{minutes:.0f} Minutes, " if minutes > 0 else ""
+        seconds = f"{seconds:.4f} Seconds" if seconds > 0 else ""
 
-        result1 = []
-        for index, date in enumerate(values):
-            if date:
-                result1.append(
-                    f"{date} {keys[index]}S"
-                    if date > 1
-                    else f"{date} {keys[index]}"
-                )
-
-        result2 = ", ".join(result1)
-        last_comma = result2.rfind(",")
-
-        end_result = f"{result2[:last_comma]}" \
-                     f"{' and '}" \
-                     f"{result2[last_comma + 2:]}" \
-            if result2.count(",") >= 1 else result2
-
-        if not total:
-            return "NOW"
-        else:
-            return end_result
-
-    @staticmethod
-    def read_content_of_file(path: str, filter_: str = ""):
-        """
-        This function reads the content of a file and prints the lines that contain the filter string.
-
-        :param path: The path of the file that needs to be read.
-        :param filter_: Filter string that filters out the lines.
-        :return: None
-        """
-
-        with open(path, "r") as file:
-            for line in file:
-                if filter_ in line:
-                    print(line.strip())
+        return years + days + hours + minutes + seconds
 
     @staticmethod
     def _get_last_change_of_item(path: str):
@@ -498,26 +506,36 @@ class FolderCrawler:
 
         return datetime.datetime.fromtimestamp(os.path.getctime(path))
 
+    def _clear_file(self):
+        delete_skipped_items = False
 
-if __name__ == '__main__':
-    # todo: number of skipped items during crawling is not known, when the files are read out from the saved files.
+        with open(self.PATH_TO_PARAMETERS, 'r', encoding=self.ENCODING) as f:
+            if self.COMPUTING_SIZE_EXC_MSG not in f.read():
+                delete_skipped_items = True
+
+        if delete_skipped_items:
+            open(self.PATH_TO_SKIPPED_ITEMS, 'w+', encoding=self.ENCODING).close()
+
+    # endregion
+
     # todo: check all the tests, they were written by AI
     # todo: check documentation
     # todo: include last change of the file into the print
-    # todo: create a method which compares the contents of the saved crawls and prints out the differences
     # todo: refactor the multiprocessing part
     # todo: create a interface executable from the command line
-
+if __name__ == '__main__':
     cr = FolderCrawler(path=r"C:/")
+    # cr = FolderCrawler(path=r"C:/$Recycle.Bin")
     # cr.crawl_item_names_with_sizes(crawl_deep=True)
     cr.print_items(
         print_files=False,
         print_folders=False,
         print_skipped_items=True,
         filter_path="",
-        sign=">=",
+        filter_sign=">=",
         filter_size=0,
         print_sizes=True,
         read_out_saved_files=True
     )
+    # cr.compare_saved_crawls(path1=..., path2=..., print_=True)
     # cr.read_content_of_file(path="C:/", filter_="")
