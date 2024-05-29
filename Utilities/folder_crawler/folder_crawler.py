@@ -1,6 +1,6 @@
+import datetime
 import os
 import time
-import datetime
 from multiprocessing import Pool
 
 
@@ -20,7 +20,7 @@ class FolderCrawler:
     PATH_TO_SKIPPED_ITEMS = os.path.join(SAVED_CRAWLS_FOLDER, f"{SKIPPED_ITEMS}{EXTENSION}")
     PATH_TO_PARAMETERS = os.path.join(SAVED_CRAWLS_FOLDER, f"{PARAMETERS}{EXTENSION}")
 
-    COMPUTING_SIZE_EXC_MSG = "ERROR COMPUTING THE SIZE. EXCEPTION: "
+    ERR_COMPUTING_SIZE_EXC_MSG = "ERROR COMPUTING THE SIZE. EXCEPTION: "
     INVALID_SIGN_EXC_MSG = "INVALID SIGN!"
 
     DEEP_CRAWL_MSG = "Going deep into the sub-folders. The process may take a while."
@@ -31,6 +31,7 @@ class FolderCrawler:
     WHOLE_PROCES_TOOK_MSG = "THE WHOLE PROCESS TOOK:"
     SAVING_RESULTS_MSG = "Saving the results into txt files."
     DONE_CRAWLING_MSG = "DONE CRAWLING"
+    STARTED_CRAWLING_MSG = "STARTED CRAWLING"
     PRINT_ENDING = f"\n{'-' * 150}\n"
 
     BIGGER_OR_EQUAL = ">="
@@ -75,7 +76,7 @@ class FolderCrawler:
 
         :return: None
         """
-
+        self._log_crawling_state(data_to_write=self.STARTED_CRAWLING_MSG)
         if self.crawl_deep:
             print(self.DEEP_CRAWL_MSG)
             self._crawl_item_names_and_sizes_go_deep()
@@ -87,11 +88,10 @@ class FolderCrawler:
         self._save_crawl_results(path=self.PATH_TO_SAVED_FILES, container=self.files)
         self._save_crawl_results(path=self.PATH_TO_SAVED_FOLDERS, container=self.folders)
         self._clear_file()
-        self._notify_that_crawling_is_done()
+        self._log_crawling_state(data_to_write=self.DONE_CRAWLING_MSG)
 
     def print_items(self, print_folders=True, print_files=True, print_skipped_items=True,
-                    filter_path="", filter_sign=">=", filter_size=0, print_sizes=False,
-                    read_out_saved_files=False):
+                    filter_path="", filter_sign=">=", filter_size=0, read_out_saved_files=False):
         """
         This method is used to print the files and folders that were found during the crawling process.
         It also prints the number of files and folders that were listed.
@@ -115,7 +115,6 @@ class FolderCrawler:
                 filter_path=filter_path,
                 filter_size=filter_size,
                 sign=filter_sign,
-                working_with_sizes=print_sizes,
                 item_type=self.FILES,
                 container=self.files,
                 read_out_from_saved_files=read_out_saved_files
@@ -125,7 +124,6 @@ class FolderCrawler:
                 filter_size=filter_size,
                 filter_path=filter_path,
                 sign=filter_sign,
-                working_with_sizes=print_sizes,
                 item_type=self.FOLDERS,
                 container=self.folders,
                 read_out_from_saved_files=read_out_saved_files
@@ -136,7 +134,6 @@ class FolderCrawler:
                 filter_size=filter_size,
                 filter_path=filter_path,
                 sign=filter_sign,
-                working_with_sizes=print_sizes,
                 item_type=self.SKIPPED_ITEMS,
                 container=self.skipped,
                 read_out_from_saved_files=read_out_saved_files
@@ -185,18 +182,20 @@ class FolderCrawler:
     # endregion
 
     # region Private Methods
-    def _notify_that_crawling_is_done(self):
+    def _log_crawling_state(self, data_to_write: str):
         with open(self.PATH_TO_PARAMETERS, "w") as f:
-            f.write(self.DONE_CRAWLING_MSG)
+            f.write(data_to_write)
 
     def _process_path(self, path_tuple):
         path, is_file = path_tuple
+        last_change = self._get_last_change_of_item(path)
+
         if is_file:
             size_readable, size_total = self._get_size(path, get_size_file=True)
-            return (path, size_readable, size_total, is_file)
         else:
             size_readable, size_total = self._get_size(path, get_size_folder=True)
-            return (path, size_readable, size_total, is_file)
+
+        return path, last_change, size_readable, size_total, is_file
 
     def _process_item(self, item):
         """
@@ -204,8 +203,9 @@ class FolderCrawler:
         """
         item_path = os.path.join(self.path, item)
         is_folder = os.path.isdir(item_path)
+        last_change = self._get_last_change_of_item(self.path)
         size_readable, size_total = self._get_size(item_path, get_size_folder=is_folder)
-        return (item_path, size_readable, size_total, is_folder)
+        return item_path, last_change, size_readable, size_total, is_folder
 
     def _crawl_item_names_and_sizes_without_going_deeper(self):
         """
@@ -220,11 +220,11 @@ class FolderCrawler:
 
         # Append results to appropriate lists
         for result in results:
-            item_path, size_readable, size_total, is_folder = result
+            item_path, last_change, size_readable, size_total, is_folder = result
             if is_folder:
-                self.folders.append((item_path, size_readable, size_total))
+                self.folders.append((item_path, last_change, size_readable, size_total))
             else:
-                self.files.append((item_path, size_readable, size_total))
+                self.files.append((item_path, last_change, size_readable, size_total))
 
     def _crawl_item_names_and_sizes_go_deep(self):
         paths = []
@@ -242,11 +242,11 @@ class FolderCrawler:
 
         # Append results to appropriate lists
         for result in results:
-            path, size_readable, size_total, is_file = result
+            path, last_change, size_readable, size_total, is_file = result
             if is_file:
-                self.files.append((path, size_readable, size_total))
+                self.files.append((path, last_change, size_readable, size_total))
             else:
-                self.folders.append((path, size_readable, size_total))
+                self.folders.append((path, last_change, size_readable, size_total))
 
     def _initialize_files(self):
         """ Ensure all necessary directories and files are created. """
@@ -272,8 +272,8 @@ class FolderCrawler:
             if os.path.exists(path):
                 os.remove(path)
             with open(path, 'a', encoding=self.ENCODING) as f:
-                for item_path, size_readable, size_bytes in container:
-                    f.write(f"{item_path}, {size_readable}, {size_bytes}\n")
+                for item_path, last_change, size_readable, size_bytes in container:
+                    f.write(f"{item_path}, {last_change}, {size_readable}, {size_bytes}\n")
 
         # this second if statement is used to save the skipped items (string container)
         elif isinstance(container, str):
@@ -293,7 +293,7 @@ class FolderCrawler:
 
         with open(item_path, "r", encoding=self.ENCODING) as items:
             for item in items:
-                if item.count(",") > 3:
+                if item.count(",") > 4:
                     for i, character in enumerate(item):
                         if item[i:i + 3] == ", \x1b":
                             item_path = item[:i + 1]
@@ -302,25 +302,13 @@ class FolderCrawler:
                 elif f"{self.NONE}, {self.NONE}" in item:
                     item_path = item.replace(f", {self.NONE}, {self.NONE}", "")
                     size_readable, size_bytes = self.NONE, self.NONE
-                elif item.count(",") == 2:
+                elif item.count(",") == 3:
                     item_path, size_readable, size_bytes = item.strip("\n").split(", ")
                 elif item_type is self.SKIPPED_ITEMS:
                     item_path = item.strip("\n")
                     size_readable, size_bytes = self.NONE, self.NONE
                     self.skipped_items += 1
                 container.append((item_path, size_readable, size_bytes))
-
-    def _prepare_state_for_saving_skipped_items(self, path: str, filter_: str):
-        with open(self.PATH_TO_PARAMETERS, 'r', encoding=self.ENCODING) as f:
-            if self.COMPUTING_SIZE_EXC_MSG not in f.read():
-                open(path, 'w+', encoding=self.ENCODING).close()
-        write = False
-        with open(path, 'r', encoding=self.ENCODING) as f:
-            if not filter_ in f.read():
-                write = True
-        if write:
-            with open(path, 'a', encoding=self.ENCODING) as f:
-                f.write(filter_)
 
     def _get_size(self, path: str, get_size_file: bool = False, get_size_folder: bool = False):
         """
@@ -345,8 +333,7 @@ class FolderCrawler:
             try:
                 size += os.path.getsize(path)
             except FileNotFoundError:
-                self._prepare_state_for_saving_skipped_items(path=self.PATH_TO_PARAMETERS,
-                                                             filter_=self.COMPUTING_SIZE_EXC_MSG)
+                self._log_crawling_state(data_to_write=self.ERR_COMPUTING_SIZE_EXC_MSG)
                 self._save_crawl_results(path=self.PATH_TO_SKIPPED_ITEMS, container=f"{path}")
                 return self.NONE, self.NONE
         elif get_size_folder:
@@ -355,8 +342,7 @@ class FolderCrawler:
                     try:
                         size += os.path.getsize(os.path.join(root, file))
                     except FileNotFoundError:
-                        self._prepare_state_for_saving_skipped_items(path=self.PATH_TO_PARAMETERS,
-                                                                     filter_=self.COMPUTING_SIZE_EXC_MSG)
+                        self._log_crawling_state(data_to_write=self.ERR_COMPUTING_SIZE_EXC_MSG)
                         self._save_crawl_results(path=self.PATH_TO_SKIPPED_ITEMS, container=f"{path}")
         return f"{self._convert_bytes_to_readable_format(size)}", f"{size}B"
 
@@ -440,8 +426,8 @@ class FolderCrawler:
                   end=self.PRINT_ENDING)
 
     def _print_container(self, filter_path="", filter_size=0, sign=">=",
-                         working_with_sizes=False, item_type: str = None,
-                         container: list = None, read_out_from_saved_files=False):
+                         item_type: str = None, container: list = None,
+                         read_out_from_saved_files=False):
         """
         This private method is used to print the folder or file paths that were found during the crawling process, based
         on the container parameter.
@@ -460,23 +446,12 @@ class FolderCrawler:
 
         if item_type is self.FILES or item_type is self.FOLDERS:
             print_total_size = False if self.crawl_deep and item_type is self.FOLDERS else True
-            if working_with_sizes:
-                for item, size_formatted, size_total_bytes in container:
-                    if filter_path in item and self._compare_sizes(size_filter=filter_size,
-                                                                   size_to_compare=size_total_bytes,
-                                                                   sign=sign):
-                        print(item, size_formatted, size_total_bytes, self.DEFAULT_COLOR)
-                        number_of_items += 1
-                        total_size += int(size_total_bytes.strip("\n")[:-1])
-                self._print_crawl_summary(item_type, number_of_items, total_size, print_total_size)
-            else:
-                for item, size_formatted, size_total_bytes in container:
-                    if filter_path in item:
-                        print(item)
-                        number_of_items += 1
-                        total_size += int(size_total_bytes.strip("\n")[:-1])
-                self._print_crawl_summary(item_type, number_of_items, total_size, print_total_size)
-
+            for item, last_change, size_formatted, size_total_bytes in container:
+                if filter_path in item and self._compare_sizes(filter_size, size_total_bytes, sign):
+                    print(item, last_change, size_formatted, size_total_bytes, self.DEFAULT_COLOR)
+                    number_of_items += 1
+                    total_size += int(size_total_bytes.strip("\n")[:-1])
+            self._print_crawl_summary(item_type, number_of_items, total_size, print_total_size)
         elif item_type is self.SKIPPED_ITEMS:
             for item in container:
                 print(item)
@@ -512,22 +487,23 @@ class FolderCrawler:
 
         return years + days + hours + minutes + seconds
 
-    @staticmethod
-    def _get_last_change_of_item(path: str):
+    def _get_last_change_of_item(self, path: str):
         """
         This private method is used to get the last change of a file.
 
         :param path: The path of the file whose last change needs to be calculated.
         :return: The last change of the file.
         """
-
-        return datetime.datetime.fromtimestamp(os.path.getctime(path))
+        try:
+            return datetime.datetime.fromtimestamp(os.path.getmtime(path))
+        except FileNotFoundError:
+            return self.NONE
 
     def _clear_file(self):
         delete_skipped_items = False
 
         with open(self.PATH_TO_PARAMETERS, 'r', encoding=self.ENCODING) as f:
-            if self.COMPUTING_SIZE_EXC_MSG not in f.read():
+            if self.ERR_COMPUTING_SIZE_EXC_MSG not in f.read():
                 delete_skipped_items = True
 
         if delete_skipped_items:
@@ -540,10 +516,11 @@ class FolderCrawler:
     # todo: include last change of the file into the print
     # todo: refactor the multiprocessing part
     # todo: create a interface executable from the command line
-    # todo: write down some state into parameters txt file when the crawling starts
+
+
 if __name__ == '__main__':
-    cr = FolderCrawler(path=r"C:/", crawl_deep=False)
-    # cr = FolderCrawler(path=r"C:/Users/lazni/Downloads", crawl_deep=False)
+    cr = FolderCrawler(path=r"C:/Users/lazni/Downloads", crawl_deep=True)
+    # cr = FolderCrawler(path=r"C:/$Recycle.Bin", crawl_deep=True)
     cr.crawl_item_names_with_sizes()
     cr.print_items(
         print_files=True,
@@ -552,8 +529,7 @@ if __name__ == '__main__':
         filter_path="",
         filter_sign=">=",
         filter_size=0,
-        print_sizes=True,
         read_out_saved_files=True
     )
-    # cr.compare_saved_crawls(path1=..., path2=..., print_=True)
+    cr.compare_saved_crawls(path1=..., path2=..., print_=True)
     # cr.read_content_of_file(path="C:/", filter_="")
