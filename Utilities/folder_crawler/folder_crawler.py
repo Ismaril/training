@@ -1,6 +1,8 @@
 import datetime
 import os
 import time
+
+from structures import ItemType, SavedCrawlsPath, ExceptionMessages, Messages, FileOps, EqualitySign
 from multiprocessing import Pool
 
 
@@ -9,45 +11,9 @@ class FolderCrawler:
     The FolderCrawler class is used to crawl through a folder and its sub-folders and prints the paths with sizes.
     """
     # region Constants
-    FILES = "files"
-    FOLDERS = "folders"
-    PARAMETERS = "parameters"
-    SKIPPED = "skipped_items"
-    EXTENSION = ".txt"
-    SAVED_CRAWLS_FOLDER = "saved_crawls"
-    PATH_TO_SAVED_FILES = os.path.join(SAVED_CRAWLS_FOLDER, f"{FILES}{EXTENSION}")
-    PATH_TO_SAVED_FOLDERS = os.path.join(SAVED_CRAWLS_FOLDER, f"{FOLDERS}{EXTENSION}")
-    PATH_TO_SKIPPED_ITEMS = os.path.join(SAVED_CRAWLS_FOLDER, f"{SKIPPED}{EXTENSION}")
-    PATH_TO_PARAMETERS = os.path.join(SAVED_CRAWLS_FOLDER, f"{PARAMETERS}{EXTENSION}")
-
-    ERR_COMPUTING_SIZE_EXC_MSG = "ERROR COMPUTING THE SIZE. EXCEPTION: "
-    INVALID_SIGN_EXC_MSG = "INVALID SIGN!"
-
-    DEEP_CRAWL_MSG = "Crawling - Going deep into sub-folders. The process may take a while."
-    SHALLOW_CRAWL_MSG = "Crawling - Staying in the inputted folder. The process may take a while."
-    NR_OF_DATA_CRAWLED_MSG = "NUMBER OF DATA CRAWLED:"
-    NR_OF_SKIPPED_ITEMS_MSG = "NUMBER OF SKIPPED ITEMS:"
-    NR_OF_LISTED_ITEMS_MSG = "NUMBER OF LISTED"
-    WHOLE_PROCES_TOOK_MSG = "THE WHOLE PROCESS TOOK:"
-    SAVING_RESULTS_MSG = "Saving the results into txt files."
-    DONE_CRAWLING_MSG = "DONE CRAWLING"
-    STARTED_CRAWLING_MSG = "STARTED CRAWLING"
-    PRINT_ENDING = f"\n{'-' * 150}\n"
-
-    BIGGER_OR_EQUAL = ">="
-    SMALLER_OR_EQUAL = "<="
-    BIGGER = ">"
-    SMALLER = "<"
-    EQUAL = "=="
-    NOT_EQUAL = "!="
 
     NONE = "None"
-    ENCODING = "UTF-8"
     DEFAULT_COLOR = "\033[0m"
-    READ_MODE = "r"
-    WRITE_MODE = "w"
-    WRITE_PLUS_MODE = "w+"
-    APPEND_MODE = "a"
 
     # endregion
 
@@ -80,20 +46,20 @@ class FolderCrawler:
         :return: None
         """
         self._initialize_files()
-        self._log_crawling_state(data_to_write=self.STARTED_CRAWLING_MSG)
+        self._log_crawling_state(data_to_write=Messages.STARTED_CRAWLING)
 
         if self.crawl_deep:
-            print(self.DEEP_CRAWL_MSG)
+            print(Messages.DEEP_CRAWL)
             self._crawl_items(go_deep=True)
         else:
-            print(self.SHALLOW_CRAWL_MSG)
+            print(Messages.SHALLOW_CRAWL)
             self._crawl_items(go_deep=False)
 
-        print(self.SAVING_RESULTS_MSG, end=self.PRINT_ENDING)
-        self._save_crawl_results(path=self.PATH_TO_SAVED_FILES, container=self.files)
-        self._save_crawl_results(path=self.PATH_TO_SAVED_FOLDERS, container=self.folders)
+        print(Messages.SAVING_RESULTS, end=Messages.PRINT_ENDING)
+        self._save_crawl_results(path=SavedCrawlsPath.FILES, container=self.files)
+        self._save_crawl_results(path=SavedCrawlsPath.FOLDERS, container=self.folders)
         self._clear_file()
-        self._log_crawling_state(data_to_write=self.DONE_CRAWLING_MSG)
+        self._log_crawling_state(data_to_write=Messages.DONE_CRAWLING)
 
     def print_items(self, print_folders=True, print_files=True, print_skipped_items=True,
                     filter_path="", filter_sign=">=", filter_size=0):
@@ -116,11 +82,14 @@ class FolderCrawler:
         """
 
         if print_files:
-            self._print_container(filter_path, filter_size, filter_sign, item_type=self.FILES, container=self.files)
+            self._print_container(filter_path, filter_size, filter_sign, item_type=ItemType.FILES,
+                                  container=self.files)
         if print_folders:
-            self._print_container(filter_path, filter_size, filter_sign, item_type=self.FOLDERS, container=self.folders)
+            self._print_container(filter_path, filter_size, filter_sign, item_type=ItemType.FOLDERS,
+                                  container=self.folders)
         if print_skipped_items:
-            self._print_container(filter_path, filter_size, filter_sign, item_type=self.SKIPPED, container=self.skipped)
+            self._print_container(filter_path, filter_size, filter_sign, item_type=ItemType.SKIPPED,
+                                  container=self.skipped)
 
         self._show_time()
 
@@ -135,7 +104,7 @@ class FolderCrawler:
 
         array_ = []
 
-        with open(path, self.READ_MODE, encoding=self.ENCODING) as file:
+        with open(path, FileOps.READ_MODE, encoding=FileOps.ENCODING) as file:
             for line in file:
                 if filter_ in line:
                     if print_:
@@ -161,7 +130,7 @@ class FolderCrawler:
 
     # region Private Methods
     def _log_crawling_state(self, data_to_write: str):
-        with open(self.PATH_TO_PARAMETERS, self.WRITE_MODE) as f:
+        with open(SavedCrawlsPath.PARAMETERS, FileOps.WRITE_MODE) as f:
             f.write(data_to_write)
 
     def _process_item(self, path_tuple):
@@ -178,21 +147,10 @@ class FolderCrawler:
         Crawls through the folder at the given path, with the option to go deeper into subdirectories,
         using multiprocessing to calculate the sizes of files and folders.
         """
-        paths = []
         if go_deep:
-            for root, folders, files in os.walk(self.path):
-                for file in files:
-                    file_path = os.path.join(root, file)
-                    paths.append((file_path, True))
-                for folder in folders:
-                    folder_path = os.path.join(root, folder)
-                    paths.append((folder_path, False))
+            paths = self._crawl_deep()
         else:
-            items = os.listdir(self.path)
-            for item in items:
-                item_path = os.path.join(self.path, item)
-                is_folder = os.path.isdir(item_path)
-                paths.append((item_path, not is_folder))
+            paths = self._crawl_shallow()
 
         # Use multiprocessing Pool to handle item processing
         with Pool() as pool:
@@ -206,16 +164,35 @@ class FolderCrawler:
             else:
                 self.files.append((item_path, last_change, size_readable, size_total))
 
-    # Example usage
-    # Create instance and call _crawl_items with go_deep=True for deep crawling or False for shallow
+    def _crawl_shallow(self):
+        result = []
+        items = os.listdir(self.path)
+        for item in items:
+            item_path = os.path.join(self.path, item)
+            is_folder = os.path.isdir(item_path)
+            result.append((item_path, not is_folder))
+        return result
+
+    def _crawl_deep(self):
+        result = []
+        for root, folders, files in os.walk(self.path):
+            for file in files:
+                file_path = os.path.join(root, file)
+                result.append((file_path, True))
+            for folder in folders:
+                folder_path = os.path.join(root, folder)
+                result.append((folder_path, False))
+        return result
 
     def _initialize_files(self):
         """ Ensure all necessary directories and files are created. """
-        os.makedirs(self.SAVED_CRAWLS_FOLDER, exist_ok=True)
-        for txt_file in (self.PATH_TO_SAVED_FILES, self.PATH_TO_SAVED_FOLDERS,
-                         self.PATH_TO_SKIPPED_ITEMS, self.PATH_TO_PARAMETERS):
+
+        os.makedirs(SavedCrawlsPath.SAVED_CRAWLS_FOLDER, exist_ok=True)
+
+        for txt_file in (SavedCrawlsPath.FILES, SavedCrawlsPath.FOLDERS,
+                         SavedCrawlsPath.SKIPPED, SavedCrawlsPath.PARAMETERS):
             # Create empty txt files if they don't exist or just append empty string if they do exist
-            open(txt_file, 'a', encoding=self.ENCODING).close()
+            open(txt_file, FileOps.APPEND_MODE, encoding=FileOps.ENCODING).close()
 
     def _save_crawl_results(self, path: str, container: list | str):
         """
@@ -227,19 +204,26 @@ class FolderCrawler:
         :return: None
         """
 
-        # this first if statement is used to save the files and folders (list container)
+        self._save_file_or_folder(path, container)
+        self._save_skipped_items(path, container)
+
+    def _save_skipped_items(self, path: str, container: str):
+        # This second if statement is used to save the skipped items (string container)
+        # This string container is saved
+        if isinstance(container, str):
+            with open(path, FileOps.READ_PLUS_MODE, encoding=FileOps.ENCODING) as f:
+                if container not in f.read():
+                    f.write(f"{container}\n")
+
+    def _save_file_or_folder(self, path: str, container: list):
+        # This first if statement is used to save the files and folders (list container)
+        # These containers are saved once the arrays are completely filled with the crawled data.
         if isinstance(container, list):
             if os.path.exists(path):
                 os.remove(path)
-            with open(path, 'a', encoding=self.ENCODING) as f:
+            with open(path, FileOps.APPEND_MODE, encoding=FileOps.ENCODING) as f:
                 for item_path, last_change, size_readable, size_bytes in container:
                     f.write(f"{item_path}, {last_change}, {size_readable}, {size_bytes}\n")
-
-        # this second if statement is used to save the skipped items (string container)
-        elif isinstance(container, str):
-            with open(path, 'r+', encoding=self.ENCODING) as f:
-                if container not in f.read():
-                    f.write(f"{container}\n")
 
     def _read_out_saved_items(self, item_type: str, container: list):
         """
@@ -249,28 +233,34 @@ class FolderCrawler:
         :return:
         """
 
-        item_path = os.path.join(self.SAVED_CRAWLS_FOLDER, f"{item_type}{self.EXTENSION}")
+        START_OF_COLOR_FORMAT = ", \x1b"
+        COMMA_WITH_SPACE = ", "
+        SEPARATOR = ","
 
-        with open(item_path, "r", encoding=self.ENCODING) as items:
+        item_path = os.path.join(SavedCrawlsPath.SAVED_CRAWLS_FOLDER, f"{item_type}{SavedCrawlsPath.EXTENSION}")
+
+        with open(item_path, "r", encoding=FileOps.ENCODING) as items:
+            # The reason you will see below assigning None to the variables is, that during iteration
+            # in _print_container method, we expect to unpack a tuple with the same amount of elements,
+            # regardless of the container.
             for item in items:
                 item = item.strip("\n")
-                start_of_color_format = ", \x1b"
-                if item.count(",") > 4 and start_of_color_format in item:
+                if item.count(SEPARATOR) > 4 and START_OF_COLOR_FORMAT in item:
                     # Sometimes there are more commas in the path, therefore we need to split the
                     # read-out string exactly at the point where we expect the sizes.
-                    index = item.index(start_of_color_format)
-                    item_path, last_change = item[:index + 1].split(", ")[0:2]
-                    size_readable, size_bytes = item[index + 1:].split(", ")
+                    index = item.index(START_OF_COLOR_FORMAT)
+                    item_path, last_change = item[:index + 1].split(COMMA_WITH_SPACE)[0:2]
+                    size_readable, size_bytes = item[index + 1:].split(COMMA_WITH_SPACE)
                 elif item.endswith(f"{self.NONE}, {self.NONE}"):
                     # Sometimes the computation of size fails, therefore in the read-out string
                     # are "None, None" at the places where the sizes should be.
                     item = item.replace(f", {self.NONE}, {self.NONE}", "")
-                    item_path, last_change = item.split(", ")
+                    item_path, last_change = item.split(COMMA_WITH_SPACE)
                     size_readable, size_bytes = self.NONE, self.NONE
-                elif item.count(",") == 3:
+                elif item.count(SEPARATOR) == 3:
                     # There are correct number of commas and we can split string perfectly.
-                    item_path, last_change, size_readable, size_bytes = item.split(", ")
-                elif item_type is self.SKIPPED:
+                    item_path, last_change, size_readable, size_bytes = item.split(COMMA_WITH_SPACE)
+                elif item_type is ItemType.SKIPPED:
                     item_path = item
                     last_change, size_readable, size_bytes = self.NONE, self.NONE, self.NONE
                     self.skipped_items += 1
@@ -298,8 +288,8 @@ class FolderCrawler:
             else:
                 size = os.path.getsize(path)
         except FileNotFoundError:
-            self._log_crawling_state(data_to_write=self.ERR_COMPUTING_SIZE_EXC_MSG)
-            self._save_crawl_results(path=self.PATH_TO_SKIPPED_ITEMS, container=path)
+            self._log_crawling_state(data_to_write=ExceptionMessages.ERR_COMPUTING_SIZE)
+            self._save_crawl_results(path=SavedCrawlsPath.SKIPPED, container=path)
             return self.NONE, self.NONE
 
         return f"{self._convert_bytes_to_readable_format(size)}", f"{size}B"
@@ -334,8 +324,14 @@ class FolderCrawler:
         :return: A boolean value that represents whether the size of the file or folder satisfies the condition.
         """
 
-        assert sign in [self.BIGGER_OR_EQUAL, self.SMALLER_OR_EQUAL, self.BIGGER,
-                        self.SMALLER, self.EQUAL, self.NOT_EQUAL], self.INVALID_SIGN_EXC_MSG
+        equality_signs = [EqualitySign.BIGGER_OR_EQUAL,
+                          EqualitySign.SMALLER_OR_EQUAL,
+                          EqualitySign.BIGGER,
+                          EqualitySign.SMALLER,
+                          EqualitySign.EQUAL,
+                          EqualitySign.NOT_EQUAL]
+
+        assert sign in equality_signs, ExceptionMessages.INVALID_SIGN
 
         if size_to_compare == self.NONE or size_to_compare is None:
             return False
@@ -344,40 +340,41 @@ class FolderCrawler:
         if size_to_compare.endswith("\n"):
             size_to_compare = size_to_compare[:-1]
 
-        # get rid of the "B" representing bytes at the end of the string
+        # get rid of the "B" representing bytes at the end of the string and get only
+        # integer value of bytes
         size_to_compare_ = int(size_to_compare[:-1])
 
         match sign:
-            case self.BIGGER_OR_EQUAL:
+            case EqualitySign.BIGGER_OR_EQUAL:
                 return size_to_compare_ >= size_filter
-            case self.SMALLER_OR_EQUAL:
+            case EqualitySign.SMALLER_OR_EQUAL:
                 return size_to_compare_ <= size_filter
-            case self.BIGGER:
+            case EqualitySign.BIGGER:
                 return size_to_compare_ > size_filter
-            case self.SMALLER:
+            case EqualitySign.SMALLER:
                 return size_to_compare_ < size_filter
-            case self.EQUAL:
+            case EqualitySign.EQUAL:
                 return size_to_compare_ == size_filter
-            case self.NOT_EQUAL:
+            case EqualitySign.NOT_EQUAL:
                 return size_to_compare_ != size_filter
 
     def _check_if_necessary_to_read_out_saved_files(self, container: list, item_type: str):
         # This will read out saved files if no crawling was done in current run of a program.
         if not container:
-            if container is self.SKIPPED and os.path.getsize(self.PATH_TO_SKIPPED_ITEMS) == 0:
+            if container is ItemType.SKIPPED and os.path.getsize(SavedCrawlsPath.SKIPPED) == 0:
                 return
             self._read_out_saved_items(item_type, container)
 
     def _print_crawl_summary(self, item_type: str, number_of_items: int, total_size: int, print_total_size: bool):
-        ending = self.PRINT_ENDING if not print_total_size else "\n"
+        ending = Messages.PRINT_ENDING if not print_total_size else "\n"
 
-        print(self.NR_OF_LISTED_ITEMS_MSG, f"{item_type.upper()}:", number_of_items, end=ending)
+        print(Messages.NR_OF_LISTED_ITEMS, f"{item_type.upper()}:", number_of_items, end=ending)
         if print_total_size:
-            print(self.NR_OF_DATA_CRAWLED_MSG,
+            print(Messages.NR_OF_DATA_CRAWLED,
                   self._convert_bytes_to_readable_format(total_size),
                   f"{total_size}B",
                   self.DEFAULT_COLOR,
-                  end=self.PRINT_ENDING)
+                  end=Messages.PRINT_ENDING)
 
     def _print_container(self, filter_path="", filter_size=0, sign=">=",
                          item_type: str = None, container: list = None):
@@ -397,18 +394,27 @@ class FolderCrawler:
 
         self._check_if_necessary_to_read_out_saved_files(container, item_type)
 
-        if item_type is self.FILES or item_type is self.FOLDERS:
-            print_total_size = False if self.crawl_deep and item_type is self.FOLDERS else True
-            for item, last_change, size_formatted, size_total_bytes in container:
-                if filter_path in item and self._compare_sizes(filter_size, size_total_bytes, sign):
-                    print(item, last_change, size_formatted, size_total_bytes, self.DEFAULT_COLOR)
-                    number_of_items += 1
-                    total_size += int(size_total_bytes.strip("\n")[:-1])
-            self._print_crawl_summary(item_type, number_of_items, total_size, print_total_size)
-        elif item_type is self.SKIPPED:
-            for item in container:
-                print(item[0])
-            print(self.NR_OF_SKIPPED_ITEMS_MSG, self.skipped_items, end=self.PRINT_ENDING)
+        if item_type is ItemType.FILES or item_type is ItemType.FOLDERS:
+            self._print_file_or_folder(container, filter_path, filter_size,
+                                       item_type, number_of_items, sign, total_size)
+        elif item_type is ItemType.SKIPPED:
+            self._print_skipped_items(container)
+
+    def _print_skipped_items(self, container):
+        container = self._filter_subdirectories(items=container)
+        for item in container:
+            print(item)
+        print(Messages.NR_OF_SKIPPED_ITEMS, self.skipped_items, end=Messages.PRINT_ENDING)
+
+    def _print_file_or_folder(self, container, filter_path, filter_size, item_type, number_of_items, sign, total_size):
+        print_total_size = not (self.crawl_deep and item_type == ItemType.FOLDERS)
+
+        for item, last_change, size_formatted, size_total_bytes in container:
+            if filter_path in item and self._compare_sizes(filter_size, size_total_bytes, sign):
+                print(item, last_change, size_formatted, size_total_bytes, self.DEFAULT_COLOR)
+                number_of_items += 1
+                total_size += int(size_total_bytes.strip("\n")[:-1])
+        self._print_crawl_summary(item_type, number_of_items, total_size, print_total_size)
 
     def _show_time(self):
         """
@@ -416,9 +422,9 @@ class FolderCrawler:
 
         :return: None
         """
-        print(self.WHOLE_PROCES_TOOK_MSG,
+        print(Messages.WHOLE_PROCES_TOOK,
               self._format_duration(time.perf_counter() - self.timer),
-              end=self.PRINT_ENDING)
+              end=Messages.PRINT_ENDING)
 
     @staticmethod
     def _format_duration(seconds):
@@ -455,19 +461,35 @@ class FolderCrawler:
     def _clear_file(self):
         delete_skipped_items = False
 
-        with open(self.PATH_TO_PARAMETERS, self.READ_MODE, encoding=self.ENCODING) as f:
-            if self.ERR_COMPUTING_SIZE_EXC_MSG not in f.read():
+        with open(SavedCrawlsPath.PARAMETERS, FileOps.READ_MODE, encoding=FileOps.ENCODING) as f:
+            if ExceptionMessages.ERR_COMPUTING_SIZE not in f.read():
                 delete_skipped_items = True
 
         if delete_skipped_items:
-            open(self.PATH_TO_SKIPPED_ITEMS, self.WRITE_PLUS_MODE, encoding=self.ENCODING).close()
+            open(SavedCrawlsPath.SKIPPED, FileOps.WRITE_PLUS_MODE, encoding=FileOps.ENCODING).close()
 
+    @staticmethod
+    def _filter_subdirectories(items):
+        # Sort paths to ensure that shorter paths come before their potential subdirectories
+        items = (x[0] for x in items)
+        sorted_items = sorted(items, key=len)
+
+        filtered_paths = []
+        for i, path in enumerate(sorted_items):
+            path = str(path)
+            # Append a backslash to ensure matching complete directory names
+            if not any(path + '\\' in other for other in sorted_items[i + 1:]):
+                filtered_paths.append(path)
+
+        return filtered_paths
     # endregion
 
     # todo: check all the tests, they were written by AI
     # todo: check documentation
     # todo: create a interface executable from the command line
-    # todo: check if the skipped items are included in files and folders
+    # todo: perhaps create some unpacking structure, in case you wanted to change order of the items in a container
+    # todo: create a readout option with filter across multiple files
+
 
 ########################################################################################################################
 # HOW TO CRAWL AND PRINT ITEMS:
@@ -497,13 +519,7 @@ if __name__ == '__main__':
     cr = FolderCrawler(path=r"C:\Users\lazni\Downloads", crawl_deep=False)
     # cr = FolderCrawler(path=r"C:\\", crawl_deep=True)
     cr.crawl()
-    cr.print_items(
-        print_files=True,
-        print_folders=True,
-        print_skipped_items=True,
-        filter_path="",
-        filter_sign=">=",
-        filter_size=0,
-    )
+    print_items = True
+    cr.print_items(print_items, print_items, print_items, filter_path="", filter_sign=">=", filter_size=0)
     # cr.compare_saved_crawls(path1=..., path2=..., print_=True)
     # cr.read_content_of_file(path="C:/", filter_="")
