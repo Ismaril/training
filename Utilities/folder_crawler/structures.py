@@ -10,7 +10,7 @@ class ItemType:
 
 
 @dataclass
-class SavedCrawlsPath:
+class SavedCrawls:
     SAVED_CRAWLS_FOLDER = "saved_crawls"
     EXTENSION = ".txt"
     FILES = os.path.join(SAVED_CRAWLS_FOLDER, f"{ItemType.FILES}{EXTENSION}")
@@ -20,7 +20,7 @@ class SavedCrawlsPath:
 
 
 @dataclass
-class ExceptionMessages:
+class ExceptionMessage:
     ERR_COMPUTING_SIZE = "ERROR COMPUTING THE SIZE. EXCEPTION: "
     INVALID_SIGN = "INVALID SIGN!"
 
