@@ -1,12 +1,11 @@
 import datetime
 import os
-import sys
 import time
 import pandas as pd
 import numpy as np
 
 from tabulate import tabulate
-from structures import ItemType, SavedCrawls, ExceptionMessage, Messages, FileOps, EqualitySign
+from structures import ItemType, SavedCrawls, Messages, FileOps
 from multiprocessing import Pool
 
 
@@ -24,6 +23,8 @@ class FolderCrawler:
                          "Size readable": [],
                          "Size bytes": []
                          }
+    TABLE_HEADER = "keys"
+    TABLE_FORMAT = "psql"
 
     # endregion
 
@@ -63,9 +64,9 @@ class FolderCrawler:
             self._crawl_items(go_deep=False)
 
         self._prepare_skipped_items()
-        self._save_file_or_folder(path=SavedCrawls.FILES, container=self.files, item_type=ItemType.FILES)
-        self._save_file_or_folder(path=SavedCrawls.FOLDERS, container=self.folders, item_type=ItemType.FOLDERS)
-        self._save_file_or_folder(path=SavedCrawls.SKIPPED, container=self.skipped, item_type=ItemType.SKIPPED)
+        self._save_result(path=SavedCrawls.FILES, container=self.files, item_type=ItemType.FILES)
+        self._save_result(path=SavedCrawls.FOLDERS, container=self.folders, item_type=ItemType.FOLDERS)
+        self._save_result(path=SavedCrawls.SKIPPED, container=self.skipped, item_type=ItemType.SKIPPED)
 
     def print_items(self, print_folders=True, print_files=True, print_skipped_items=True,
                     filter_path="", filter_sign=">=", filter_size=0):
@@ -97,7 +98,7 @@ class FolderCrawler:
             self._print_container(filter_path, filter_size, filter_sign,
                                   item_type=ItemType.SKIPPED, container=self.skipped)
 
-        self._show_time()
+        self._show_programs_time_performance()
 
     def read_content_of_file(self, path: str, filter_: str = "", print_=True):
         """
@@ -189,6 +190,7 @@ class FolderCrawler:
                 self.folders = pd.DataFrame(unpacked)
                 print(self._get_current_time(), "Preparation of dataframe is done:", ItemType.FOLDERS.upper())
             else:
+                # is file
                 self.files = pd.DataFrame(unpacked)
                 print(self._get_current_time(), "Preparation of dataframe is done:", ItemType.FILES.upper())
 
@@ -225,7 +227,7 @@ class FolderCrawler:
             open(txt_file, FileOps.APPEND_MODE, encoding=FileOps.ENCODING).close()
 
     # todo: rename this method to _save_crawl_results
-    def _save_file_or_folder(self, path: str, container: pd.DataFrame, item_type: str):
+    def _save_result(self, path: str, container: pd.DataFrame, item_type: str):
         # This first if statement is used to save the files and folders (list container)
         # These containers are saved once the arrays are completely filled with the crawled data.
         if isinstance(container, pd.DataFrame):
@@ -344,7 +346,7 @@ class FolderCrawler:
 
     def _print_skipped_items(self, container):
         container = self._filter_subdirectories(items=container)
-        print(tabulate(container, headers='keys', tablefmt='psql'))
+        print(tabulate(container, headers=self.TABLE_HEADER, tablefmt=self.TABLE_FORMAT))
 
     def _print_file_or_folder(self, container: pd.DataFrame, filter_path: str, filter_size: int, item_type: str,
                               sign: str):
@@ -354,18 +356,16 @@ class FolderCrawler:
         # positions before and after are the color formatting.
         split = container["Size bytes"].str.split(" ").str[1]
         sum_of_bytes = split.astype(np.int64).sum()
-        print(tabulate(container, headers='keys', tablefmt='psql'))
+        print(tabulate(container, headers=self.TABLE_HEADER, tablefmt=self.TABLE_FORMAT))
         self._print_crawl_summary(sum_of_bytes, print_total_size)
 
-    def _show_time(self):
+    def _show_programs_time_performance(self):
         """
         This private method is used to calculate the time since initialization of class till the print of the files and folders.
 
         :return: None
         """
-        print(Messages.WHOLE_PROCES_TOOK,
-              self._format_duration(time.perf_counter() - self.timer),
-              end=Messages.PRINT_ENDING)
+        print("\n" + Messages.WHOLE_PROCES_TOOK, self._format_duration(time.perf_counter() - self.timer))
 
     @staticmethod
     def _format_duration(seconds):

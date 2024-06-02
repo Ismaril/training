@@ -20,12 +20,6 @@ class SavedCrawls:
 
 
 @dataclass
-class ExceptionMessage:
-    ERR_COMPUTING_SIZE = "ERROR COMPUTING THE SIZE. EXCEPTION: "
-    INVALID_SIGN = "INVALID SIGN!"
-
-
-@dataclass
 class Messages:
     DEEP_CRAWL = "Crawling - Going deep into sub-folders. The process may take a while."
     SHALLOW_CRAWL = "Crawling - Staying in the inputted folder. The process may take a while."
@@ -47,13 +41,3 @@ class FileOps:
     WRITE_MODE = "w"
     WRITE_PLUS_MODE = "w+"
     APPEND_MODE = "a"
-
-
-@dataclass
-class EqualitySign:
-    BIGGER_OR_EQUAL = ">="
-    SMALLER_OR_EQUAL = "<="
-    BIGGER = ">"
-    SMALLER = "<"
-    EQUAL = "=="
-    NOT_EQUAL = "!="
