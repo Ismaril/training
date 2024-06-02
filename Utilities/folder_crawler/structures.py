@@ -21,15 +21,15 @@ class SavedCrawls:
 
 @dataclass
 class Messages:
-    DEEP_CRAWL = "Crawling - Going deep into sub-folders. The process may take a while."
-    SHALLOW_CRAWL = "Crawling - Staying in the inputted folder. The process may take a while."
-    NR_OF_DATA_CRAWLED = "NUMBER OF DATA CRAWLED:"
-    NR_OF_SKIPPED_ITEMS = "NUMBER OF SKIPPED ITEMS:"
-    NR_OF_LISTED_ITEMS = "NUMBER OF LISTED"
+    DEEP_CRAWL = "Option chosen: DEEP CRAWL -> Going deep into sub-folders."
+    SHALLOW_CRAWL = "Option chosen: SHALLOW CRAW -> Staying in the inputted folder."
     WHOLE_PROCES_TOOK = "THE WHOLE PROCESS TOOK:"
-    SAVING_RESULTS = "Saving the results into txt files."
-    DONE_CRAWLING = "DONE CRAWLING"
-    STARTED_CRAWLING = "STARTED CRAWLING"
+    NR_OF_CRAWLED_DATA = "NUMBER OF CRAWLED DATA:"
+    SAVING_RESULTS = "Saving into csv file:"
+    SAVING_RESULTS_DONE = "Saving done:"
+    DATAFRAME_PREPARATION = "Preparing dataframes."
+    DATAFRAME_PREPARATION_DONE = "Preparation of dataframe is done:"
+    STARTING_MULTI_PROCESSING = "Starting multi-processing pool."
     PRINT_ENDING = f"\n{'-' * 150}\n"
 
 
@@ -37,7 +37,4 @@ class Messages:
 class FileOps:
     ENCODING = "UTF-8"
     READ_MODE = "r"
-    READ_PLUS_MODE = "r+"
-    WRITE_MODE = "w"
-    WRITE_PLUS_MODE = "w+"
     APPEND_MODE = "a"
