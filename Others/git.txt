@@ -114,6 +114,8 @@ git commit -a -m "message of the commit"
 
 - undo local commit and keep changes after my last commit. In other words return to the state
 before the last commit, but keep the changes that were made in the last commit.
+- do not be afraid to use this command, after using this I returned back to previous
+commit and the changes which were made in the removed commit stayed staged.
 git reset --soft HEAD~1
 
 
