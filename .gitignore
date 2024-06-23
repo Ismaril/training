@@ -28,6 +28,11 @@ C#\Scratches\.vs
 C#\Scratches\obj
 C#\Scratches\bin
 
+Others\design_patterns\AbstractFactory\bin
+Others\design_patterns\AbstractFactory\obj
+Others\design_patterns\Builder\bin
+Others\design_patterns\Builder\obj
+
 __pycache__
 Python/scratch_file_python.py
 Python/syntax/__pycache__/
