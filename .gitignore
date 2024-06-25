@@ -5,6 +5,7 @@ AI/ML_DL_book/saved_datasets/
 AI/ML_DL_book/saved_models/
 AI/ML_DL_book/checkpoint
 
+
 C/cmake-build-debug
 C/.idea
 C/CMakeLists.txt
@@ -12,26 +13,6 @@ C/employees.txt
 C/scratch.h
 C/scratch_2.h
 
-C#/.vs
-C#/syntax/.vs
-C#/syntax/syntax/bin/
-C#/syntax/syntax/obj/
-C#/CodeWars/.vs
-C#/CodeWars/code_wars/obj
-C#/CodeWars/code_wars/bin
-C#/syntax/syntax_NET_core/.vs
-C#/syntax/syntax_NET_core/bin
-C#/syntax/syntax_NET_core/obj
-C#\WpfApp1 - database testing/bin
-C#\WpfApp1 - database testing/obj
-C#\Scratches\.vs
-C#\Scratches\obj
-C#\Scratches\bin
-
-Others\design_patterns\AbstractFactory\bin
-Others\design_patterns\AbstractFactory\obj
-Others\design_patterns\Builder\bin
-Others\design_patterns\Builder\obj
 
 __pycache__
 Python/scratch_file_python.py
@@ -39,16 +20,16 @@ Python/syntax/__pycache__/
 Python/logs/__pycache__/
 Python/projects/copied_projects/2048/__pycache__/
 
+
 Utilities/EyeHygieneAlarm/EyeHygieneAlarm/.vs
-Utilities/EyeHygieneAlarm/EyeHygieneAlarm/bin
-Utilities/EyeHygieneAlarm/EyeHygieneAlarm/obj
 Utilities/folder_crawler/saved_crawls
-Utilities/MouseMover/bin/
-Utilities/MouseMover/obj/
+
 
 progress_tracking.py
 scratch.py
 TODO.py
+bin/
+obj/
 .idea
 .vs
 
