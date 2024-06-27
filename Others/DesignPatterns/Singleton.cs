@@ -26,11 +26,37 @@ Difficulty in Unit Testing: Singletons can make unit testing difficult because t
 The Singleton pattern is widely used and can be very effective when used appropriately. However, it should be used judiciously to avoid the pitfalls associated with global state and hidden dependencies.
  */
 
-namespace Singleton
+namespace DesignPatterns
 {
-    class Program
+
+    public class Singleton
     {
-        static void Main(string[] args)
+        private static Singleton _instance;
+
+        // Private constructor to prevent instantiation
+        private Singleton() { }
+
+        public static Singleton Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new Singleton();
+                }
+                return _instance;
+            }
+        }
+
+        public void DoSomething()
+        {
+            Console.WriteLine("Singleton instance method called.");
+        }
+    }
+
+    public class ProgramSingleton
+    {
+        public static void Main__()
         {
             Singleton singleton1 = Singleton.Instance;
             Singleton singleton2 = Singleton.Instance;
