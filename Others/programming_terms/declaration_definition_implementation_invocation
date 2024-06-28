@@ -1,0 +1,16 @@
+Declaration:
+Tells the program about the type and name of an entity (variable or function) without allocating memory.
+int add(int a, int b);
+  
+Definition:
+Allocates memory and, in the case of functions, includes the implementation.
+int add(int a, int b)
+  return a + b; // Function definition including the body
+
+Implementation:
+Specifically for functions, it is the detailed logic within the function's body.
+return a + b;
+
+Invocation:
+The place where is function called.
+add(4, 50);
