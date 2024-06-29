@@ -1,4 +1,10 @@
 ﻿/*
+COMPLEXITY OF PATTERN: MEDIUM
+
+
+Abstract Factory is a creational design pattern that lets you produce families 
+of related objects without specifying their concrete classes.
+
 
 1. ABSTRACT PRODUCTS: 
 Button and Checkbox are interfaces (or could be abstract classes, I ugess...)
@@ -27,8 +33,6 @@ namespace DesignPatterns
 {
     // ------------------------------------------------------------------------
     // 1. DEFINE ABSTRACT PRODUCTS
-
-
     // Abstract product for Button
     public interface IButton
     {
@@ -43,66 +47,43 @@ namespace DesignPatterns
 
     // ------------------------------------------------------------------------
     // 2. DEFINE CONCRETE PRODUCTS
-
     public class WindowsButton : IButton
     {
-        public void Paint()
-        {
-            Console.WriteLine("Render a button in Windows style");
-        }
+        public void Paint() => Console.WriteLine("Render a button in Windows style");
     }
 
     public class MacOSButton : IButton
     {
-        public void Paint()
-        {
-            Console.WriteLine("Render a button in MacOS style");
-        }
+        public void Paint() => Console.WriteLine("Render a button in MacOS style");
     }
 
     public class WindowsCheckbox : ICheckBox
     {
-        public void Paint()
-        {
-            Console.WriteLine("Render a checkbox in Windows style");
-        }
+        public void Paint() => Console.WriteLine("Render a checkbox in Windows style");
     }
 
     public class MacOSCheckbox : ICheckBox
     {
-        public void Paint()
-        {
-            Console.WriteLine("Render a checkbox in MacOS style");
-        }
+        public void Paint() => Console.WriteLine("Render a checkbox in MacOS style");
     }
 
     // ------------------------------------------------------------------------
     // 3. DEFINE ABSTRACT FACTORY
-
-    internal interface IGUIFactory
+    public interface IGUIFactory
     {
         IButton CreateButton();
         ICheckBox CreateCheckBox();
-
     }
 
     // ------------------------------------------------------------------------
     // 4. DEFINE CONCRETE FACTORIES
-
     /// <summary>
     /// Concrete factory for creating Windows GUI elements
     /// </summary>
-    internal class WindowsFactory : IGUIFactory
+    public class WindowsFactory : IGUIFactory
     {
-        public IButton CreateButton()
-        {
-            return new WindowsButton();
-        }
-
-        public ICheckBox CreateCheckBox()
-        {
-            return new WindowsCheckbox();
-        }
+        public IButton CreateButton() => new WindowsButton();
+        public ICheckBox CreateCheckBox() => new WindowsCheckbox();
     }
 
     /// <summary>
@@ -110,38 +91,21 @@ namespace DesignPatterns
     /// </summary>
     public class MacOSFactory : IGUIFactory
     {
-        public IButton CreateButton()
-        {
-            return new MacOSButton();
-        }
-
-        public ICheckBox CreateCheckBox()
-        {
-            return new MacOSCheckbox();
-        }
+        public IButton CreateButton() => new MacOSButton();
+        public ICheckBox CreateCheckBox() => new MacOSCheckbox();
     }
 
     // ------------------------------------------------------------------------
     // 5. CLIENT CODE   
-
     /// <summary>
     /// This is a code which will use a Client/User at his side.
     /// </summary>
-    class Client_
+    /// <param name="factory"></param>
+    class Client_(IGUIFactory factory)
     {
         // Fields
-        private IButton _button;
-        private ICheckBox _checkbox;
-
-        /// <summary>
-        /// Constructor of the class.
-        /// </summary>
-        /// <param name="factory"></param>
-        public Client_(IGUIFactory factory)
-        {
-            _button = factory.CreateButton();
-            _checkbox = factory.CreateCheckBox();
-        }
+        private IButton _button = factory.CreateButton();
+        private ICheckBox _checkbox = factory.CreateCheckBox();
 
         public void Paint()
         {
@@ -157,18 +121,17 @@ namespace DesignPatterns
     {
         public static void Main__()
         {
-            Client_ client1 = new Client_(new WindowsFactory());
+            Client_ client1 = new(new WindowsFactory());
             client1.Paint();
 
-            Console.WriteLine("------------------------------------------");
 
-            Client_ client2 = new Client_(new MacOSFactory());
+            ConsoleOutputSeparator.Separator();
+
+
+            Client_ client2 = new(new MacOSFactory());
             client2.Paint();
 
             Console.ReadLine();
         }
     }
 }
-
-
-

@@ -1,7 +1,12 @@
 ﻿using System;
 
-// COMPLEXITY OF PATTERN: MEDIUM
+/*
+COMPLEXITY OF PATTERN: MEDIUM
 
+Decorator is a structural design pattern that lets you attach new behaviors to
+objects by placing these objects inside special wrapper objects that contain the
+behaviors.
+*/
 namespace DesignPatterns
 {
     // The base Component interface defines operations that can be altered by
@@ -15,10 +20,7 @@ namespace DesignPatterns
     // There might be several variations of these classes.
     class ConcreteComponent : Component
     {
-        public override string Operation()
-        {
-            return "ConcreteComponent";
-        }
+        public override string Operation() => "ConcreteComponent";
     }
 
     // The base Decorator class follows the same interface as the other
@@ -26,63 +28,38 @@ namespace DesignPatterns
     // interface for all concrete decorators. The default implementation of the
     // wrapping code might include a field for storing a wrapped component and
     // the means to initialize it.
-    abstract class Decorator : Component
+    abstract class Decorator(Component component) : Component
     {
-        protected Component _component;
+        protected Component _component = component;
 
-        public Decorator(Component component)
-        {
-            this._component = component;
-        }
-
-        public void SetComponent(Component component)
-        {
-            this._component = component;
-        }
+        public void SetComponent(Component component) => _component = component;
 
         // The Decorator delegates all work to the wrapped component.
         public override string Operation()
         {
-            if (this._component != null)
-            {
-                return this._component.Operation();
-            }
+            if (_component is not null)
+                return _component.Operation();
             else
-            {
                 return string.Empty;
-            }
         }
     }
 
     // Concrete Decorators call the wrapped object and alter its result in some
     // way.
-    class ConcreteDecoratorA : Decorator
+    class ConcreteDecoratorA(Component comp) : Decorator(comp)
     {
-        public ConcreteDecoratorA(Component comp) : base(comp)
-        {
-        }
 
         // Decorators may call parent implementation of the operation, instead
         // of calling the wrapped object directly. This approach simplifies
         // extension of decorator classes.
-        public override string Operation()
-        {
-            return $"ConcreteDecoratorA({base.Operation()})";
-        }
+        public override string Operation() => $"ConcreteDecoratorA({base.Operation()})";
     }
 
     // Decorators can execute their behavior either before or after the call to
     // a wrapped object.
-    class ConcreteDecoratorB : Decorator
+    class ConcreteDecoratorB(Component comp) : Decorator(comp)
     {
-        public ConcreteDecoratorB(Component comp) : base(comp)
-        {
-        }
-
-        public override string Operation()
-        {
-            return $"ConcreteDecoratorB({base.Operation()})";
-        }
+        public override string Operation() => $"ConcreteDecoratorB({base.Operation()})";
     }
 
     public class Client
@@ -100,9 +77,9 @@ namespace DesignPatterns
     {
         public static void Main__()
         {
-            Client client = new Client();
+            Client client = new();
 
-            var simple = new ConcreteComponent();
+            ConcreteComponent simple = new();
             Console.WriteLine("Client: I get a simple component:");
             client.ClientCode(simple);
             Console.WriteLine();
@@ -111,8 +88,8 @@ namespace DesignPatterns
             //
             // Note how decorators can wrap not only simple components but the
             // other decorators as well.
-            ConcreteDecoratorA decorator1 = new ConcreteDecoratorA(simple);
-            ConcreteDecoratorB decorator2 = new ConcreteDecoratorB(decorator1);
+            ConcreteDecoratorA decorator1 = new(simple);
+            ConcreteDecoratorB decorator2 = new(decorator1);
             Console.WriteLine("Client: Now I've got a decorated component:");
             client.ClientCode(decorator2);
 

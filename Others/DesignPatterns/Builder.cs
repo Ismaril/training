@@ -1,5 +1,6 @@
-﻿
-/*
+﻿/*
+COMPLEXITY OF PATTERN: MEDIUM
+
 Builder is a creational design pattern that lets you construct complex 
 objects step by step. The pattern allows you to produce different types and 
 representations of an object using the same construction code.
@@ -38,17 +39,11 @@ namespace DesignPatterns
 {
     // -----------------------------------------------------------------------
     // 1. DEFINE THE PRODUCT
-
-    internal class House
+    public class House
     {
         public string Walls { get; set; }
         public string Roof { get; set; }
         public string Windows { get; set; }
-
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        public House() { }
 
         public override string ToString()
         {
@@ -58,7 +53,7 @@ namespace DesignPatterns
 
     // -----------------------------------------------------------------------
     // 2. DEFINE THE BUILDER INTERFACE
-    internal interface IHouseBuilder
+    public interface IHouseBuilder
     {
         void BuildWalls();
         void BuildRoof();
@@ -69,82 +64,40 @@ namespace DesignPatterns
     // -----------------------------------------------------------------------
     // 3. IMPLEMENT CONCRETE BUILDER (Concrete meaning "beton")
     // Example 1 of builder.
-
-    internal class ConcreteHouseBuilder : IHouseBuilder
+    public class ConcreteHouseBuilder : IHouseBuilder
     {
-        private House _house = new House();
+        private House _house = new();
 
-        public void BuildWalls()
-        {
-            _house.Walls = "Brick walls";
-        }
-
-        public void BuildRoof()
-        {
-            _house.Roof = "Concrete";
-        }
-
-        public void BuildWindows()
-        {
-            _house.Windows = "Double-glazed";
-        }
-
-        public House GetHouse()
-        {
-            return _house;
-        }
+        public void BuildWalls() => _house.Walls = "Brick walls";
+        public void BuildRoof() => _house.Roof = "Concrete";
+        public void BuildWindows() => _house.Windows = "Double-glazed";
+        public House GetHouse() => _house;
     }
 
     // Example 2 of builder.
     // Builder for wooden houses
-    internal class WoodenHouseBuilder : IHouseBuilder
+    public class WoodenHouseBuilder : IHouseBuilder
     {
-        private House _house = new House();
+        private House _house = new();
 
-        public void BuildWalls()
-        {
-            _house.Walls = "Wooden walls";
-        }
-
-        public void BuildRoof()
-        {
-            _house.Roof = "Wooden";
-        }
-
-        public void BuildWindows()
-        {
-            _house.Windows = "Single-glazed";
-        }
-
-        public House GetHouse()
-        {
-            return _house;
-        }
+        public void BuildWalls() => _house.Walls = "Wooden walls";
+        public void BuildRoof() => _house.Roof = "Wooden";
+        public void BuildWindows() => _house.Windows = "Single-glazed";
+        public House GetHouse() => _house;
     }
 
     // -----------------------------------------------------------------------
     // 4. DEFINE THE DIRECTOR
-
-    internal class Director
+    public class Director(IHouseBuilder houseBuilder)
     {
-        private IHouseBuilder _houseBuilder;
-
-        public Director(IHouseBuilder houseBuilder)
-        {
-            _houseBuilder = houseBuilder;
-        }
-
         public void ConstructHouse()
         {
-            _houseBuilder.BuildWalls();
-            _houseBuilder.BuildRoof();
-            _houseBuilder.BuildWindows();
+            houseBuilder.BuildWalls();
+            houseBuilder.BuildRoof();
+            houseBuilder.BuildWindows();
         }
 
-        public House GetHouse()
-        {
-            return _houseBuilder.GetHouse();
-        }
+        public House GetHouse() => houseBuilder.GetHouse();
     }
 
     // -----------------------------------------------------------------------
@@ -156,16 +109,18 @@ namespace DesignPatterns
         {
             // Construct a concrete house
             IHouseBuilder builder = new ConcreteHouseBuilder();
-            Director director = new Director(builder);
+            Director director = new(builder);
             director.ConstructHouse();
             House house = director.GetHouse();
             Console.WriteLine(house.ToString());
 
-            Console.WriteLine("----------------------------------------");
+
+            ConsoleOutputSeparator.Separator();
+
 
             // Construct a wooden house
             IHouseBuilder woodenBuilder = new WoodenHouseBuilder();
-            Director woodenDirector = new Director(woodenBuilder);
+            Director woodenDirector = new(woodenBuilder);
             woodenDirector.ConstructHouse();
             House woodenHouse = woodenDirector.GetHouse();
             Console.WriteLine(woodenHouse.ToString());

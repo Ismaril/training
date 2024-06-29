@@ -32,49 +32,26 @@ namespace DesignPatterns
 
     // --------------------------------------------------------------------------
     // 2. IMPLEMENT VARIOUS DIFFERENT PROTOTYPES:
-    /*
-    Concrete Prototypes: The Circle and Rectangle classes implement the 
-    ICloneablePrototype interface and provide the Clone method. 
-    The MemberwiseClone method creates a shallow copy of the object.
-     */
-
-    public class Circle : ICloneablePrototype
+    // Concrete Prototypes: The Circle and Rectangle classes implement the 
+    // ICloneablePrototype interface and provide the Clone method. 
+    // The MemberwiseClone method creates a shallow copy of the object.
+    public class Circle(int radius) : ICloneablePrototype
     {
-        public int Radius { get; set; }
+        public int Radius { get; set; } = radius;
 
-        public Circle(int radius)
-        {
-            Radius = radius;
-        }
+        // Create a shallow copy of this Circle
+        public ICloneablePrototype Clone() => (Circle)MemberwiseClone();
 
-        public ICloneablePrototype Clone()
-        {
-            // Create a shallow copy of this Circle
-            return (Circle)this.MemberwiseClone();
-        }
-
-        public override string ToString()
-        {
-            return $"Circle with radius {Radius}";
-        }
+        public override string ToString() => $"Circle with radius {Radius}";
     }
 
-    public class Rectangle : ICloneablePrototype
+    public class Rectangle(int width, int height) : ICloneablePrototype
     {
-        public int Width { get; set; }
-        public int Height { get; set; }
+        public int Width { get; set; } = width;
+        public int Height { get; set; } = height;
 
-        public Rectangle(int width, int height)
-        {
-            Width = width;
-            Height = height;
-        }
-
-        public ICloneablePrototype Clone()
-        {
-            // Create a shallow copy of this Rectangle
-            return (Rectangle)this.MemberwiseClone();
-        }
+        // Create a shallow copy of this Rectangle
+        public ICloneablePrototype Clone() => (Rectangle)MemberwiseClone();
 
         public override string ToString()
         {
@@ -90,7 +67,7 @@ namespace DesignPatterns
         public static void Main__()
         {
             // Create an instance of Circle
-            Circle circle1 = new Circle(10);
+            Circle circle1 = new(10);
             Console.WriteLine(circle1);
 
             // Clone the Circle
@@ -103,11 +80,11 @@ namespace DesignPatterns
             Console.WriteLine(circle2);
 
 
-            Console.WriteLine("----------------------------------------");
+            ConsoleOutputSeparator.Separator();
 
 
             // Create an instance of Rectangle
-            Rectangle rect1 = new Rectangle(7, 9);
+            Rectangle rect1 = new(7, 9);
             Console.WriteLine(rect1);
 
             // Clone the Rectangle

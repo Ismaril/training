@@ -1,5 +1,7 @@
 ﻿
 /*
+COMPLEXITY OF PATTERN: EASY
+
 The Factory Method design pattern is a creational pattern that provides an interface 
 for creating objects in a superclass, but allows subclasses to alter the type of 
 objects that will be created. This pattern lets a class defer instantiation to 
@@ -46,18 +48,12 @@ namespace DesignPatterns
 
     public class Truck : ITransport
     {
-        public void Deliver()
-        {
-            Console.WriteLine("Deliver by land in a truck.");
-        }
+        public void Deliver() => Console.WriteLine("Deliver by land in a truck.");
     }
 
     public class Ship : ITransport
     {
-        public void Deliver()
-        {
-            Console.WriteLine("Deliver by sea in a ship.");
-        }
+        public void Deliver() => Console.WriteLine("Deliver by sea in a ship.");
     }
 
     // --------------------------------------------------------------------------
@@ -66,7 +62,7 @@ namespace DesignPatterns
     {
         // The factory method
         public abstract ITransport CreateTransport();
-
+        
         public void PlanDelivery()
         {
             // Call the factory method to create a Product object.
@@ -80,18 +76,12 @@ namespace DesignPatterns
     // 4. IMPLEMENT CONCRETE CREATORS:
     public class RoadLogistics : Logistics
     {
-        public override ITransport CreateTransport()
-        {
-            return new Truck();
-        }
+        public override ITransport CreateTransport() => new Truck();
     }
 
     public class SeaLogistics : Logistics
     {
-        public override ITransport CreateTransport()
-        {
-            return new Ship();
-        }
+        public override ITransport CreateTransport() => new Ship();
     }
 
     // --------------------------------------------------------------------------

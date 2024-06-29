@@ -9,17 +9,10 @@ namespace DesignPatterns
     // appropriate objects within the subsystem. The Facade is also responsible
     // for managing their lifecycle. All of this shields the client from the
     // undesired complexity of the subsystem.
-    public class Facade
+    public class Facade(Subsystem1 subsystem1, Subsystem2 subsystem2)
     {
-        protected Subsystem1 _subsystem1;
-
-        protected Subsystem2 _subsystem2;
-
-        public Facade(Subsystem1 subsystem1, Subsystem2 subsystem2)
-        {
-            this._subsystem1 = subsystem1;
-            this._subsystem2 = subsystem2;
-        }
+        protected Subsystem1 _subsystem1 = subsystem1;
+        protected Subsystem2 _subsystem2 = subsystem2;
 
         // The Facade's methods are convenient shortcuts to the sophisticated
         // functionality of the subsystems. However, clients get only to a
@@ -27,11 +20,11 @@ namespace DesignPatterns
         public string Operation()
         {
             string result = "Facade initializes subsystems:\n";
-            result += this._subsystem1.operation1();
-            result += this._subsystem2.operation1();
+            result += _subsystem1.Operation1();
+            result += _subsystem2.Operation1();
             result += "Facade orders subsystems to perform the action:\n";
-            result += this._subsystem1.operationN();
-            result += this._subsystem2.operationZ();
+            result += _subsystem1.OperationN();
+            result += _subsystem2.OperationZ();
             return result;
         }
     }
@@ -41,29 +34,15 @@ namespace DesignPatterns
     // client, and it's not a part of the Subsystem.
     public class Subsystem1
     {
-        public string operation1()
-        {
-            return "Subsystem1: Ready!\n";
-        }
-
-        public string operationN()
-        {
-            return "Subsystem1: Go!\n";
-        }
+        public string Operation1() => "Subsystem1: Ready!\n";
+        public string OperationN() => "Subsystem1: Go!\n";
     }
 
     // Some facades can work with multiple subsystems at the same time.
     public class Subsystem2
     {
-        public string operation1()
-        {
-            return "Subsystem2: Get ready!\n";
-        }
-
-        public string operationZ()
-        {
-            return "Subsystem2: Fire!\n";
-        }
+        public string Operation1() => "Subsystem2: Get ready!\n";
+        public string OperationZ() => "Subsystem2: Fire!\n";
     }
 
     public class Client___
@@ -87,9 +66,7 @@ namespace DesignPatterns
             // created. In this case, it might be worthwhile to initialize the
             // Facade with these objects instead of letting the Facade create
             // new instances.
-            Subsystem1 subsystem1 = new Subsystem1();
-            Subsystem2 subsystem2 = new Subsystem2();
-            Facade facade = new Facade(subsystem1, subsystem2);
+            Facade facade = new(new Subsystem1(), new Subsystem2());
             Client___.ClientCode(facade);
         }
     }
