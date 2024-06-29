@@ -1,5 +1,3 @@
-Example here in python. But terms are not tied to language.
-
 EXPRESSIONS
 Evaluate to a value.
 Can always be part of a statement.
@@ -8,12 +6,13 @@ Can appear in statement positions, function arguments, and right-hand sides of a
 map(lambda x: x*x, range(10))
 [a.x for a in some_iterable]
 yield 7
+a = 7
 
 STATEMENTS
 Perform an action.
 Cannot return a value and cannot be used in an expression.
 Often contain expressions as parts of their structure (like the expression in an if statements condition).
-print(42)
-if x: do_y()
+print(42);
+if (x): do_y();
 return
-a = 7
+a = 7; (with semicolon)
