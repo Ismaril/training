@@ -1,11 +1,11 @@
 ﻿/*
 COMPLEXITY OF PATTERN: EASY
 
-The Adapter design pattern is a structural pattern that allows objects 
-with incompatible interfaces to work together. It acts as a bridge 
-between two incompatible interfaces by converting the interface of a 
-class into another interface that a client expects. This pattern is 
-particularly useful when you want to reuse existing classes 
+The Adapter design pattern is a structural pattern that allows objects
+with incompatible interfaces to work together. It acts as a bridge
+between two incompatible interfaces by converting the interface of a
+class into another interface that a client expects. This pattern is
+particularly useful when you want to reuse existing classes
 without modifying their source code.
 
 
@@ -13,17 +13,17 @@ KEY COMPONENTS
 1. TARGET:
 The interface that the client expects.
 
-2. ADAPTEE: 
+2. ADAPTEE:
 An existing interface that needs to be adapted.
 
-3. ADAPTER: 
-A class that implements the Target interface and translates the requests from 
+3. ADAPTER:
+A class that implements the Target interface and translates the requests from
 the Target interface to the Adaptee.
 
 */
 
 namespace DesignPatterns
-{   
+{
     // ---------------------------------------------------------------------------
     // 1. TARGET
     // The Target defines the domain-specific interface used by the client code.
@@ -58,8 +58,6 @@ namespace DesignPatterns
             Adaptee adaptee = new();
             ITarget target = new Adapter(adaptee);
             Console.WriteLine(target.GetRequest());
-
-            Console.ReadLine();
         }
     }
 }

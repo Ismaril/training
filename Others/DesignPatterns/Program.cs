@@ -15,12 +15,15 @@
             //ProgramAdapter.Main__();
             //ProgramDecorator.Main__();
             //ProgramFacade.Main__();
-            //ProgramProxy.Main__(); // Not implemented
-            //ProgramComposite.Main__(); // Not implemented
-            //ProgramBridge.Main__(); // Not implemented
-            //ProgramFlyweight.Main__(); // Not implemented
+            //ProgramProxy.Main__();
+            //ProgramComposite.Main__();
+            //ProgramBridge.Main__();
+            ProgramFlyweight.Main__();
 
             // BEHAVIORAL PATTERNS
+
+
+            Console.ReadLine();
         }
     }
 }

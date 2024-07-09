@@ -2,30 +2,30 @@
 COMPLEXITY OF PATTERN: MEDIUM
 
 
-Abstract Factory is a creational design pattern that lets you produce families 
+Abstract Factory is a creational design pattern that lets you produce families
 of related objects without specifying their concrete classes.
 
 
-1. ABSTRACT PRODUCTS: 
+1. ABSTRACT PRODUCTS:
 Button and Checkbox are interfaces (or could be abstract classes, I ugess...)
 that define the interface for different types of GUI elements.
 
-2. CONCRETE PRODUCTS: 
-WindowsButton, MacOSButton, WindowsCheckbox, and MacOSCheckbox are concrete 
+2. CONCRETE PRODUCTS:
+WindowsButton, MacOSButton, WindowsCheckbox, and MacOSCheckbox are concrete
 implementations of the abstract products.
 
-3. ABSTRACT FACTORY: 
-GUIFactory is an interface (or I guess again, could be abstract class?) 
+3. ABSTRACT FACTORY:
+GUIFactory is an interface (or I guess again, could be abstract class?)
 that declares methods for creating abstract product objects.
 
-4. CONCRETE FACTORIES: 
-WindowsFactory and MacOSFactory are concrete implementations of the 
+4. CONCRETE FACTORIES:
+WindowsFactory and MacOSFactory are concrete implementations of the
 GUIFactory that create concrete products for Windows and MacOS respectively.
 
-5. CLIENT CODE: 
-The Client class uses the factory interface to create and use products. 
-The Program class demonstrates how the client can work with different 
-factories to create products for different operating systems without 
+5. CLIENT CODE:
+The Client class uses the factory interface to create and use products.
+The Program class demonstrates how the client can work with different
+factories to create products for different operating systems without
 knowing their concrete implementations.
 */
 
@@ -96,7 +96,7 @@ namespace DesignPatterns
     }
 
     // ------------------------------------------------------------------------
-    // 5. CLIENT CODE   
+    // 5. CLIENT CODE
     /// <summary>
     /// This is a code which will use a Client/User at his side.
     /// </summary>
@@ -130,8 +130,6 @@ namespace DesignPatterns
 
             Client_ client2 = new(new MacOSFactory());
             client2.Paint();
-
-            Console.ReadLine();
         }
     }
 }

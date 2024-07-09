@@ -82,7 +82,8 @@ namespace DesignPatterns
             ConcreteComponent simple = new();
             Console.WriteLine("Client: I get a simple component:");
             client.ClientCode(simple);
-            Console.WriteLine();
+
+            ConsoleOutputSeparator.Separator();
 
             // ...as well as decorated ones.
             //
@@ -92,8 +93,6 @@ namespace DesignPatterns
             ConcreteDecoratorB decorator2 = new(decorator1);
             Console.WriteLine("Client: Now I've got a decorated component:");
             client.ClientCode(decorator2);
-
-            Console.ReadLine();
         }
     }
 }

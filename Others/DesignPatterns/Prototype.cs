@@ -1,9 +1,9 @@
 ﻿
 /*
-The Prototype design pattern is a creational pattern that allows you to create new 
-objects by copying an existing object, known as the prototype. 
-This pattern is particularly useful when the process of creating an object is 
-resource-intensive, and you can gain performance by copying an existing instance rather 
+The Prototype design pattern is a creational pattern that allows you to create new
+objects by copying an existing object, known as the prototype.
+This pattern is particularly useful when the process of creating an object is
+resource-intensive, and you can gain performance by copying an existing instance rather
 than creating a new one from scratch.
 
 
@@ -32,8 +32,8 @@ namespace DesignPatterns
 
     // --------------------------------------------------------------------------
     // 2. IMPLEMENT VARIOUS DIFFERENT PROTOTYPES:
-    // Concrete Prototypes: The Circle and Rectangle classes implement the 
-    // ICloneablePrototype interface and provide the Clone method. 
+    // Concrete Prototypes: The Circle and Rectangle classes implement the
+    // ICloneablePrototype interface and provide the Clone method.
     // The MemberwiseClone method creates a shallow copy of the object.
     public class Circle(int radius) : ICloneablePrototype
     {
@@ -96,13 +96,11 @@ namespace DesignPatterns
             Console.WriteLine(rect1);
             Console.WriteLine(rect2);
 
-            Console.ReadLine();
-
             /*
-            This output which goes into console shows that the original objects and their clones 
-            are separate instances. Modifying the clone does not affect the original object, 
-            demonstrating that the Clone method successfully creates a new instance. 
-            The Prototype pattern is useful when creating objects is resource-intensive, 
+            This output which goes into console shows that the original objects and their clones
+            are separate instances. Modifying the clone does not affect the original object,
+            demonstrating that the Clone method successfully creates a new instance.
+            The Prototype pattern is useful when creating objects is resource-intensive,
             as it allows for creating new objects by copying existing ones.
              */
         }

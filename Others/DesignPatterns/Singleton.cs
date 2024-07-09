@@ -1,7 +1,7 @@
 ﻿/*
-The Singleton design pattern is a creational pattern that ensures a class has 
-only one instance and provides a global point of access to that instance. 
-This pattern is useful when exactly one instance of a class is needed to 
+The Singleton design pattern is a creational pattern that ensures a class has
+only one instance and provides a global point of access to that instance.
+This pattern is useful when exactly one instance of a class is needed to
 coordinate actions across the system.
 
 
@@ -62,8 +62,6 @@ namespace DesignPatterns
                 Console.WriteLine("Both instances are the same.");
             else
                 Console.WriteLine("Instances are different.");
-
-            Console.ReadLine();
         }
     }
 }

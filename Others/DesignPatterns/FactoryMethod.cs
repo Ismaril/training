@@ -2,9 +2,9 @@
 /*
 COMPLEXITY OF PATTERN: EASY
 
-The Factory Method design pattern is a creational pattern that provides an interface 
-for creating objects in a superclass, but allows subclasses to alter the type of 
-objects that will be created. This pattern lets a class defer instantiation to 
+The Factory Method design pattern is a creational pattern that provides an interface
+for creating objects in a superclass, but allows subclasses to alter the type of
+objects that will be created. This pattern lets a class defer instantiation to
 subclasses.
 
 
@@ -12,16 +12,16 @@ KEY COMPONENTS
 1. PRODUCT:
 The interface or abstract class defining the objects that the factory method creates.
 
-2. CONCRETEPRODUCT: 
+2. CONCRETEPRODUCT:
 Concrete implementations of the Product interface.
 
-3. CREATOR: 
-The abstract class or interface that declares the factory method, 
-which returns an object of type Product. The Creator may also provide 
+3. CREATOR:
+The abstract class or interface that declares the factory method,
+which returns an object of type Product. The Creator may also provide
 some default implementation of the factory method.
 
-4. CONCRETECREATOR: 
-Subclasses of the Creator that override the factory method to return an 
+4. CONCRETECREATOR:
+Subclasses of the Creator that override the factory method to return an
 instance of a ConcreteProduct.
 
 5. CLIENT
@@ -62,7 +62,7 @@ namespace DesignPatterns
     {
         // The factory method
         public abstract ITransport CreateTransport();
-        
+
         public void PlanDelivery()
         {
             // Call the factory method to create a Product object.
@@ -101,29 +101,27 @@ namespace DesignPatterns
             // Plan sea delivery
             logistics = new SeaLogistics();
             logistics.PlanDelivery();
-
-            Console.ReadLine();
         }
     }
 
     /*
     BENEFITS OF THE FACTORY METHOD PATTERN
     Flexibility:
-    The factory method pattern allows the code to be more flexible and reusable 
-    by decoupling the code that uses the product from the code that creates 
+    The factory method pattern allows the code to be more flexible and reusable
+    by decoupling the code that uses the product from the code that creates
     the product.
-    
-    Scalability: 
-    Adding new products or creators requires minimal changes to existing code, 
+
+    Scalability:
+    Adding new products or creators requires minimal changes to existing code,
     making the system scalable and easier to maintain.
-    Single Responsibility Principle: The pattern adheres to the single responsibility 
-    principle by delegating the responsibility of instantiating products to specific 
+    Single Responsibility Principle: The pattern adheres to the single responsibility
+    principle by delegating the responsibility of instantiating products to specific
     creator classes.
-    
+
 
     DRAWBACKS OF THE FACTORY METHOD PATTERN
     Complexity:
-    The pattern can increase the overall complexity of the code by requiring 
+    The pattern can increase the overall complexity of the code by requiring
     additional classes and interfaces.
 
      */
