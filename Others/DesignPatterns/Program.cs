@@ -28,7 +28,9 @@
             // BEHAVIORAL PATTERNS
             // These patterns are concerned with algorithms and
             // the assignment of responsibilities between objects.
-            ProgramChainOfResponsibility.Main__();
+            //ProgramChainOfResponsibility.Main__();
+            //ProgramCommand.Main__();
+            ProgramIterator.Main__();
 
             Console.ReadLine();
 
