@@ -30,7 +30,9 @@
             // the assignment of responsibilities between objects.
             //ProgramChainOfResponsibility.Main__();
             //ProgramCommand.Main__();
-            ProgramIterator.Main__();
+            //ProgramIterator.Main__();
+            //ProgramMediator.Main__();
+            ProgramState.Main__();
 
             Console.ReadLine();
 
