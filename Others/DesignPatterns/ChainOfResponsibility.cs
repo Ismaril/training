@@ -74,7 +74,9 @@ namespace DesignPatterns
         // most cases, it is not even aware that the handler is part of a chain.
         public static void ClientCode(AbstractHandler handler)
         {
-            var list_ = new List<string> { "Nut", "Banana", "Cup of coffee" };
+            var list_ = new List<string> { "Nut", "Banana", "Cup of coffee", "MeatBall" };
+            //var list_ = new List<string> { "MeatBall", "Cup of coffee", "Banana", "Nut" };
+
             foreach (var food in list_)
             {
                 Console.WriteLine($"Client: Who wants a {food}?");
@@ -82,14 +84,23 @@ namespace DesignPatterns
                 var result = handler.Handle(food);
 
                 if (result != null)
-                    Console.Write($"   {result}");
+                    Console.Write($"\t{result}");
                 else
-                    Console.WriteLine($"   {food} was left untouched.");
+                    Console.WriteLine($"\t{food} was left untouched.");
             }
         }
     }
     public class ProgramChainOfResponsibility
     {
+        // In this example, we link together up to three objects/handlers. It
+        // is done it a nested way. This means that each handler has a field
+        // "_nextHandler" which holds another handler which has the same filed
+        // which holds another handle (and it could continue on and on). If
+        // a desired request is not handled by the first handler, it is passed
+        // to the next handler and so on. In this case the result is then
+        // propagated back from the lowest handler up (if it was not handled in
+        // the handlers in upper layers in the first place).
+        // In case it is unclear, debug it and you will see how it works.
         public static void Main__()
         {
             // The other part of the client code constructs the actual chain.
@@ -97,15 +108,27 @@ namespace DesignPatterns
             SquirrelHandler squirrel = new();
             DogHandler dog = new();
 
+            // If you are confused what does this dot syntax do, checkout the
+            // two commented lines below.
             monkey.SetNext(squirrel).SetNext(dog);
+            //squirrel = (SquirrelHandler)monkey.SetNext(squirrel);
+            //dog = (DogHandler)squirrel.SetNext(dog);
 
             // The client should be able to send a request to any handler, not
             // just the first one in the chain.
-            Console.WriteLine("Chain: Monkey > Squirrel > Dog\n");
+            Console.WriteLine("Chain: Monkey -> Squirrel -> Dog\n");
             Client__.ClientCode(monkey);
-            Console.WriteLine();
-            Console.WriteLine("Subchain: Squirrel > Dog\n");
+
+            ConsoleOutputSeparator.Separator();
+
+            Console.WriteLine("Subchain: Squirrel -> Dog\n");
             Client__.ClientCode(squirrel);
+
+            ConsoleOutputSeparator.Separator();
+
+            // There is just dog, no other handler after it.
+            Console.WriteLine("Subchain: Dog\n");
+            Client__.ClientCode(dog);
         }
     }
 }
