@@ -8,7 +8,7 @@ namespace DesignPatterns
 {
     public static class ConsoleOutputSeparator
     {
-        const string text = "----------------------------------------------------";
+        static readonly string text = new string('-', 52);
 
         public static void Separator()
         {

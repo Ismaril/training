@@ -12,55 +12,39 @@ KEY COMPONENTS
 1. PRODUCT:
 The interface or abstract class defining the objects that the factory method creates.
 
-2. CONCRETEPRODUCT:
-Concrete implementations of the Product interface.
-
-3. CREATOR:
+2. CREATOR:
 The abstract class or interface that declares the factory method,
 which returns an object of type Product. The Creator may also provide
 some default implementation of the factory method.
+
+3. CONCRETEPRODUCT:
+Concrete implementations of the Product interface.
 
 4. CONCRETECREATOR:
 Subclasses of the Creator that override the factory method to return an
 instance of a ConcreteProduct.
 
 5. CLIENT
+...
 
-
-STRUCTURE
-Product: An interface for objects the factory method creates.
-ConcreteProduct: Implements the Product interface.
-Creator: Declares the factory method that returns a Product object.
-ConcreteCreator: Implements the factory method to produce an instance of ConcreteProduct.
  */
 
 namespace DesignPatterns
 {
     // --------------------------------------------------------------------------
-    // 1. DEFINE THE PRODUCT INTERFACE:
+    // 1. DEFINE THE PRODUCT INTERFACE
+    // An interface for objects the factory method creates.
     public interface ITransport
     {
         void Deliver();
     }
 
     // --------------------------------------------------------------------------
-    // 2. IMPLEMENT CONCRETE PRODUCTS:
-
-    public class Truck : ITransport
-    {
-        public void Deliver() => Console.WriteLine("Deliver by land in a truck.");
-    }
-
-    public class Ship : ITransport
-    {
-        public void Deliver() => Console.WriteLine("Deliver by sea in a ship.");
-    }
-
-    // --------------------------------------------------------------------------
-    // 3. DEFINE THE CREATOR CLASS:
+    // 2. DEFINE THE CREATOR CLASS
+    // Declares the factory method.
     public abstract class Logistics
     {
-        // The factory method
+        // The actual FACTORY method
         public abstract ITransport CreateTransport();
 
         public void PlanDelivery()
@@ -73,7 +57,26 @@ namespace DesignPatterns
     }
 
     // --------------------------------------------------------------------------
+    // 3. IMPLEMENT CONCRETE PRODUCTS
+    // Implements the Product interface.
+    public class Truck : ITransport
+    {
+        public void Deliver() => Console.WriteLine("Deliver by land in a truck.");
+    }
+
+    public class Ship : ITransport
+    {
+        public void Deliver() => Console.WriteLine("Deliver by sea in a ship.");
+    }
+
+    public class SpaceShip : ITransport
+    {
+        public void Deliver() => Console.WriteLine("Deliver in space in a spaceship.");
+    }
+
+    // --------------------------------------------------------------------------
     // 4. IMPLEMENT CONCRETE CREATORS:
+    // Implements the factory method to produce an instance of ConcreteProduct.
     public class RoadLogistics : Logistics
     {
         public override ITransport CreateTransport() => new Truck();
@@ -84,12 +87,18 @@ namespace DesignPatterns
         public override ITransport CreateTransport() => new Ship();
     }
 
+    public class SpaceLogistics : Logistics
+    {
+        public override ITransport CreateTransport() => new SpaceShip();
+    }
+
     // --------------------------------------------------------------------------
     // 5. CLIENT CODE:
     public class ProgramFactoryMethod
     {
-        // The client code creates instances of RoadLogistics and SeaLogistics and
-        // calls the PlanDelivery method to demonstrate the use of the Factory Method pattern.
+        // The client code creates instances of RoadLogistics and SeaLogistics
+        // and calls the PlanDelivery method to demonstrate the use of the
+        // Factory Method pattern.
         public static void Main__()
         {
             Logistics logistics;
@@ -100,6 +109,10 @@ namespace DesignPatterns
 
             // Plan sea delivery
             logistics = new SeaLogistics();
+            logistics.PlanDelivery();
+
+            // Plan space delivery
+            logistics = new SpaceLogistics();
             logistics.PlanDelivery();
         }
     }
