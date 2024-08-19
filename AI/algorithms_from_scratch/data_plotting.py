@@ -1,10 +1,15 @@
 import matplotlib.pyplot as plt
 import numpy as np
+from sklearn.base import BaseEstimator
+from my_extensions import MyModelExtensions
 
 
 class Plots:
-    @staticmethod
-    def plot_decision_boundary(model,
+    def __init__(self):
+        ...
+
+    def plot_decision_boundary(self,
+                               model: MyModelExtensions | object,
                                X,
                                y,
                                bound_smoot=100,
@@ -22,6 +27,7 @@ class Plots:
         :param verbose: print examples how internal data look like
         :param cmap: colormap from matplotlib
         """
+        model.fit(X, y)
 
         # How it works in my words:
         #

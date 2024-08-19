@@ -36,3 +36,6 @@ class MyModelExtensions:
         plt.xlabel('Iterations')
         plt.ylabel('Loss')
         plt.show()
+
+    def fit(self, X, y):
+        ...
