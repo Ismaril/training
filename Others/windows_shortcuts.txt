@@ -22,6 +22,8 @@ Alt + Right arrow Go forward.
 
 Alt + Page Up Move up one screen. (Move up one folder)
 
+Ctrl + L Bring focus on address bar in file explorer or in web browser.
+
 Ctrl + F4 Close the active document (in apps that are full-screen and let you have multiple documents open at the same time).
 
 Ctrl + D (or Delete) Delete the selected item and move it to the Recycle Bin.
@@ -37,6 +39,8 @@ Ctrl + Down arrow Move the cursor to the beginning of the next paragraph.
 Ctrl + Up arrow Move the cursor to the beginning of the previous paragraph.
 
 Ctrl + Alt + Tab Use the arrow keys to switch between all open apps.
+
+Ctrl + Alt + Home Bring focus to remote desktop bar.
 
 Shift + F10 Display the shortcut menu for the selected item.
 
