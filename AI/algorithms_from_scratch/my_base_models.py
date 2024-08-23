@@ -1,7 +1,6 @@
-from importlib.metadata import requires
-
 import matplotlib.pyplot as plt
 from abc import ABC, abstractmethod
+import numpy as np
 
 
 class MyModelBase(ABC):
@@ -70,12 +69,18 @@ class MySVMBase(MyModelBase):
     """
     This class is a collection of methods that can be used to extend the functionality of the models.
     Used in Support Vector Machines.
+    Note that support vector models can be used only for binary classification. For multiclass classification,
+    you need to use certain techniques, like training one class vs all other classes and so on...
     """
 
     def __init__(self):
         """
         Initialize the class.
         """
+
+        # learnign rate parameters
+        self.eta0 = 1
+        self.eta_d = 1000
 
         # parameters learned by the model.
         self.coef_ = None
@@ -85,6 +90,65 @@ class MySVMBase(MyModelBase):
         # Here you can append the loss of each iteration of the fit method.
         # Later you can access this to visualize the loss curve during time.
         self.Js = []
+
+    def eta(self, epoch):
+        """
+        This function calculates the learning rate at each epoch.
+        The greater the epoch, the smaller the learning rate.
+
+        :param epoch: Number of an epoch in the training process
+        :returns: Learning rate
+        """
+        return self.eta0 / (epoch + self.eta_d)
+
+    @staticmethod
+    def transform_datapoints_to_positive_and_negative(X, y):
+        """
+        This function converts the original y data to column vector and then -1 and 1 from False and True
+        (meaning 0 and 1, because the False is 0 and True is 1)
+        and multiplies the feature dataset with the converted y data.
+
+        Example (Data do not make sense, important is the conversion):
+        X = np.array([[1, 2], [3, 4], [5, 6]])
+        y = [True, False, True]
+        t = np.array(y, dtype=np.float64).reshape(-1, 1) * 2 - 1
+        X_t = X * t
+        X_t, t
+
+        Result:
+        (array([[ 1.,  2.],
+                [-3., -4.],
+                [ 5.,  6.]]),
+         array([[ 1.],
+                [-1.],
+                [ 1.]]))
+
+        :param X: Feature dataset
+        :param y: Labels
+        :returns: Converted feature dataset and labels
+        """
+        t = np.array(y, dtype=np.float64).reshape(-1, 1) * 2 - 1
+        X_t = X * t
+        return X_t, t
+
+    @staticmethod
+    def select_margin_violators(X_t, t, intercept, coef):
+        """
+        This function selects the margin violators.
+
+        :param X_t: Feature dataset, which in this case is original dataset multiplied by -1 and 1.
+        :param t: Labels, which are either -1 or 1.
+        :param intercept: Intercept
+        :param coef: Coefficients
+
+        Returns:
+
+        """
+        support_vectors_idx = (X_t.dot(coef) + t * intercept < 1).ravel()
+        X_t_sv = X_t[support_vectors_idx]
+        t_sv = t[support_vectors_idx]
+
+        return X_t_sv, t_sv, support_vectors_idx
 
     def show_parameters(self):
         """
