@@ -1,4 +1,5 @@
-from Python.utilities import separate_text_stdout
+from Utilities.console_line_separator import separate_text_stdout
+
 sep = separate_text_stdout.SeparateText()
 
 my_dict_1 = {"a": 100, "b": 200}

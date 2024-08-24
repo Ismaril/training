@@ -1,7 +1,6 @@
 import datetime
-import json
 import os
-from Python.utilities.separate_text_stdout import SeparateText
+from Utilities.console_line_separator.separate_text_stdout import SeparateText
 
 
 separator = SeparateText()

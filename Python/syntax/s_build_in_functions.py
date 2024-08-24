@@ -1,5 +1,5 @@
 import sys
-from Python.utilities import separate_text_stdout
+from Utilities.console_line_separator import separate_text_stdout
 
 
 def some_funct():

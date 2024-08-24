@@ -1,6 +1,6 @@
 import time
 
-from Python.utilities.separate_text_stdout import SeparateText
+from Utilities.console_line_separator.separate_text_stdout import SeparateText
 from Python.syntax.s_logging import my_logger
 from functools import wraps
 

@@ -21,11 +21,10 @@
 # - be careful of race condition (like when the same variable
 # is changed by two threads at the same time)
 
-import sys
 import threading
 import time
 import concurrent.futures
-from Python.utilities.separate_text_stdout import SeparateText
+from Utilities.console_line_separator.separate_text_stdout import SeparateText
 
 sep = SeparateText()
 start = time.perf_counter()

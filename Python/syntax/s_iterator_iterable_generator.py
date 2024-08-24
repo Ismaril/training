@@ -1,7 +1,7 @@
 import sys
 import time
 
-from Python.utilities.separate_text_stdout import SeparateText
+from Utilities.console_line_separator.separate_text_stdout import SeparateText
 
 sep = SeparateText()
 

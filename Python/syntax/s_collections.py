@@ -1,5 +1,5 @@
-from collections import Counter, namedtuple, OrderedDict, defaultdict, deque
-from Python.utilities.separate_text_stdout import SeparateText
+from collections import Counter, namedtuple, defaultdict, deque
+from Utilities.console_line_separator.separate_text_stdout import SeparateText
 separator = SeparateText()
 
 # Counter, namedtuple, OrderedDict, defaultdict, deque

@@ -1,5 +1,5 @@
 import datetime as d
-from Python.utilities.separate_text_stdout import SeparateText
+from Utilities.console_line_separator.separate_text_stdout import SeparateText
 
 separator_line = SeparateText()
 sep = "| "

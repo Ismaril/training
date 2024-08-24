@@ -1,5 +1,3 @@
-from Python.utilities import separate_text_stdout
-
 sep = separate_rows_in_training_files.SeparateText()
 
 print([0, 0, 0])
