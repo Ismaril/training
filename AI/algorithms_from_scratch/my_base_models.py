@@ -49,6 +49,7 @@ class MyModelBase(ABC):
         plt.ylabel('Loss')
         plt.show()
 
+
 class MyRegressionBase(MyModelBase):
     """
     This class is a collection of methods that can be used to extend the functionality of the models.
@@ -99,11 +100,8 @@ class MySupportVectorClassiferBase(MyModelBase):
         # parameters learned by the model.
         self.coef_ = None
         self.intercept_ = None
-        self.support_vectors_ = None
 
-        # Here you can append the loss of each iteration of the fit method.
-        # Later you can access this to visualize the loss curve during time.
-        self.Js = []
+        self.support_vectors_ = None
 
     @staticmethod
     def transform_datapoints_to_positive_and_negative(X, y):
@@ -170,4 +168,34 @@ class MySupportVectorClassiferBase(MyModelBase):
 
 
 class MySupportVectorRegressionBase(MyModelBase):
-    ...
+    def __init__(self):
+        # parameters learned by the model.
+        self.coef_ = None
+        self.intercept_ = None
+
+        self.epsilon = None
+        self.support_vectors_ = None
+
+    def epsilon_insensitive_loss(self, y_true, y_pred):
+        """
+        Calculate the epsilon-insensitive loss.
+
+        :param y_true: True target values
+        :param y_pred: Predicted target values
+        :returns: Loss value
+        """
+        return np.sum(np.maximum(0, np.abs(y_true - y_pred) - self.epsilon))
+
+    def show_parameters(self):
+        """
+        Show the parameters and support vectors learned by the model.
+        :return: Parameters and support vectors separated by new line.
+        """
+
+        return f"coef_:\n{self.coef_}\n\nintercept_:\n{self.intercept_}\n\nsupport_vectors_:\n{self.support_vectors_}"
+
+    def fit(self, X, y):
+        ...
+
+    def predict(self, X):
+        ...
