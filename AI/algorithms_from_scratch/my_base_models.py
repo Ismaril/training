@@ -4,12 +4,17 @@ import numpy as np
 
 
 class MyModelBase(ABC):
-    @abstractmethod
-    def show_parameters(self):
-        ...
+
+    def __init__(self):
+        # losses
+        self.Js = []
+
+        # learning rate parameters
+        self.eta0 = 1
+        self.eta_d = 1000
 
     @abstractmethod
-    def show_loss_curve(self):
+    def show_parameters(self):
         ...
 
     @abstractmethod
@@ -20,6 +25,29 @@ class MyModelBase(ABC):
     def predict(self, X):
         ...
 
+    def eta(self, epoch):
+        """
+        This function calculates the learning rate at each epoch.
+        The greater the epoch, the smaller the learning rate.
+
+        :param epoch: Number of an epoch in the training process
+        :returns: Learning rate
+        """
+        return self.eta0 / (epoch + self.eta_d)
+
+    def show_loss_curve(self):
+        """
+        Show the loss curve. Call this method after the fit method to see the full history of the loss.
+        :return: None
+        """
+        # TODO: Fix this.
+        try:
+            plt.plot(self.Js)
+        except AttributeError:
+            plt.plot(self.losses)
+        plt.xlabel('Iterations')
+        plt.ylabel('Loss')
+        plt.show()
 
 class MyRegressionBase(MyModelBase):
     """
@@ -48,16 +76,6 @@ class MyRegressionBase(MyModelBase):
         """
         return self.thetas
 
-    def show_loss_curve(self):
-        """
-        Show the loss curve. Call this method after the fit method to see the full history of the loss.
-        :return: None
-        """
-        plt.plot(self.losses)
-        plt.xlabel('Iterations')
-        plt.ylabel('Loss')
-        plt.show()
-
     def fit(self, X, y):
         ...
 
@@ -65,7 +83,7 @@ class MyRegressionBase(MyModelBase):
         ...
 
 
-class MySVMBase(MyModelBase):
+class MySupportVectorClassiferBase(MyModelBase):
     """
     This class is a collection of methods that can be used to extend the functionality of the models.
     Used in Support Vector Machines.
@@ -78,10 +96,6 @@ class MySVMBase(MyModelBase):
         Initialize the class.
         """
 
-        # learnign rate parameters
-        self.eta0 = 1
-        self.eta_d = 1000
-
         # parameters learned by the model.
         self.coef_ = None
         self.intercept_ = None
@@ -90,16 +104,6 @@ class MySVMBase(MyModelBase):
         # Here you can append the loss of each iteration of the fit method.
         # Later you can access this to visualize the loss curve during time.
         self.Js = []
-
-    def eta(self, epoch):
-        """
-        This function calculates the learning rate at each epoch.
-        The greater the epoch, the smaller the learning rate.
-
-        :param epoch: Number of an epoch in the training process
-        :returns: Learning rate
-        """
-        return self.eta0 / (epoch + self.eta_d)
 
     @staticmethod
     def transform_datapoints_to_positive_and_negative(X, y):
@@ -152,24 +156,18 @@ class MySVMBase(MyModelBase):
 
     def show_parameters(self):
         """
-        Show the parameters/thetas learned by the model.
-        :return: List of thetas
+        Show the parameters and support vectors learned by the model.
+        :return: Parameters and support vectors separated by new line.
         """
 
         return f"coef_:\n{self.coef_}\n\nintercept_:\n{self.intercept_}\n\nsupport_vectors_:\n{self.support_vectors_}"
-
-    def show_loss_curve(self):
-        """
-        Show the loss curve. Call this method after the fit method to see the full history of the loss.
-        :return: None
-        """
-        plt.plot(self.Js)
-        plt.xlabel('Iterations')
-        plt.ylabel('Loss')
-        plt.show()
 
     def fit(self, X, y):
         ...
 
     def predict(self, X):
         ...
+
+
+class MySupportVectorRegressionBase(MyModelBase):
+    ...

@@ -90,8 +90,7 @@ class GenerateDatasets:
         return X, y
 
 
-"""data = GenerateDatasets()
-X, y = data.make_blobs()
-plt.scatter(X[:, 0], X[:, 1], c=y, cmap="brg")
-plt.show()
-"""
+# data = GenerateDatasets()
+# X, y = data.make_blobs()
+# plt.scatter(X[:, 0], X[:, 1], c=y, cmap="brg")
+# plt.show()

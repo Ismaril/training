@@ -27,9 +27,9 @@ class Plots:
         :param grid: if True place grid on plot
         :param verbose: print examples how internal data look like
         :param cmap: colormap from matplotlib
-        :param svm_linear: if True plot support vectors, applicable only for Support Vector Machines
+        :param svm_linear: if True plot support vectors, applicable only for linear Support Vector Classifiers
+        :param svm_poly: if True plot support vectors, applicable only for polynomial Support Vector Classifiers
         """
-        # model.fit(X, y)
 
         # Create a 2D grid of points (Xx, Xy) that we're going to predict on
         x1_min, x1_max = X[:, 0].min(), X[:, 0].max()
@@ -48,20 +48,20 @@ class Plots:
 
         plt.figure(figsize=fig_size)
 
+        # Grid settings
         plt.xlim(Xx.min(), Xx.max())
         plt.ylim(Xy.min(), Xy.max())
         # Set major tick locator for x-axis and y-axis
-        plt.gca().xaxis.set_major_locator(ticker.MultipleLocator(0.5))  # Major ticks every 2 units
-        plt.gca().yaxis.set_major_locator(ticker.MultipleLocator(0.5))  # Major ticks every 0.5 units
-
+        plt.gca().xaxis.set_major_locator(ticker.MultipleLocator(0.5))  # Major ticks every x units
+        plt.gca().yaxis.set_major_locator(ticker.MultipleLocator(0.5))  # Major ticks every x units
         # Optionally, set minor tick locator for more granular ticks
-        plt.gca().xaxis.set_minor_locator(ticker.MultipleLocator(0.1))  # Minor ticks every 0.5 units
-        plt.gca().yaxis.set_minor_locator(ticker.MultipleLocator(0.1))  # Minor ticks every 0.1 units
-
+        plt.gca().xaxis.set_minor_locator(ticker.MultipleLocator(0.1))  # Minor ticks every x units
+        plt.gca().yaxis.set_minor_locator(ticker.MultipleLocator(0.1))  # Minor ticks every x units
         # Optionally, enable the grid and show both major and minor ticks
         plt.grid(which='both', linestyle='--', linewidth=0.5)
         plt.grid(grid)
 
+        # Labels
         plt.xlabel("$X_1$")
         plt.ylabel("$X_2$")
 

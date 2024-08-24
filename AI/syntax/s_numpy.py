@@ -3,7 +3,7 @@ import time
 # import matplotlib.pyplot as plt
 import numpy as np
 
-from Python.utilities.separate_text_stdout import SeparateText
+from Utilities.console_line_separator.separate_text_stdout import SeparateText
 
 separator = SeparateText()
 
