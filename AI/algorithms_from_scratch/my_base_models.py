@@ -19,6 +19,25 @@ class MyModelBase(ABC):
 
     @abstractmethod
     def fit(self, X, y):
+        """
+        This function fits the model to the training data. It returns "self" due
+        to the convenient way like:
+
+        CHAINING:
+        "model = SomeModel().fit(X, y).predict(X_test)"
+
+        OR IN PIPELINE:
+        "from sklearn.pipeline import Pipeline
+        pipeline = Pipeline([
+            ('scaler', StandardScaler()),
+            ('model', SomeModel())
+        ])
+        pipeline.fit(X_train, y_train)"
+
+        :param X: Feature dataset
+        :param y: Target values
+        :returns: self
+        """
         ...
 
     @abstractmethod
