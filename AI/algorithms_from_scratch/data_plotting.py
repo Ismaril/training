@@ -92,6 +92,10 @@ class Plots:
         # Plot X data (features)
         plt.scatter(X[:, 0], X[:, 1], c=y, s=40, cmap=cmap, edgecolors="k")
 
+        # TODO: Check if it would be usefull to add this
+        #plt.xlim(right=2)  # Set the maximum x limit to 6
+        #plt.ylim(top=0.5)  # Set the maximum y limit to 50
+
         plt.show()
 
         if verbose:
