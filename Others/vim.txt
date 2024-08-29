@@ -1,0 +1,49 @@
+-----------------------------------------------------------------------------
+VIM SHORTCUTS
+
+1. Navigation
+h, j, k, l - left, down, up, right
+w, b - next, previous word
+e, ge - end of word, end of previous word
+0, ^, $ - start of line, first non-blank character, end of line
+gg, G - start, end of file
+{, } - previous, next paragraph
+% - matching parenthesis
+Ctrl+o, Ctrl+i - jump to previous, next location
+Ctrl+u, Ctrl+d - move half page up, down
+Ctrl+b, Ctrl+f - move one page up, down
+
+2. Editing
+i, a - insert before, after cursor
+I, A - insert at start, end of line
+o, O - insert below, above current line
+r, R - replace single character, multiple characters
+x, X - delete character, previous character
+dd - delete line
+dw, db - delete word, previous word
+d0, d^, d$ - delete to start, first non-blank character, end of line
+dgg, dG - delete to start, end of file
+d{, d} - delete to previous, next paragraph
+p, P - paste after, before cursor
+u, Ctrl+r - undo, redo
+. - repeat last command
+y - yank (copy)
+yy - yank line (copy line)
+yw, yb - yank word, previous word
+dd - delete line (cut line)
+dw, db - delete word, previous word (cut word)
+
+
+TRICKS
+2w - moves cursor 2 words forward
+d2w - deletes 2 words
+r{char} - replaces character under cursor with {char}
+ce - deletes to end of word and enters insert mode
+cc - deletes line and enters insert mode
+c$ - deletes to end of line and enters insert mode
+dip - deletes paragraph
+{number}G - goes to line number {number}
+/{string} - searches in forward direction for {string} (n to find next, N to find previous)
+?{string} - searches in backward direction for {string} (n to find next, N to find previous)
+:s/{string1}/{string2}/g - replaces {string1} with {string2} in current line (g for global)
+:s/{string1}/{string2} - replaces first occurrence {string1} with {string2} at current line
