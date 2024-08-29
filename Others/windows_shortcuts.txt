@@ -1,49 +1,54 @@
 SOME SHORTCUTS THAT I DID NOT KNOW ABOUT WINDOWS 10
 
-F2 Rename the selected item.
+F2 - Rename the selected item.
 
-F3 Search for a file or folder in File Explorer.
+F3 - Search for a file or folder in File Explorer.
 
-F4 Display the address bar list in File Explorer on the top (bar which shows the address of the folder)
+F4 - Display the address bar list in File Explorer on the top (bar which shows the address of the folder)
 
-F5 Refresh the active window.
+F5 - Refresh the active window.
 
-Alt + F8 Show your password on the sign-in screen.
+Alt + F8 - Show your password on the sign-in screen.
 
-Alt + Esc Cycle through open windows in order they were opened.
+Alt + Esc - Cycle through open windows in order they were opened.
 
-Alt + Enter Display properties for the selected item.
+Alt + Enter - Display properties for the selected item.
 
-Alt + Spacebar Open the shortcut menu for the active window.
+Alt + Spacebar - Open the shortcut menu for the active window.
 
-Alt + Left arrow Go back.
+Alt + Left arrow - Go back.
 
-Alt + Right arrow Go forward.
+Alt + Right arrow - Go forward.
 
-Alt + Page Up Move up one screen. (Move up one folder)
+Alt + Page Up - Move up one screen. (Move up one folder)
 
-Ctrl + L Bring focus on address bar in file explorer or in web browser.
+Ctrl + L - Bring focus on address bar in file explorer or in web browser.
 
-Ctrl + F4 Close the active document (in apps that are full-screen and let you have multiple documents open at the same time).
+Ctrl + F4 - Close the active document (in apps that are full-screen and let you have multiple documents open at the same
+ time).
 
-Ctrl + D (or Delete) Delete the selected item and move it to the Recycle Bin.
+Ctrl + D - (or Delete) Delete the selected item and move it to the Recycle Bin.
 
-Ctrl + R (or F5) Refresh the active window.
+Ctrl + R - (or F5) Refresh the active window.
 
-Ctrl + Right arrow Move the cursor to the beginning of the next word.
+Ctrl + Right arrow - Move the cursor to the beginning of the next word.
 
-Ctrl + Left arrow Move the cursor to the beginning of the previous word.
+Ctrl + Left arrow - Move the cursor to the beginning of the previous word.
 
-Ctrl + Down arrow Move the cursor to the beginning of the next paragraph.
+Ctrl + Down arrow - Move the cursor to the beginning of the next paragraph.
 
-Ctrl + Up arrow Move the cursor to the beginning of the previous paragraph.
+Ctrl + Up arrow - Move the cursor to the beginning of the previous paragraph.
 
-Ctrl + Alt + Tab Use the arrow keys to switch between all open apps.
+Ctrl + Alt + Tab - Use the arrow keys to switch between all open apps.
 
-Ctrl + Alt + Home Bring focus to remote desktop bar.
+Ctrl + Alt + Home - Bring focus to remote desktop bar.
 
-Shift + F10 Display the shortcut menu for the selected item.
+Shift + F10 - Display the shortcut menu for the selected item.
 
 Shift with any arrow key Select more than one item in a window or on the desktop, or select text in a document.
 
-Shift + Delete Delete the selected item without moving it to the Recycle Bin first.
+Shift + Delete - Delete the selected item without moving it to the Recycle Bin first.
+
+Windows + Shift + S - Take a screenshot of a part of the screen.
+
+Windows + Tab - Open Task View.
