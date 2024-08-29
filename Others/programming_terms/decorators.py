@@ -1,7 +1,7 @@
 import time
 
 from Utilities.console_line_separator.separate_text_stdout import SeparateText
-from Python.syntax.s_logging import my_logger
+# from Python.syntax.s_logging import my_logger
 from functools import wraps
 
 sep = SeparateText()
@@ -149,7 +149,7 @@ print(sep.separator())
 #   print function will not be kept. To fix this we must use wraps from
 #   functools -> @wraps(name_of_original_funct) above every declared wrapper.
 
-@my_logger
+# @my_logger # todo: fix this line
 @my_timer
 def print_function():
     time.sleep(0.3)
