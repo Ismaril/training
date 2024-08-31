@@ -1,7 +1,7 @@
 -----------------------------------------------------------------------------
 VIM SHORTCUTS
 
-1. Navigation
+1. NAVIGATION
 h, j, k, l - left, down, up, right
 w, b - next, previous word
 e, ge - end of word, end of previous word
@@ -12,8 +12,9 @@ gg, G - start, end of file
 Ctrl+o, Ctrl+i - jump to previous, next location
 Ctrl+u, Ctrl+d - move half page up, down
 Ctrl+b, Ctrl+f - move one page up, down
+Ctrl+] - jump to definition
 
-2. Editing
+2. EDITING
 i, a - insert before, after cursor
 I, A - insert at start, end of line
 o, O - insert below, above current line
