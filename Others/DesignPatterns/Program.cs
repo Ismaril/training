@@ -19,9 +19,9 @@
             // flexible and efficient.
             //ProgramAdapter.Main__();
             //ProgramDecorator.Main__();
-            ProgramFacade.Main__();
+            //ProgramFacade.Main__();
             //ProgramProxy.Main__();
-            //ProgramComposite.Main__();
+            ProgramComposite.Main__();
             //ProgramBridge.Main__();
             //ProgramFlyweight.Main__();
 
@@ -33,6 +33,8 @@
             //ProgramIterator.Main__();
             //ProgramMediator.Main__();
             //ProgramState.Main__();
+            //...
+            //...
 
             Console.ReadLine();
 

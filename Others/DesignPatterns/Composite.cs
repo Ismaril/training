@@ -12,20 +12,20 @@ and then work with these structures as if they were individual objects.
 Using the Composite pattern makes sense only when the core model of your app can be
 represented as a tree.
 
-object1 object2
-    \    /
-     \  /    object3
-      \/       /
-    object4   /
-        \    /
-         \  /
-          \/
-        object5
+
+          object1
+         /      \
+    object2    object3
+     /    \
+object4  object5
+
 
  */
 
 namespace DesignPatterns
 {
+    // ---------------------------------------------------------------------------
+    // 1. DEFINE INTERFACE / ABSTRACT CLASS
     // The base Component class declares common operations for both simple and
     // complex objects of a composition.
     abstract class Component_
@@ -41,7 +41,7 @@ namespace DesignPatterns
         // operations right in the base Component class. This way, you won't
         // need to expose any concrete component classes to the client code,
         // even during the object tree assembly. The downside is that these
-        // methods will be empty for the leaf-level components.
+        // methods will be empty for the component1-level components.
         public virtual void Add(Component_ component) => throw new NotImplementedException();
 
         public virtual void Remove(Component_ component) => throw new NotImplementedException();
@@ -51,18 +51,8 @@ namespace DesignPatterns
         public virtual bool IsComposite() => true;
     }
 
-    // The Leaf class represents the end objects of a composition. A leaf can't
-    // have any children.
-    //
-    // Usually, it's the Leaf objects that do the actual work, whereas Composite
-    // objects only delegate to their sub-components.
-    class Leaf : Component_
-    {
-        public override string Operation() => "Leaf";
-
-        public override bool IsComposite() => false;
-    }
-
+    // -------------------------------------------------------------------------------
+    // 2. COMPOSITE
     // The Composite class represents the complex components that may have
     // children. Usually, the Composite objects delegate the actual work to
     // their children and then "sum-up" the result.
@@ -95,20 +85,36 @@ namespace DesignPatterns
         }
     }
 
+    // -------------------------------------------------------------------------
+    // 3. LEAF
+    // The Leaf class represents the end objects of a composition. A component1 can't
+    // have any children.
+    //
+    // Usually, it's the Leaf objects that do the actual work, whereas Composite
+    // objects only delegate to their sub-components.
+    class Leaf : Component_
+    {
+        public override string Operation() => "Leaf";
+
+        public override bool IsComposite() => false;
+    }
+
+    // ------------------------------------------------------------------------
+    // 4. CLIENT CODE
     class ClientCode
     {
         // The client code works with all of the components via the base
         // interface.
-        public void ClientCode_(Component_ leaf)
+        public void ClientCode_1(Component_ component1)
         {
-            Console.WriteLine($"RESULT: {leaf.Operation()}\n");
+            Console.WriteLine($"RESULT: {component1.Operation()}\n");
         }
 
         // Thanks to the fact that the child-management operations are declared
         // in the base Component class, the client code can work with any
         // component, simple or complex, without depending on their concrete
         // classes.
-        public void ClientCode2(Component_ component1, Component_ component2)
+        public void ClientCode_2(Component_ component1, Component_ component2)
         {
             if (component1.IsComposite())
                 component1.Add(component2);
@@ -123,11 +129,11 @@ namespace DesignPatterns
         {
             ClientCode client = new();
 
-            // This way the client code can support the simple leaf
+            // This way the client code can support the simple component1
             // components...
             Leaf leaf = new();
             Console.WriteLine("Client: I get a simple component:");
-            client.ClientCode_(leaf);
+            client.ClientCode_1(leaf);
 
             // ...as well as the complex composites.
             Composite tree = new();
@@ -139,10 +145,9 @@ namespace DesignPatterns
             tree.Add(branch1);
             tree.Add(branch2);
             Console.WriteLine("Client: Now I've got a composite tree:");
-            client.ClientCode_(tree);
+            client.ClientCode_1(tree);
 
-            Console.Write("Client: I don't need to check the components classes even when managing the tree:\n");
-            client.ClientCode2(tree, leaf);
+            client.ClientCode_2(tree, leaf);
         }
     }
 }
