@@ -19,7 +19,8 @@ represented as a tree.
      /    \
 object4  object5
 
-
+FYI: Perhaps better example compared to this one is the Decision tree in Machine Learning,
+which I can find in my ML project on git-hub.
  */
 
 namespace DesignPatterns

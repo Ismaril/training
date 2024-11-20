@@ -21,9 +21,9 @@
             //ProgramDecorator.Main__();
             //ProgramFacade.Main__();
             //ProgramProxy.Main__();
-            ProgramComposite.Main__();
-            //ProgramBridge.Main__();
-            //ProgramFlyweight.Main__();
+            //ProgramComposite.Main__();
+            //ProgramBridge.Main__(); --> Needs better explanation in my project.
+            ProgramFlyweight.Main__();
 
             // BEHAVIORAL PATTERNS
             // These patterns are concerned with algorithms and
