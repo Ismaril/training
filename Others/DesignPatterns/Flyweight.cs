@@ -2,6 +2,11 @@
 Flyweight is a structural design pattern that lets you fit more objects into the available amount
 of RAM by sharing common parts of STATE between multiple objects instead of keeping all of the
 data in each object.
+
+Common usage:
+GUIs - Text editors, Repeated UI elements like buttons, icons, widgets.
+Games - Repeated game objects like bullets, enemies, etc.
+Any other application where it makes sense to share the state of objects, or where objects are expensive to create.
  */
 namespace DesignPatterns
 {
@@ -91,6 +96,7 @@ namespace DesignPatterns
                 const char CChar = 'C';
                 const char hashChar = '#';
 
+                // If else statement to decide a color of character
                 if ((docText[docText.IndexOf(char_)] == CChar && docText[docText.IndexOf(char_) + 1] == hashChar)
                     || (positionInText >= 1 && docText[docText.IndexOf(char_) - 1] == CChar && docText[docText.IndexOf(char_)] == hashChar)
                     && positionInText < docText.Length - 1)
@@ -125,6 +131,7 @@ namespace DesignPatterns
 
             Console.WriteLine("CREATING A NEW OBJECT FOR EACH LETTER");
             List<ICharacter> docTextFormattedInefficient = ClientCode(text, new InefficientCharacterFactory());
+            Console.WriteLine(docTextFormattedInefficient[15].GetHashCode() == docTextFormattedInefficient[24].GetHashCode());
         }
 
         // NOTE: In practice of text editors, the intrinsic state is a character but the color is extrinsic state.
