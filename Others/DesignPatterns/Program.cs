@@ -23,18 +23,21 @@
             //ProgramProxy.Main__();
             //ProgramComposite.Main__();
             //ProgramBridge.Main__(); --> Needs better explanation in my project.
-            ProgramFlyweight.Main__();
+            //ProgramFlyweight.Main__();
 
             // BEHAVIORAL PATTERNS
             // These patterns are concerned with algorithms and
             // the assignment of responsibilities between objects.
             //ProgramChainOfResponsibility.Main__();
+            ProgramIterator.Main__();
             //ProgramCommand.Main__();
-            //ProgramIterator.Main__();
             //ProgramMediator.Main__();
+            //ProgramMemento.Main__();
+            //ProgramObserver.Main__();
             //ProgramState.Main__();
-            //...
-            //...
+            //ProgramStrategy.Main__();
+            //ProgramTemplateMethod.Main__();
+            //ProgramVisitor.Main__();
 
             Console.ReadLine();
 

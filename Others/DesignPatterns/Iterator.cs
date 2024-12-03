@@ -10,123 +10,103 @@ collection into a separate object called an iterator.
 
 namespace DesignPatterns
 {
-    abstract class MyAbstractIterator : IEnumerator
+    // -----------------------------------------------------------------------------------------------------------
+    // 1. REQUIRED BUILT IN INTERFACES:
+    // IEnumerable: Exposes an enumerator, which supports a simple iteration over a non-generic collection.
+    // IEnumerator: Supports a simple iteration over a collection.
+
+    // -----------------------------------------------------------------------------------------------------------
+    // 2. COLLECTION
+    // The Collection class contains some items and implements the IEnumerable interface.
+    public class MyCollection<T> : IEnumerable<T>
     {
-        object IEnumerator.Current => GetCurrentElement();
+        private T[] _items;
+        private int _count;
 
-        // Returns the key of the current element
-        public abstract int GetCurrentKey();
+        public MyCollection()
+        {
+            _items = new T[10];
+            _count = 0;
+        }
 
-        // Returns the current element
-        public abstract object GetCurrentElement();
+        public void Add(T item)
+        {
+            if (_count >= _items.Length)
+            {
+                // Resize the array if needed
+                Array.Resize(ref _items, _items.Length * 2);
+            }
+            _items[_count++] = item;
+        }
 
-        // Move forward to next element
-        public abstract bool MoveNext();
+        // Implement GetEnumerator for IEnumerable<T>
+        public IEnumerator<T> GetEnumerator()
+        {
+            return new MyEnumerator<T>(_items, _count);
+        }
 
-        // Rewinds the Iterator to the first element
-        public abstract void Reset();
+        // This is required to implement based on need of IEnumerable interface.
+        // Explicit interface implementation for non-generic IEnumerable
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
     }
 
-    abstract class IteratorAggregate : IEnumerable
+    // -----------------------------------------------------------------------------------------------------------
+    // 3. ITERATOR
+    // The Iterator class provides the main functionality of the pattern.
+    // It has fields for storing the current traversal position and a reference to a collection object.
+    public class MyEnumerator<T> : IEnumerator<T>
     {
-        // Returns an Iterator or another IteratorAggregate to the implementing
-        // object.
-        public abstract IEnumerator GetEnumerator();
-    }
-
-    // Concrete Iterators implement various traversal algorithms. These classes
-    // store the current traversal position at all times.
-    // This is the actual "Iterator" when we talk about the iterator design pattern.
-    class AlphabeticalOrderIterator : MyAbstractIterator
-    {
-        private WordsCollection _collection;
-
-        // Stores the current traversal position. An iterator may have a lot of
-        // other fields for storing iteration state, especially when it is
-        // supposed to work with a particular kind of collection.
+        private readonly T[] _items;
+        private readonly int _count;
         private int _position = -1;
 
-        private bool _isDirectionReversed = false;
-
-        public AlphabeticalOrderIterator(
-            WordsCollection collection, bool reverse = false)
+        public MyEnumerator(T[] items, int count)
         {
-            _collection = collection;
-            _isDirectionReversed = reverse;
-
-            if (reverse)
-                _position = collection.GetItems().Count;
+            _items = items;
+            _count = count;
         }
 
-        public override object GetCurrentElement() => _collection.GetItems()[_position];
-
-        public override int GetCurrentKey() => _position;
-
-        public override bool MoveNext()
+        public T Current
         {
-            int updatedPosition = _position + (_isDirectionReversed ? -1 : 1);
-
-            if (updatedPosition >= 0 && updatedPosition < _collection.GetItems().Count)
+            get
             {
-                _position = updatedPosition;
-                return true;
-            }
-            else
-            {
-                return false;
+                if (_position < 0 || _position >= _count)
+                    throw new InvalidOperationException();
+                return _items[_position];
             }
         }
 
-        public override void Reset()
+        object IEnumerator.Current => Current;
+
+        public bool MoveNext()
         {
-            int lastIndexPosition = _collection.GetItems().Count - 1;
-            int firstIndexPosition = 0;
-            _position = _isDirectionReversed ? lastIndexPosition : firstIndexPosition;
+            return ++_position < _count;
+        }
+
+        public void Reset()
+        {
+            _position = -1;
+        }
+
+        // Also required by IEnumerator<T>
+        public void Dispose()
+        {
+            // Implement if needed
         }
     }
 
-    // Concrete Collections provide one or several methods for retrieving fresh
-    // iterator instances, compatible with the collection class.
-    class WordsCollection : IteratorAggregate
-    {
-        List<string> _collection = [];
-
-        bool _isDirectionReversed = false;
-
-        public void ReverseDirection() => _isDirectionReversed = !_isDirectionReversed;
-
-        public List<string> GetItems() => _collection;
-
-        public void AddItem(string item) => _collection.Add(item);
-
-        public override IEnumerator GetEnumerator()
-        {
-            return new AlphabeticalOrderIterator(this, _isDirectionReversed);
-        }
-    }
-
+    // -----------------------------------------------------------------------------------------------------------
     public class ProgramIterator
     {
         public static void Main__()
         {
-            // The client code may or may not know about the Concrete Iterator
-            // or Collection classes, depending on the level of indirection you
-            // want to keep in your program.
-            WordsCollection collection = new();
-            collection.AddItem("First");
-            collection.AddItem("Second");
-            collection.AddItem("Third");
-
-            Console.WriteLine("Straight traversal:");
-            foreach (var element in collection)
-                Console.WriteLine(element);
-
-            ConsoleOutputSeparator.Separator();
-
-            Console.WriteLine("\nReverse traversal:");
-            collection.ReverseDirection();
-            foreach (var element in collection)
-                Console.WriteLine(element);
+            MyCollection<int> collection = new();
+            collection.Add(1);
+            collection.Add(2);
+            collection.Add(3);
         }
     }
 }
