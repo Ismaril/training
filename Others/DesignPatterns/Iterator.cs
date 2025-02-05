@@ -2,22 +2,32 @@
 
 // COMPLEXITY OF PATTERN: MEDIUM
 /*
-Iterator is a behavioral design pattern that lets you traverse elements of a
-collection without exposing its underlying representation (list, stack, tree, etc.).
-The main idea of the Iterator pattern is to extract the traversal behavior of a
-collection into a separate object called an iterator.
+The main idea is to decouple a container which holds data from traversing algorithm.
+Polymorphism, in this case it means that we can iterate over different collection types using the same interface.
+Open/Closed principle - you can introduce new traversing algorithms without modifying the collection.
+Thing/s to keep in mind - generally not a good idea to modify the collection while iterating over it.
+
  */
 
 namespace DesignPatterns
 {
     // -----------------------------------------------------------------------------------------------------------
     // 1. REQUIRED BUILT IN INTERFACES:
-    // IEnumerable: Exposes an enumerator, which supports a simple iteration over a non-generic collection.
-    // IEnumerator: Supports a simple iteration over a collection.
+    //
+    // IEnumerable:
+    //  Exposes an enumerator, which supports a simple iteration over a collection.
+    // IEnumerator:
+    //  Supports an iteration over a collection.
+    //
+    // These interfaces allow us to iterate over a collection using the foreach loop, LINQ and other C# features.
+    // That means that with that we standardize the way we iterate over collections in C#. (It would be still
+    // possible to create workarounds, but it is not desired.)
+
 
     // -----------------------------------------------------------------------------------------------------------
     // 2. COLLECTION
-    // The Collection class contains some items and implements the IEnumerable interface.
+    // The Collection class will be used as a container for data.
+    // The collection also implements the IEnumerable interface.
     public class MyCollection<T> : IEnumerable<T>
     {
         private T[] _items;
@@ -40,23 +50,21 @@ namespace DesignPatterns
         }
 
         // Implement GetEnumerator for IEnumerable<T>
-        public IEnumerator<T> GetEnumerator()
-        {
-            return new MyEnumerator<T>(_items, _count);
-        }
+        public IEnumerator<T> GetEnumerator() => new MyEnumerator<T>(_items, _count);
+
 
         // This is required to implement based on need of IEnumerable interface.
         // Explicit interface implementation for non-generic IEnumerable
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
-        }
+        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
 
     // -----------------------------------------------------------------------------------------------------------
     // 3. ITERATOR
     // The Iterator class provides the main functionality of the pattern.
     // It has fields for storing the current traversal position and a reference to a collection object.
+    // Depending on the container and the traversal algorithm you access the data in a different way.
+    // For simplicity we here access just an element at next index.
+    // Possible ways of traversing: forward, backward, in order, etc.
     public class MyEnumerator<T> : IEnumerator<T>
     {
         private readonly T[] _items;
@@ -79,7 +87,13 @@ namespace DesignPatterns
             }
         }
 
-        object IEnumerator.Current => Current;
+        object IEnumerator.Current
+        {
+            get
+            {
+                return Current;
+            }
+        }
 
         public bool MoveNext()
         {
@@ -92,21 +106,38 @@ namespace DesignPatterns
         }
 
         // Also required by IEnumerator<T>
-        public void Dispose()
-        {
-            // Implement if needed
-        }
+        // Implement if necessary
+        public void Dispose() { }
     }
 
+    public static class ItemPrinter
+    {
+       public static void PrintItems<T>(IEnumerable<T> values)
+        {
+            foreach (var value in values)
+            {
+                Console.WriteLine(value);
+            }
+        }
+    }
     // -----------------------------------------------------------------------------------------------------------
     public class ProgramIterator
     {
         public static void Main__()
         {
-            MyCollection<int> collection = new();
-            collection.Add(1);
-            collection.Add(2);
-            collection.Add(3);
+            // Syntax sugar for creating a collection. With the "Add" method and .NET 8 you can put data
+            // directly into the collection using the square brackets. Else you would have to use the Add method
+            // for each item.
+            MyCollection<int> collection = [100, 200];
+
+            //MyCollection<int> collection = new();
+            //collection.Add(1);
+            //collection.Add(2);
+
+            // Iterate over the collection
+            //foreach (int item in collection)
+            //    Console.WriteLine(item);
+            ItemPrinter.PrintItems(collection);
         }
     }
 }
