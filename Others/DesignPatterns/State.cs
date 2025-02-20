@@ -4,82 +4,197 @@ The pattern extracts state-related behaviors into separate state classes and for
 to delegate the work to an instance of these classes, instead of acting on its own.
  */
 
+//using static DesignPatterns.StateResolver;
+
 namespace DesignPatterns
 {
-    // The Context defines the interface of interest to clients. It also
-    // maintains a reference to an instance of a State subclass, which
-    // represents the current state of the Context.
-    class Context
+#if false
+    // -----------------------------------------------------------------------------------------------------------
+    // PROBLEM EXAMPLE
+    // Since this "problem" code is very simple, it is not that much of a problem to use this option in practice.
+    // However, if we wanted to use similar logic in bigger codebase, it might make sense to use the State pattern.
+    public enum LightColor
     {
-        // A reference to the current state of the Context.
-        private State _state = null;
+        Red,
+        Green,
+        Yellow
+    }
 
-        public Context(State state) => TransitionTo(state);
+    public class TrafficLight
+    {
+        private LightColor _currentColor;
 
-        // The Context allows changing the State object at runtime.
-        public void TransitionTo(State state)
+        public TrafficLight()
         {
-            Console.WriteLine($"Context: Transition to {state.GetType().Name}.");
-            _state = state;
-            _state.SetContext(this);
+            // Default to Green
+            _currentColor = LightColor.Green;
         }
 
-        // The Context delegates part of its behavior to the current State
-        // object.
-        public void Request1() => _state.Handle1();
-
-        public void Request2() => _state.Handle2();
-    }
-
-    // The base State class declares methods that all Concrete State should
-    // implement and also provides a backreference to the Context object,
-    // associated with the State. This backreference can be used by States to
-    // transition the Context to another State.
-    abstract class State
-    {
-        protected Context _context;
-
-        public void SetContext(Context context) => _context = context;
-
-        public abstract void Handle1();
-
-        public abstract void Handle2();
-    }
-
-    // Concrete States implement various behaviors, associated with a state of
-    // the Context.
-    class ConcreteStateA : State
-    {
-        public override void Handle1()
+        public void Change()
         {
-            Console.WriteLine("ConcreteStateA handles request1.");
-            Console.WriteLine("ConcreteStateA wants to change the state of the context.");
-            _context.TransitionTo(new ConcreteStateB());
+            switch (_currentColor)
+            {
+                case LightColor.Red:
+                    Console.WriteLine("Green...");
+                    #region
+                    // Huge business logic here
+                    //...
+                    //...
+                    if (true)
+                    {
+                        // Do something
+                        #region
+                        // Some sub-logic here
+                        //...
+                        //...
+                        #endregion
+                    }
+                    //
+                    #endregion
+                    _currentColor = LightColor.Green;
+                    break;
+
+                case LightColor.Green:
+                    Console.WriteLine("Yellow...");
+                    #region
+                    // Huge business logic here
+                    //...
+                    //...
+                    //
+                    #endregion
+                    _currentColor = LightColor.Yellow;
+                    break;
+
+                case LightColor.Yellow:
+                    Console.WriteLine("Red...");
+                    #region
+                    // Huge business logic here
+                    //...
+                    //...
+                    //
+                    #endregion
+                    _currentColor = LightColor.Red;
+                    break;
+            }
+        }
+    }
+    #endif
+    #if true
+    // -----------------------------------------------------------------------------------------------------------
+    // SOLUTION EXAMPLE (STATE PATTERN)
+    public interface IColorState // <-- This one is gonna be inherited by the Red/Yellow/Green state classes.
+    {
+        void Handle(TrafficLight trafficLight, IColorState nextState);
+    }
+
+    /// <summary>
+    /// StateResolver is used to determined what state/color to transition to next.
+    /// </summary>
+    public class StateResolver
+    {
+        IColorState _originalState;
+        IColorState redState;
+        IColorState yellowState;
+        IColorState greenState;
+
+        public StateResolver(IColorState state)
+        {
+            _originalState = state;
+            redState = new RedState();
+            yellowState = new YellowState();
+            greenState = new GreenState();
         }
 
-        public override void Handle2() => Console.WriteLine("ConcreteStateA handles request2.");
-    }
-
-    class ConcreteStateB : State
-    {
-        public override void Handle1() => Console.Write("ConcreteStateB handles request1.");
-
-        public override void Handle2()
+        public IColorState? Resolve()
         {
-            Console.WriteLine("ConcreteStateB handles request2.");
-            Console.WriteLine("ConcreteStateB wants to change the state of the context.");
-            _context.TransitionTo(new ConcreteStateA());
+            switch (_originalState)
+            {
+                case RedState:
+                    return greenState;
+                case YellowState:
+                    return redState;
+                case GreenState:
+                    return yellowState;
+            }
+            return null;
+        }
+    }
+    public class RedState : IColorState
+    {
+        private void SomeMethodThatSolvesLogicOnlyInRedState1() { }
+        private void SomeMethodThatSolvesLogicOnlyInRedState2() { }
+        public void Handle(TrafficLight trafficLight, IColorState nextState)
+        {
+            Console.WriteLine("Red...");
+            #region
+            // Huge business logic here
+            SomeMethodThatSolvesLogicOnlyInRedState1();
+            SomeMethodThatSolvesLogicOnlyInRedState2();
+            #endregion
+            trafficLight.CurrentState = nextState;
+        }
+    }
+    public class YellowState : IColorState
+    {
+        public void Handle(TrafficLight trafficLight, IColorState nextState)
+        {
+            Console.WriteLine("Yellow...");
+            // Huge business logic here relevant for Yellow state
+            trafficLight.CurrentState = nextState;
+        }
+    }
+    public class GreenState : IColorState
+    {
+        public void Handle(TrafficLight trafficLight, IColorState nextState)
+        {
+            Console.WriteLine("Green...");
+            trafficLight.CurrentState = nextState;
         }
     }
 
+    // This the context class within which we hold the state and delegate the behavior to Change/Handle method.
+    public class TrafficLight
+    {
+        public IColorState CurrentState { get; set; }
+        public StateResolver StateResolver { get; set; }
+
+        public TrafficLight()
+        {
+            // Default to Green when first initialized
+            CurrentState = new GreenState();
+        }
+
+        public void Change()
+        {
+            // Chose which state/color to transition to.
+            StateResolver = new StateResolver(CurrentState);
+
+            // Delegate the state transition to the current state
+            CurrentState.Handle(trafficLight: this, nextState: StateResolver.Resolve());
+        }
+    }
+#endif
+    // -----------------------------------------------------------------------------------------------------------
+    // CLIENT CODE
     public class ProgramState
     {
         public static void Main__()
         {
-            // The client code.
-            var context = new Context(new ConcreteStateA());
-            context.Request1();
-            context.Request2();
+            TrafficLight trafficLight = new();
+
+            while (true)
+            {
+                trafficLight.Change();
+                Thread.Sleep(1000);
+            }
         }
     }
+
+    // ADVANTAGES
+    // 1. Single Responsibility Principle. Organize the code related to particular states into separate classes.
+    // 2. Open/Closed Principle. Introduce new states without changing existing state classes or the context.
+
+    // DISADVANTAGES
+    // Overkill for a simple applications.
+
 }

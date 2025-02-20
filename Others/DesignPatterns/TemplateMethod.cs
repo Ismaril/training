@@ -16,7 +16,7 @@ namespace DesignPatterns
         protected string digits;
 
         // The template method defines the skeleton of a process / algorithm.
-        // It contains unique steps that are common to all subclasses.
+        // It contains unique steps that are available to all subclasses.
         // Often all those "Step" methods are abstract and must be implemented by subclasses.
         // For our demonstration only one method is abstract and others are optional to override.
         public void ProcessData()
@@ -27,7 +27,6 @@ namespace DesignPatterns
             SaveResults();
             NotifyThatJobDone();
         }
-
 
         protected abstract void ReadFile(string path);
 
@@ -127,15 +126,15 @@ namespace DesignPatterns
             // Example of polymorphism in action. On the same interface/object (DigitExtractor)
             // we call the same method, but different implementations are executed.
 
-            const string PATH_TO_DESKTOP = @"C:\Users\z003uxda\Desktop\";
+            const string PATH_TO_FILES = @"..\..\..\files\";
 
-            string textFile = PATH_TO_DESKTOP + "1.txt";
+            string textFile = PATH_TO_FILES + "1.txt";
             DigitExtractor textFileDigitExtractor = new TextFileDigitExtractor(textFile);
             textFileDigitExtractor.ProcessData();
 
             ConsoleOutputSeparator.Separator();
 
-            string document = PATH_TO_DESKTOP + "2.docx";
+            string document = PATH_TO_FILES + "2.docx";
             DigitExtractor wordFileDigitExtractor = new WordFileDigitExtractor(document);
             wordFileDigitExtractor.ProcessData();
 
