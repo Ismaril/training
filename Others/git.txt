@@ -310,6 +310,8 @@ git push origin name_of_branch
 DELETE remote branch
 git push origin -d some_branch 
 
+- you can push from local to remote even when the branch names are not the same
+git push <remote> <local-branch>:<remote-branch>
 
 ----------------------------------------------------------------------------------------------------
 FORK
