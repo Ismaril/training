@@ -95,6 +95,11 @@ git add . (also adds all)
 git restore --staged name_of_file
 git restore --staged . (unstage all files)
 
+- remove untracked stuff
+- -d remove whole dirs, -n dry run (just show would would be deleted), -f forced
+git clean -d -n
+git clean -d -f
+
 
 ----------------------------------------------------------------------------------------------------
 COMMIT
