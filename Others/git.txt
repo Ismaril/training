@@ -357,6 +357,8 @@ git remote -v
 - set origin address
 git remote add origin https://github.com/Ismaril/name_of_online_repository.git
 
+- change origin address
+git remote set-url origin <new-url>
 
 ----------------------------------------------------------------------------------------------------
 UPDATE GIT
