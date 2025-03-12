@@ -95,6 +95,11 @@ git add . (also adds all)
 git restore --staged name_of_file
 git restore --staged . (unstage all files)
 
+- remove untracked stuff
+- -d remove whole dirs, -n dry run (just show would would be deleted), -f forced
+git clean -d -n
+git clean -d -f
+
 
 ----------------------------------------------------------------------------------------------------
 COMMIT
@@ -191,7 +196,8 @@ BRANCH
 - You can even switch between branches and work on different projects without them interfering
 with each other.
 
-git branch name_of_new_branch - create a new branch
+- create a new branch
+git branch name_of_new_branch 
 
 - check branches that we can possibly work on (the one with * is active)
 git branch
@@ -206,8 +212,13 @@ git check out -b name_of_new_branch
 - check all branches, and also return their last commit messages
 git branch -vv -a
 
+- delete branches
 git branch -d branch_name - delete already merged branch
 git branch -D branch_name - delete not yet merged branch
+
+- create immediatelly local branch from remote branch and switch to it
+git fetch
+git checkout -b <new-local-branch-name> origin/<remote-branch-name>
 
 
 ----------------------------------------------------------------------------------------------------
@@ -310,6 +321,8 @@ git push origin name_of_branch
 DELETE remote branch
 git push origin -d some_branch 
 
+- you can push from local to remote even when the branch names are not the same
+git push <remote> <local-branch>:<remote-branch>
 
 ----------------------------------------------------------------------------------------------------
 FORK
@@ -350,6 +363,8 @@ git remote -v
 - set origin address
 git remote add origin https://github.com/Ismaril/name_of_online_repository.git
 
+- change origin address
+git remote set-url origin <new-url>
 
 ----------------------------------------------------------------------------------------------------
 UPDATE GIT
