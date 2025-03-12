@@ -196,7 +196,8 @@ BRANCH
 - You can even switch between branches and work on different projects without them interfering
 with each other.
 
-git branch name_of_new_branch - create a new branch
+- create a new branch
+git branch name_of_new_branch 
 
 - check branches that we can possibly work on (the one with * is active)
 git branch
@@ -211,8 +212,13 @@ git check out -b name_of_new_branch
 - check all branches, and also return their last commit messages
 git branch -vv -a
 
+- delete branches
 git branch -d branch_name - delete already merged branch
 git branch -D branch_name - delete not yet merged branch
+
+- create immediatelly local branch from remote branch and switch to it
+git fetch
+git checkout -b <new-local-branch-name> origin/<remote-branch-name>
 
 
 ----------------------------------------------------------------------------------------------------
