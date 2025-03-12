@@ -22,7 +22,7 @@
             //ProgramFacade.Main__();
             //ProgramProxy.Main__();
             //ProgramComposite.Main__();
-            //ProgramBridge.Main__(); --> Needs better explanation in my project.
+            //ProgramBridge.Main__(); --> X
             //ProgramFlyweight.Main__();
 
             // BEHAVIORAL PATTERNS
@@ -30,13 +30,13 @@
             // the assignment of responsibilities between objects.
             //ProgramChainOfResponsibility.Main__();
             //ProgramIterator.Main__();
-            //ProgramCommand.Main__(); --> Needs better explanation in my project.
-            ProgramTemplateMethod.Main__();
-            //ProgramMediator.Main__();
-            //ProgramMemento.Main__();
-            //ProgramObserver.Main__();
+            //ProgramCommand.Main__(); --> X
+            //ProgramTemplateMethod.Main__();
+            //ProgramMediator.Main__(); --> X
             //ProgramState.Main__();
-            //ProgramStrategy.Main__();
+            //ProgramMemento.Main__(); --> stahnout z azure
+            ProgramStrategy.Main__();
+            //ProgramObserver.Main__();
             //ProgramVisitor.Main__();
 
             Console.ReadLine();
