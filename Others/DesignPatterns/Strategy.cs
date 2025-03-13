@@ -1,4 +1,8 @@
-﻿//             +-----------------------------------------+
+﻿// Strategy is a behavioral design pattern that lets you define a family of algorithms,
+// put each of them into a separate class, and make their objects interchangeable.
+
+
+//             +-----------------------------------------+
 //             |   <<interface>> ICompressionStrategy    |
 //             | ----------------------------------------|
 //             | +Compress(filePath: string): void       |
@@ -29,8 +33,9 @@
 //              +--------------------------------------+
 //              |               Program                |
 //              +--------------------------------------+
-//              | + Main(args: string[]): void         |
+//              | + Main(): void                       |
 //              +--------------------------------------+
+
 
 namespace DesignPatterns
 {
@@ -83,6 +88,7 @@ namespace DesignPatterns
             _compressionStrategy = compressionStrategy;
         }
 
+        // To change the strategy at runtime if needed
         public void SetCompressionStrategy(ICompressionStrategy compressionStrategy)
         {
             _compressionStrategy = compressionStrategy;
@@ -106,13 +112,21 @@ namespace DesignPatterns
             ICompressionStrategy zipStrategy = new ZipCompressionStrategy();
             FileCompressor fileCompressor = new FileCompressor(zipStrategy);
 
-            fileCompressor.CompressFile("C:\\files\\mydocument.docx");
+            fileCompressor.CompressFile(filePath: "C:\\files\\mydocument.docx");
 
             // Switch strategy at runtime, if desired
             ICompressionStrategy rarStrategy = new RarCompressionStrategy();
             fileCompressor.SetCompressionStrategy(rarStrategy);
 
-            fileCompressor.CompressFile("C:\\files\\mydocument.docx");
+            fileCompressor.CompressFile(filePath: "C:\\files\\mydocument.docx");
         }
     }
 }
+// ADVANTAGES
+// 1. Open / Closed Principle. You can introduce new strategies without changing the context.
+// 2. Isolation of algorithm from the code that uses it.
+// 3. You can swap strategies at runtime.
+
+// DISADVANTAGES
+// 1. Clients must be aware of the differences between strategies to choose the right one.
+// 2. Overkill for a simple problem.
