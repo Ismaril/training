@@ -34,10 +34,10 @@
             //ProgramTemplateMethod.Main__();
             //ProgramMediator.Main__(); --> X
             //ProgramState.Main__();
-            //ProgramMemento.Main__(); --> stahnout z azure
-            ProgramStrategy.Main__();
-            //ProgramObserver.Main__();
-            //ProgramVisitor.Main__();
+            //ProgramMemento.Main__(); --> X
+            //ProgramStrategy.Main__();
+            //ProgramVisitor.Main__(); --> X
+            ProgramObserver.Main__();
 
             Console.ReadLine();
 
