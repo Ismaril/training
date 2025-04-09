@@ -1,7 +1,7 @@
 The main difference is how the memory is handled.
 
 32 bit system can handle 2^32 which is 4Gigabytes of data.
-32 bit system can handle 2^64 which is 16Exabytes of data.
+64 bit system can handle 2^64 which is 16Exabytes of data.
 
 In order for program to run, data needs to be loaded from slow hard drive into faster RAM storage.
 This means if we can work with only 4GB at a time, loading between all hardware components will be slower compared
