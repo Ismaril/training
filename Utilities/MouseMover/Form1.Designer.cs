@@ -28,10 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            // For some reason, in the csproj even though the icon is set it does not show it
+            // at the windows taskbar, so these two lines fix it.
+            Icon icon = new Icon($"{ROOT_PATH}green.ico");
+            this.Icon = icon;
+            this.KeyPreview = true;
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.Text = "MouseMover";
+            BackColor = System.Drawing.Color.Black;
+            //WindowState = System.Windows.Forms.FormWindowState.Minimized;
+            this.Load += new System.EventHandler(this.Form1_Load);
         }
 
         #endregion
