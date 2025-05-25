@@ -7,7 +7,7 @@ namespace MouseMover
     public partial class Form1 : Form
     {
         // OPERATE HERE -----------------------------------------------------------------------------------------------
-        static readonly bool ExecuteForever = false;
+        static readonly bool ExecuteForever = true;
         // ------------------------------------------------------------------------------------------------------------
         static readonly int TimerTillExitProgramMinutes = 1; // Will not be used if ExecuteForever is true.
         static readonly bool HibernatePC = true; // Will not hibernate if ExecuteForever is true.
