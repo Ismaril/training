@@ -434,10 +434,25 @@ git commit --amend -m "Added lines to README.md"
 
 ----------------------------------------------------------------------------------------------------
 REBASE
+- rebase is capable of squasing multiple commits into one
+- rebase is capable of renaming commit messages
 
+- lets say I want to squash last 3 commits together
+git log --oneline
+a1b2c3d Add final fixes
+e4f5g6h Implement new feature
+i7j8k9l Initial commit
 
-----------------------------------------------------------------------------------------------------
-SQASH
+git rebase -i HEAD~3 (you can replace 3 with any number you want, based on how many commits)
+- editor opens, and you have to rewrite the first into pick and the rest into squash
+pick i7j8k9l Initial commit
+squash e4f5g6h Implement new feature
+squash a1b2c3d Add final fixes
+- :wq in vim to write and exit
+- next editor should open, so basically delete the upper part of the screen without # and
+  on the top write your commit message, which will now represent all the squashed commits.
+- :wq again and all should be done
+- if the commits you squased are already on server, you will need to force push
 
 
 ----------------------------------------------------------------------------------------------------
